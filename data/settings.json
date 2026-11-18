@@ -1,0 +1,77 @@
+{
+  "siteName": "PLAY HYPE GAMES",
+  "domain": "https://playhypegames.com",
+  "tagline": "Play the Hype",
+  "description": "Play the hottest free browser games online. New .io, idle, action and 2-player games added every day. No download, no install.",
+  "adsenseClient": "",
+  "adminPassword": "playhype2026",
+  "contactEmail": "hello@playhypegames.com",
+  "categories": [
+    {
+      "slug": "io-games",
+      "name": ".IO Games",
+      "short": "Battle & survive",
+      "icon": "io"
+    },
+    {
+      "slug": "idle-games",
+      "name": "Idle Games",
+      "short": "Relaxed progression",
+      "icon": "idle"
+    },
+    {
+      "slug": "action-games",
+      "name": "Action Games",
+      "short": "Fast-paced arcade",
+      "icon": "action"
+    },
+    {
+      "slug": "strategy-games",
+      "name": "Strategy Games",
+      "short": "Plan & conquer",
+      "icon": "strategy"
+    },
+    {
+      "slug": "2-player-games",
+      "name": "2 Player Games",
+      "short": "Challenge a friend",
+      "icon": "2p"
+    },
+    {
+      "slug": "chromebook-games",
+      "name": "Chromebook Games",
+      "short": "School & office ready",
+      "icon": "chromebook"
+    }
+  ],
+  "updatedAt": "2026-11-18T05:19:37.908Z",
+  "feeds": {
+    "gameDistribution": {
+      "enabled": false,
+      "endpoint": "",
+      "apiKey": "",
+      "listPath": "",
+      "limit": 30,
+      "maxAgeDays": 0,
+      "defaultCategory": ""
+    },
+    "gamePix": {
+      "enabled": false,
+      "endpoint": "",
+      "apiKey": "",
+      "listPath": "",
+      "limit": 30,
+      "maxAgeDays": 0,
+      "defaultCategory": ""
+    },
+    "generic": {
+      "enabled": false,
+      "endpoint": "",
+      "apiKey": "",
+      "listPath": "",
+      "limit": 30,
+      "maxAgeDays": 0,
+      "defaultCategory": ""
+    }
+  }
+}

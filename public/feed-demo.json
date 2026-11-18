@@ -1,0 +1,31 @@
+{
+  "status": "ok",
+  "count": 3,
+  "games": [
+    {
+      "id": "demo-1001",
+      "title": "Arrow Puzzle Demo",
+      "url": "https://html5.gamedistribution.com/demo-arrow-puzzle/?gd_sdk_referrer_url=https%3A%2F%2Fplayhypegames.com",
+      "image": "https://cdn.example.com/arrow-puzzle.webp",
+      "category": "Puzzle",
+      "description": "Draw one line, clear the board.",
+      "date": "2026-11-17T10:00:00Z",
+      "tags": ["puzzle", "logic"]
+    },
+    {
+      "id": "demo-1002",
+      "title": "Monkey Mart Demo",
+      "url": "https://html5.gamedistribution.com/demo-monkey-mart/?gd_sdk_referrer_url=https%3A%2F%2Fplayhypegames.com",
+      "image": "https://cdn.example.com/monkey-mart.webp",
+      "category": "Idle",
+      "description": "Run the store, restock the shelves.",
+      "date": "2026-11-16T08:00:00Z"
+    },
+    {
+      "id": "demo-1003",
+      "title": "Broken entry without embed url",
+      "image": "https://cdn.example.com/broken.webp",
+      "category": "Action"
+    }
+  ]
+}

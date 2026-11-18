@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PLAY HYPE GAMES</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --nav-h:72px;
+    --pad:40px;
+    --ink:#2b5f9e;
+  }
+  body{
+    font-family:"Segoe UI","PingFang SC",system-ui,-apple-system,sans-serif;
+    background:#cfd9f5;color:#123a63;min-height:100vh;
+  }
+
+  /* ===== 背景：固定铺满，所有断点共用 ===== */
+  .bg{position:fixed;inset:0;z-index:-1}
+  .bg picture{display:block;width:100%;height:100%}
+  .bg img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
+  .bg::after{content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg,rgba(255,255,255,.10) 0,transparent 26%,
+      rgba(255,255,255,.32) 58%,rgba(255,255,255,.9) 86%,#f6f8ff 100%)}
+
+  .wrap{max-width:1320px;margin:0 auto;padding:0 var(--pad)}
+
+  /* ===== 导航 ===== */
+  .nav{position:sticky;top:14px;z-index:20;display:flex;align-items:center;
+    height:var(--nav-h);border-radius:calc(var(--nav-h)/2);
+    background:rgba(255,255,255,.38);border:1px solid rgba(255,255,255,.62);
+    box-shadow:0 10px 26px rgba(60,110,180,.16),inset 0 1px 0 rgba(255,255,255,.7);
+    padding:0 clamp(14px,1.6vw,28px);backdrop-filter:blur(8px);margin-top:14px}
+  .brand{display:flex;align-items:center;gap:.34em;font-weight:800;letter-spacing:.5px;
+    font-size:clamp(15px,1.9vw,27px);color:#fff;
+    -webkit-text-stroke:clamp(1.4px,.16vw,2.4px) #2f6fb3;paint-order:stroke fill;
+    filter:drop-shadow(0 3px 0 rgba(37,90,150,.5));white-space:nowrap}
+  .crown{width:1em;height:.8em;flex:none;margin-top:-.15em}
+  .links{display:flex;gap:clamp(16px,2.7vw,40px);margin-left:auto;margin-right:clamp(14px,3.4vw,52px);
+    font-size:clamp(14px,1.48vw,21px);font-weight:700;letter-spacing:.6px;color:#fff;
+    text-shadow:0 2px 4px rgba(40,90,150,.4);white-space:nowrap}
+  .links a{color:#fff;text-decoration:none}
+  .links a.on{color:#8cff45;text-shadow:0 2px 0 #2d6b1b,0 0 16px rgba(140,255,69,.55)}
+  .iconbtn{width:clamp(32px,3.2vw,44px);height:clamp(32px,3.2vw,44px);border-radius:50%;
+    background:rgba(255,255,255,.6);border:2px solid rgba(255,255,255,.9);
+    display:grid;place-items:center;flex:none}
+  .iconbtn svg{width:clamp(15px,1.5vw,20px);height:clamp(15px,1.5vw,20px);
+    stroke:#3b7ec2;stroke-width:2.4;fill:none}
+  .nav-r{display:flex;gap:8px;align-items:center;margin-left:0}
+  .burger{display:none}
+
+  /* ===== Hero：掌机与文案整体等比缩放 ===== */
+  .hero{padding-top:clamp(24px,3.4vw,48px);display:flex;justify-content:center}
+  .pad-wrap{position:relative;width:min(100%,880px,85vh);container-type:inline-size;
+    filter:drop-shadow(0 3.4cqw 5cqw rgba(70,110,170,.34))}
+  .pad{width:100%;display:block;transform:rotate(-1.5deg)}
+  /* 文案按掌机宽度比例定位，任何宽度都落在屏幕里 */
+  .screen-copy{position:absolute;left:43%;top:38%;width:42%;
+    transform:translate(-50%,-50%);text-align:center}
+  .h1{font-size:min(4.4cqw,44px);line-height:1.04;font-weight:900;letter-spacing:-.3px;color:#fff;
+    -webkit-text-stroke:min(.44cqw,4px) #2e6cb2;paint-order:stroke fill;
+    filter:drop-shadow(0 .55cqw 0 rgba(32,80,140,.5)) drop-shadow(0 1.1cqw 1.9cqw rgba(30,70,130,.28))}
+  .sub{margin-top:.9cqw;font-size:2cqw;font-weight:700;color:#fff;letter-spacing:.3px;
+    text-shadow:0 .3cqw .6cqw rgba(25,70,130,.65)}
+  .cta{display:inline-flex;align-items:center;gap:.8cqw;margin-top:1.3cqw;
+    height:7cqw;padding:0 3.1cqw;border-radius:3.5cqw;font-size:2.8cqw;font-weight:900;
+    letter-spacing:.6px;color:#fff;text-shadow:0 .3cqw 0 rgba(190,90,0,.45);
+    background:linear-gradient(180deg,#ffe35c,#ffb81f 52%,#ff9421);
+    box-shadow:0 .9cqw 0 #e07a12,0 1.5cqw 3cqw rgba(220,130,20,.36),
+      inset 0 .3cqw 0 rgba(255,255,255,.75)}
+  .cta svg{width:2.4cqw;height:2.4cqw;fill:#fff}
+  @supports not (container-type: inline-size){
+    .h1{font-size:clamp(15px,3.6vw,44px)}
+    .sub{font-size:clamp(10px,1.35vw,16px)}
+    .cta{height:clamp(26px,4.9vw,56px);font-size:clamp(12px,1.96vw,23px)}
+  }
+
+  /* ===== 分类：窄屏横向滚动 ===== */
+  .tabs{display:flex;gap:clamp(8px,1vw,13px);margin-top:clamp(18px,2.6vw,34px);
+    overflow-x:auto;overflow-y:hidden;scrollbar-width:none;padding-bottom:2px}
+  .tabs::-webkit-scrollbar{display:none}
+  .tab{flex:none;height:clamp(38px,4.1vw,58px);padding:0 clamp(15px,1.9vw,28px);
+    border-radius:40px;display:flex;align-items:center;cursor:pointer;
+    font-size:clamp(13px,1.42vw,20px);font-weight:800;color:#fff;letter-spacing:.4px;
+    background:rgba(255,255,255,.55);border:2px solid rgba(255,255,255,.85);
+    box-shadow:0 7px 14px rgba(70,120,190,.18);
+    text-shadow:0 2px 4px rgba(40,90,150,.4);
+    transition:transform .15s,box-shadow .15s}
+  .tab:hover{transform:translateY(-2px)}
+  .tab.on{background:linear-gradient(180deg,#a8ff63,#4ce02a);
+    box-shadow:0 7px 0 #2ba50f,0 12px 20px rgba(60,200,40,.35),inset 0 2px 0 rgba(255,255,255,.6);
+    text-shadow:0 2px 0 #2d7d14}
+
+  /* ===== 卡片：显式列数，不用 auto-fill ===== */
+  .grid{display:grid;gap:clamp(10px,1.25vw,18px);margin-top:clamp(14px,1.9vw,24px);
+    grid-template-columns:repeat(6,minmax(0,1fr))}
+  .card{position:relative;display:block;border-radius:clamp(12px,1.25vw,18px);
+    overflow:hidden;text-decoration:none;background:#fff;
+    border:3px solid rgba(255,255,255,.96);
+    box-shadow:0 12px 22px rgba(60,110,175,.26),inset 0 0 0 1px rgba(120,160,215,.22);
+    transition:transform .18s,box-shadow .18s}
+  .card:hover{transform:translateY(-5px);box-shadow:0 20px 32px rgba(60,110,175,.34)}
+  .cover{position:relative;width:100%;aspect-ratio:16/10;overflow:hidden}
+  .cover img{width:100%;height:100%;object-fit:cover;display:block}
+  .cover.fallback{display:grid;place-items:center;
+    background:radial-gradient(circle at 26% 22%,var(--c1),transparent 64%),
+               radial-gradient(circle at 80% 84%,var(--c2),transparent 60%),
+               linear-gradient(140deg,#33406b,#1d2547)}
+  .cover.fallback span{font-size:clamp(28px,3.6vw,52px);font-weight:900;color:#fff;
+    -webkit-text-stroke:3px rgba(255,255,255,.32);paint-order:stroke fill;opacity:.92}
+  .title{position:absolute;left:0;right:0;top:0;padding:clamp(7px,.7vw,10px) clamp(9px,.9vw,13px);
+    font-size:clamp(13px,1.24vw,18px);line-height:1.12;font-weight:900;color:#fff;
+    -webkit-text-stroke:2.4px var(--ink);paint-order:stroke fill;
+    filter:drop-shadow(0 2px 0 rgba(30,70,130,.5));
+    text-shadow:0 2px 6px rgba(20,50,90,.45)}
+  .tag{position:absolute;left:clamp(7px,.8vw,11px);bottom:clamp(7px,.8vw,11px);
+    height:clamp(20px,1.8vw,26px);padding:0 clamp(9px,.9vw,13px);border-radius:20px;
+    display:flex;align-items:center;font-size:clamp(10px,.9vw,13px);font-weight:800;color:#fff;
+    box-shadow:0 3px 0 rgba(0,0,0,.18),inset 0 1px 0 rgba(255,255,255,.5)}
+  .heat{position:absolute;right:clamp(7px,.8vw,11px);bottom:clamp(7px,.8vw,11px);
+    height:clamp(20px,1.8vw,26px);padding:0 clamp(7px,.7vw,10px);border-radius:20px;
+    display:flex;align-items:center;gap:4px;font-size:clamp(9px,.86vw,12px);font-weight:800;
+    color:#fff;background:rgba(18,38,68,.48)}
+  .heat svg{width:clamp(8px,.78vw,11px);height:clamp(8px,.78vw,11px);fill:#ffd84d}
+
+  /* ===== 底栏 ===== */
+  .searchbar{display:flex;align-items:center;gap:12px;margin-top:clamp(20px,2.6vw,36px);
+    height:clamp(46px,4.7vw,68px);border-radius:40px;background:rgba(255,255,255,.78);
+    border:2px solid rgba(255,255,255,.92);padding:0 clamp(16px,1.9vw,28px);
+    box-shadow:0 12px 26px rgba(60,110,180,.18)}
+  .searchbar svg{width:clamp(16px,1.5vw,22px);height:clamp(16px,1.5vw,22px);
+    stroke:#4a88c8;stroke-width:2.4;fill:none}
+  .searchbar span{font-size:clamp(13px,1.3vw,19px);font-weight:700;color:#8fb0d2}
+  .legal{margin:clamp(10px,.9vw,14px) 0 clamp(24px,3vw,40px);text-align:center;
+    font-size:clamp(10px,.95vw,14px);font-weight:600;color:#7fa2c8}
+
+  /* ===== 断点 ===== */
+  /* 平板横屏 / 小笔记本：4 列 */
+  @media (max-width:1199px){
+    .grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+    .links a:nth-child(n+5){display:none}
+  }
+  /* 平板竖屏：3 列，导航收链接、出汉堡 */
+  @media (max-width:900px){
+    :root{--pad:24px;--nav-h:60px}
+    .grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .links{display:none}
+    .burger{display:grid}
+    .nav-r{margin-left:auto}
+    .pad-wrap{width:min(100%,620px);}
+    .bg img{object-position:center center}
+  }
+  /* 手机：2 列 */
+  @media (max-width:640px){
+    :root{--pad:14px;--nav-h:54px}
+    .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .nav{top:10px;margin-top:10px}
+    .hero{padding-top:16px}
+    .tab{height:38px;font-size:13px;padding:0 16px}
+  }
+</style>
+</head>
+<body>
+
+<div class="bg" aria-hidden="true">
+  <picture>
+    <source media="(max-width:900px)" srcset="./assets/sky-m.webp">
+    <img src="./assets/sky.webp" alt="">
+  </picture>
+</div>
+
+<div class="wrap">
+  <header class="nav">
+    <div class="brand">
+      <svg class="crown" viewBox="0 0 26 20" aria-hidden="true">
+        <path d="M2 18h22l2-13-7 5-4-8-4 8-7-5z" fill="#ffd23e" stroke="#e0a516" stroke-width="1.4"/>
+      </svg>
+      PLAY HYPE GAMES
+    </div>
+    <nav class="links">
+      <a class="on" href="#">NEW</a>
+      <a href="#">TRENDING</a>
+      <a href="#">IO</a>
+      <a href="#">IDLE</a>
+      <a href="#">MULTIPLAYER</a>
+      <a href="#">CHROMEBOOK</a>
+    </nav>
+    <div class="nav-r">
+      <div class="iconbtn">
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M16.5 16.5 21 21"/></svg>
+      </div>
+      <div class="iconbtn burger">
+        <svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="pad-wrap">
+      <img class="pad" src="./assets/pad.webp" alt="Handheld console">
+      <div class="screen-copy">
+        <div class="h1">PLAY THE BEST<br>BROWSER GAMES</div>
+        <div class="sub">Free, instant, updated daily</div>
+        <div class="cta">PLAY NOW
+          <svg viewBox="0 0 24 24"><path d="M4 11h13l-5-5 1.4-1.4L21 12l-7.6 7.4L12 18l5-5H4z"/></svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="tabs" id="tabs"></div>
+  <div class="grid" id="grid"></div>
+
+  <footer>
+    <div class="searchbar">
+      <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M16.5 16.5 21 21"/></svg>
+      <span>Search games...</span>
+    </div>
+    <div class="legal">Play free browser games. No download required.</div>
+  </footer>
+</div>
+
+<script>
+/* 一份数据驱动所有断点：改 heat 顺序就变，加游戏自动多出一张卡 */
+const GAMES = [
+  { id:1, title:"Super Idle Farm", tag:"Idle",     color:"#8fd35f", heat:982, cat:"idle",     cover:"./assets/cover-1.webp" },
+  { id:2, title:"Slime IO 2",      tag:"IO",       color:"#7fb2ff", heat:945, cat:"io",       cover:"./assets/cover-2.webp" },
+  { id:3, title:"Cookie Kingdom",  tag:"Arcade",   color:"#ff8fc0", heat:910, cat:"arcade",   cover:"./assets/cover-3.webp" },
+  { id:4, title:"Pocket Miner",    tag:"Strategy", color:"#f2b04a", heat:888, cat:"strategy", cover:"./assets/cover-4.webp" },
+  { id:5, title:"Monster Clicker", tag:"Idle",     color:"#a78bfa", heat:861, cat:"idle",     cover:"./assets/cover-5.webp" },
+  { id:6, title:"Racing Go",       tag:"Racing",   color:"#4fb3ff", heat:842, cat:"racing",   cover:"./assets/cover-6.webp" },
+  { id:7, title:"Harvest Honors",  tag:"Strategy", color:"#e0a533", heat:520, cat:"strategy", cover:"" },
+  { id:8, title:"Bubble Woods",    tag:"Arcade",   color:"#6fd8b0", heat:470, cat:"arcade",   cover:"" },
+  { id:9, title:"Sugar Heroes",    tag:"Puzzle",   color:"#ff9bd8", heat:455, cat:"puzzle",   cover:"" },
+  { id:10,title:"Mineblock",       tag:"Sandbox",  color:"#9b8b74", heat:430, cat:"sandbox",  cover:"" },
+  { id:11,title:"Dungeon Tales",   tag:"RPG",      color:"#8b7dff", heat:402, cat:"rpg",      cover:"" },
+  { id:12,title:"Car Racing",      tag:"Racing",   color:"#3f9cf0", heat:380, cat:"racing",   cover:"" }
+];
+
+const TABS = [
+  { key:"all", label:"ALL" }, { key:"new", label:"NEW" }, { key:"io", label:"IO" },
+  { key:"idle", label:"IDLE" }, { key:"arcade", label:"ARCADE" },
+  { key:"2p", label:"2P" }, { key:"chromebook", label:"CHROMEBOOK" }
+];
+
+let activeTab = "all";
+
+function cardHTML(g){
+  const fb = !g.cover;
+  return `<a class="card" href="#" data-id="${g.id}">
+    <div class="cover ${fb?"fallback":""}" style="--c1:${g.color};--c2:${g.color}">
+      ${fb ? `<span>${g.title.charAt(0)}</span>`
+           : `<img src="${g.cover}" loading="lazy" decoding="async" alt="${g.title}">`}
+    </div>
+    <div class="title">${g.title}</div>
+    <span class="tag" style="background:${g.color}">${g.tag}</span>
+    <span class="heat">
+      <svg viewBox="0 0 24 24"><path d="M12 2c3.4 4.4 6 7 6 10.6A6 6 0 0 1 6 12.6C6 11 6.7 9.7 7.8 8.5c.5 1.6 1.1 2.3 2 2.9-.5-2.7.3-5.2 2.2-9.4z"/></svg>
+      ${g.heat}</span>
+  </a>`;
+}
+
+function visible(){
+  let list = GAMES.slice();
+  if (activeTab === "new") return list.sort((a,b)=>b.id-a.id);
+  if (activeTab !== "all") list = list.filter(g=>g.cat===activeTab);
+  return list.sort((a,b)=>b.heat-a.heat);
+}
+
+function render(){ document.getElementById("grid").innerHTML = visible().map(cardHTML).join(""); }
+
+function renderTabs(){
+  const el = document.getElementById("tabs");
+  el.innerHTML = TABS.map(t=>
+    `<div class="tab ${t.key===activeTab?"on":""}" data-key="${t.key}">${t.label}</div>`).join("");
+  el.querySelectorAll(".tab").forEach(n=>n.addEventListener("click",()=>{
+    activeTab = n.dataset.key; renderTabs(); render();
+  }));
+}
+renderTabs(); render();
+</script>
+</body>
+</html>
