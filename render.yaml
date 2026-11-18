@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://render.com/schema/render.yaml.json
 # Render 部署配置（Blueprint）
 # 文档：https://render.com/docs/blueprint-spec
 services:
@@ -6,12 +7,13 @@ services:
     runtime: node
     plan: free
     region: singapore
+    branch: main
     buildCommand: echo "zero-dependency project, no build needed"
     startCommand: node server.js
     autoDeploy: true
     envVars:
       - key: NODE_VERSION
         value: "22"
-      # 后台密码：部署后在 Render 控制台填写，不要写进仓库
+      # 后台密码：首次创建 Blueprint 时按提示填写，不会写进仓库
       - key: ADMIN_PASSWORD
         sync: false
