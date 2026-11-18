@@ -88,7 +88,38 @@ Slime IO 2 | https://html5.gamedistribution.com/xxx/ | io-games | io, unblocked
 
 ## 上线部署
 
-**最省事：一台 2G 内存的小 VPS + pm2**
+### 环境变量（推荐）
+
+| 变量 | 作用 |
+| --- | --- |
+| `ADMIN_PASSWORD` | 覆盖后台密码；设置后后台 Settings 页不可再改密码，避免公开仓库里的默认密码 `playhype2026` 直接生效 |
+| `SITE_DOMAIN` | 覆盖 canonical 域名（sitemap / RSS / OG 用） |
+| `PORT` | 监听端口，平台自动注入；本地默认 4180 |
+
+### Render（$0 免费方案，推荐起步）
+
+仓库已带 `render.yaml`，两种方式任选：
+
+1. **Blueprint（推荐）**：Render 控制台 → New → Blueprint → 选择本仓库 → Apply，环境变量 `ADMIN_PASSWORD` 按提示填写
+2. **手动建 Web Service**：连仓库后 Runtime 选 Node，Start Command 填 `node server.js`，Plan 选 Free
+
+之后每次 `git push` 自动部署。注意免费实例 15 分钟无访问会休眠（冷启动约 1 分钟），且容器文件系统是临时的——**内容更新走「本地后台改好 → 提交 data/*.json → git push」流程**，不要依赖线上后台的写入持久化。
+
+### Railway（不休眠，试用后约 $5/月）
+
+仓库已带 `railway.json`，CLI 流程：
+
+```bash
+npm i -g @railway/cli
+railway login
+railway init        # 建 project
+railway up          # 部署当前目录
+railway domain      # 生成公网域名
+```
+
+在 Variables 里填 `ADMIN_PASSWORD`。需要持久化后台写入时给服务挂一个 Volume 到 `/app/data`。
+
+### 自备 VPS
 
 ```bash
 node server.js                      # 先手动确认能跑
@@ -97,11 +128,11 @@ pm2 start server.js --name playhype
 pm2 save && pm2 startup
 ```
 
-前面挂 Nginx 反代到 `127.0.0.1:3000`，Cloudflare 代理 + 缓存静态资源。
+前面挂 Nginx 反代到 `127.0.0.1:4180`，Cloudflare 代理 + 缓存静态资源。
 
-**注意**：数据存在 `data/*.json`，部署前先把这个目录备份/纳入 git，否则换机器数据就没了。
+**注意**：数据存在 `data/*.json`，已纳入 git；换机器或重部署前确认最新数据已提交。
 
-**不要**把 `node server.js` 直接暴露公网端口，`/admin` 只有一个密码保护。
+**不要**把 `node server.js` 直接暴露公网端口，`/admin` 只有一个密码保护——公网部署务必设置 `ADMIN_PASSWORD` 环境变量。
 
 ## 已知限制（按优先级排）
 
