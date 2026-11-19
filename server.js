@@ -295,7 +295,12 @@ function handleFront(req, res, url) {
     const slug = pathname.slice('/category/'.length);
     const cat = settings.categories.find((c) => c.slug === slug);
     if (!cat) return null;
-    const live = site.published(games).filter((g) => g.category === slug).sort(site.byNewest);
+    // Chromebook 只是浏览器，站里每个 HTML5 游戏本来就都能在 ChromeOS 上跑。
+    // 这页不该是"精选子集"，而是全站游戏换一个入口进来 —— 这个词在美国学校设备上搜索量很大
+    const live =
+      slug === 'chromebook-games'
+        ? site.published(games).sort(site.byNewest)
+        : site.published(games).filter((g) => g.category === slug).sort(site.byNewest);
     return send(
       res,
       200,
@@ -717,6 +722,7 @@ async function handleApi(req, res, url, settings) {
     if (body.limit != null) patch.limit = Math.max(1, Math.min(Number(body.limit) || 30, 200));
     if (body.maxAgeDays != null) patch.maxAgeDays = Math.max(0, Number(body.maxAgeDays) || 0);
     if (body.enabled != null) patch.enabled = Boolean(body.enabled);
+    if (body.skipBrandIp != null) patch.skipBrandIp = Boolean(body.skipBrandIp);
 
     all[key] = { ...all[key], ...patch };
     store.saveSettings({ feeds: all });

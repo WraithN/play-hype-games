@@ -241,3 +241,12 @@ API：
 - `POST /api/admin/feeds/sync`   `{ provider, dryRun }` 执行同步
 
 `public/feed-demo.json` 是测试用的示例数据（含一条故意缺 URL 的坏数据，用来验证跳过逻辑）。可以在后台把 endpoint 填 `http://127.0.0.1:4180/assets/feed-demo.json` 做连通性自测，测完把配置清空。
+
+### 品牌 IP 过滤（默认开启）
+
+分发库里混有大量知名 IP 的网页移植版（Subway Surfers、Minecraft、Candy Crush、Among Us 等）。这些多数是第三方上传的仿制版本，不是授权移植。同步模块默认按标题匹配品牌关键词并跳过，命中数量在返回结果里以 `riskSkipped` 报告。
+
+- 只匹配**标题**，不匹配描述。描述里常有 "paper.io-style"、"like Minecraft" 这类类比写法，一起判断会误杀原创竞技类游戏。
+- 命中后不导入，也不算 `skipped`，单独计数，方便观察库存质量。
+- 后台 `Skip titles that reference a known brand or game IP` 可关闭，只在你能核实授权时关闭。
+- 关键词表在 `lib/feeds.js` 的 `BRAND_RISK`，可自行增删。

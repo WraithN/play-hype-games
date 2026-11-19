@@ -814,3 +814,89 @@ body.hype .footer-col h4{margin-bottom:16px}
 body.hype .footer-col a{padding:6px 0;line-height:1.5}
 body.hype .footer-note{margin-top:16px;line-height:1.7}
 body.hype .footer-bottom{padding-top:22px;padding-bottom:clamp(26px,3vw,36px)}
+
+/* ---------- 卡片封面统一处理：压掉缩略图自带的标题文字，拉平色温 ---------- */
+body.hype .hcover{background:var(--h-surface-2)}
+body.hype .hcover img{
+  transform:scale(1.07);
+  filter:saturate(1.08) contrast(1.03) brightness(.97);
+  transition:transform .4s cubic-bezier(.2,.7,.3,1);
+}
+body.hype .hcard:hover .hcover img{transform:scale(1.12)}
+/* 冷调统一层：不同来源的截图色温差异很大，soft-light 把它们拉回同一区间 */
+body.hype .hcover::before{
+  content:'';position:absolute;inset:0;z-index:2;pointer-events:none;
+  background:linear-gradient(150deg,rgba(92,176,255,.34),rgba(255,138,203,.24) 56%,rgba(126,255,222,.16));
+  mix-blend-mode:soft-light;
+}
+/* 底部压暗：卡片标题在封面下方，需要一段过渡，否则图与白底直接硬切 */
+body.hype .hcover::after{
+  content:'';position:absolute;inset:0;z-index:3;pointer-events:none;
+  background:linear-gradient(0deg,rgba(8,22,46,.55) 0%,rgba(8,22,46,.20) 34%,rgba(8,22,46,0) 60%);
+}
+body.hype .hcard.is-fallback .hcover::before,
+body.hype .hcard.is-fallback .hcover::after{display:none}
+
+/* 定稿
+   scale 裁切试到 1.7 也没用：GM 的标题不只印在顶部，多数还压在画面中央，
+   越放大越把中央的品牌字推到眼前。所以不再靠裁切，改为轻放大 + 上下双向暗角，
+   把边缘印字沉进暗部，中央的品牌字保留 —— 它是游戏的识别符号，不算脏。
+   卡片下方的 DOM 标题承担识别职责，图里的字退成氛围。 */
+body.hype .hcover img{
+  transform:scale(1.12);
+  filter:saturate(1.05) brightness(1.03) contrast(1.02);
+}
+body.hype .hcard:hover .hcover img{transform:scale(1.18)}
+body.hype .hcover::before{
+  background:linear-gradient(150deg,rgba(92,176,255,.26),rgba(255,138,203,.18) 56%,rgba(126,255,222,.14));
+}
+body.hype .hcover::after{
+  background:
+    linear-gradient(180deg,rgba(10,24,48,.44) 0%,rgba(10,24,48,.10) 24%,rgba(10,24,48,0) 42%),
+    linear-gradient(0deg,rgba(10,24,48,.60) 0%,rgba(10,24,48,.18) 30%,rgba(10,24,48,0) 56%);
+}
+
+/* ---------- 播放器加载态：把"对着黑屏等"换成有内容的等待 ---------- */
+body.hype .player-frame{position:relative}
+body.hype .player-load{
+  position:absolute;left:0;right:0;top:0;aspect-ratio:16/9;
+  display:grid;place-items:center;overflow:hidden;z-index:4;
+  background:linear-gradient(160deg,rgba(8,22,46,.90),rgba(24,44,88,.82) 52%,rgba(8,22,46,.94)), #0b1220;
+  transition:opacity .85s ease,visibility .85s;
+}
+body.hype .player-load.has-cover{
+  background:
+    linear-gradient(160deg,rgba(8,22,46,.90),rgba(24,44,88,.82) 52%,rgba(8,22,46,.94)),
+    var(--pl-cover) center/cover no-repeat,
+    #0b1220;
+}
+body.hype .pl-inner{
+  position:relative;display:grid;justify-items:center;gap:9px;text-align:center;
+  padding:24px 20px;max-width:min(92%,520px);
+}
+body.hype .pl-spin{
+  width:44px;height:44px;border-radius:50%;margin-bottom:4px;
+  border:4px solid rgba(255,255,255,.16);
+  border-top-color:#6ef2b6;border-right-color:#7ac9ff;
+  animation:plSpin 1s linear infinite;
+}
+@keyframes plSpin{to{transform:rotate(360deg)}}
+body.hype .pl-title{font-size:clamp(15px,1.6vw,20px);font-weight:800;color:#fff;letter-spacing:.01em}
+body.hype .pl-hint,body.hype .pl-slow{margin:0;font-size:13px;line-height:1.65;color:rgba(255,255,255,.70);font-weight:600}
+body.hype .pl-slow{color:#ffd479}
+body.hype .player-load.is-out{opacity:0;visibility:hidden;pointer-events:none}
+body.hype .player-bar .btn{font-family:inherit;cursor:pointer}
+
+/* 加载态收尾：中心径向压暗让白字立起来，转圈加大并加光晕 */
+body.hype .player-load.has-cover{
+  background:
+    radial-gradient(circle at 50% 46%,rgba(6,18,40,.80) 0%,rgba(6,18,40,.94) 62%),
+    var(--pl-cover) center/cover no-repeat,
+    #0b1220;
+}
+body.hype .pl-spin{
+  width:54px;height:54px;border-width:5px;
+  box-shadow:0 0 0 6px rgba(255,255,255,.06),0 10px 26px rgba(0,0,0,.35);
+}
+
+body.hype .player-load{transition:opacity 1.1s ease,visibility 1.1s}
