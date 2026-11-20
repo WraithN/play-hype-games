@@ -10,7 +10,7 @@
   --h-font:'Baloo 2','Nunito','Segoe UI',system-ui,-apple-system,sans-serif;
   --h-bg:#cfd9f5;
   --h-fg:#123a63;
-  --h-fg-dim:#5d87ad;
+  --h-fg-dim:#36597c;
   --h-surface:#ffffff;
   --h-surface-2:#f1f5ff;
   --h-glass:rgba(255,255,255,.38);
@@ -22,7 +22,10 @@
   --h-card-bd:rgba(255,255,255,.96);
   --h-shadow:rgba(60,110,175,.26);
   --h-shadow-soft:rgba(60,110,175,.16);
-  --h-accent:#2f6fb3;
+  --h-accent:#245c99;
+  --h-nav-active:#256b12;
+  --h-brand-stroke:#1d4f86;
+  --h-nav:#123a63;
   --h-line:rgba(120,160,215,.28);
   --h-scrim:linear-gradient(180deg,rgba(255,255,255,.10) 0,transparent 26%,
     rgba(255,255,255,.32) 58%,rgba(255,255,255,.90) 86%,#f6f8ff 100%);
@@ -51,6 +54,9 @@
     --h-shadow:rgba(0,0,0,.55);
     --h-shadow-soft:rgba(0,0,0,.4);
     --h-accent:#8cc9ff;
+    --h-nav-active:#8cff45;
+    --h-brand-stroke:#2f74b8;
+    --h-nav:#ffffff;
     --h-line:rgba(255,255,255,.12);
     --h-scrim:linear-gradient(180deg,rgba(8,12,26,.35) 0,rgba(8,12,26,.62) 34%,
       rgba(7,11,24,.92) 74%,#070b18 100%);
@@ -79,6 +85,9 @@
   --h-shadow:rgba(0,0,0,.55);
   --h-shadow-soft:rgba(0,0,0,.4);
   --h-accent:#8cc9ff;
+  --h-nav-active:#8cff45;
+  --h-brand-stroke:#2f74b8;
+  --h-nav:#ffffff;
   --h-line:rgba(255,255,255,.12);
   --h-scrim:linear-gradient(180deg,rgba(8,12,26,.35) 0,rgba(8,12,26,.62) 34%,
     rgba(7,11,24,.92) 74%,#070b18 100%);
@@ -139,7 +148,7 @@ body.hype .brand-name{
   font-family:var(--h-font);font-weight:800;
   color:#fff;
   -webkit-text-stroke-width:1.8px;
-  -webkit-text-stroke-color:#2f6fb3;
+  -webkit-text-stroke-color:var(--h-brand-stroke);
   paint-order:stroke fill;
   text-shadow:0 2px 0 #2c69a8,0 4px 6px rgba(30,76,130,.32);
   filter:drop-shadow(0 0 3px rgba(178,220,255,.8));
@@ -158,13 +167,13 @@ body.hype .main-nav{gap:clamp(16px,2.4vw,40px);margin-left:auto;margin-right:cla
 body.hype .main-nav .nav-item,
 body.hype .main-nav .nav-item{
   font-family:var(--h-font);
-  color:#fff !important;font-size:clamp(15px,1.5vw,20px);font-weight:800;letter-spacing:.3px;
-  text-shadow:0 2px 4px rgba(40,90,150,.45);
+  color:var(--h-nav) !important;font-size:clamp(15px,1.5vw,20px);font-weight:800;letter-spacing:.3px;
+  text-shadow:none;
   background:none;padding:0;border:0;text-decoration:none;
 }
 body.hype .main-nav .nav-item.is-active,
 body.hype .main-nav .nav-item.is-active{
-  color:#8cff45 !important;text-shadow:0 2px 0 #2d6b1b,0 0 16px rgba(140,255,69,.55);
+  color:var(--h-nav-active) !important;text-shadow:0 2px 0 rgba(20,70,10,.55),0 0 16px rgba(140,255,69,.35);
 }
 body.hype .main-nav .nav-item:nth-child(n+6),
 body.hype .main-nav .nav-item:nth-child(n+6){display:none}
@@ -338,7 +347,7 @@ body.hype .more-link{color:var(--h-accent);font-weight:800}
   height:clamp(20px,1.8vw,26px);padding:0 clamp(9px,.9vw,13px);
   border-radius:99px;display:flex;align-items:center;
   font-size:clamp(10px,.9vw,13px);font-weight:800;color:#fff;
-  background:hsl(var(--h) 72% 58%);
+  background:hsl(var(--h) 62% 26%);
   box-shadow:0 3px 0 rgba(0,0,0,.18),inset 0 1px 0 rgba(255,255,255,.5);
 }
 .hheat{
@@ -837,7 +846,7 @@ body.hype .footer-inner{
   padding-bottom:clamp(30px,3.6vw,44px);
   gap:clamp(24px,3vw,46px);
 }
-body.hype .footer-col h4{margin-bottom:16px}
+body.hype .footer-col h2{margin-bottom:16px}
 body.hype .footer-col a{padding:6px 0;line-height:1.5}
 body.hype .footer-note{margin-top:16px;line-height:1.7}
 body.hype .footer-bottom{padding-top:22px;padding-bottom:clamp(26px,3vw,36px)}
