@@ -4,6 +4,8 @@
    ============================================================ */
 
 /* ---------- 亮色（默认） ---------- */
+/* Self-hosted latin subset (variable 600-800, 33 KB) instead of a blocking cross-border font CSS */
+@font-face{font-family:'Baloo 2';font-style:normal;font-weight:600 800;font-display:swap;src:url('/assets/fonts/baloo-2-latin.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 :root{
   --h-font:'Baloo 2','Nunito','Segoe UI',system-ui,-apple-system,sans-serif;
   --h-bg:#cfd9f5;
@@ -212,8 +214,7 @@ body.hype .site-footer h4{color:var(--h-fg)}
   container-type:inline-size;
   filter:drop-shadow(0 3.4cqw 5cqw var(--h-shadow-soft));
 }
-.hpad{width:100%!important;max-width:100%!important;height:auto;display:block;transform:rotate(-1.5deg)}
-.hscreen{
+.hpad{width:100%!important;max-width:100%!important;height:auto;display:block;transform:rotate(-1.5deg)}.hscreen{
   position:absolute;left:43%;top:38%;width:42%;
   transform:translate(-50%,-50%);text-align:center;
 }
@@ -421,6 +422,7 @@ body.hype .prose h2{
 }
 body.hype .prose h2 + p{margin-top:0}
 body.hype .prose p{color:var(--h-fg-dim);line-height:1.75;font-size:15px;margin:0 0 14px}
+body.hype .prose .source-note{font-size:12px;line-height:1.5;opacity:.8;margin-top:-6px}
 body.hype .prose ul,body.hype .prose ol{color:var(--h-fg-dim);line-height:1.8;padding-left:20px;margin:0 0 16px}
 body.hype .prose a{color:var(--h-accent);font-weight:700}
 body.hype .tag-chip{
@@ -606,6 +608,31 @@ body.hype .game-grid{display:grid;gap:clamp(10px,1.25vw,18px);grid-template-colu
 .hype .side-item-text span{color:var(--h-fg-dim)}
 .hype .prose p,.hype .prose li{max-width:74ch}
 .hype .intro-card{margin-left:auto;margin-right:auto}
+
+/* 分类总览：真正的分类入口，避免和游戏列表重复 */
+.hype .cat-grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
+  gap:clamp(12px,1.6vw,18px);margin:clamp(8px,1.4vw,18px) 0 clamp(28px,4vw,48px);
+}
+.hype .cat-card{
+  display:block;text-decoration:none;color:var(--h-fg);
+  background:var(--h-surface);border:2px solid var(--h-card-bd);
+  border-radius:16px;padding:clamp(16px,2vw,24px);
+  box-shadow:0 8px 20px var(--h-shadow-soft);
+  transition:transform .18s ease,box-shadow .18s ease;
+}
+.hype .cat-card:hover,.hype .cat-card:focus-visible{
+  transform:translateY(-2px);box-shadow:0 14px 28px var(--h-shadow);
+}
+.hype .cat-card h2{
+  font-family:var(--h-font);font-size:clamp(18px,1.8vw,22px);font-weight:800;
+  margin:0 0 6px;line-height:1.15;
+}
+.hype .cat-card p{color:var(--h-fg-dim);font-size:14px;line-height:1.6;margin:0}
+.hype .cat-card span{
+  display:inline-block;margin-top:12px;font-size:12px;font-weight:800;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--h-accent);
+}
 
 /* 内容不足时让页脚贴底 */
 body.hype{min-height:100vh;display:flex;flex-direction:column}

@@ -17,6 +17,8 @@ const admin = require('./lib/admin');
 const blog = require('./lib/blog');
 const md = require('./lib/markdown');
 const feeds = require('./lib/feeds');
+const copy = require('./lib/copy');
+const seo = require('./lib/seo');
 
 // 默认 4180：避开 3000/8080 这类常被本机其他服务占用的端口
 const PORT = Number(process.env.PORT) || 4180;
@@ -61,7 +63,8 @@ const MIME = {
   '.ico': 'image/x-icon',
   '.json': 'application/json; charset=utf-8',
   '.txt': 'text/plain; charset=utf-8',
-  '.woff2': 'font/woff2'
+  '.woff2': 'font/woff2',
+  '.ttf': 'font/ttf'
 };
 
 /* ---------------- 基础工具 ---------------- */
@@ -158,7 +161,7 @@ function serveStatic(req, res, urlPath) {
   const ext = path.extname(abs).toLowerCase();
   res.writeHead(200, {
     'Content-Type': MIME[ext] || 'application/octet-stream',
-    'Cache-Control': ext === '.css' || ext === '.js' ? 'public, max-age=60' : 'public, max-age=86400'
+    'Cache-Control': ext === '.woff2' || ext === '.ttf' ? 'public, max-age=31536000, immutable' : ext === '.css' || ext === '.js' ? 'public, max-age=600' : 'public, max-age=86400'
   });
   fs.createReadStream(abs).pipe(res);
   return true;
@@ -201,22 +204,7 @@ function handleFront(req, res, url) {
 
   // 分类总览
   if (pathname === '/categories') {
-    const live = site.published(games);
-    return send(
-      res,
-      200,
-      site.listPage({
-        games,
-        settings,
-        title: 'All categories',
-        kicker: 'Browse',
-        description: 'Every genre we cover, from fast .io arenas to relaxed idle builders.',
-        list: live,
-        baseUrl: '/categories',
-        page,
-        active: 'home'
-      })
-    );
+    return send(res, 200, site.categoriesPage(games, settings));
   }
 
   // 最新
@@ -230,7 +218,7 @@ function handleFront(req, res, url) {
         settings,
         title: 'New games',
         kicker: 'Fresh this week',
-        description: 'The newest browser games we have indexed, updated every day.',
+        description: seo.introDescription(copy.listIntro('/new'), 'The newest browser games we have indexed, updated every day.'),
         list: live,
         baseUrl: '/new',
         page,
@@ -250,7 +238,7 @@ function handleFront(req, res, url) {
         settings,
         title: 'Trending games',
         kicker: 'Popular now',
-        description: 'What everyone is playing this week.',
+        description: seo.introDescription(copy.listIntro('/trending'), 'What everyone is playing this week.'),
         list: live,
         baseUrl: '/trending',
         page,
@@ -285,7 +273,7 @@ function handleFront(req, res, url) {
         page,
         active: 'search',
         query: q,
-        head: `<meta name="robots" content="noindex,follow">`
+        noindex: true
       })
     );
   }
@@ -301,6 +289,8 @@ function handleFront(req, res, url) {
       slug === 'chromebook-games'
         ? site.published(games).sort(site.byNewest)
         : site.published(games).filter((g) => g.category === slug).sort(site.byNewest);
+    const introDesc = seo.introDescription(copy.categoryIntro(slug), '');
+    const countLine = `${live.length} playable browser ${live.length === 1 ? 'game' : 'games'}, no download required.`;
     return send(
       res,
       200,
@@ -309,7 +299,8 @@ function handleFront(req, res, url) {
         settings,
         title: cat.name,
         kicker: 'Category',
-        description: `${cat.short || cat.name}. ${live.length} playable browser ${live.length === 1 ? 'game' : 'games'}, no download required.`,
+        description: seo.description(`${introDesc} ${countLine}`, countLine, 200),
+        heroText: cat.short || '',
         list: live,
         baseUrl: `/category/${slug}`,
         page,
@@ -323,21 +314,29 @@ function handleFront(req, res, url) {
     const slug = pathname.slice('/tag/'.length);
     const live = site
       .published(games)
-      .filter((g) => (g.tags || []).some((t) => String(t).toLowerCase() === slug));
+      .filter((g) => seo.gameTags(g).includes(seo.tagSlug(slug)));
     if (!live.length) return null;
+    const tag = { slug: seo.tagSlug(slug), count: live.length };
+    if (slug !== tag.slug) {
+      return send(res, 301, '', { Location: `/tag/${encodeURIComponent(tag.slug)}${url.search}` });
+    }
+    const indexable = seo.tagIndexable(tag, settings);
+    const label = seo.tagLabel(tag.slug);
     return send(
       res,
       200,
       site.listPage({
         games,
         settings,
-        title: `${slug} games`,
+        title: label,
         kicker: 'Tag',
-        description: `${live.length} games tagged “${slug}”. Play instantly in your browser.`,
+        description: seo.introDescription({ paras: [seo.tagIntro(tag.slug, settings)] }, `${live.length} ${label.toLowerCase()} to play in your browser. No download or install.`),
+        heroText: '',
         list: live,
-        baseUrl: `/tag/${encodeURIComponent(slug)}`,
+        baseUrl: `/tag/${encodeURIComponent(tag.slug)}`,
         page,
-        active: 'tag'
+        active: 'tag',
+        noindex: !indexable
       })
     );
   }
@@ -346,7 +345,7 @@ function handleFront(req, res, url) {
   if (pathname.startsWith('/game/')) {
     const slug = pathname.slice('/game/'.length);
     const game = games.find((g) => g.slug === slug);
-    if (!game) return null;
+    if (!game || (game.status !== 'published' && !isLoggedIn(req, settings))) return null;
 
     // 浏览量先记在内存，每 60 秒统一落盘（避免每个访客都重写数据文件）
     if (game.status === 'published') {
@@ -363,7 +362,7 @@ function handleFront(req, res, url) {
   }
 
   // 静态页
-  if (['/about', '/privacy', '/terms', '/contact'].includes(pathname)) {
+  if (['/about', '/privacy', '/terms', '/contact', '/editorial-policy'].includes(pathname)) {
     const html = site.staticPage(settings, pathname.slice(1));
     if (html) return send(res, 200, html);
   }
@@ -398,7 +397,7 @@ function normaliseTags(input) {
 }
 
 function buildGameRecord(payload, games, settings, existing) {
-  const title = String(payload.title || '').trim();
+  const title = seo.cleanText(payload.title);
   if (!title) throw new Error('Title is required');
 
   const embedUrl = String(payload.embedUrl || '').trim();
@@ -422,6 +421,7 @@ function buildGameRecord(payload, games, settings, existing) {
     title,
     slug,
     description: String(payload.description || '').trim(),
+    controls: String(payload.controls != null ? payload.controls : (existing && existing.controls) || '').trim(),
     content: String(payload.content || '').trim(),
     embedUrl,
     thumb: String(payload.thumb || '').trim(),

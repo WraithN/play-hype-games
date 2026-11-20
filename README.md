@@ -86,6 +86,16 @@ Slime IO 2 | https://html5.gamedistribution.com/xxx/ | io-games | io, unblocked
 
 上线后第一件事：把域名填进 Settings → Canonical domain，再去 GSC 提交 sitemap。
 
+### 站内 SEO 规则（代码里已经生效，不用手工维护）
+
+- **规范域名**：`data/settings.json` 与 `lib/store.js` 都固定为 `https://www.playhypegames.com`；非 www 的 `SITE_DOMAIN` 也会被自动改写成 www，避免 canonical / sitemap / OG 混用两套主机。
+- **标签页质量门**（`lib/seo.js`）：游戏数 ≥ 11 的标签可索引；5–10 个的必须有至少 150 字符人工导语；少于 5 个的返回 `noindex,follow` 且不进 sitemap。近义标签（`io-games` → `io`、`kid` → `kids` 等）会 301 归并。
+- **描述**：feed 原文可能被上游截断，页面只用完整句子；meta description 统一裁到 160–170 字符，不再出现半句或 `&mdash;` 这类未解码实体。
+- **标题**：导入和编辑时折叠多余空格，避免 “Skibidi War   Toilets Attack” 这种双空格标题。
+- **内容边界**：不根据分类模板编造键位、加载时间、设备兼容或评分；`VideoGame` 结构化数据不带没有真实来源的 `aggregateRating`。需要补充时用后台的 **Controls** 与 **Long content** 字段。
+- **字体**：Baloo 2 改为 `public/fonts/baloo-2-latin.woff2` 自托管并 preload，不再阻塞加载 `miaoda.feishu.cn` 的跨域 CSS。
+- **信任页**：`/about`、`/contact`、`/editorial-policy` 说明内容来源、测试口径与排名口径；文章署名统一指向编辑政策。
+
 ## 上线部署
 
 ### 环境变量（推荐）
