@@ -96,6 +96,19 @@ Slime IO 2 | https://html5.gamedistribution.com/xxx/ | io-games | io, unblocked
 - **字体**：Baloo 2 改为 `public/fonts/baloo-2-latin.woff2` 自托管并 preload，不再阻塞加载 `miaoda.feishu.cn` 的跨域 CSS。
 - **信任页**：`/about`、`/contact`、`/editorial-policy` 说明内容来源、测试口径与排名口径；文章署名统一指向编辑政策。
 
+### 游戏页编辑实测（Top 20）
+
+- `data/editorial.json` 是手写的编辑判断：`why` / `loop` / `fit` / `verdict`。只写能从游戏描述、发布方说明和实际构建观察到的东西。
+- `data/game-audits.json` 由 `node scripts/audit-games.js` 生成：无浏览器缓存地抓取 embed 文档、页面引用的脚本和 `data.json`，记录冷加载耗时、初始负载大小、viewport 声明和键盘/触摸代码是否存在。
+- 页面上的 “Test log” 只展示这些真实抓取值；静态扫描到输入代码不等于完整试玩，文案里已明确区分。游戏改版或 CDN 变化后重新跑脚本即可。
+- 编辑块只覆盖当前首页最新的 20 个游戏；新游戏上首页后，按同样标准补 `editorial.json` 后再让页面进入 Top 20。
+
+### 性能与缓存
+
+- HTML 响应默认 `Cache-Control: public, max-age=0, s-maxage=300, stale-while-revalidate=600`，并带 ETag；正文超过 1 KB 时按 `Accept-Encoding` gzip。
+- CSS/JS/字体使用版本化查询串（如 `hype.css?v=7`）并设置一年 immutable 缓存；图片 30 天。
+- Render 免费实例的冷启动仍在，代码层无法消除。要让 Cloudflare 真正缓存 HTML，需要在 Cloudflare 侧加一条 Cache Rule（缓存 `/`、`/game/*`、`/category/*`、`/tag/*`），这是站点代码之外的配置。
+
 ## 上线部署
 
 ### 环境变量（推荐）
@@ -208,6 +221,10 @@ SEO
 - 每篇输出 `BlogPosting` + `BreadcrumbList` 结构化数据
 - 已发布文章自动进 `/sitemap.xml`（priority 0.7，monthly）与 `/rss.xml`
 - `/blog` 输出 `Blog` 集合结构化数据
+
+### 作者
+
+`data/authors.json` 保存具名作者。当前编辑是 `WraithN`（公开化名，GitHub: `WraithN`），文章 byline 链接到 `/author/wraithn`，`BlogPosting.author` 输出 `Person`。要换成真实姓名或另一位编辑，改这个文件里的 `name`、`slug`、`bio`、`sameAs`，再更新 `data/posts.json` 的 `authorSlug` 即可；不要编造资历或头衔。后台文章编辑页也有 `Author slug` 字段。
 
 ## 6. 端口
 

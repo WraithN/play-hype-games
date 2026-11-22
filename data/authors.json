@@ -1,0 +1,12 @@
+{
+  "authors": [
+    {
+      "slug": "wraithn",
+      "name": "WraithN",
+      "role": "Editor",
+      "bio": "Maintains the PLAY HYPE GAMES catalogue and writes the site's game notes. Reviews embed behaviour, catalogue metadata and page copy; not a game developer.",
+      "sameAs": ["https://github.com/WraithN"],
+      "knowsAbout": ["Browser games", "HTML5 games", "Game catalogue curation"]
+    }
+  ]
+}

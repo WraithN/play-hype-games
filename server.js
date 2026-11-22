@@ -10,6 +10,7 @@ const http = require('http');
 const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
+const zlib = require('zlib');
 
 const store = require('./lib/store');
 const site = require('./lib/site');
@@ -19,6 +20,7 @@ const md = require('./lib/markdown');
 const feeds = require('./lib/feeds');
 const copy = require('./lib/copy');
 const seo = require('./lib/seo');
+const authors = require('./lib/authors');
 
 // 默认 4180：避开 3000/8080 这类常被本机其他服务占用的端口
 const PORT = Number(process.env.PORT) || 4180;
@@ -71,8 +73,30 @@ const MIME = {
 
 function send(res, status, body, headers) {
   const h = { 'Content-Type': 'text/html; charset=utf-8', ...(headers || {}) };
+  let buf = Buffer.isBuffer(body) ? body : Buffer.from(String(body == null ? '' : body));
+
+  if (status === 200) {
+    if (!h['Cache-Control']) h['Cache-Control'] = 'public, max-age=0, s-maxage=300, stale-while-revalidate=600';
+    const etag = `"${crypto.createHash('sha1').update(buf).digest('base64url').slice(0, 20)}"`;
+    h.ETag = etag;
+    const req = res.req;
+    if (req && req.headers['if-none-match'] === etag) {
+      res.writeHead(304, h);
+      res.end();
+      return;
+    }
+    const type = String(h['Content-Type'] || '');
+    const acceptsGzip = req && /\bgzip\b/.test(String(req.headers['accept-encoding'] || ''));
+    if (buf.length > 1024 && acceptsGzip && /^(text\/|application\/(json|xml|javascript))/i.test(type)) {
+      buf = zlib.gzipSync(buf, { level: 6 });
+      h['Content-Encoding'] = 'gzip';
+      h.Vary = 'Accept-Encoding';
+    }
+  }
+
+  h['Content-Length'] = buf.length;
   res.writeHead(status, h);
-  res.end(body);
+  res.end(buf);
 }
 
 function sendJson(res, status, obj) {
@@ -158,11 +182,26 @@ function serveStatic(req, res, urlPath) {
   }
   if (!fs.existsSync(abs) || !fs.statSync(abs).isFile()) return false;
 
+  const stat = fs.statSync(abs);
   const ext = path.extname(abs).toLowerCase();
-  res.writeHead(200, {
+  const etag = `"${stat.size.toString(16)}-${Math.floor(stat.mtimeMs).toString(16)}"`;
+  const headers = {
     'Content-Type': MIME[ext] || 'application/octet-stream',
-    'Cache-Control': ext === '.woff2' || ext === '.ttf' ? 'public, max-age=31536000, immutable' : ext === '.css' || ext === '.js' ? 'public, max-age=600' : 'public, max-age=86400'
-  });
+    'Last-Modified': stat.mtime.toUTCString(),
+    ETag: etag,
+    'Cache-Control':
+      ext === '.woff2' || ext === '.ttf'
+        ? 'public, max-age=31536000, immutable'
+        : ext === '.css' || ext === '.js'
+          ? 'public, max-age=31536000, immutable'
+          : 'public, max-age=2592000'
+  };
+  if (req.headers['if-none-match'] === etag) {
+    res.writeHead(304, headers);
+    res.end();
+    return true;
+  }
+  res.writeHead(200, headers);
   fs.createReadStream(abs).pipe(res);
   return true;
 }
@@ -192,6 +231,14 @@ function handleFront(req, res, url) {
     const post = blog.livePosts(posts).find((p) => p.slug === slug);
     if (!post) return null;
     return send(res, 200, blog.blogPostPage(post, posts, games, settings));
+  }
+
+  // 作者页
+  if (pathname.startsWith('/author/')) {
+    const slug = pathname.slice('/author/'.length);
+    const html = blog.authorPage(slug, posts, settings);
+    if (!html) return null;
+    return send(res, 200, html);
   }
 
   // RSS
@@ -466,6 +513,15 @@ function buildPostRecord(payload, posts, settings, existing) {
 
   const now = new Date().toISOString();
   const publishedAt = String(payload.publishedAt || '').trim() || (existing ? existing.publishedAt : now.slice(0, 10));
+  const authorSlug = String(
+    payload.authorSlug != null ? payload.authorSlug : (existing && existing.authorSlug) || ''
+  ).trim();
+  const authorRecord = authorSlug ? authors.get(authorSlug) : null;
+  const author =
+    String(payload.author || '').trim() ||
+    (authorRecord && authorRecord.name) ||
+    (existing && existing.author) ||
+    settings.siteName;
 
   return {
     id: existing ? existing.id : store.nextPostId(posts),
@@ -474,7 +530,8 @@ function buildPostRecord(payload, posts, settings, existing) {
     excerpt: String(payload.excerpt || '').trim(),
     body,
     cover: String(payload.cover || '').trim(),
-    author: String(payload.author || '').trim() || settings.siteName,
+    author,
+    authorSlug,
     tags: normaliseTags(payload.tags),
     relatedGames: relatedIds,
     seoTitle: String(payload.seoTitle || '').trim(),

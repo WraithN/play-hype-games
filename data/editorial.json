@@ -1,0 +1,146 @@
+{
+  "generatedAt": "2026-11-22T00:00:00.000Z",
+  "note": "Original editorial notes for the 20 most exposed game pages. Measurements live in data/game-audits.json and are rendered separately.",
+  "games": {
+    "survivalpixel-io": {
+      "reviewedAt": "2026-11-22",
+      "why": "SurvivalPixel.io is a wave-survival arena built around a simple bargain: every monster you kill can make the next wave easier. The pixel art keeps the screen readable, and the health and power drops give each run a reason to push one more level rather than restart immediately.",
+      "loop": "You move with WASD or the on-screen buttons, keep distance from packs, and clear monsters to collect health and power. Bosses appear after enough kills, so the run is less about one clever move and more about managing space while your damage catches up. Expect short sessions; death sends you back to the start rather than into a long meta-progression.",
+      "fit": "Best for players who want direct, low-setup action and do not mind repeating early waves. If you want a story, puzzles or persistent upgrades, this is not that.",
+      "verdict": "A clean pick for a five-minute break. The loop is familiar, but the pixel presentation and drop system make it easy to understand on the first screen."
+    },
+    "clown-park-hide-and-seek": {
+      "reviewedAt": "2026-11-22",
+      "why": "Clown Park Hide and Seek turns a playground game into a 3D round with two jobs: survivors hunt keys, the chaser hunts survivors. The split gives the map a purpose beyond running around, and the escape-door timer creates a clear finish line.",
+      "loop": "As a survivor, you move through the park, collect enough keys and reach the exit before time runs out. As the chaser, you pressure the same routes and try to stop the key run. The publisher lists mouse click or tap to play; the rest of the interaction is handled in-game, so read the first screen before moving.",
+      "fit": "Good for players who like asymmetric chase games and do not need a tutorial. It is less suitable if you want a solo story or a precise competitive shooter.",
+      "verdict": "The premise is stronger than the average arena clone. Pick it when you want a short cat-and-mouse round rather than a long progression grind."
+    },
+    "skibidi-war-toilets-attack": {
+      "reviewedAt": "2026-11-22",
+      "why": "Skibidi War Toilets Attack is a lane-defense shooter dressed in the Skibidi meme. You control a toilet that keeps moving, clear rival toilets and pick up weapons to stay alive; the joke is the point, but the wave structure is a real survival loop.",
+      "loop": "The publisher's instructions are deliberately light: run, defeat other toilets, and grab weapons to strengthen the build. Expect a continuous wave rather than discrete levels, with pickups doing most of the power curve. There is no separate tutorial button, so the first minute is also the explanation.",
+      "fit": "For players who want a fast, silly shooter and already know the meme. If you want a serious tactical defense game or clear onboarding, look elsewhere.",
+      "verdict": "A novelty pick with a simple survival core. Fun in short bursts; the lack of explicit controls is the main friction."
+    },
+    "skibidi-online": {
+      "reviewedAt": "2026-11-22",
+      "why": "Skibidi Online is a multiplayer shooter with PvP and co-op modes across ten maps. Melee and ranged weapons share the same match, so the loadout decision matters more than a single aim duel; the meme theme is the wrapper, not the whole design.",
+      "loop": "WASD moves, the mouse attacks, Space jumps, E equips a weapon and Tab opens stats. A round is built around pushing a map with a mix of close-range and ranged tools. Because it is multiplayer, match quality depends on who else is online; the publisher does not promise a bot fallback.",
+      "fit": "Worth trying if you want a quick browser shooter and are comfortable with a lobby that may be quiet. Solo players who want a guaranteed campaign should skip it.",
+      "verdict": "The most complete shooter in this batch on paper. Check whether a match is live before committing; the controls are standard and easy to learn."
+    },
+    "monsters-dungeon-battle": {
+      "reviewedAt": "2026-11-22",
+      "why": "Monsters Dungeon Battle is a dungeon arena with classes and stat upgrades. The appeal is choosing a role such as wizard or archer and then fixing the weaknesses that the next wave exposes, rather than only dodging faster.",
+      "loop": "Left-click or tap to fight; between encounters you invest in stats and collect classes. The loop is deliberately repetitive: clear the room, improve the build, go deeper. Expect to replay early rooms if a build does not come together.",
+      "fit": "For players who like lightweight RPG progression and do not need a long narrative. If you want hand-authored dungeons or puzzle-solving, this is a grind-first design.",
+      "verdict": "A decent build-tinkering game with a low learning cost. Its staying power depends on how much you enjoy optimising stats between fights."
+    },
+    "sumo-smash": {
+      "reviewedAt": "2026-11-22",
+      "why": "Sumo Smash! combines sumo pushing with a sushi-growth meter. Eating makes you bigger, bigger makes pushes stronger, and the arena's chests add skins rather than power, so the match stays about position and timing.",
+      "loop": "Move with WASD or QZSD on desktop, or touch on mobile. Circle opponents, collect sushi, then close the distance and push when your size advantage is clear. Chests are a side objective; do not chase them while a larger opponent is lined up behind you.",
+      "fit": "Good for a chaotic party round or a short solo session. Players who want precise fighting-game inputs may find the push mechanic too loose.",
+      "verdict": "A readable arena game with a clear risk-reward choice: grow first or fight early. Easy to recommend for a quick round."
+    },
+    "grimace-matching": {
+      "reviewedAt": "2026-11-22",
+      "why": "Grimace Matching is a colour-pairing game built on quick visual comparison. The Grimace theme gives it a recognisable face, but the actual task is scanning hues and connecting matches before the board gets away from you.",
+      "loop": "Click or tap matching Grimaces; the publisher describes the pace as fast, so expect the board to reward quick recognition over long planning. There is no stated story or meta-progression, which makes it a pure score-chasing break.",
+      "fit": "Best for short sessions and players who like spot-the-match puzzles. If you want a deep puzzle campaign, the scope is intentionally small.",
+      "verdict": "A light, low-commitment matching game. Keep it for a two-minute gap rather than a long sitting."
+    },
+    "merge-room": {
+      "reviewedAt": "2026-11-22",
+      "why": "Merge Room is a merge-and-fill game: drop objects into a room, combine identical pieces, and use the larger results to cover more space. The room itself is the scoreboard, which makes progress easy to read without a separate upgrade menu.",
+      "loop": "The publisher's control text is written as a description rather than a key list; our static scan found both touch and keyboard input in the build, so expect drag or click merging rather than a complex scheme. Start with the small objects, merge pairs, and avoid scattering pieces into corners where they cannot meet.",
+      "fit": "Good for players who like slow, tidy organisation and short mobile-style sessions. If you want time pressure or combat, this is the opposite pace.",
+      "verdict": "A calm, legible merge game. The lack of precise instructions is a minor annoyance; the loop explains itself after one round."
+    },
+    "meteor-io": {
+      "reviewedAt": "2026-11-22",
+      "why": "Meteor.io is a one-screen survival game about collecting shards while meteors fall. The time bar and the constant threat of impact make it a reaction test rather than a collection grind; the joystick, WASD and spacebar scheme is simple enough to learn mid-run.",
+      "loop": "Move with the joystick or WASD, use Space as the publisher lists it, and collect shards while watching the time bar. Meteors force lateral movement, so the useful skill is reading a safe lane rather than chasing every shard. Runs are short by design.",
+      "fit": "For players who want an immediate reflex challenge and do not need upgrades. If you prefer planning over dodging, pick a different category.",
+      "verdict": "A clean one-more-run arcade game. The presentation is simple, but the risk of losing a shard streak gives each run a shape."
+    },
+    "field-of-dreams-simulation-adventure": {
+      "reviewedAt": "2026-11-22",
+      "why": "Field of Dreams is a farm-building simulation rather than an action game. You start with vacant land, add crops and animals, and expand into a village; the appeal is arranging a productive space, not clearing waves.",
+      "loop": "Use the mouse to place and manage farm elements. The publisher frames progression around farming experience, new borders and decorations, so expect a slow build-up: earn, expand, decorate, repeat. There is no stated combat or fail state in the description.",
+      "fit": "Best for players who enjoy idle-ish management and visual planning. If you want a challenge with a loss condition, this is the wrong pace.",
+      "verdict": "A peaceful builder with a clear fantasy. Its depth depends on how much you enjoy arranging a farm rather than competing."
+    },
+    "skibidi-hero-io": {
+      "reviewedAt": "2026-11-22",
+      "why": "Skibidi Hero.IO is a wave-survival game with a level-up choice: after enough kills you pick one of three power upgrades. That small decision is the difference between a generic arena and a build that can handle the next wave.",
+      "loop": "Move your hero, collect points from defeated enemies, and choose an upgrade when the option appears. The publisher lists an in-game joystick rather than a key map, so the first screen is the place to learn movement. Expect the difficulty to climb until the build breaks.",
+      "fit": "For players who like light roguelite choices and do not need a long tutorial. If you want precise aiming or a story, the scope is smaller.",
+      "verdict": "A competent wave-survival loop with one meaningful decision per level. Worth a run if the theme appeals."
+    },
+    "hole-and-collect": {
+      "reviewedAt": "2026-11-22",
+      "why": "Hole and Collect is a timed collection game: you steer a black hole, swallow objects and try to clear the area before the clock runs out. The buy-new-holes layer adds a reason to replay, but the core is spatial routing under time pressure.",
+      "loop": "Move with WASD or the arrow keys, group objects and use the hole to destroy them. The publisher says money earned can buy new black holes, so expect a light progression loop between attempts. Do not chase single objects in opposite corners; plan a route.",
+      "fit": "Good for players who like tidy optimisation and short timers. If you want combat or a narrative, this is a pure efficiency puzzle.",
+      "verdict": "A simple idea with a clear score chase. Best in short attempts rather than long sessions."
+    },
+    "sumo-battle": {
+      "reviewedAt": "2026-11-22",
+      "why": "Sumo Battle! is a physics-flavoured pushing game: eat sushi to gain size, then use that size to shove opponents off the podium. It is a different take on the sumo theme from Sumo Smash!, with more emphasis on body mass and less on arena chests.",
+      "loop": "Use WASD or ZQSD on desktop, or touch on mobile. Collect sushi early, avoid fights you cannot win, and push when the size difference is in your favour. Opponents use the same plan, so positioning around the edge matters more than button speed.",
+      "fit": "For players who want a simple party brawler and do not mind a loose physics feel. Anyone looking for frame-precise fighting mechanics should skip it.",
+      "verdict": "A straightforward grow-and-push game. Its best moments come from a last-second reversal at the edge."
+    },
+    "protect-emojis": {
+      "reviewedAt": "2026-11-22",
+      "why": "Protect Emojis is a line-defense puzzle: you draw barriers and shapes to keep emojis safe from incoming damage. The challenge is spatial rather than reflex-based, and the publisher promises increasingly demanding levels.",
+      "loop": "Click or tap to place your defense, then adjust as the threat pattern changes. The description emphasises unique shapes and obstacles, so expect each level to be a small construction problem rather than a run-and-gun fight. There is no stated timer or resource system; read the in-game prompts.",
+      "fit": "Good for players who like drawing, physics and light strategy. If you want direct combat, the pace will feel indirect.",
+      "verdict": "A distinctive defense puzzle with a friendly theme. Worth trying when you want to think instead of react."
+    },
+    "eat-small-fish": {
+      "reviewedAt": "2026-11-22",
+      "why": "Eat Small Fish is the classic size-chain: start small, eat smaller fish, become big enough to eat the next tier. The description leans into the food chain, and the mouse or tap control keeps the barrier to entry low.",
+      "loop": "Move toward fish smaller than you and avoid the ones above your size. Growth is the only progression, so a run is about choosing targets and not getting cornered. The publisher does not describe upgrades or levels; expect an arcade survival loop.",
+      "fit": "For players who want a simple growth game and do not need a tutorial. If you want a story or team play, look elsewhere.",
+      "verdict": "A familiar but readable eat-and-grow game. Good for a quick session; depth is limited."
+    },
+    "bingo-real": {
+      "reviewedAt": "2026-11-22",
+      "why": "BINGO Real is a 75-ball bingo game with house cards and pattern-based wins. The publisher also lists 35-ball and 45-ball options, which changes the pace: fewer balls mean shorter rounds and less waiting for a specific number.",
+      "loop": "Click or tap to play; mark the called numbers and close the required pattern before the other card does. The description says the first to close and click bingo wins, so speed on the final call matters. There is no stated multiplayer lobby; treat it as a bingo session rather than a social game.",
+      "fit": "Best for players who already enjoy bingo and want a browser version. If you want action or strategy, this is a different genre.",
+      "verdict": "A functional bingo implementation with useful ball-count options. The appeal depends entirely on whether you like bingo."
+    },
+    "island-battle-3d": {
+      "reviewedAt": "2026-11-22",
+      "why": "Island Battle 3D is a last-one-standing arena where the floor breaks away. Jumping, knocking rivals and reading safe ground are the whole skill set; the shrinking island turns every fight into a positioning problem.",
+      "loop": "WASD moves and Space jumps on desktop; mobile uses on-screen buttons or swipe. Stay on safe tiles, push opponents toward gaps, and avoid committing to a fight when the ground under you is about to disappear. The publisher describes a constantly changing surface, so re-read the arena instead of memorising it.",
+      "fit": "Good for players who like battle-royale-style movement and do not need a long progression. If you want precise shooting, this is melee positioning instead.",
+      "verdict": "A lively arena concept with a clear tension curve. Best in short rounds with friends or bots."
+    },
+    "cube-arena-2048-merge-numbers": {
+      "reviewedAt": "2026-11-22",
+      "why": "Cube Arena 2048 merges Snake movement with 2048 numbers. You collect cubes, merge equal values, and eat players with smaller numbers; the twist is that growth is both a score and a threat level, so a big cube is powerful but easy to read.",
+      "loop": "Slide around the arena, pick up blocks and bump equal numbers to merge them. The publisher describes the merge rule as the sum of both blocks, which means planning a route through the arena matters more than rapid clicking. Avoid larger players until your number is higher.",
+      "fit": "For players who like light strategy and number games. If you want fast reflexes only, the merge planning may feel slow.",
+      "verdict": "A clever hybrid that is easy to understand and harder to master. Worth a try for a short strategic run."
+    },
+    "ducklings-io": {
+      "reviewedAt": "2026-11-22",
+      "why": "Ducklings.io is a relaxed collection game: swim around, rescue ducklings, avoid boats and upgrade your nest. The publisher's tone is deliberately gentle, and the mouse, keyboard and joypad options make it accessible on a laptop.",
+      "loop": "Steer the duck, gather ducklings and return them to the nest. Boats are the main hazard, so the useful skill is route planning rather than speed. Upgrades are tied to your nest according to the description; expect a calm collection loop rather than combat.",
+      "fit": "Good for younger players, families and anyone who wants a low-pressure game. If you want competition or a fail-heavy challenge, this is not it.",
+      "verdict": "A pleasant, low-stakes collector. Its strength is tone and accessibility, not depth."
+    },
+    "would-you-rather": {
+      "reviewedAt": "2026-11-22",
+      "why": "Would You Rather? is a prompt game, not a skill game: it presents more than 120 questions and asks you to choose. The value is in the conversation around the choice, so it works best with other people in the room rather than as a solo grind.",
+      "loop": "Select a question and answer it. The publisher advertises offline play and a large question set; if you plan to use it on a trip, load it once while connected and confirm it still opens offline. There is no scoring or timer described.",
+      "fit": "Best for families, friends and ice-breakers. If you want a game with winning conditions or progression, this is a different kind of product.",
+      "verdict": "A social prompt tool rather than a traditional game. Useful when the group needs something to talk about."
+    }
+  }
+}

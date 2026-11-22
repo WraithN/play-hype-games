@@ -1,0 +1,766 @@
+{
+  "generatedAt": "2026-11-21T16:22:12.860Z",
+  "method": "cold fetch, no browser cache",
+  "results": [
+    {
+      "slug": "survivalpixel-io",
+      "title": "SurvivalPixel.io",
+      "embedUrl": "https://html5.gamemonetize.co/vbf4xpvfzbh03r17mnu662ifpwojhfvx/",
+      "checkedAt": "2026-11-21T16:21:21.565Z",
+      "document": {
+        "status": 200,
+        "ms": 882,
+        "bytes": 1426
+      },
+      "payload": {
+        "ms": 3242,
+        "bytes": 135950
+      },
+      "viewport": "width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no",
+      "generator": "Scirra Construct",
+      "assets": [
+        {
+          "url": "https://html5.gamemonetize.co/vbf4xpvfzbh03r17mnu662ifpwojhfvx/scripts/supportcheck.js",
+          "status": 200,
+          "ms": 225,
+          "bytes": 2435
+        },
+        {
+          "url": "https://html5.gamemonetize.co/vbf4xpvfzbh03r17mnu662ifpwojhfvx/scripts/offlineclient.js",
+          "status": 200,
+          "ms": 579,
+          "bytes": 603
+        },
+        {
+          "url": "https://html5.gamemonetize.co/vbf4xpvfzbh03r17mnu662ifpwojhfvx/scripts/main.js",
+          "status": 200,
+          "ms": 991,
+          "bytes": 131183
+        },
+        {
+          "url": "https://html5.gamemonetize.co/vbf4xpvfzbh03r17mnu662ifpwojhfvx/scripts/register-sw.js",
+          "status": 200,
+          "ms": 565,
+          "bytes": 303
+        }
+      ],
+      "keyboardCode": true,
+      "keyboardTokens": [],
+      "touchCode": true,
+      "touchTokens": [
+        "touchstart",
+        "touchmove",
+        "touchend",
+        "pointerdown",
+        "pointermove"
+      ]
+    },
+    {
+      "slug": "clown-park-hide-and-seek",
+      "title": "Clown Park Hide and Seek",
+      "embedUrl": "https://html5.gamemonetize.co/x89je06j8zmspnm8azsllfiylp8ervox/",
+      "checkedAt": "2026-11-21T16:21:26.400Z",
+      "document": {
+        "status": 200,
+        "ms": 404,
+        "bytes": 2266
+      },
+      "payload": {
+        "ms": 4196,
+        "bytes": 1443172
+      },
+      "viewport": "width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no",
+      "generator": "",
+      "assets": [
+        {
+          "url": "https://h5gamessdk.yyggames.com/sdk/YYGGamesBundle.js",
+          "status": 200,
+          "ms": 1544,
+          "bytes": 58163
+        },
+        {
+          "url": "https://h5gamessdk.yyggames.com/sdk/YYGGames.js",
+          "status": 200,
+          "ms": 1435,
+          "bytes": 1287592
+        },
+        {
+          "url": "https://html5.gamemonetize.co/x89je06j8zmspnm8azsllfiylp8ervox/platform.js",
+          "status": 200,
+          "ms": 221,
+          "bytes": 87972
+        },
+        {
+          "url": "https://html5.gamemonetize.co/x89je06j8zmspnm8azsllfiylp8ervox/libs/htmlfs.js",
+          "status": 404,
+          "ms": 592,
+          "bytes": 7179
+        }
+      ],
+      "keyboardCode": true,
+      "keyboardTokens": [
+        "ArrowRight",
+        "Enter",
+        "Escape",
+        "ArrowUp",
+        "ArrowDown",
+        "ArrowLeft"
+      ],
+      "touchCode": true,
+      "touchTokens": [
+        "touchstart",
+        "touchmove",
+        "touchend"
+      ]
+    },
+    {
+      "slug": "skibidi-war-toilets-attack",
+      "title": "Skibidi War Toilets Attack",
+      "embedUrl": "https://html5.gamemonetize.co/6nw0qptdh7pv9c6dv14rxserfbqqdoj5/",
+      "checkedAt": "2026-11-21T16:21:27.833Z",
+      "document": {
+        "status": 200,
+        "ms": 403,
+        "bytes": 3292
+      },
+      "payload": {
+        "ms": 818,
+        "bytes": 8865
+      },
+      "viewport": "width=device-width,user-scalable=no,initial-scale=1, minimum-scale=1,maximum-scale=1",
+      "generator": "",
+      "assets": [
+        {
+          "url": "https://html5.gamemonetize.co/6nw0qptdh7pv9c6dv14rxserfbqqdoj5/src/settings.755d3.js",
+          "status": 200,
+          "ms": 212,
+          "bytes": 573
+        },
+        {
+          "url": "https://html5.gamemonetize.co/6nw0qptdh7pv9c6dv14rxserfbqqdoj5/main.488c6.js",
+          "status": 200,
+          "ms": 203,
+          "bytes": 5000
+        }
+      ],
+      "keyboardCode": false,
+      "keyboardTokens": [],
+      "touchCode": false,
+      "touchTokens": []
+    },
+    {
+      "slug": "skibidi-online",
+      "title": "Skibidi Online",
+      "embedUrl": "https://html5.gamemonetize.co/zsp6q6syr025l3eaypqw6rxm9myjqn39/",
+      "checkedAt": "2026-11-21T16:21:30.242Z",
+      "document": {
+        "status": 200,
+        "ms": 398,
+        "bytes": 11727
+      },
+      "payload": {
+        "ms": 1792,
+        "bytes": 838930
+      },
+      "viewport": "user-scalable=no",
+      "generator": "",
+      "assets": [
+        {
+          "url": "https://html5.gamemonetize.co/zsp6q6syr025l3eaypqw6rxm9myjqn39/index.5f87f8b4.js",
+          "status": 200,
+          "ms": 1394,
+          "bytes": 827203
+        }
+      ],
+      "keyboardCode": true,
+      "keyboardTokens": [
+        "Space",
+        "KeyD",
+        "ArrowRight",
+        "KeyA",
+        "ArrowLeft",
+        "KeyW",
+        "ArrowUp",
+        "KeyS",
+        "ArrowDown",
+        "KeyE",
+        "Enter"
+      ],
+      "touchCode": true,
+      "touchTokens": [
+        "touchstart",
+        "touchmove",
+        "touchend",
+        "pointerdown",
+        "pointermove",
+        "ontouchstart"
+      ]
+    },
+    {
+      "slug": "monsters-dungeon-battle",
+      "title": "Monsters Dungeon Battle",
+      "embedUrl": "https://html5.gamemonetize.co/cb4lyqk01r8nugfoqxnaps191l2xvq9f/",
+      "checkedAt": "2026-11-21T16:21:31.476Z",
+      "document": {
+        "status": 200,
+        "ms": 392,
+        "bytes": 3429
+      },
+      "payload": {
+        "ms": 625,
+        "bytes": 16740
+      },
+      "viewport": "",
+      "generator": "",
+      "assets": [
+        {
+          "url": "https://html5.gamemonetize.co/cb4lyqk01r8nugfoqxnaps191l2xvq9f/Build/GM.loader.js",
+          "status": 200,
+          "ms": 233,
+          "bytes": 13311
+        }
+      ],
+      "keyboardCode": false,
+      "keyboardTokens": [],
+      "touchCode": false,
+      "touchTokens": []
+    },
+    {
+      "slug": "sumo-smash",
+      "title": "Sumo Smash!",
+      "embedUrl": "https://html5.gamemonetize.co/zyjcvyrbjdb4400t324nzijc1in3hi5k/",
+      "checkedAt": "2026-11-21T16:21:33.390Z",
+      "document": {
+        "status": 200,
+        "ms": 436,
+        "bytes": 1717
+      },
+      "payload": {
+        "ms": 1295,
+        "bytes": 301336
+      },
+      "viewport": "width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no",
+      "generator": "Scirra Construct",
+      "assets": [
+        {
+          "url": "https://html5.gamemonetize.co/zyjcvyrbjdb4400t324nzijc1in3hi5k/gl-matrix.js",
+          "status": 200,
+          "ms": 237,
+          "bytes": 206458
+        },
+        {
+          "url": "https://html5.gamemonetize.co/zyjcvyrbjdb4400t324nzijc1in3hi5k/gltfData.js",
+          "status": 200,
+          "ms": 209,
+          "bytes": 15599
+        },
+        {
+          "url": "https://html5.gamemonetize.co/zyjcvyrbjdb4400t324nzijc1in3hi5k/gltfModel.js",
+          "status": 200,
+          "ms": 213,
+          "bytes": 44690
+        },
+        {
+          "url": "https://html5.gamemonetize.co/zyjcvyrbjdb4400t324nzijc1in3hi5k/gltfModelW.js",
+          "status": 200,
+          "ms": 200,
+          "bytes": 32872
+        }
+      ],
+      "keyboardCode": false,
+      "keyboardTokens": [],
+      "touchCode": false,
+      "touchTokens": []
+    },
+    {
+      "slug": "grimace-matching",
+      "title": "Grimace Matching",
+      "embedUrl": "https://html5.gamemonetize.co/5tg5veqg430p06bpuhm5awkis3g0f6ue/",
+      "checkedAt": "2026-11-21T16:21:36.544Z",
+      "document": {
+        "status": 200,
+        "ms": 398,
+        "bytes": 2954
+      },
+      "payload": {
+        "ms": 2546,
+        "bytes": 210004
+      },
+      "viewport": "width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no",
+      "generator": "Scirra Construct",
+      "assets": [
+        {
+          "url": "https://html5.gamemonetize.co/5tg5veqg430p06bpuhm5awkis3g0f6ue/scripts/supportcheck.js",
+          "status": 200,
+          "ms": 210,
+          "bytes": 2806
+        },
+        {
+          "url": "https://html5.gamemonetize.co/5tg5veqg430p06bpuhm5awkis3g0f6ue/scripts/offlineclient.js",
+          "status": 200,
+          "ms": 564,
+          "bytes": 868
+        },
+        {
+          "url": "https://html5.gamemonetize.co/5tg5veqg430p06bpuhm5awkis3g0f6ue/scripts/main.js",
+          "status": 200,
+          "ms": 796,
+          "bytes": 202941
+        },
+        {
+          "url": "https://html5.gamemonetize.co/5tg5veqg430p06bpuhm5awkis3g0f6ue/scripts/register-sw.js",
+          "status": 200,
+          "ms": 578,
+          "bytes": 435
+        }
+      ],
+      "keyboardCode": true,
+      "keyboardTokens": [],
+      "touchCode": true,
+      "touchTokens": [
+        "touchstart",
+        "touchmove",
+        "touchend",
+        "pointerdown",
+        "pointermove"
+      ]
+    },
+    {
+      "slug": "merge-room",
+      "title": "Merge Room",
+      "embedUrl": "https://html5.gamemonetize.co/ctu798dfdum75hgsv7l34gpc9ainsji4/",
+      "checkedAt": "2026-11-21T16:21:38.002Z",
+      "document": {
+        "status": 200,
+        "ms": 397,
+        "bytes": 7052
+      },
+      "payload": {
+        "ms": 850,
+        "bytes": 101308
+      },
+      "viewport": "",
+      "generator": "",
+      "assets": [
+        {
+          "url": "https://html5.gamemonetize.co/ctu798dfdum75hgsv7l34gpc9ainsji4/yawer/jquery-3.6.0.min.js",
+          "status": 200,
+          "ms": 231,
+          "bytes": 89501
+        },
+        {
+          "url": "https://html5.gamemonetize.co/ctu798dfdum75hgsv7l34gpc9ainsji4/yawer/finaleHopefully.js",
+          "status": 200,
+          "ms": 222,
+          "bytes": 4755
+        }
+      ],
+      "keyboardCode": true,
+      "keyboardTokens": [],
+      "touchCode": true,
+      "touchTokens": [
+        "touchstart"
+      ]
+    },
+    {
+      "slug": "meteor-io",
+      "title": "Meteor.io",
+      "embedUrl": "https://html5.gamemonetize.co/ou78d7yjy1fvg9ww5qd9228mjzyctdlh/",
+      "checkedAt": "2026-11-21T16:21:39.210Z",
+      "document": {
+        "status": 200,
+        "ms": 400,
+        "bytes": 5034
+      },
+      "payload": {
+        "ms": 600,
+        "bytes": 36846
+      },
+      "viewport": "width=device-width, initial-scale=1.0, user-scalable=no",
+      "generator": "",
+      "assets": [
+        {
+          "url": "https://html5.gamemonetize.co/ou78d7yjy1fvg9ww5qd9228mjzyctdlh/TemplateData/gamepush-unity.js",
+          "status": 200,
+          "ms": 200,
+          "bytes": 31812
+        }
+      ],
+      "keyboardCode": false,
+      "keyboardTokens": [],
+      "touchCode": true,
+      "touchTokens": [
+        "pointerdown"
+      ]
+    },
+    {
+      "slug": "field-of-dreams-simulation-adventure",
+      "title": "Field of Dreams: Simulation Adventure",
+      "embedUrl": "https://html5.gamemonetize.co/r459clg1msy6s04k8kfv1bdskk8gnql7/",
+      "checkedAt": "2026-11-21T16:21:40.210Z",
+      "document": {
+        "status": 200,
+        "ms": 387,
+        "bytes": 3790
+      },
+      "payload": {
+        "ms": 387,
+        "bytes": 3790
+      },
+      "viewport": "width=device-width, initial-scale=1.0, user-scalable=no",
+      "generator": "",
+      "assets": [],
+      "keyboardCode": false,
+      "keyboardTokens": [],
+      "touchCode": false,
+      "touchTokens": []
+    },
+    {
+      "slug": "skibidi-hero-io",
+      "title": "Skibidi Hero.IO",
+      "embedUrl": "https://html5.gamemonetize.co/4ks356oenpbqv9qz7artzrsz828nlh2b/",
+      "checkedAt": "2026-11-21T16:21:41.425Z",
+      "document": {
+        "status": 200,
+        "ms": 395,
+        "bytes": 3502
+      },
+      "payload": {
+        "ms": 606,
+        "bytes": 16109
+      },
+      "viewport": "",
+      "generator": "",
+      "assets": [
+        {
+          "url": "https://html5.gamemonetize.co/4ks356oenpbqv9qz7artzrsz828nlh2b/Build/BuildLikeJager.loader.js",
+          "status": 200,
+          "ms": 211,
+          "bytes": 12607
+        }
+      ],
+      "keyboardCode": false,
+      "keyboardTokens": [],
+      "touchCode": false,
+      "touchTokens": []
+    },
+    {
+      "slug": "hole-and-collect",
+      "title": "Hole and Collect",
+      "embedUrl": "https://html5.gamemonetize.co/j005mth1swnpqsqo4bb0xcq3znf2zgkt/",
+      "checkedAt": "2026-11-21T16:21:43.370Z",
+      "document": {
+        "status": 200,
+        "ms": 390,
+        "bytes": 3522
+      },
+      "payload": {
+        "ms": 1339,
+        "bytes": 117862
+      },
+      "viewport": "",
+      "generator": "",
+      "assets": [
+        {
+          "url": "https://html5.gamemonetize.co/j005mth1swnpqsqo4bb0xcq3znf2zgkt/Build/Build.loader.js",
+          "status": 200,
+          "ms": 949,
+          "bytes": 114340
+        }
+      ],
+      "keyboardCode": false,
+      "keyboardTokens": [],
+      "touchCode": false,
+      "touchTokens": []
+    },
+    {
+      "slug": "sumo-battle",
+      "title": "Sumo Battle!",
+      "embedUrl": "https://html5.gamemonetize.co/7mdskoub4xtdgvith418pqnpxjv1ewx3/",
+      "checkedAt": "2026-11-21T16:21:45.724Z",
+      "document": {
+        "status": 200,
+        "ms": 883,
+        "bytes": 1825
+      },
+      "payload": {
+        "ms": 1738,
+        "bytes": 301429
+      },
+      "viewport": "width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no",
+      "generator": "Scirra Construct",
+      "assets": [
+        {
+          "url": "https://html5.gamemonetize.co/7mdskoub4xtdgvith418pqnpxjv1ewx3/gl-matrix.js",
+          "status": 200,
+          "ms": 230,
+          "bytes": 206458
+        },
+        {
+          "url": "https://html5.gamemonetize.co/7mdskoub4xtdgvith418pqnpxjv1ewx3/gltfData.js",
+          "status": 200,
+          "ms": 210,
+          "bytes": 15584
+        },
+        {
+          "url": "https://html5.gamemonetize.co/7mdskoub4xtdgvith418pqnpxjv1ewx3/gltfModel.js",
+          "status": 200,
+          "ms": 215,
+          "bytes": 44690
+        },
+        {
+          "url": "https://html5.gamemonetize.co/7mdskoub4xtdgvith418pqnpxjv1ewx3/gltfModelW.js",
+          "status": 200,
+          "ms": 200,
+          "bytes": 32872
+        }
+      ],
+      "keyboardCode": false,
+      "keyboardTokens": [],
+      "touchCode": false,
+      "touchTokens": []
+    },
+    {
+      "slug": "protect-emojis",
+      "title": "Protect Emojis",
+      "embedUrl": "https://html5.gamemonetize.co/0axk51a0a4xdeubeu45bl0x8mu7zfllb/",
+      "checkedAt": "2026-11-21T16:21:48.885Z",
+      "document": {
+        "status": 200,
+        "ms": 398,
+        "bytes": 3002
+      },
+      "payload": {
+        "ms": 2553,
+        "bytes": 608030
+      },
+      "viewport": "width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no",
+      "generator": "Scirra Construct",
+      "assets": [
+        {
+          "url": "https://html5.gamemonetize.co/0axk51a0a4xdeubeu45bl0x8mu7zfllb/box2d.wasm.js",
+          "status": 200,
+          "ms": 433,
+          "bytes": 393454
+        },
+        {
+          "url": "https://html5.gamemonetize.co/0axk51a0a4xdeubeu45bl0x8mu7zfllb/scripts/supportcheck.js",
+          "status": 200,
+          "ms": 198,
+          "bytes": 2806
+        },
+        {
+          "url": "https://html5.gamemonetize.co/0axk51a0a4xdeubeu45bl0x8mu7zfllb/scripts/offlineclient.js",
+          "status": 200,
+          "ms": 574,
+          "bytes": 868
+        },
+        {
+          "url": "https://html5.gamemonetize.co/0axk51a0a4xdeubeu45bl0x8mu7zfllb/scripts/main.js",
+          "status": 200,
+          "ms": 950,
+          "bytes": 207900
+        }
+      ],
+      "keyboardCode": true,
+      "keyboardTokens": [],
+      "touchCode": true,
+      "touchTokens": [
+        "touchstart",
+        "touchmove",
+        "touchend",
+        "pointerdown",
+        "pointermove"
+      ]
+    },
+    {
+      "slug": "eat-small-fish",
+      "title": "Eat Small Fish",
+      "embedUrl": "https://html5.gamemonetize.co/5h7odu5oyzgdzo77493utlamcoz43wlj/",
+      "checkedAt": "2026-11-21T16:21:49.945Z",
+      "document": {
+        "status": 200,
+        "ms": 390,
+        "bytes": 4198
+      },
+      "payload": {
+        "ms": 448,
+        "bytes": 4863
+      },
+      "viewport": "width=device-width,initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no",
+      "generator": "",
+      "assets": [
+        {
+          "url": "https://stat.api.4399.com/h5api/h5api.php",
+          "status": 200,
+          "ms": 58,
+          "bytes": 665
+        }
+      ],
+      "keyboardCode": false,
+      "keyboardTokens": [],
+      "touchCode": false,
+      "touchTokens": []
+    },
+    {
+      "slug": "bingo-real",
+      "title": "BINGO Real",
+      "embedUrl": "https://html5.gamemonetize.co/w7w5gwfb43usxnt3v70zhmtynywxfsam/",
+      "checkedAt": "2026-11-21T16:22:02.633Z",
+      "document": {
+        "status": 200,
+        "ms": 393,
+        "bytes": 16610
+      },
+      "payload": {
+        "ms": 1797,
+        "bytes": 115435
+      },
+      "viewport": "initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width, user-scalable=no, minimal-ui",
+      "generator": "",
+      "assets": [
+        {
+          "url": "https://html5.gamemonetize.co/w7w5gwfb43usxnt3v70zhmtynywxfsam/js/generatCard.js",
+          "status": 200,
+          "ms": 209,
+          "bytes": 1982
+        },
+        {
+          "url": "https://html5.gamemonetize.co/w7w5gwfb43usxnt3v70zhmtynywxfsam/js/jquery-3.6.1.min.js",
+          "status": 200,
+          "ms": 220,
+          "bytes": 89664
+        },
+        {
+          "url": "https://connect.facebook.net/en_US/fbinstant.6.2.js",
+          "error": "fetch failed"
+        },
+        {
+          "url": "https://html5.gamemonetize.co/fbLoader.js",
+          "status": 404,
+          "ms": 975,
+          "bytes": 7179
+        }
+      ],
+      "keyboardCode": true,
+      "keyboardTokens": [],
+      "touchCode": false,
+      "touchTokens": []
+    },
+    {
+      "slug": "island-battle-3d",
+      "title": "Island Battle 3D",
+      "embedUrl": "https://html5.gamemonetize.co/xt2j7aqkio7orm6km73231nh06tnmv9q/",
+      "checkedAt": "2026-11-21T16:22:09.039Z",
+      "document": {
+        "status": 200,
+        "ms": 405,
+        "bytes": 4472
+      },
+      "payload": {
+        "ms": 5778,
+        "bytes": 1305490
+      },
+      "viewport": "width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no",
+      "generator": "",
+      "assets": [
+        {
+          "url": "https://h5gamessdk.yyggames.com/sdk/YYGGames.js",
+          "status": 200,
+          "ms": 4795,
+          "bytes": 1287592
+        },
+        {
+          "url": "https://html5.gamemonetize.co/xt2j7aqkio7orm6km73231nh06tnmv9q/Adapter.js",
+          "status": 200,
+          "ms": 578,
+          "bytes": 13426
+        }
+      ],
+      "keyboardCode": true,
+      "keyboardTokens": [
+        "ArrowRight",
+        "Enter",
+        "Escape",
+        "ArrowUp",
+        "ArrowDown",
+        "ArrowLeft"
+      ],
+      "touchCode": true,
+      "touchTokens": [
+        "touchstart",
+        "touchmove",
+        "touchend"
+      ]
+    },
+    {
+      "slug": "cube-arena-2048-merge-numbers",
+      "title": "Cube Arena 2048 Merge Numbers",
+      "embedUrl": "https://html5.gamemonetize.co/83up5y2u78nvd5ngywugy6j4g3im4lda/",
+      "checkedAt": "2026-11-21T16:22:10.036Z",
+      "document": {
+        "status": 200,
+        "ms": 386,
+        "bytes": 3409
+      },
+      "payload": {
+        "ms": 386,
+        "bytes": 3409
+      },
+      "viewport": "width=device-width, initial-scale=1.0, user-scalable=no",
+      "generator": "",
+      "assets": [],
+      "keyboardCode": false,
+      "keyboardTokens": [],
+      "touchCode": false,
+      "touchTokens": []
+    },
+    {
+      "slug": "ducklings-io",
+      "title": "Ducklings.io",
+      "embedUrl": "https://html5.gamemonetize.co/e1whjwhbyjsiaj82vmd60sgw9tk5370l/",
+      "checkedAt": "2026-11-21T16:22:11.269Z",
+      "document": {
+        "status": 200,
+        "ms": 631,
+        "bytes": 6201
+      },
+      "payload": {
+        "ms": 631,
+        "bytes": 6201
+      },
+      "viewport": "width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover",
+      "generator": "",
+      "assets": [],
+      "keyboardCode": false,
+      "keyboardTokens": [],
+      "touchCode": true,
+      "touchTokens": [
+        "touchstart",
+        "ontouchstart"
+      ]
+    },
+    {
+      "slug": "would-you-rather",
+      "title": "Would you Rather?",
+      "embedUrl": "https://html5.gamemonetize.co/ixvzq0t2ry6tuekdtiih6fio7rur9scx/",
+      "checkedAt": "2026-11-21T16:22:12.251Z",
+      "document": {
+        "status": 200,
+        "ms": 377,
+        "bytes": 3859
+      },
+      "payload": {
+        "ms": 377,
+        "bytes": 3859
+      },
+      "viewport": "width=device-width, initial-scale=1.0, user-scalable=no",
+      "generator": "",
+      "assets": [],
+      "keyboardCode": false,
+      "keyboardTokens": [],
+      "touchCode": false,
+      "touchTokens": []
+    }
+  ]
+}

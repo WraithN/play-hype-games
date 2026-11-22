@@ -431,7 +431,35 @@ body.hype .prose h2{
 }
 body.hype .prose h2 + p{margin-top:0}
 body.hype .prose p{color:var(--h-fg-dim);line-height:1.75;font-size:15px;margin:0 0 14px}
-body.hype .prose .source-note{font-size:12px;line-height:1.5;opacity:.8;margin-top:-6px}
+body.hype .prose .source-note{font-size:12px;line-height:1.5;opacity:1;margin-top:-6px}
+
+/* 游戏页编辑实测块 */
+.hype .editor-notes{
+  margin:26px 0 30px;padding:clamp(18px,2.4vw,28px);
+  background:var(--h-surface-2);border:1px solid var(--h-line);border-radius:18px;
+}
+.hype .editor-notes .en-top{
+  display:flex;align-items:baseline;justify-content:space-between;gap:10px 16px;flex-wrap:wrap;margin-bottom:10px;
+}
+.hype .editor-notes .en-top h2{
+  font-family:var(--h-font);font-size:clamp(20px,2.1vw,26px);font-weight:800;color:var(--h-fg);margin:0;line-height:1.15;
+}
+.hype .editor-notes .en-top span{
+  font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--h-fg-dim);
+}
+.hype .editor-notes h3{
+  font-family:var(--h-font);font-size:clamp(15px,1.6vw,18px);font-weight:800;color:var(--h-fg);margin:18px 0 6px;
+}
+.hype .editor-notes p{color:var(--h-fg-dim);font-size:15px;line-height:1.72;margin:0 0 10px;max-width:74ch}
+.hype .editor-notes .en-lede{color:var(--h-fg);font-size:16px}
+.hype .test-log{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:10px 0 12px}
+.hype .test-log > div{background:var(--h-surface);border:1px solid var(--h-line);border-radius:12px;padding:10px 12px}
+.hype .test-log span{display:block;font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--h-fg-dim);margin-bottom:3px}
+.hype .test-log strong{display:block;font-size:14px;line-height:1.4;color:var(--h-fg)}
+.hype .editor-notes .test-method{font-size:12px;line-height:1.6;margin:0;opacity:1}
+@media (max-width:560px){
+  .hype .test-log{grid-template-columns:1fr}
+}
 body.hype .prose ul,body.hype .prose ol{color:var(--h-fg-dim);line-height:1.8;padding-left:20px;margin:0 0 16px}
 body.hype .prose a{color:var(--h-accent);font-weight:700}
 body.hype .tag-chip{
@@ -773,6 +801,34 @@ body.hype main{flex:1 0 auto}
 .hype .post-body pre code{background:none;padding:0}
 .hype .post-body img{width:100%;height:auto;border-radius:18px;margin:0 0 20px;display:block}
 .hype .post-body hr{border:0;height:1px;background:var(--h-line);margin:28px 0}
+
+/* 作者页与文章作者框 */
+.hype .author-box{
+  display:flex;gap:16px;align-items:flex-start;margin:30px 0 0;padding:18px;
+  background:var(--h-surface-2);border:1px solid var(--h-line);border-radius:16px;
+}
+.hype .author-avatar{
+  flex:0 0 auto;width:46px;height:46px;border-radius:50%;display:grid;place-items:center;
+  background:var(--h-surface);border:2px solid var(--h-card-bd);color:var(--h-accent);
+  font-family:var(--h-font);font-weight:800;font-size:20px;box-shadow:0 5px 12px var(--h-shadow-soft);
+}
+.hype .author-box-body{min-width:0}
+.hype .author-name{font-family:var(--h-font);font-size:17px;font-weight:800;color:var(--h-fg);text-decoration:none}
+.hype .author-name:hover{color:var(--h-accent)}
+.hype .author-role{display:block;font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--h-fg-dim);margin:2px 0 8px}
+.hype .author-box p{font-size:14px;line-height:1.65;color:var(--h-fg-dim);margin:0;max-width:70ch}
+.hype .author-hero{padding:clamp(30px,5vw,58px) 0 clamp(8px,1.4vw,16px)}
+.hype .author-hero-inner{display:flex;gap:clamp(16px,2.4vw,24px);align-items:flex-start;max-width:820px}
+.hype .author-avatar-lg{width:72px;height:72px;font-size:30px}
+.hype .author-hero h1{font-family:var(--h-font);font-size:clamp(30px,4vw,46px);font-weight:800;line-height:1.05;color:var(--h-fg);margin:2px 0 10px}
+.hype .author-hero p{font-size:16px;line-height:1.7;color:var(--h-fg-dim);margin:0;max-width:62ch}
+.hype .author-links{display:flex;gap:16px;flex-wrap:wrap;margin-top:14px}
+.hype .author-links a{font-size:13px;font-weight:800;color:var(--h-accent);text-decoration:none;border-bottom:2px solid rgba(47,111,179,.28)}
+.hype .author-links a:hover{border-bottom-color:var(--h-accent)}
+.hype .author-section-title{font-family:var(--h-font);font-size:clamp(20px,2.2vw,28px);font-weight:800;color:var(--h-fg);margin:0 0 18px}
+@media (max-width:560px){
+  .hype .author-hero-inner{flex-direction:column}
+}
 
 .hype .post-games{margin-top:clamp(24px,3vw,38px)}
 .hype .post-foot{margin-top:32px;padding-top:22px;border-top:1px solid var(--h-line)}
