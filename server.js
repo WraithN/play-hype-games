@@ -236,6 +236,9 @@ function handleFront(req, res, url) {
   // 作者页
   if (pathname.startsWith('/author/')) {
     const slug = pathname.slice('/author/'.length);
+    if (slug === 'wraithn') {
+      return send(res, 301, '', { Location: '/author/wangnan' });
+    }
     const html = blog.authorPage(slug, posts, settings);
     if (!html) return null;
     return send(res, 200, html);

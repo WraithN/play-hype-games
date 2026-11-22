@@ -811,7 +811,9 @@ body.hype main{flex:1 0 auto}
   flex:0 0 auto;width:46px;height:46px;border-radius:50%;display:grid;place-items:center;
   background:var(--h-surface);border:2px solid var(--h-card-bd);color:var(--h-accent);
   font-family:var(--h-font);font-weight:800;font-size:20px;box-shadow:0 5px 12px var(--h-shadow-soft);
+  overflow:hidden;
 }
+.hype .author-avatar img{width:100%;height:100%;object-fit:cover;border-radius:50%;display:block}
 .hype .author-box-body{min-width:0}
 .hype .author-name{font-family:var(--h-font);font-size:17px;font-weight:800;color:var(--h-fg);text-decoration:none}
 .hype .author-name:hover{color:var(--h-accent)}
@@ -822,6 +824,8 @@ body.hype main{flex:1 0 auto}
 .hype .author-avatar-lg{width:72px;height:72px;font-size:30px}
 .hype .author-hero h1{font-family:var(--h-font);font-size:clamp(30px,4vw,46px);font-weight:800;line-height:1.05;color:var(--h-fg);margin:2px 0 10px}
 .hype .author-hero p{font-size:16px;line-height:1.7;color:var(--h-fg-dim);margin:0;max-width:62ch}
+.hype .author-hero .author-affiliation{font-size:13px;font-weight:800;color:var(--h-accent);margin:0 0 14px;text-transform:none;letter-spacing:0}
+.hype .author-hero .author-bio p{font-size:16px;line-height:1.7;color:var(--h-fg-dim);margin:0 0 12px;max-width:62ch}
 .hype .author-links{display:flex;gap:16px;flex-wrap:wrap;margin-top:14px}
 .hype .author-links a{font-size:13px;font-weight:800;color:var(--h-accent);text-decoration:none;border-bottom:2px solid rgba(47,111,179,.28)}
 .hype .author-links a:hover{border-bottom-color:var(--h-accent)}

@@ -6,7 +6,7 @@
     "excerpt": "Arena games live and die by their player count. Here are the ones still filling rooms in November, and how to tell a live server from a dead one before you commit a round.",
     "body": "A .io game is the shortest path from a link to actual play. No install, no account, no launcher — the page loads and within a couple of seconds you are moving around an arena with everyone else who opened it at the same time.\n\nThe catch is that arena games live and die by their player count. A title that was packed last spring can sit at eleven players today, and an empty room makes even a good game feel broken. So we re-check the rooms instead of trusting last year's rankings.\n\n## Our pick right now: Slime IO 2\n\n[Slime IO 2](/game/slime-io-2) is the one we keep coming back to. The loop is simple enough to understand in one round — eat what is smaller than you, avoid what is bigger — and the map gives you enough room to make a mistake and recover from it.\n\nWhat separates it from the dozens of clones is the pacing. Growth is fast in the first ninety seconds, so you are never stuck as a tiny blob for long. That matters more than any feature list: a .io game that takes four minutes to become interesting has already lost most of its players.\n\n## If you want a fight instead of a grind\n\n[Robot Battle X](/game/robot-battle-x) leans harder on combat. Rounds are shorter, respawns are faster, and the arena is small enough that you will meet someone within ten seconds. It is a worse choice if you want a relaxed session, and a better one if you have five minutes and want something to happen.\n\n## How to tell if a server is alive\n\nThree things to check before you invest a round:\n\n- **Player count on the lobby screen.** Under about twenty and you will spend more time looking for opponents than fighting them.\n- **Server age.** Most .io games spin up a fresh room every few hours. The newest room fills first; older rooms empty out quietly.\n- **Join timing.** Rooms that opened in the last ten minutes still have players joining. Rooms that opened six hours ago usually have a handful of veterans and nobody else.\n\n## What we skip\n\nWe drop a .io title when it stops loading reliably, when the room sits empty across several checks, or when the build has not been touched in over a year. Keeping a dead link in a list is worse than having a shorter list — the visitor clicks, waits, and leaves without playing anything.\n\nThat is also why this page changes more often than the rest of the site. Check back in a month and at least one entry here will be different.",
     "cover": "",
-    "author": "WraithN",
+    "author": "WangNan",
     "tags": [
       "io",
       "roundup"
@@ -18,7 +18,7 @@
     "status": "published",
     "publishedAt": "2026-11-16",
     "updatedAt": "2026-11-16T09:00:00.000Z",
-    "authorSlug": "wraithn"
+    "authorSlug": "wangnan"
   },
   {
     "id": 2,
@@ -27,7 +27,7 @@
     "excerpt": "Eleven additions this week, from a miner that keeps pulling you back to a racing game that runs on a school laptop. Here is what went live and why it made the cut.",
     "body": "Every week we add a batch of games and quietly drop a few that stopped working. This is the short version of what changed, so you can see the reasoning instead of just a grid of new thumbnails.\n\n## What went live\n\nThe batch leans toward games you can pick up in a spare five minutes. That is deliberate — the majority of people opening this site are between two things, not planning a session.\n\n- [Miner Tycoon](/game/miner-tycoon) — dig, sell, upgrade, repeat. The progression curve is steep enough that the first upgrade lands inside two minutes.\n- [Cookie Kingdom](/game/cookie-kingdom) — a clicker with an actual visual payoff. Buildings appear on screen as you buy them, which makes the numbers feel less abstract.\n- [Pocket Racer](/game/pocket-racer) — top-down racing that runs fine on integrated graphics. No 3D, no loading bar, no fan noise.\n- [Tower Tactics](/game/tower-tactics) — a small tower defence with three maps. Short, but it respects your time and does not pad the difficulty by making waves longer.\n\n## What we removed\n\nTwo idle games came out of the list this week. Both still loaded, but their save system broke with a browser update, which means progress vanished on refresh. A broken save is worse than a missing game: people lose an hour and blame the site.\n\n## Why these and not the other forty\n\nWe looked at roughly forty candidates this week. Most were filtered out before they reached a page:\n\n- **Too heavy to load.** Anything that takes more than a few seconds on a normal connection is out, regardless of quality.\n- **No clean embed.** If a publisher only offers a page wrapper instead of a direct iframe, we skip it rather than work around it.\n- **Duplicate of something already here.** A second farming clicker only makes sense if it does something the first one does not.\n\n## Next week\n\nWe are testing a batch of two-player games aimed at the same-keyboard setup — the kind you play with someone sitting next to you. If the controls map cleanly on a laptop keyboard, a few of them will land next week. If they need a gamepad, they will not.\n\nIf you have played something that belongs here, send it through the contact page. We read everything, even when we cannot add it.",
     "cover": "",
-    "author": "WraithN",
+    "author": "WangNan",
     "tags": [
       "weekly",
       "new"
@@ -41,7 +41,7 @@
     "status": "published",
     "publishedAt": "2026-11-18",
     "updatedAt": "2026-11-18T08:30:00.000Z",
-    "authorSlug": "wraithn"
+    "authorSlug": "wangnan"
   },
   {
     "id": 3,
@@ -50,7 +50,7 @@
     "excerpt": "We do not make games, so the only thing we can be trusted for is curation. Here is the exact checklist every title passes before it gets a page, and what gets it removed.",
     "body": "We do not develop games and we do not host game files. Every title on this site runs on its publisher's own infrastructure. That means the only thing we can genuinely be trusted for is curation — deciding what is worth your click and what is not.\n\nSo here is the actual checklist, not a marketing version of it.\n\n## What a game has to pass to get listed\n\n1. **It loads inside a browser tab.** No download prompt, no launcher, no installer. If a game needs a desktop client, it is not a browser game.\n2. **It plays on integrated graphics.** We check on a laptop without a discrete GPU, because that is what most visitors are using. A game that needs a graphics card is a game most people cannot play.\n3. **The embed is first-party.** The publisher has to offer a direct iframe. We do not wrap someone else's page or strip a competitor's branding to make a game fit.\n4. **Controls work on a normal keyboard.** Arrow keys and WASD, mouse for aiming, space for action. Anything that silently requires a controller gets skipped.\n5. **It saves properly, or does not pretend to.** Progress that vanishes on refresh is worse than no progress at all.\n\n## What gets a game removed\n\nLists rot. A page that stays up after the game behind it dies is worse than a short list, because the visitor pays the cost — they click, wait, and leave.\n\nWe remove a title when:\n\n- it stops loading across several checks;\n- the room sits empty for more than a week (multiplayer only);\n- the build has not been updated in over a year and has visible breakage;\n- the publisher pulls the embed or changes the terms.\n\n## What we do not do\n\nWe do not re-host files, we do not clone another site's catalogue, and we do not put a game on a page that only exists to hold ads. Every page carries a real description, controls, and links to similar titles, because a page with nothing but an iframe is not something search engines or visitors should reward.\n\n## How the site makes money\n\nAdvertising. Some listings may also be part of a distribution partner's revenue-share programme, which pays the site when a game is played. That does not change what gets listed — a game that fails the checklist above does not get a page because it pays better.\n\nIf you think we got a call wrong, or a game here is broken for you, the contact page goes straight to us.",
     "cover": "",
-    "author": "WraithN",
+    "author": "WangNan",
     "tags": [
       "editorial",
       "about"
@@ -59,6 +59,6 @@
     "status": "published",
     "publishedAt": "2026-11-10",
     "updatedAt": "2026-11-10T10:00:00.000Z",
-    "authorSlug": "wraithn"
+    "authorSlug": "wangnan"
   }
 ]

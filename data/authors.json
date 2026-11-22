@@ -1,12 +1,30 @@
 {
   "authors": [
     {
-      "slug": "wraithn",
-      "name": "WraithN",
-      "role": "Editor",
-      "bio": "Maintains the PLAY HYPE GAMES catalogue and writes the site's game notes. Reviews embed behaviour, catalogue metadata and page copy; not a game developer.",
-      "sameAs": ["https://github.com/WraithN"],
-      "knowsAbout": ["Browser games", "HTML5 games", "Game catalogue curation"]
+      "slug": "wangnan",
+      "name": "WangNan",
+      "role": "Founder & Editor",
+      "bio": "WangNan is a software engineer and indie founder. He maintains PLAY HYPE GAMES, writes its game notes and checks the catalogue's embeds and metadata; he is not a game developer.",
+      "longBio": [
+        "WangNan is a software engineer and indie founder. He maintains PLAY HYPE GAMES, writes its game notes, and checks the catalogue's embeds and metadata before a page is treated as reviewed.",
+        "At Uncorne he works on Next.js SaaS starters with real billing, row-level security and machine-readable docs. His writing on make1day.dev is built against working code, and the same rule applies here: label what was checked, and say what was not."
+      ],
+      "avatar": "/assets/authors/wangnan.png",
+      "sameAs": [
+        "https://www.make1day.dev/en/author/wangnan",
+        "https://www.uncorne.com"
+      ],
+      "worksFor": {
+        "name": "PLAY HYPE GAMES",
+        "url": "https://www.playhypegames.com/"
+      },
+      "knowsAbout": [
+        "Browser games",
+        "HTML5 games",
+        "Game catalogue curation",
+        "Next.js",
+        "SaaS infrastructure"
+      ]
     }
   ]
 }

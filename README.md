@@ -224,7 +224,7 @@ SEO
 
 ### 作者
 
-`data/authors.json` 保存具名作者。当前编辑是 `WraithN`（公开化名，GitHub: `WraithN`），文章 byline 链接到 `/author/wraithn`，`BlogPosting.author` 输出 `Person`。要换成真实姓名或另一位编辑，改这个文件里的 `name`、`slug`、`bio`、`sameAs`，再更新 `data/posts.json` 的 `authorSlug` 即可；不要编造资历或头衔。后台文章编辑页也有 `Author slug` 字段。
+`data/authors.json` 保存具名作者。当前编辑是 **WangNan**（`/author/wangnan`），与 `make1day.dev` 的作者页（`https://www.make1day.dev/en/author/wangnan`）和 Uncorne 通过 `sameAs` 关联；文章 byline 指向作者页，`BlogPosting.author` 输出 `Person`。要换成另一位编辑，改这个文件里的 `name`、`slug`、`bio`、`avatar`、`sameAs`，再更新 `data/posts.json` 的 `authorSlug` 即可；不要编造资历或头衔。后台文章编辑页也有 `Author slug` 字段。
 
 ## 6. 端口
 
