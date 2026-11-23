@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-22T00:00:00.000Z",
+  "generatedAt": "2026-11-23T06:25:25.308Z",
   "note": "Original editorial notes for the 20 most exposed game pages. Measurements live in data/game-audits.json and are rendered separately.",
   "games": {
     "survivalpixel-io": {
@@ -141,6 +141,166 @@
       "loop": "Select a question and answer it. The publisher advertises offline play and a large question set; if you plan to use it on a trip, load it once while connected and confirm it still opens offline. There is no scoring or timer described.",
       "fit": "Best for families, friends and ice-breakers. If you want a game with winning conditions or progression, this is a different kind of product.",
       "verdict": "A social prompt tool rather than a traditional game. Useful when the group needs something to talk about."
+    },
+    "worms-arena-io": {
+      "reviewedAt": "2026-11-23",
+      "why": "Worms Arena iO is a snake-style arena where the map is covered in bait and the shortest path to power is eating before anyone else. The twist is trapping rivals rather than only outgrowing them, so a well-timed cut can matter more than raw length.",
+      "loop": "Steer with the mouse, left/right arrows or A/D; boost with Space or left-click. Collect bait, cut off smaller snakes, and spend coins on new snakes in the marketplace. The publisher lists an unlock shop, so expect repeat runs rather than a single campaign.",
+      "check": "Check the boost cost before committing to a trap. A missed cut can leave you short and easy to circle.",
+      "fit": "Best for players who like .io growth games and quick restarts. If you want a story or a solo puzzle, this is a competitive arena.",
+      "verdict": "A familiar formula with a useful boost-and-trap layer. Worth a run if the arena is active."
+    },
+    "christmas-snowball-arena": {
+      "reviewedAt": "2026-11-23",
+      "why": "Christmas Snowball Arena is a 3D last-one-standing match about collecting snow and rolling a bigger ball than everyone else. The two power-ups change the pace: one doubles size, the other doubles speed.",
+      "loop": "Drag or swipe to move the snowball. Collect snow blocks, pick up free blank snowballs, and use size or speed boosts to challenge rivals. The publisher says nine other players compete, so the match is a positioning race as much as a collection run.",
+      "check": "Check whether the lobby has enough players for a full match; the size boost is most useful when rivals are clustered.",
+      "fit": "Good for players who want a seasonal party arena and do not need a long progression. The touch-first control makes it better on a tablet or phone.",
+      "verdict": "A simple seasonal arena with a clear win condition. Fun for a short match; not a deep competitive game."
+    },
+    "bricks-breakers-infinity": {
+      "reviewedAt": "2026-11-23",
+      "why": "Bricks Breakers Infinity is a straightforward brick breaker: keep the paddle under the ball and clear the wall. The publisher leans on a relaxed pace rather than adding a story or a large upgrade tree.",
+      "loop": "Shift the paddle to bounce the ball into bricks. The description lists no power-ups or level map, so expect a score chase where the difficulty comes from the ball's angle and your reaction time. It is a good fit for a few minutes at a time.",
+      "check": "Check the paddle speed before chasing a tight angle; overcorrecting is the usual way to lose the ball.",
+      "fit": "For players who want a familiar arcade game with no tutorial. If you want progression or multiplayer, this is intentionally minimal.",
+      "verdict": "A clean, low-friction brick breaker. Best when you want something you already know how to play."
+    },
+    "only-up-parkour-2": {
+      "reviewedAt": "2026-11-23",
+      "why": "Only Up Parkour 2 is a vertical climbing game with a 500-metre target. The challenge is not combat but reading a route, timing jumps and recovering from a fall that can cost a lot of progress.",
+      "loop": "Use WASD to move and Space to jump. Climb platforms and obstacles, and expect the route to become less forgiving as you gain height. The publisher describes increasing difficulty and new obstacle types, so replaying a section is part of the design.",
+      "check": "Check the height counter and your last safe platform before attempting a long jump. A fall is cheaper when you know where it ends.",
+      "fit": "For players who like precision platformers and do not mind restarting. If you want checkpoints or a relaxed pace, this will be frustrating.",
+      "verdict": "A tense climbing challenge with a clear goal. Its value depends on how much you enjoy repeating a jump until it lands."
+    },
+    "swordbattle-io": {
+      "reviewedAt": "2026-11-23",
+      "why": "Swordbattle.io is a 2D multiplayer arena where coins buy size and power. The sword is the whole interface: you swing, throw and reposition, and the player with the better angle usually wins the exchange.",
+      "loop": "Move with WASD or arrows, aim with the mouse, click to swing and press C to throw. The publisher also provides a mouse-only mode and chat. Earn coins, upgrade your character and try to become the largest fighter in the room.",
+      "check": "Check the throw cooldown after a missed sword; that is the window when a larger player will close the distance.",
+      "fit": "Good for players who want a light PvP arena with a low control barrier. If you want a solo campaign or precise hitboxes, the browser build is looser.",
+      "verdict": "A readable sword arena with a clear growth loop. Best when other players are online."
+    },
+    "connect-fruits": {
+      "reviewedAt": "2026-11-23",
+      "why": "Connect Fruits is a matching game about linking identical fruit in limited moves, with more than 100 levels according to the publisher. The goal is to make juice, so the board is a route-planning problem rather than a reflex test.",
+      "loop": "Connect matching fruits to clear them and complete the level objective. The description does not promise power-ups or a timer; the constraint is the move count. Expect short levels and a gradual difficulty curve across the set.",
+      "check": "Check the move counter before clearing a short chain; a longer path is often worth saving for the last few moves.",
+      "fit": "For players who like match-and-clear puzzles and want something turn-based. If you want action or a story, this is a different pace.",
+      "verdict": "A simple matching game with a large level count. Good for a quiet break."
+    },
+    "armed-forces-io": {
+      "reviewedAt": "2026-11-23",
+      "why": "Armed Forces.io is a first-person shooter built around hunting enemies across a map. The publisher emphasizes stealth and marksmanship, and the control list includes sprinting, sliding, weapon switching and throwables.",
+      "loop": "WASD or arrows move, left-click fires and right-click aims; Space slides, Shift runs, 1/2/3 switch weapons and E/F pick up gear. Learn the map, use cover, and avoid sprinting into open sightlines. The description is mission-driven rather than a round-based arena.",
+      "check": "Check your medkit and dynamite bindings before a fight; the control list is long and the useful keys are easy to forget under pressure.",
+      "fit": "For players who want a browser FPS with a full keyboard layout. It is less suitable for touch-only devices or anyone who wants a guided tutorial.",
+      "verdict": "A feature-complete shooter control scheme on paper. Check whether a match is live before investing time."
+    },
+    "cobraz-io": {
+      "reviewedAt": "2026-11-23",
+      "why": "CobraZ.io is another browser FPS, but its selling point is the mode list: Team Deathmatch, Free For All, Capture The Flag and a fourth mode. The publisher frames it as class customization plus online matches.",
+      "loop": "Use WASD/arrows, mouse to fire and aim, Space to slide, Shift to run, 1-3 for weapons, E/F to pick up guns, G for grenades and H for a medkit. The mode decides the objective; team modes reward holding angles rather than chasing kills.",
+      "check": "Check which mode is active before choosing a loadout. Capture The Flag rewards movement, while Team Deathmatch punishes it.",
+      "fit": "For players who want a team shooter and can tolerate a browser lobby. If you want a single-player campaign, the design is not aimed at you.",
+      "verdict": "The mode variety is the reason to pick it over a generic arena shooter. Match population remains the deciding factor."
+    },
+    "snake-wars": {
+      "reviewedAt": "2026-11-23",
+      "why": "Snake Wars is a classic .io snake game: eat, grow, avoid collisions and try to become the largest serpent in the pit. The publisher keeps the loop pure, with no shop or story in the description.",
+      "loop": "Steer with the mouse, hold left-click or Space to boost, and use tap-drag on mobile. Cutting in front of a smaller snake is the main offensive move; the risk is that a boost costs length. Rounds reset quickly, so a bad start is cheap.",
+      "check": "Check your length before a long boost. A chase that looks close can leave you too small for the next encounter.",
+      "fit": "For players who already like snake games and want a quick competitive round. If you want progression or a solo mode, look elsewhere.",
+      "verdict": "A dependable snake arena with the expected boost trade-off. Pick it for a short, familiar match."
+    },
+    "rolling-balls-io": {
+      "reviewedAt": "2026-11-23",
+      "why": "Rolling Balls.io is a 3D arena game about crushing smaller balls while avoiding the huge ones. The size hierarchy is the whole design: the same move that clears a path can put you in front of a player who can destroy you.",
+      "loop": "Use the joystick or mouse to steer. The publisher's description is short, but the goal is clear: collect and crush, avoid bigger balls, and grow. Expect a short arcade session rather than a campaign.",
+      "check": "Check the size of the nearest ball before crossing an open lane. Turning back late is usually worse than taking a longer route.",
+      "fit": "For players who want an immediate 3D .io game and do not need instructions. If you want a precise physics game, the controls may feel loose.",
+      "verdict": "A simple size-based arena. Fun in short bursts, but the description gives little reason to stay for a long session."
+    },
+    "state-wars": {
+      "reviewedAt": "2026-11-23",
+      "why": "State Wars is a territory strategy game: direct forces, capture neutral and enemy states, and expand your control. The appeal is the map-level decision rather than moment-to-moment combat.",
+      "loop": "Drag with the left mouse button to send troops; touch is supported. Read the borders, decide where to push and where to hold, then commit. The publisher describes a single objective, so expect a compact strategy loop rather than a long tech tree.",
+      "check": "Check the border you leave undefended. A fast expansion is only useful if the new territory can be held.",
+      "fit": "Good for players who like Risk-style map games and short decisions. If you want real-time action, the pace is slower.",
+      "verdict": "A readable map strategy game with a low input burden. Worth a try when you want to think rather than react."
+    },
+    "grind-io": {
+      "reviewedAt": "2026-11-23",
+      "why": "Grind io is a mining-and-combat arena: collect ore, beat other players for coins, then spend the coins on power and health. The name is accurate; the loop is deliberately about repeating runs to climb the leaderboard.",
+      "loop": "Move with WASD, arrows or a joystick; tap or click to attack. Mine ore, fight for coins, and reinvest in your character. The publisher's description points to a global leaderboard, so progress is measured against other players rather than a story.",
+      "check": "Check your health before contesting an ore node. A long fight over coins is a bad trade if it resets your run.",
+      "fit": "For players who like grind-heavy .io progression and do not mind repetition. If you want a short complete game, the loop is open-ended.",
+      "verdict": "A clear risk-reward grind with a competitive target. Best for players who enjoy optimizing a character over many runs."
+    },
+    "guerrillas-io": {
+      "reviewedAt": "2026-11-23",
+      "why": "Guerrillas.io is a Counter-Strike-inspired browser shooter with familiar map language. The publisher is upfront about the inspiration, and the control scheme follows the same template: move, aim, fire, jump, slide and switch weapons.",
+      "loop": "WASD/arrows move, left-click fires, right-click aims, Space jumps, Q slides, Shift runs and 1/2/3 switch weapons. Learn the map's angles and use the clock to decide when to push. The description does not promise a bot mode, so match quality depends on who is online.",
+      "check": "Check the round timer before pushing a site. A late push with no time to plant is worse than holding the angle.",
+      "fit": "For players who want a quick tactical shooter and already know the genre. If you want a single-player campaign or a guided tutorial, look elsewhere.",
+      "verdict": "A familiar shooter template with a low setup cost. Its value depends on live matches and map knowledge."
+    },
+    "marble-match-origin": {
+      "reviewedAt": "2026-11-23",
+      "why": "Marble Match Origin is a shooting puzzle: aim a ball, choose the direction and speed, and clear the level objective. The publisher emphasizes difficulty levels and reaction speed rather than a story.",
+      "loop": "Aim and shoot marbles to match or clear the target pattern. The control description is marketing copy rather than a key list, so read the in-game prompt on the first level. Expect a level-based puzzle with increasing difficulty and optional offline play according to the publisher.",
+      "check": "Check the level objective before spending a shot. A ball that clears the wrong row can leave the real target untouched.",
+      "fit": "For players who like aim-and-shoot puzzles and short levels. If you want a physics sandbox, the scope is narrower.",
+      "verdict": "A compact shooting puzzle with a large level count. Good for short sessions; check the first screen for the actual controls."
+    },
+    "treasure-of-alognov": {
+      "reviewedAt": "2026-11-23",
+      "why": "Treasure of Alognov is a 3D castle puzzle about reaching a guarded chest. The framing is adventure, but the interaction is block manipulation: move pieces with the mouse and keyboard to solve the route.",
+      "loop": "Use the mouse to inspect and move blocks, and the keyboard to navigate the puzzle. The publisher describes a sequence of corridors, caves and a secret room, so expect a linear series of spatial puzzles rather than combat. Read each room before moving a block.",
+      "check": "Check whether a moved block blocks your own return path. The puzzle is usually about the order of moves, not speed.",
+      "fit": "For players who like slow spatial puzzles and a treasure-hunt theme. If you want action or a timer, the pace is deliberate.",
+      "verdict": "A themed block puzzle with a clear objective. Best when you want to think through a room rather than rush."
+    },
+    "snake-color-race": {
+      "reviewedAt": "2026-11-23",
+      "why": "Snake Color Race adds a colour rule to the snake formula: eat only the balls that match your snake, and use the collected mass to break through a bridge challenge. The extra rule makes target selection matter as much as growth.",
+      "loop": "Steer with the mouse and collect matching-colour balls. Growing is not enough; the publisher says you use the balls to shoot and break blocks, so the run mixes collection with a destruction objective. Compete against other players in real time.",
+      "check": "Check your colour before crossing a cluster. Eating the wrong ball wastes the route and can leave you short for the bridge.",
+      "fit": "For players who want a snake game with a puzzle twist and do not mind a busier screen. If you want pure classic snake, the colour rule adds friction.",
+      "verdict": "A more thoughtful snake variant than the average clone. Worth a run if the colour mechanic clicks."
+    },
+    "snake-train-zone": {
+      "reviewedAt": "2026-11-23",
+      "why": "Snake Train Zone is a snake-style arena with a shooting layer: collect coloured balls, fill the number bar and add a soldier that follows you. The escalation is the point—your train grows as you hit milestones.",
+      "loop": "Click or tap to play; the publisher lists no key map beyond that. Collect balls, fill the bar and add followers, then use the larger group to push through the arena. Expect a run-based upgrade loop rather than a story.",
+      "check": "Check the number bar before entering a fight. The extra follower matters more than a few coins once the arena gets crowded.",
+      "fit": "For players who like .io growth games and want a slightly different hook. If you want precise shooting controls, the input description is too thin.",
+      "verdict": "A simple collect-and-grow arena with a train-building twist. Try a run; the first minute explains more than the description."
+    },
+    "growwars-io": {
+      "reviewedAt": "2026-11-23",
+      "why": "GrowWars.io is a local two-player arena with evolving superheroes. Player one uses WASD/F/G, player two uses arrows/K/L, so the entire game is built around sharing one keyboard.",
+      "loop": "Fight, earn coins, buy equipment and heroes, then return to the arena. The publisher says the game can be played solo or with two players, which makes it a flexible couch game rather than an online-only fighter. Short rounds favour aggressive exchanges.",
+      "check": "Check the control split before the first round. Player two's attack and dash are on K and L, not the arrow cluster.",
+      "fit": "Good for two people on one laptop and players who like quick local bouts. If you want online matchmaking, this is not that.",
+      "verdict": "A useful local co-op pick with a clear control split. Best when you have a second player beside you."
+    },
+    "block-team-deathmatch": {
+      "reviewedAt": "2026-11-23",
+      "why": "Block Team Deathmatch is a pixel-block FPS with 4v4 team, individual and sniper modes. The publisher recommends team mode first for better equipment, which suggests a progression layer tied to match performance.",
+      "loop": "Mouse click or tap to play; the control text is minimal, so learn the layout in the first match. Start with team mode, use automatic rifles at range and let the rank levels unlock the other modes. Expect a simple blocky shooter rather than a tactical simulation.",
+      "check": "Check the mode before queuing. Team mode is the publisher's recommended starting point; sniper mode will punish a new player.",
+      "fit": "For players who want a light FPS and do not mind learning by playing. If you want detailed onboarding, the description is thin.",
+      "verdict": "A mode-driven block shooter with a clear beginner recommendation. Worth trying if the lobby is active."
+    },
+    "fruitbasket": {
+      "reviewedAt": "2026-11-23",
+      "why": "FruitBasket is a catch-and-score game: move the basket, drop fruit and keep it from falling out of reach. The publisher describes a timing challenge rather than a story or a long upgrade tree.",
+      "loop": "Move the basket left and right with the arrow keys or A/D, then click to make fruit fall. The goal is to catch as many as possible before they are lost. The description mentions the fruit moving horizontally, so watch the lane before clicking.",
+      "check": "Check the lane before dropping fruit. Clicking early usually sends it past the basket rather than into it.",
+      "fit": "For players who want a very simple reflex game and a short session. If you want progression or multiplayer, this is intentionally minimal.",
+      "verdict": "A light timing game with a one-screen rule set. Good for a minute, not a long sitting."
     }
   }
 }

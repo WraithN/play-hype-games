@@ -120,7 +120,9 @@ async function auditGame(game) {
 }
 
 (async () => {
-  const top = games.filter((g) => g.status === 'published').sort(byNewest).slice(0, 20);
+  const start = Math.max(0, Number(process.argv[2]) || 0);
+  const count = Math.max(1, Number(process.argv[3]) || 20);
+  const top = games.filter((g) => g.status === 'published').sort(byNewest).slice(start, start + count);
   const results = [];
   for (const game of top) {
     try {
@@ -132,9 +134,25 @@ async function auditGame(game) {
     }
     await new Promise((r) => setTimeout(r, 600));
   }
+
+  let existing = { results: [] };
+  try {
+    existing = JSON.parse(fs.readFileSync(OUT, 'utf8'));
+  } catch {}
+  const bySlug = new Map((existing.results || []).map((row) => [row.slug, row]));
+  results.forEach((row) => bySlug.set(row.slug, row));
+
   fs.writeFileSync(
     OUT,
-    JSON.stringify({ generatedAt: new Date().toISOString(), method: 'cold fetch, no browser cache', results }, null, 2)
+    JSON.stringify(
+      {
+        generatedAt: new Date().toISOString(),
+        method: 'cold fetch, no browser cache',
+        results: [...bySlug.values()]
+      },
+      null,
+      2
+    )
   );
-  console.log('wrote', OUT, results.length);
+  console.log('wrote', OUT, 'batch', results.length, 'total', bySlug.size);
 })();
