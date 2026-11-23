@@ -96,13 +96,13 @@ Slime IO 2 | https://html5.gamedistribution.com/xxx/ | io-games | io, unblocked
 - **字体**：Baloo 2 改为 `public/fonts/baloo-2-latin.woff2` 自托管并 preload，不再阻塞加载 `miaoda.feishu.cn` 的跨域 CSS。
 - **信任页**：`/about`、`/contact`、`/editorial-policy` 说明内容来源、测试口径与排名口径；文章署名统一指向编辑政策。
 
-### 游戏页编辑实测（Top 20）
+### ?????????? 79 ??
 
 - `data/editorial.json` 是手写的编辑判断：`why` / `loop` / `fit` / `verdict`。只写能从游戏描述、发布方说明和实际构建观察到的东西。
 - `data/game-audits.json` 由 `node scripts/audit-games.js` 生成：无浏览器缓存地抓取 embed 文档、页面引用的脚本和 `data.json`，记录冷加载耗时、初始负载大小、viewport 声明和键盘/触摸代码是否存在。
 - 页面上的 “Test log” 只展示这些真实抓取值；静态扫描到输入代码不等于完整试玩，文案里已明确区分。游戏改版或 CDN 变化后重新跑脚本即可。
-- 编辑块当前覆盖首页最新的 **40 个游戏**（分两批完成）；新游戏上首页后，按同样标准补 `editorial.json` 后再让页面进入覆盖范围。
-- 批量测量用偏移量：`node scripts/audit-games.js 20 20` 表示从第 21 个开始测 20 个；不传参数默认测前 20 个。脚本会按 slug 合并到 `data/game-audits.json`，不会覆盖已测页面。
+- ????????? **79 ??????**?????????????? `editorial.json` ?????????
+- ?????????`node scripts/audit-games.js 20 20` ???? 21 ???? 20 ?????????? 20 ?????? slug ??? `data/game-audits.json`???????????? 79 ???????? audit?
 
 ### 分析 / GSC
 

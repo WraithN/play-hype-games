@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-23T06:24:27.549Z",
+  "generatedAt": "2026-11-23T09:31:38.054Z",
   "method": "cold fetch, no browser cache",
   "results": [
     {
@@ -1502,6 +1502,1315 @@
       "keyboardTokens": [],
       "touchCode": false,
       "touchTokens": []
+    },
+    {
+      "slug": "crazy-lumberjack-cut-them-all",
+      "title": "Crazy Lumberjack: Cut Them All",
+      "embedUrl": "https://html5.gamemonetize.co/3z3sbbpqn85ujl25j6d9i9meqz7ukpvv/",
+      "checkedAt": "2026-11-23T09:30:30.141Z",
+      "document": {
+        "status": 200,
+        "ms": 987,
+        "bytes": 6265
+      },
+      "payload": {
+        "ms": 987,
+        "bytes": 6265
+      },
+      "viewport": "width=device-width, initial-scale=1.0, user-scalable=no",
+      "generator": "",
+      "assets": [],
+      "keyboardCode": false,
+      "keyboardTokens": [],
+      "touchCode": true,
+      "touchTokens": [
+        "touchstart",
+        "pointerdown"
+      ]
+    },
+    {
+      "slug": "idle-blocks-tycoon",
+      "title": "Idle Blocks Tycoon",
+      "embedUrl": "https://html5.gamemonetize.co/tqjwr9k20es2xgcky9ct9m8t65qxdbj2/",
+      "checkedAt": "2026-11-23T09:30:31.197Z",
+      "document": {
+        "status": 200,
+        "ms": 445,
+        "bytes": 232
+      },
+      "payload": {
+        "ms": 445,
+        "bytes": 232
+      },
+      "viewport": "width=device-width",
+      "generator": "",
+      "assets": [],
+      "keyboardCode": false,
+      "keyboardTokens": [],
+      "touchCode": false,
+      "touchTokens": []
+    },
+    {
+      "slug": "game-of-goose-2",
+      "title": "Game of Goose-2",
+      "embedUrl": "https://html5.gamemonetize.co/z0qtf5j33xm32zfhs9tnyce84iq9oiqo/",
+      "checkedAt": "2026-11-23T09:30:33.248Z",
+      "document": {
+        "status": 200,
+        "ms": 436,
+        "bytes": 6304
+      },
+      "payload": {
+        "ms": 1438,
+        "bytes": 11893
+      },
+      "viewport": "width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui",
+      "generator": "",
+      "assets": [
+        {
+          "url": "https://html5.gamemonetize.co/z0qtf5j33xm32zfhs9tnyce84iq9oiqo/js/splashScreenFix.js",
+          "status": 200,
+          "ms": 251,
+          "bytes": 418
+        },
+        {
+          "url": "https://html5.gamemonetize.co/z0qtf5j33xm32zfhs9tnyce84iq9oiqo/js/isoLang.js",
+          "status": 200,
+          "ms": 243,
+          "bytes": 2937
+        },
+        {
+          "url": "https://html5.gamemonetize.co/z0qtf5j33xm32zfhs9tnyce84iq9oiqo/js/eventToFire.js",
+          "status": 200,
+          "ms": 248,
+          "bytes": 1322
+        },
+        {
+          "url": "https://html5.gamemonetize.co/z0qtf5j33xm32zfhs9tnyce84iq9oiqo/js/c2toJs.js",
+          "status": 200,
+          "ms": 260,
+          "bytes": 912
+        }
+      ],
+      "keyboardCode": false,
+      "keyboardTokens": [],
+      "touchCode": false,
+      "touchTokens": []
+    },
+    {
+      "slug": "feather-dash",
+      "title": "Feather Dash",
+      "embedUrl": "https://html5.gamemonetize.co/3c32sxuv2xg4x1t6rd9eft6j0z73uhku/",
+      "checkedAt": "2026-11-23T09:30:36.155Z",
+      "document": {
+        "status": 200,
+        "ms": 2304,
+        "bytes": 5632058
+      },
+      "payload": {
+        "ms": 2304,
+        "bytes": 5632058
+      },
+      "viewport": "",
+      "generator": "",
+      "assets": [],
+      "keyboardCode": false,
+      "keyboardTokens": [],
+      "touchCode": false,
+      "touchTokens": []
+    },
+    {
+      "slug": "snake-warz",
+      "title": "SNAKE WARZ",
+      "embedUrl": "https://html5.gamemonetize.co/uxv01zwcngh7d3xm1aqdg9t91qfuh59n/",
+      "checkedAt": "2026-11-23T09:30:37.426Z",
+      "document": {
+        "status": 200,
+        "ms": 656,
+        "bytes": 5387
+      },
+      "payload": {
+        "ms": 656,
+        "bytes": 5387
+      },
+      "viewport": "",
+      "generator": "",
+      "assets": [],
+      "keyboardCode": false,
+      "keyboardTokens": [],
+      "touchCode": false,
+      "touchTokens": []
+    },
+    {
+      "slug": "colors-matching",
+      "title": "Colors Matching",
+      "embedUrl": "https://html5.gamemonetize.co/s2w7w4zaump14ncckeu9o7u99svrjmuh/",
+      "checkedAt": "2026-11-23T09:30:38.456Z",
+      "document": {
+        "status": 200,
+        "ms": 426,
+        "bytes": 18274
+      },
+      "payload": {
+        "ms": 426,
+        "bytes": 18274
+      },
+      "viewport": "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no",
+      "generator": "",
+      "assets": [],
+      "keyboardCode": false,
+      "keyboardTokens": [],
+      "touchCode": true,
+      "touchTokens": [
+        "touchend"
+      ]
+    },
+    {
+      "slug": "guardz-io",
+      "title": "Guardz IO",
+      "embedUrl": "https://html5.gamemonetize.co/f1e896emfy104h8j8higjjdkcqeqvtau/",
+      "checkedAt": "2026-11-23T09:30:41.407Z",
+      "document": {
+        "status": 200,
+        "ms": 438,
+        "bytes": 8536
+      },
+      "payload": {
+        "ms": 2307,
+        "bytes": 1350801
+      },
+      "viewport": "width=device-width, initial-scale=1.0",
+      "generator": "",
+      "assets": [
+        {
+          "url": "https://html5.gamemonetize.co/f1e896emfy104h8j8higjjdkcqeqvtau/assets/index-DQreJTYD.js",
+          "status": 200,
+          "ms": 1869,
+          "bytes": 1342265
+        }
+      ],
+      "keyboardCode": true,
+      "keyboardTokens": [
+        "Space"
+      ],
+      "touchCode": true,
+      "touchTokens": [
+        "touchstart",
+        "touchmove",
+        "touchend",
+        "pointerdown",
+        "pointermove",
+        "ontouchstart"
+      ]
+    },
+    {
+      "slug": "castle-wars-legacy",
+      "title": "Castle Wars: Legacy",
+      "embedUrl": "https://html5.gamemonetize.co/f6ung9e7lfninu1957spejeihzprdusb/",
+      "checkedAt": "2026-11-23T09:30:42.463Z",
+      "document": {
+        "status": 200,
+        "ms": 449,
+        "bytes": 3340
+      },
+      "payload": {
+        "ms": 449,
+        "bytes": 3340
+      },
+      "viewport": "width=device-width, initial-scale=1.0",
+      "generator": "",
+      "assets": [],
+      "keyboardCode": false,
+      "keyboardTokens": [],
+      "touchCode": false,
+      "touchTokens": []
+    },
+    {
+      "slug": "snash-master-snail-fun-game",
+      "title": "Snash Master: Snail Fun Game",
+      "embedUrl": "https://html5.gamemonetize.co/fa0uhqpk6iywyzimffzccgy80iosayar/",
+      "checkedAt": "2026-11-23T09:30:43.497Z",
+      "document": {
+        "status": 200,
+        "ms": 433,
+        "bytes": 7649
+      },
+      "payload": {
+        "ms": 433,
+        "bytes": 7649
+      },
+      "viewport": "width=device-width, initial-scale=1.0, user-scalable=no",
+      "generator": "",
+      "assets": [],
+      "keyboardCode": false,
+      "keyboardTokens": [],
+      "touchCode": false,
+      "touchTokens": []
+    },
+    {
+      "slug": "neck-stack-rush",
+      "title": "Neck Stack Rush",
+      "embedUrl": "https://html5.gamemonetize.co/da91ozg3wbzs01514505puzfnmw0zl62/",
+      "checkedAt": "2026-11-23T09:30:44.545Z",
+      "document": {
+        "status": 200,
+        "ms": 444,
+        "bytes": 6400
+      },
+      "payload": {
+        "ms": 444,
+        "bytes": 6400
+      },
+      "viewport": "width=device-width, initial-scale=1.0, user-scalable=no",
+      "generator": "",
+      "assets": [],
+      "keyboardCode": false,
+      "keyboardTokens": [],
+      "touchCode": false,
+      "touchTokens": []
+    },
+    {
+      "slug": "gun-shooting-game",
+      "title": "Gun Shooting Game",
+      "embedUrl": "https://html5.gamemonetize.co/ft7ejczl0cd4bqtrgbj2k67nyika12ft/",
+      "checkedAt": "2026-11-23T09:30:45.578Z",
+      "document": {
+        "status": 200,
+        "ms": 426,
+        "bytes": 4528
+      },
+      "payload": {
+        "ms": 426,
+        "bytes": 4528
+      },
+      "viewport": "",
+      "generator": "",
+      "assets": [],
+      "keyboardCode": false,
+      "keyboardTokens": [],
+      "touchCode": false,
+      "touchTokens": []
+    },
+    {
+      "slug": "thecheesiestclicker",
+      "title": "TheCheesiestClicker!",
+      "embedUrl": "https://html5.gamemonetize.co/t14lwh76cdyqatbdvtvvhw7drf0dx5cz/",
+      "checkedAt": "2026-11-23T09:30:46.887Z",
+      "document": {
+        "status": 200,
+        "ms": 442,
+        "bytes": 5439
+      },
+      "payload": {
+        "ms": 697,
+        "bytes": 321198
+      },
+      "viewport": "width=device-width, user-scalable=no, initial-scale=1.0",
+      "generator": "",
+      "assets": [
+        {
+          "url": "https://html5.gamemonetize.co/t14lwh76cdyqatbdvtvvhw7drf0dx5cz/index.js",
+          "status": 200,
+          "ms": 255,
+          "bytes": 315759
+        }
+      ],
+      "keyboardCode": true,
+      "keyboardTokens": [
+        "Enter"
+      ],
+      "touchCode": true,
+      "touchTokens": [
+        "touchstart",
+        "touchmove",
+        "touchend",
+        "pointermove",
+        "ontouchstart"
+      ]
+    },
+    {
+      "slug": "klondike-solitaire-game",
+      "title": "Klondike Solitaire Game",
+      "embedUrl": "https://html5.gamemonetize.co/6x0xqkw7pu0i90uzxq1fwag7o8aqn7wp/",
+      "checkedAt": "2026-11-23T09:30:47.959Z",
+      "document": {
+        "status": 200,
+        "ms": 466,
+        "bytes": 4758
+      },
+      "payload": {
+        "ms": 466,
+        "bytes": 4758
+      },
+      "viewport": "",
+      "generator": "",
+      "assets": [],
+      "keyboardCode": false,
+      "keyboardTokens": [],
+      "touchCode": false,
+      "touchTokens": []
+    },
+    {
+      "slug": "a-survival-legend",
+      "title": "a survival legend",
+      "embedUrl": "https://html5.gamemonetize.co/r2h0vobvk4ih705otem8f4vb2v58hf2r/",
+      "checkedAt": "2026-11-23T09:30:49.492Z",
+      "document": {
+        "status": 200,
+        "ms": 422,
+        "bytes": 3012
+      },
+      "payload": {
+        "ms": 921,
+        "bytes": 8456
+      },
+      "viewport": "width=device-width,user-scalable=no,initial-scale=1, minimum-scale=1,maximum-scale=1",
+      "generator": "",
+      "assets": [
+        {
+          "url": "https://html5.gamemonetize.co/r2h0vobvk4ih705otem8f4vb2v58hf2r/src/settings.fb219.js",
+          "status": 200,
+          "ms": 248,
+          "bytes": 444
+        },
+        {
+          "url": "https://html5.gamemonetize.co/r2h0vobvk4ih705otem8f4vb2v58hf2r/main.6b20d.js",
+          "status": 200,
+          "ms": 251,
+          "bytes": 5000
+        }
+      ],
+      "keyboardCode": false,
+      "keyboardTokens": [],
+      "touchCode": false,
+      "touchTokens": []
+    },
+    {
+      "slug": "speen",
+      "title": "Speen",
+      "embedUrl": "https://html5.gamemonetize.co/fwiozook1vr9lw7duxy81zup5676u7bj/",
+      "checkedAt": "2026-11-23T09:30:50.555Z",
+      "document": {
+        "status": 200,
+        "ms": 454,
+        "bytes": 3357
+      },
+      "payload": {
+        "ms": 454,
+        "bytes": 3357
+      },
+      "viewport": "width=device-width, initial-scale=1.0",
+      "generator": "",
+      "assets": [],
+      "keyboardCode": false,
+      "keyboardTokens": [],
+      "touchCode": false,
+      "touchTokens": []
+    },
+    {
+      "slug": "imposter-duck-online",
+      "title": "imposter Duck : Online",
+      "embedUrl": "https://html5.gamemonetize.co/mucxqqhaoah9q6mt60k70clzjzesy1cc/",
+      "checkedAt": "2026-11-23T09:30:52.571Z",
+      "document": {
+        "status": 200,
+        "ms": 426,
+        "bytes": 13974
+      },
+      "payload": {
+        "ms": 1413,
+        "bytes": 80657
+      },
+      "viewport": "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover",
+      "generator": "",
+      "assets": [
+        {
+          "url": "https://html5.gamemonetize.co/mucxqqhaoah9q6mt60k70clzjzesy1cc/js/i18n.js",
+          "status": 200,
+          "ms": 243,
+          "bytes": 20563
+        },
+        {
+          "url": "https://html5.gamemonetize.co/mucxqqhaoah9q6mt60k70clzjzesy1cc/js/audio.js",
+          "status": 200,
+          "ms": 249,
+          "bytes": 5077
+        },
+        {
+          "url": "https://html5.gamemonetize.co/mucxqqhaoah9q6mt60k70clzjzesy1cc/js/ads.js",
+          "status": 200,
+          "ms": 249,
+          "bytes": 5920
+        },
+        {
+          "url": "https://html5.gamemonetize.co/mucxqqhaoah9q6mt60k70clzjzesy1cc/js/duck.js",
+          "status": 200,
+          "ms": 246,
+          "bytes": 35123
+        }
+      ],
+      "keyboardCode": true,
+      "keyboardTokens": [
+        "Enter",
+        "Space"
+      ],
+      "touchCode": true,
+      "touchTokens": [
+        "touchstart",
+        "pointerdown"
+      ]
+    },
+    {
+      "slug": "rocketcar-cup",
+      "title": "Rocketcar Cup",
+      "embedUrl": "https://html5.gamemonetize.co/y771xcn0bnakil1525c08uyvt7mfqv9l/",
+      "checkedAt": "2026-11-23T09:30:54.615Z",
+      "document": {
+        "status": 200,
+        "ms": 443,
+        "bytes": 40219
+      },
+      "payload": {
+        "ms": 1441,
+        "bytes": 75736
+      },
+      "viewport": "width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover",
+      "generator": "",
+      "assets": [
+        {
+          "url": "https://html5.gamemonetize.co/y771xcn0bnakil1525c08uyvt7mfqv9l/js/ads.js",
+          "status": 200,
+          "ms": 251,
+          "bytes": 7933
+        },
+        {
+          "url": "https://html5.gamemonetize.co/y771xcn0bnakil1525c08uyvt7mfqv9l/js/sdk-gamemonetize.js",
+          "status": 200,
+          "ms": 248,
+          "bytes": 3512
+        },
+        {
+          "url": "https://html5.gamemonetize.co/y771xcn0bnakil1525c08uyvt7mfqv9l/js/i18n.js",
+          "status": 200,
+          "ms": 241,
+          "bytes": 15458
+        },
+        {
+          "url": "https://html5.gamemonetize.co/y771xcn0bnakil1525c08uyvt7mfqv9l/js/save.js",
+          "status": 200,
+          "ms": 258,
+          "bytes": 8614
+        }
+      ],
+      "keyboardCode": true,
+      "keyboardTokens": [
+        "Enter"
+      ],
+      "touchCode": false,
+      "touchTokens": []
+    },
+    {
+      "slug": "balloons-pop",
+      "title": "Balloons Pop",
+      "embedUrl": "https://html5.gamemonetize.co/fr9whxzttrbrf8ze4mj4cdramieps6l0/",
+      "checkedAt": "2026-11-23T09:30:57.557Z",
+      "document": {
+        "status": 200,
+        "ms": 433,
+        "bytes": 1645
+      },
+      "payload": {
+        "ms": 2334,
+        "bytes": 136947
+      },
+      "viewport": "width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no",
+      "generator": "Scirra Construct",
+      "assets": [
+        {
+          "url": "https://html5.gamemonetize.co/fr9whxzttrbrf8ze4mj4cdramieps6l0/scripts/modernjscheck.js",
+          "status": 200,
+          "ms": 244,
+          "bytes": 153
+        },
+        {
+          "url": "https://html5.gamemonetize.co/fr9whxzttrbrf8ze4mj4cdramieps6l0/scripts/supportcheck.js",
+          "status": 200,
+          "ms": 240,
+          "bytes": 4799
+        },
+        {
+          "url": "https://html5.gamemonetize.co/fr9whxzttrbrf8ze4mj4cdramieps6l0/scripts/offlineclient.js",
+          "status": 200,
+          "ms": 612,
+          "bytes": 564
+        },
+        {
+          "url": "https://html5.gamemonetize.co/fr9whxzttrbrf8ze4mj4cdramieps6l0/scripts/main.js",
+          "status": 200,
+          "ms": 805,
+          "bytes": 129786
+        }
+      ],
+      "keyboardCode": true,
+      "keyboardTokens": [],
+      "touchCode": true,
+      "touchTokens": [
+        "touchstart",
+        "touchend",
+        "pointerdown",
+        "pointermove"
+      ]
+    },
+    {
+      "slug": "blumgi-merge-online",
+      "title": "Blumgi Merge Online",
+      "embedUrl": "https://html5.gamemonetize.co/jaoiom9gb9l13aewcyquvpcgi1rzf002/",
+      "checkedAt": "2026-11-23T09:31:01.606Z",
+      "document": {
+        "status": 200,
+        "ms": 1163,
+        "bytes": 1655
+      },
+      "payload": {
+        "ms": 3439,
+        "bytes": 136957
+      },
+      "viewport": "width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no",
+      "generator": "Scirra Construct",
+      "assets": [
+        {
+          "url": "https://html5.gamemonetize.co/jaoiom9gb9l13aewcyquvpcgi1rzf002/scripts/modernjscheck.js",
+          "status": 200,
+          "ms": 254,
+          "bytes": 153
+        },
+        {
+          "url": "https://html5.gamemonetize.co/jaoiom9gb9l13aewcyquvpcgi1rzf002/scripts/supportcheck.js",
+          "status": 200,
+          "ms": 609,
+          "bytes": 4799
+        },
+        {
+          "url": "https://html5.gamemonetize.co/jaoiom9gb9l13aewcyquvpcgi1rzf002/scripts/offlineclient.js",
+          "status": 200,
+          "ms": 609,
+          "bytes": 564
+        },
+        {
+          "url": "https://html5.gamemonetize.co/jaoiom9gb9l13aewcyquvpcgi1rzf002/scripts/main.js",
+          "status": 200,
+          "ms": 804,
+          "bytes": 129786
+        }
+      ],
+      "keyboardCode": true,
+      "keyboardTokens": [],
+      "touchCode": true,
+      "touchTokens": [
+        "touchstart",
+        "touchend",
+        "pointerdown",
+        "pointermove"
+      ]
+    },
+    {
+      "slug": "grab-io",
+      "title": "Grab.io",
+      "embedUrl": "https://html5.gamemonetize.co/f0bwtedu8xg3fu2qi5rg9ofz63lk0hz8/",
+      "checkedAt": "2026-11-23T09:31:03.041Z",
+      "document": {
+        "status": 200,
+        "ms": 821,
+        "bytes": 102088
+      },
+      "payload": {
+        "ms": 821,
+        "bytes": 102088
+      },
+      "viewport": "width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no",
+      "generator": "",
+      "assets": [],
+      "keyboardCode": true,
+      "keyboardTokens": [],
+      "touchCode": true,
+      "touchTokens": [
+        "touchstart",
+        "touchmove",
+        "pointerdown"
+      ]
+    },
+    {
+      "slug": "obbloxgun-io-3d-fps-shooter",
+      "title": "ObbloxGun.io 3D FPS Shooter",
+      "embedUrl": "https://html5.gamemonetize.co/m08ek7zjog1w0qybswdbw6407100mme5/",
+      "checkedAt": "2026-11-23T09:31:04.866Z",
+      "document": {
+        "status": 200,
+        "ms": 431,
+        "bytes": 5153
+      },
+      "payload": {
+        "ms": 1221,
+        "bytes": 68417
+      },
+      "viewport": "width=device-width, initial-scale=1, user-scalable=no",
+      "generator": "",
+      "assets": [
+        {
+          "url": "https://html5.gamemonetize.co/m08ek7zjog1w0qybswdbw6407100mme5/js/main.js",
+          "status": 200,
+          "ms": 790,
+          "bytes": 63264
+        }
+      ],
+      "keyboardCode": true,
+      "keyboardTokens": [
+        "Escape",
+        "Space",
+        "KeyR"
+      ],
+      "touchCode": false,
+      "touchTokens": []
+    },
+    {
+      "slug": "paint-drive-io",
+      "title": "Paint Drive IO",
+      "embedUrl": "https://html5.gamemonetize.co/rfvf4nek738ypuke2jtjsxp4it2dzwgc/",
+      "checkedAt": "2026-11-23T09:31:05.912Z",
+      "document": {
+        "status": 200,
+        "ms": 435,
+        "bytes": 7591
+      },
+      "payload": {
+        "ms": 435,
+        "bytes": 7591
+      },
+      "viewport": "width=device-width, initial-scale=1.0, user-scalable=no",
+      "generator": "",
+      "assets": [],
+      "keyboardCode": false,
+      "keyboardTokens": [],
+      "touchCode": false,
+      "touchTokens": []
+    },
+    {
+      "slug": "boom-cell",
+      "title": "Boom Cell",
+      "embedUrl": "https://html5.gamemonetize.co/m3qnpahqdnc3eltlnsjev9u37g7ujt70/",
+      "checkedAt": "2026-11-23T09:31:06.952Z",
+      "document": {
+        "status": 200,
+        "ms": 432,
+        "bytes": 7657
+      },
+      "payload": {
+        "ms": 432,
+        "bytes": 7657
+      },
+      "viewport": "width=device-width, initial-scale=1.0, user-scalable=no",
+      "generator": "",
+      "assets": [],
+      "keyboardCode": false,
+      "keyboardTokens": [],
+      "touchCode": false,
+      "touchTokens": []
+    },
+    {
+      "slug": "astro-merge",
+      "title": "Astro Merge",
+      "embedUrl": "https://html5.gamemonetize.co/wv5k16n1ebq9a55zkjtd5sgcjzl6k5r6/",
+      "checkedAt": "2026-11-23T09:31:08.194Z",
+      "document": {
+        "status": 200,
+        "ms": 636,
+        "bytes": 67277
+      },
+      "payload": {
+        "ms": 636,
+        "bytes": 67277
+      },
+      "viewport": "width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no",
+      "generator": "",
+      "assets": [],
+      "keyboardCode": true,
+      "keyboardTokens": [],
+      "touchCode": true,
+      "touchTokens": [
+        "pointerdown",
+        "pointermove"
+      ]
+    },
+    {
+      "slug": "tailoff-io-snake-dragon-arena",
+      "title": "Tailoff.io: Snake Dragon Arena",
+      "embedUrl": "https://html5.gamemonetize.co/shfjhvcnfsiedm7tsp2ayvw24v5l8ll3/",
+      "checkedAt": "2026-11-23T09:31:11.317Z",
+      "document": {
+        "status": 200,
+        "ms": 2518,
+        "bytes": 7910610
+      },
+      "payload": {
+        "ms": 2518,
+        "bytes": 7910610
+      },
+      "viewport": "",
+      "generator": "",
+      "assets": [],
+      "keyboardCode": false,
+      "keyboardTokens": [],
+      "touchCode": false,
+      "touchTokens": []
+    },
+    {
+      "slug": "warrior-way",
+      "title": "Warrior Way",
+      "embedUrl": "https://html5.gamemonetize.co/1rqt7kg9a4rrykj10kerloclbsvwlvg4/",
+      "checkedAt": "2026-11-23T09:31:12.604Z",
+      "document": {
+        "status": 200,
+        "ms": 426,
+        "bytes": 1831
+      },
+      "payload": {
+        "ms": 674,
+        "bytes": 28247
+      },
+      "viewport": "",
+      "generator": "",
+      "assets": [
+        {
+          "url": "https://html5.gamemonetize.co/1rqt7kg9a4rrykj10kerloclbsvwlvg4/Build/Build-GameMonetize.loader.js",
+          "status": 200,
+          "ms": 248,
+          "bytes": 26416
+        }
+      ],
+      "keyboardCode": false,
+      "keyboardTokens": [],
+      "touchCode": false,
+      "touchTokens": []
+    },
+    {
+      "slug": "break-a-lucky-egg-brainrots",
+      "title": "Break a Lucky Egg Brainrots",
+      "embedUrl": "https://html5.gamemonetize.co/xnbqyw4bp8wpymivt0cj5nv3lccs6usg/",
+      "checkedAt": "2026-11-23T09:31:13.893Z",
+      "document": {
+        "status": 200,
+        "ms": 423,
+        "bytes": 21298
+      },
+      "payload": {
+        "ms": 684,
+        "bytes": 65590
+      },
+      "viewport": "",
+      "generator": "",
+      "assets": [
+        {
+          "url": "https://html5.gamemonetize.co/xnbqyw4bp8wpymivt0cj5nv3lccs6usg/Build/Build.loader.js",
+          "status": 200,
+          "ms": 261,
+          "bytes": 44292
+        }
+      ],
+      "keyboardCode": false,
+      "keyboardTokens": [],
+      "touchCode": false,
+      "touchTokens": []
+    },
+    {
+      "slug": "yolk-ops-egg-arena",
+      "title": "Yolk Ops Egg Arena",
+      "embedUrl": "https://html5.gamemonetize.co/ouii8m4hdcwu1w3h50y21kvfu2uvhuz1/",
+      "checkedAt": "2026-11-23T09:31:15.149Z",
+      "document": {
+        "status": 200,
+        "ms": 650,
+        "bytes": 123244
+      },
+      "payload": {
+        "ms": 650,
+        "bytes": 123244
+      },
+      "viewport": "",
+      "generator": "",
+      "assets": [],
+      "keyboardCode": false,
+      "keyboardTokens": [],
+      "touchCode": false,
+      "touchTokens": []
+    },
+    {
+      "slug": "bolts-and-nuts-online",
+      "title": "Bolts and Nuts Online",
+      "embedUrl": "https://html5.gamemonetize.co/9zueathj0d2ruy7f4bekxqn6jh1reg4k/",
+      "checkedAt": "2026-11-23T09:31:18.364Z",
+      "document": {
+        "status": 200,
+        "ms": 430,
+        "bytes": 1646
+      },
+      "payload": {
+        "ms": 2603,
+        "bytes": 136948
+      },
+      "viewport": "width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no",
+      "generator": "Scirra Construct",
+      "assets": [
+        {
+          "url": "https://html5.gamemonetize.co/9zueathj0d2ruy7f4bekxqn6jh1reg4k/scripts/modernjscheck.js",
+          "status": 200,
+          "ms": 250,
+          "bytes": 153
+        },
+        {
+          "url": "https://html5.gamemonetize.co/9zueathj0d2ruy7f4bekxqn6jh1reg4k/scripts/supportcheck.js",
+          "status": 200,
+          "ms": 243,
+          "bytes": 4799
+        },
+        {
+          "url": "https://html5.gamemonetize.co/9zueathj0d2ruy7f4bekxqn6jh1reg4k/scripts/offlineclient.js",
+          "status": 200,
+          "ms": 617,
+          "bytes": 564
+        },
+        {
+          "url": "https://html5.gamemonetize.co/9zueathj0d2ruy7f4bekxqn6jh1reg4k/scripts/main.js",
+          "status": 200,
+          "ms": 1063,
+          "bytes": 129786
+        }
+      ],
+      "keyboardCode": true,
+      "keyboardTokens": [],
+      "touchCode": true,
+      "touchTokens": [
+        "touchstart",
+        "touchend",
+        "pointerdown",
+        "pointermove"
+      ]
+    },
+    {
+      "slug": "steal-my-egg",
+      "title": "Steal My Egg",
+      "embedUrl": "https://html5.gamemonetize.co/435daxjh2ot0g94cxx3oxpqk357eu2wc/",
+      "checkedAt": "2026-11-23T09:31:20.196Z",
+      "document": {
+        "status": 200,
+        "ms": 1208,
+        "bytes": 977132
+      },
+      "payload": {
+        "ms": 1208,
+        "bytes": 977132
+      },
+      "viewport": "width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover",
+      "generator": "",
+      "assets": [],
+      "keyboardCode": true,
+      "keyboardTokens": [
+        "Enter",
+        "Space",
+        "KeyW",
+        "ArrowUp",
+        "KeyS",
+        "ArrowDown",
+        "KeyA",
+        "ArrowLeft",
+        "KeyD",
+        "ArrowRight",
+        "KeyZ",
+        "KeyQ",
+        "KeyE",
+        "KeyF",
+        "KeyR",
+        "KeyI",
+        "KeyB",
+        "KeyG",
+        "KeyC",
+        "Escape",
+        "KeyM",
+        "KeyX",
+        "KeyH"
+      ],
+      "touchCode": true,
+      "touchTokens": [
+        "touchstart",
+        "touchmove",
+        "touchend",
+        "pointerdown"
+      ]
+    },
+    {
+      "slug": "sink-hole",
+      "title": "Sink Hole",
+      "embedUrl": "https://html5.gamemonetize.co/9q8wg1qah81wrucv2e8knmnxpbqbex4z/",
+      "checkedAt": "2026-11-23T09:31:21.569Z",
+      "document": {
+        "status": 200,
+        "ms": 738,
+        "bytes": 1251280
+      },
+      "payload": {
+        "ms": 738,
+        "bytes": 1251280
+      },
+      "viewport": "width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover",
+      "generator": "",
+      "assets": [],
+      "keyboardCode": true,
+      "keyboardTokens": [
+        "KeyW",
+        "ArrowUp",
+        "KeyZ",
+        "KeyS",
+        "ArrowDown",
+        "KeyA",
+        "ArrowLeft",
+        "KeyQ",
+        "KeyD",
+        "ArrowRight",
+        "Escape",
+        "Enter",
+        "KeyP"
+      ],
+      "touchCode": true,
+      "touchTokens": [
+        "touchstart",
+        "touchmove",
+        "touchend",
+        "pointerdown"
+      ]
+    },
+    {
+      "slug": "spotless",
+      "title": "Spotless",
+      "embedUrl": "https://html5.gamemonetize.co/3mmnm799u7mmi8v893sgsd29wvqx4li3/",
+      "checkedAt": "2026-11-23T09:31:23.021Z",
+      "document": {
+        "status": 200,
+        "ms": 835,
+        "bytes": 508810
+      },
+      "payload": {
+        "ms": 835,
+        "bytes": 508810
+      },
+      "viewport": "width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover",
+      "generator": "",
+      "assets": [],
+      "keyboardCode": true,
+      "keyboardTokens": [
+        "Space"
+      ],
+      "touchCode": true,
+      "touchTokens": [
+        "touchmove",
+        "pointerdown",
+        "pointermove"
+      ]
+    },
+    {
+      "slug": "duckling-rush-io",
+      "title": "Duckling Rush.io",
+      "embedUrl": "https://html5.gamemonetize.co/vuj35pjyhr7b8cd85gk2f28p351exqwn/",
+      "checkedAt": "2026-11-23T09:31:24.281Z",
+      "document": {
+        "status": 200,
+        "ms": 643,
+        "bytes": 175247
+      },
+      "payload": {
+        "ms": 643,
+        "bytes": 175247
+      },
+      "viewport": "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no",
+      "generator": "",
+      "assets": [],
+      "keyboardCode": true,
+      "keyboardTokens": [
+        "Space",
+        "ArrowRight",
+        "ArrowLeft",
+        "ArrowDown",
+        "ArrowUp",
+        "Escape",
+        "Enter"
+      ],
+      "touchCode": true,
+      "touchTokens": [
+        "touchstart",
+        "touchmove",
+        "touchend",
+        "pointerdown",
+        "pointermove",
+        "ontouchstart"
+      ]
+    },
+    {
+      "slug": "snake-vs-ai",
+      "title": "Snake VS AI",
+      "embedUrl": "https://html5.gamemonetize.co/y6pbx3vejjjy13cgixiit05r16srp9oc/",
+      "checkedAt": "2026-11-23T09:31:25.613Z",
+      "document": {
+        "status": 200,
+        "ms": 436,
+        "bytes": 12177
+      },
+      "payload": {
+        "ms": 706,
+        "bytes": 710611
+      },
+      "viewport": "width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover",
+      "generator": "",
+      "assets": [
+        {
+          "url": "https://html5.gamemonetize.co/y6pbx3vejjjy13cgixiit05r16srp9oc/index-BtzCKBks.js",
+          "status": 200,
+          "ms": 270,
+          "bytes": 698434
+        }
+      ],
+      "keyboardCode": true,
+      "keyboardTokens": [
+        "Enter",
+        "Space",
+        "ArrowLeft",
+        "ArrowRight",
+        "ArrowUp",
+        "ArrowDown",
+        "KeyE",
+        "KeyF",
+        "Escape",
+        "KeyP",
+        "KeyD",
+        "KeyA",
+        "KeyS",
+        "KeyW"
+      ],
+      "touchCode": true,
+      "touchTokens": [
+        "touchstart",
+        "touchend",
+        "pointerdown",
+        "pointermove",
+        "ontouchstart"
+      ]
+    },
+    {
+      "slug": "cute-cat-sort-puzzle",
+      "title": "Cute Cat Sort Puzzle",
+      "embedUrl": "https://html5.gamemonetize.co/s76wgadl862es0443p096gumiscxg9nk/",
+      "checkedAt": "2026-11-23T09:31:28.979Z",
+      "document": {
+        "status": 200,
+        "ms": 424,
+        "bytes": 30538
+      },
+      "payload": {
+        "ms": 2761,
+        "bytes": 10621286
+      },
+      "viewport": "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no",
+      "generator": "",
+      "assets": [
+        {
+          "url": "https://html5.gamemonetize.co/s76wgadl862es0443p096gumiscxg9nk/assets/bundle_data.js",
+          "status": 200,
+          "ms": 592,
+          "bytes": 10537671
+        },
+        {
+          "url": "https://html5.gamemonetize.co/s76wgadl862es0443p096gumiscxg9nk/audio.js",
+          "status": 200,
+          "ms": 608,
+          "bytes": 7024
+        },
+        {
+          "url": "https://html5.gamemonetize.co/s76wgadl862es0443p096gumiscxg9nk/game.js",
+          "status": 200,
+          "ms": 1137,
+          "bytes": 46053
+        }
+      ],
+      "keyboardCode": false,
+      "keyboardTokens": [],
+      "touchCode": true,
+      "touchTokens": [
+        "pointerdown",
+        "pointermove"
+      ]
+    },
+    {
+      "slug": "find-67-in-brainrot-world",
+      "title": "Find 67 in brainrot World",
+      "embedUrl": "https://html5.gamemonetize.co/11h4yo16w84haz94xhr2ioqdjgcxfb72/",
+      "checkedAt": "2026-11-23T09:31:30.997Z",
+      "document": {
+        "status": 200,
+        "ms": 423,
+        "bytes": 1326
+      },
+      "payload": {
+        "ms": 1412,
+        "bytes": 138959
+      },
+      "viewport": "width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no",
+      "generator": "Scirra Construct",
+      "assets": [
+        {
+          "url": "https://html5.gamemonetize.co/11h4yo16w84haz94xhr2ioqdjgcxfb72/scripts/modernjscheck.js",
+          "status": 200,
+          "ms": 250,
+          "bytes": 153
+        },
+        {
+          "url": "https://html5.gamemonetize.co/11h4yo16w84haz94xhr2ioqdjgcxfb72/scripts/supportcheck.js",
+          "status": 200,
+          "ms": 252,
+          "bytes": 4799
+        },
+        {
+          "url": "https://html5.gamemonetize.co/11h4yo16w84haz94xhr2ioqdjgcxfb72/scripts/offlineclient.js",
+          "status": 200,
+          "ms": 241,
+          "bytes": 564
+        },
+        {
+          "url": "https://html5.gamemonetize.co/11h4yo16w84haz94xhr2ioqdjgcxfb72/scripts/main.js",
+          "status": 200,
+          "ms": 246,
+          "bytes": 132117
+        }
+      ],
+      "keyboardCode": true,
+      "keyboardTokens": [],
+      "touchCode": true,
+      "touchTokens": [
+        "touchstart",
+        "touchend",
+        "pointerdown",
+        "pointermove"
+      ]
+    },
+    {
+      "slug": "splash-rush",
+      "title": "Splash Rush",
+      "embedUrl": "https://html5.gamemonetize.co/s1rqvojgwdpuia5f84udakgk9ss8rgfy/",
+      "checkedAt": "2026-11-23T09:31:32.795Z",
+      "document": {
+        "status": 200,
+        "ms": 1183,
+        "bytes": 865692
+      },
+      "payload": {
+        "ms": 1183,
+        "bytes": 865692
+      },
+      "viewport": "width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover",
+      "generator": "",
+      "assets": [],
+      "keyboardCode": true,
+      "keyboardTokens": [
+        "Space",
+        "ArrowUp",
+        "KeyW",
+        "KeyZ",
+        "ArrowLeft",
+        "KeyA",
+        "KeyQ",
+        "ArrowRight",
+        "KeyD",
+        "Escape",
+        "KeyP",
+        "Enter"
+      ],
+      "touchCode": true,
+      "touchTokens": [
+        "touchstart",
+        "touchend",
+        "pointerdown",
+        "pointermove"
+      ]
+    },
+    {
+      "slug": "break-and-steal-my-egg",
+      "title": "Break And Steal My Egg",
+      "embedUrl": "https://html5.gamemonetize.co/i0lg8nothvxowmh1ps8k96zwf97uunl7/",
+      "checkedAt": "2026-11-23T09:31:35.410Z",
+      "document": {
+        "status": 200,
+        "ms": 2010,
+        "bytes": 5851281
+      },
+      "payload": {
+        "ms": 2010,
+        "bytes": 5851281
+      },
+      "viewport": "",
+      "generator": "",
+      "assets": [],
+      "keyboardCode": false,
+      "keyboardTokens": [],
+      "touchCode": false,
+      "touchTokens": []
+    },
+    {
+      "slug": "soul-hunter",
+      "title": "Soul Hunter",
+      "embedUrl": "https://html5.gamemonetize.co/ozcnxe8wcekfg3o8pr5oi6yf6d1ipvz9/",
+      "checkedAt": "2026-11-23T09:31:37.437Z",
+      "document": {
+        "status": 200,
+        "ms": 430,
+        "bytes": 1653
+      },
+      "payload": {
+        "ms": 1412,
+        "bytes": 136814
+      },
+      "viewport": "width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no",
+      "generator": "Scirra Construct",
+      "assets": [
+        {
+          "url": "https://html5.gamemonetize.co/ozcnxe8wcekfg3o8pr5oi6yf6d1ipvz9/scripts/modernjscheck.js",
+          "status": 200,
+          "ms": 247,
+          "bytes": 153
+        },
+        {
+          "url": "https://html5.gamemonetize.co/ozcnxe8wcekfg3o8pr5oi6yf6d1ipvz9/scripts/supportcheck.js",
+          "status": 200,
+          "ms": 253,
+          "bytes": 4799
+        },
+        {
+          "url": "https://html5.gamemonetize.co/ozcnxe8wcekfg3o8pr5oi6yf6d1ipvz9/scripts/offlineclient.js",
+          "status": 200,
+          "ms": 240,
+          "bytes": 564
+        },
+        {
+          "url": "https://html5.gamemonetize.co/ozcnxe8wcekfg3o8pr5oi6yf6d1ipvz9/scripts/main.js",
+          "status": 200,
+          "ms": 242,
+          "bytes": 129645
+        }
+      ],
+      "keyboardCode": true,
+      "keyboardTokens": [],
+      "touchCode": true,
+      "touchTokens": [
+        "touchstart",
+        "touchend",
+        "pointerdown",
+        "pointermove"
+      ]
     }
   ]
 }

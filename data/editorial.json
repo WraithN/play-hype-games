@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-23T06:25:25.308Z",
+  "generatedAt": "2026-11-23T09:32:54.160Z",
   "note": "Original editorial notes for the 20 most exposed game pages. Measurements live in data/game-audits.json and are rendered separately.",
   "games": {
     "survivalpixel-io": {
@@ -301,6 +301,318 @@
       "check": "Check the lane before dropping fruit. Clicking early usually sends it past the basket rather than into it.",
       "fit": "For players who want a very simple reflex game and a short session. If you want progression or multiplayer, this is intentionally minimal.",
       "verdict": "A light timing game with a one-screen rule set. Good for a minute, not a long sitting."
+    },
+    "crazy-lumberjack-cut-them-all": {
+      "reviewedAt": "2026-11-23",
+      "why": "Crazy Lumberjack turns tree felling into a compact upgrade loop: cut a clearing, collect the wood, then spend the earnings on the tractor's saws, trunk capacity and speed. The mix of movement and load management gives it more shape than a simple clicker.",
+      "loop": "Use the mouse or a finger to drive the tractor and cut trees, then switch to collecting mode to gather firewood. Sell the wood and upgrade the tractor between levels. The publisher describes firs, palms and other tree types, so route planning matters as much as cutting speed.",
+      "check": "Check trunk capacity before felling a dense cluster. Overloading a trip wastes the time you saved by cutting quickly.",
+      "fit": "Best for players who like light action with visible upgrades and do not need combat. If you want precision platforming, the tractor handling will feel simple.",
+      "verdict": "A satisfying cut-and-upgrade game with a clear short-session loop. The grind is the point, so play it in bursts."
+    },
+    "idle-blocks-tycoon": {
+      "reviewedAt": "2026-11-23",
+      "why": "Idle Blocks Tycoon is a mining incremental: start with a small patch of grass, dig through increasingly valuable ore layers, and reinvest into speed and auto-miners. The appeal is watching a tiny dig site turn into an operation without needing constant input.",
+      "loop": "Click to unlock features, upgrade mining speed, buy auto-miners and expand the site. On desktop, scroll zooms and right-click pans; on mobile, pinch zooms and rotates. Progress is a series of income upgrades rather than skill checks.",
+      "check": "Check the payback time on an auto-miner before buying another cosmetic upgrade. Early income compounds faster than one-off bonuses.",
+      "fit": "For players who like idle progression and background check-ins. If you want active combat or a story, this is deliberately hands-off.",
+      "verdict": "A standard but readable idle tycoon. Good as a second-tab game; not something to play for reflex challenge."
+    },
+    "game-of-goose-2": {
+      "reviewedAt": "2026-11-23",
+      "why": "Game of Goose-2 is a digital reskin of the classic board game, built for one to four players sharing a screen. The appeal is the familiar roll-and-move format and the social friction of a race, not a new mechanic.",
+      "loop": "The publisher describes a local board game for up to four players but does not list a key map. Expect to read the first screen for turn order and movement prompts. Play passes around the same device, so the group is part of the game.",
+      "check": "Check whose turn it is and how many players are seated before starting. A local board game is only as good as the group around the screen.",
+      "fit": "Best for families and friends on one device. If you want a solo action game, this is the wrong format.",
+      "verdict": "A simple board-game port with a clear social use case. Its value depends on the people playing, not the software depth."
+    },
+    "feather-dash": {
+      "reviewedAt": "2026-11-23",
+      "why": "Feather Dash is a one-button flying game: keep the bird in the gap, collect coins and push your best distance. The publisher keeps the rule set minimal so the difficulty comes from timing rather than a large upgrade tree.",
+      "loop": "Click, tap or press Space to jump, avoid pipes, collect coins and unlock cosmetics. The description lists an endless Classic mode and progressive difficulty. A run ends on contact, so restarts are fast.",
+      "check": "Check the gap height before tapping again. Two quick taps are usually worse than one committed jump.",
+      "fit": "For players who want a familiar reflex game and short sessions. If you want levels or a story, the endless format is intentionally narrow.",
+      "verdict": "A polished take on the one-button formula. Good for a minute; the skill ceiling is higher than it looks."
+    },
+    "snake-warz": {
+      "reviewedAt": "2026-11-23",
+      "why": "SNAKE WARZ is a pure snake arena: eat, grow, avoid collisions and outmaneuver rivals. The publisher adds no shop or story in the description, so the competition itself is the content.",
+      "loop": "Steer with the mouse or a tap. The goal is to become the largest snake by collecting food and forcing others into your trail. The description mentions avoiding attacks and outmaneuvering rivals, not a boost meter, so read the first screen for the exact control.",
+      "check": "Check the space around your tail before turning. A tight turn in a crowded arena is the most common way to lose.",
+      "fit": "For players who already like snake games and want a quick competitive round. If you want progression, look for a version with a shop.",
+      "verdict": "A dependable snake arena with a low learning cost. Pick it for a short match, not a long campaign."
+    },
+    "colors-matching": {
+      "reviewedAt": "2026-11-23",
+      "why": "Colors Matching is a visual puzzle about pairing the right colours across levels. The publisher frames it as relaxing but challenging, which fits a game where the difficulty comes from similar hues rather than a timer.",
+      "loop": "Click or tap to match colours and complete the level objective. The description does not promise power-ups or a story; expect a sequence of short visual puzzles with a gradual difficulty curve.",
+      "check": "Check the exact hue before committing to a pair. Similar colours are the point of the challenge, so slow down on the last few tiles.",
+      "fit": "For players who like calm visual puzzles and short levels. If you want action or progression systems, this is intentionally minimal.",
+      "verdict": "A light colour-matching game with a low barrier to entry. Best for a quiet break."
+    },
+    "guardz-io": {
+      "reviewedAt": "2026-11-23",
+      "why": "Guardz IO is a medieval knight .io game with a rank ladder: start as a Page, climb through Squire, Knight, Templar and Paladin, and chase the global leaderboard. The rank progression gives the free-for-all deathmatch a longer arc than a single round.",
+      "loop": "Click or tap to play. Slay enemies, collect XP orbs and climb the ranks. The publisher lists a free-for-all deathmatch but not a detailed key map, so learn the movement and attack bindings on the first screen.",
+      "check": "Check the rank of the nearest knight before starting a duel. A higher-rank player usually has more tools than you do.",
+      "fit": "For players who like PvP arenas and visible rank progression. If you want a solo campaign or co-op, the design is competitive first.",
+      "verdict": "A readable knight arena with a strong progression hook. Its value depends on whether the lobby is active."
+    },
+    "castle-wars-legacy": {
+      "reviewedAt": "2026-11-23",
+      "why": "Castle Wars: Legacy is a tactical card game about deck building, resource stacking and breaking through a castle. The publisher lists online battles, daily tournaments, a campaign and AI matches, which makes it one of the broader strategy packages in this batch.",
+      "loop": "Click or tap to play cards. Stack resources, summon armies, cast spells and defend your own walls while looking for a breach. Build a deck between matches and adjust it when a strategy stops working.",
+      "check": "Check your resource curve before a match. A deck with expensive cards and no early plays will lose before the big units arrive.",
+      "fit": "For players who want a card duel with deck construction and multiple modes. If you want real-time action, the turn-based pace is a different commitment.",
+      "verdict": "The deepest strategy game in this group. Worth learning if you enjoy deck building; expect a few losses while you do."
+    },
+    "snash-master-snail-fun-game": {
+      "reviewedAt": "2026-11-23",
+      "why": "Snash Master is a snake-and-worm arena with food, growth, speed boosts and skins. The publisher also advertises offline play, which is unusual for a browser arena and useful when the connection is unreliable.",
+      "loop": "Move with the mouse or arrow keys, boost with left-click or Space, collect food and avoid crashing. Trapping opponents by cutting them off is the offensive move. The description lists skins and endless worm wars but no shop economy.",
+      "check": "Check your length before a long boost. Spending too much length on a chase can leave you unable to defend the next turn.",
+      "fit": "For snake fans who want a quick arena and may play offline. If you want a solo campaign, the design is still competitive.",
+      "verdict": "A familiar snake loop with a useful offline option. Best in short sessions."
+    },
+    "neck-stack-rush": {
+      "reviewedAt": "2026-11-23",
+      "why": "Neck Stack Rush is a hyper-casual runner built around a single growing stack: collect neck pieces, get taller, and use the height to cross walls and gaps. The risk is that a bad move shortens the stack and makes the next obstacle harder.",
+      "loop": "On mobile, swipe; on desktop, use the arrow keys or WASD. Collect pieces, avoid mistakes that reduce the stack, and reach the finish. The publisher describes one-touch controls and short levels, so restarts are cheap.",
+      "check": "Check the stack height before a high wall. A shortcut that clips the stack can leave you too short for the next gap.",
+      "fit": "For players who want a quick mobile-style runner. If you want precise platforming or a story, the scope is smaller.",
+      "verdict": "A simple one-more-run runner. Good for a minute; the height mechanic is easy to understand."
+    },
+    "gun-shooting-game": {
+      "reviewedAt": "2026-11-23",
+      "why": "Gun Shooting Game is a compact FPS-style shooting game with combat missions and a focus on aiming. The publisher describes dangerous war zones, multiple weapons and fast firefights, but gives little detail about progression or modes.",
+      "loop": "Use the mouse to aim and shoot on PC, or touch controls on mobile. Clear enemies, survive the mission and move to the next firefight. Read the HUD for ammo and health because the description does not list those systems.",
+      "check": "Check the ammo count and reload prompt before pushing into a new area. The game gives little warning if you are empty.",
+      "fit": "For players who want a direct browser shooter and do not need a story. If you want tactical squad controls, the description does not promise them.",
+      "verdict": "A straightforward shooter with a thin feature description. Try the first mission before investing time."
+    },
+    "thecheesiestclicker": {
+      "reviewedAt": "2026-11-23",
+      "why": "TheCheesiestClicker is a full incremental game rather than a one-screen joke: 33 upgrades, farmers and factories, critical hits, a golden cheese bonus and a prestige layer called Moldy Cheese. The theme is silly, but the progression systems are real.",
+      "loop": "Click the cheese wheel or press Space to earn cheese, buy upgrades on the right, catch the golden cheese when it crosses the screen, and prestige when the run slows down. Permanent Moldy Cheese unlocks a separate shop.",
+      "check": "Check the combo multiplier and the golden cheese timer before spending a big batch of cheese. A critical hit during a combo is worth more than a random purchase.",
+      "fit": "For players who like clickers and long prestige loops. If you want action, the game is intentionally repetitive.",
+      "verdict": "A feature-rich clicker with more depth than the name suggests. Good for background play over several sessions."
+    },
+    "klondike-solitaire-game": {
+      "reviewedAt": "2026-11-23",
+      "why": "Klondike Solitaire Game is the standard card game: build the tableau down in alternating colours, move aces to the foundations and clear the board. The publisher adds no twist, which is the point for players who want the familiar rules.",
+      "loop": "Use the mouse to click and drag cards. Reveal face-down cards, create empty columns and move sequences to the foundations. There is no story or meta-progression described; the game is the deal.",
+      "check": "Check face-down cards and empty columns before moving a sequence. A hasty move can block the only column you needed.",
+      "fit": "For card-game players who want a clean Klondike implementation. If you want a variant or a campaign, this is the classic ruleset.",
+      "verdict": "A faithful solitaire port with no distractions. Good when you want a quiet, familiar game."
+    },
+    "a-survival-legend": {
+      "reviewedAt": "2026-11-23",
+      "why": "A Survival Legend is a wave-survival game set in a zombie-overrun city. Coins, skill upgrades, weapon power-ups and a revive system give each run a small build arc instead of pure dodging.",
+      "loop": "Click or tap to play. Move through the city, collect coins, choose upgrades and keep the waves from surrounding you. The publisher mentions reviving at the right moment, so the decision to continue a run is part of the strategy.",
+      "check": "Check the upgrade options before spending coins on a small stat boost. A weapon upgrade can change the next wave more than a minor speed increase.",
+      "fit": "For players who like arcade survival and short runs. If you want a narrative or a long campaign, the loop is score-driven.",
+      "verdict": "A standard wave survival game with a clear upgrade hook. Best for a few runs at a time."
+    },
+    "speen": {
+      "reviewedAt": "2026-11-23",
+      "why": "Speen has an unusual control idea: one circle swings around the other, and planting a leg switches which one is the pivot. Momentum, pickups and a boss fight turn that simple swap into a genuinely different movement game.",
+      "loop": "Tap or click to swap which circle is planted and which one swings. Swing over green pickups with the orbiting circle, land on pink pickups with the planted one, fill both meters, smash spike balls and challenge the boss. A shared multiplayer world adds territory painting and duels.",
+      "check": "Check which circle is planted before a long swing. Swapping at the wrong moment sends you into a spike instead of over it.",
+      "fit": "For players who want a physics game that feels unlike the usual arena clone. If you want conventional controls, the two-circle scheme takes practice.",
+      "verdict": "The most distinctive mechanic in this batch. Worth trying even if the multiplayer side stays quiet."
+    },
+    "imposter-duck-online": {
+      "reviewedAt": "2026-11-23",
+      "why": "Imposter Duck: Online is a social-deduction game in the Among Us mould: crew members complete missions while one or more imposters sabotage the station and eliminate players. The duck theme is cosmetic; the round is about observation and accusation.",
+      "loop": "Move with WASD, the arrow keys or a mobile joystick. Complete tasks, watch for suspicious behaviour and vote out the imposter. The publisher lists cross-platform play, so PC and mobile players share a lobby.",
+      "check": "Check the lobby size before starting. Social deduction needs enough players to make suspicion meaningful.",
+      "fit": "For groups and players who enjoy deception games. If you want a solo shooter or a cooperative campaign, this is a different social contract.",
+      "verdict": "A familiar social-deduction format with a duck skin. Its quality depends almost entirely on the lobby."
+    },
+    "rocketcar-cup": {
+      "reviewedAt": "2026-11-23",
+      "why": "Rocketcar Cup is 2D car soccer with rocket boosts, jumps, flips and aerial hits. The publisher supports one-on-one and team matches, so the game is as much about positioning and boost management as scoring.",
+      "loop": "Use WASD or arrows to drive, Shift to boost and Q for a hard hit; mobile uses a virtual joystick plus boost and hit buttons. Defend your goal, rotate into space and commit to an aerial only when the boost meter supports it.",
+      "check": "Check your boost before leaving the ground. An aerial with no boost is a slow fall and an open goal for the other team.",
+      "fit": "For players who want arcade sports and quick matches. If you want a racing sim, the car physics are deliberately loose.",
+      "verdict": "A readable Rocket League-lite for the browser. Best with a second player or a live lobby."
+    },
+    "balloons-pop": {
+      "reviewedAt": "2026-11-23",
+      "why": "Balloons Pop is a minimal reflex game: pop as many balloons as possible and chase a higher score. The publisher does not describe upgrades, levels or a story, so the appeal is the immediate loop.",
+      "loop": "Click or tap balloons as they appear. Speed and accuracy determine the score. The description calls it endless, which means the game ends when you stop rather than at a final level.",
+      "check": "Check the screen edges before chasing a centre balloon. Missing an edge spawn is usually a bigger score loss than a slow centre tap.",
+      "fit": "For players who want a very short distraction. If you want progression or a challenge curve, the description does not promise one.",
+      "verdict": "A simple score-chasing game. Good for a minute; limited depth beyond that."
+    },
+    "blumgi-merge-online": {
+      "reviewedAt": "2026-11-23",
+      "why": "Blumgi Merge Online is a merge puzzle where matching characters combine into stronger units. The publisher frames it as easy to pick up but strategically deep, which fits a board-management game where the order of merges matters.",
+      "loop": "Touch and match characters to merge them, build stronger units and clear increasingly difficult levels. The description mentions planning and decision-making; expect the board to punish merges that fill space without creating a useful unit.",
+      "check": "Check the board space before starting a long merge chain. Leaving yourself no room to manoeuvre is the usual failure state in this genre.",
+      "fit": "For players who like merge puzzles and mobile-style sessions. If you want action, the pace is turn-based.",
+      "verdict": "A competent merge game with a strategic layer. Worth a try if the merge genre is your thing."
+    },
+    "grab-io": {
+      "reviewedAt": "2026-11-23",
+      "why": "Grab.io is a paper.io-style land-grab game on a round arena: leave your territory, trace a loop and return to claim everything inside. The one-touch-fatal rule makes every extension a calculated risk.",
+      "loop": "Steer with the mouse, or drag on touch. Leave your land, draw a loop away from rivals and return to your colour to capture the area. Stars give bonus points; touching any trail ends the run.",
+      "check": "Check the return path before closing a large loop. A rival can cut you off at the last second, and any trail contact is fatal.",
+      "fit": "For players who like territory games and short competitive rounds. If you want a forgiving solo mode, the bots still punish mistakes.",
+      "verdict": "A clean land-grab game with a strong risk-reward loop. Best when the arena is active."
+    },
+    "obbloxgun-io-3d-fps-shooter": {
+      "reviewedAt": "2026-11-23",
+      "why": "ObbloxGun.io is a blocky online FPS with arena maps, unlockable weapons and mobile auto-aim. The low-poly style keeps targets readable, and the auto-fire option lowers the barrier for touch players.",
+      "loop": "Move with WASD and shoot with the left mouse button on desktop; mobile enables auto-aim and auto-fire. Earn coins, unlock guns and push for the top of the match. The publisher describes quick, colorful arenas rather than a tactical mode.",
+      "check": "Check whether auto-aim is on before judging the mobile experience. It changes the skill ceiling and the way you should move.",
+      "fit": "For players who want a casual arena shooter and do not mind a lobby. If you want precise competitive gunplay, the auto-aim mode is a different game.",
+      "verdict": "A lightweight blocky shooter with a low entry cost. Its value depends on live matches."
+    },
+    "paint-drive-io": {
+      "reviewedAt": "2026-11-23",
+      "why": "Paint Drive IO combines an arcade racer with territory painting: drive a car, leave a coloured trail, close the loop and claim the ground inside. Rival cars can cut you off, so the racing line is also a risk decision.",
+      "loop": "Drive with the arrow keys or WASD. Turn to paint a closed loop and claim the area inside; avoid crashing into rivals. The publisher lists a leaderboard and a largest-area win condition, so expansion is the score.",
+      "check": "Check the loop closure before a rival cuts the trail. A large unfinished loop is the easiest way to lose ground.",
+      "fit": "For players who like .io territory games and arcade driving. If you want a simulation racer, the handling is intentionally simple.",
+      "verdict": "A familiar but effective hybrid. Good for a quick round."
+    },
+    "boom-cell": {
+      "reviewedAt": "2026-11-23",
+      "why": "Boom Cell is a growth-and-combat arena: start as a single cell, build a brigade, and fight other cell armies. The publisher's key warning is that larger groups overpower smaller ones, which makes positioning and timing central.",
+      "loop": "Use the left mouse button or WASD to play. Grow your group, engage smaller armies and avoid fights you cannot win. The description does not detail upgrades, so read the first screen for the growth rules.",
+      "check": "Check the relative army size before engaging. A larger group wins even if your movement is better.",
+      "fit": "For players who like .io growth games and quick battles. If you want a detailed strategy tree, the description is thin.",
+      "verdict": "A simple growth-combat game with a readable rule. Try a run; the first minute explains the loop."
+    },
+    "astro-merge": {
+      "reviewedAt": "2026-11-23",
+      "why": "Astro Merge is a physics puzzle about dropping planets to merge matching bodies and build a stack. The pressure rises as the stack gets taller, so the challenge is spatial planning rather than reflexes alone.",
+      "loop": "Aim with the mouse or a finger, click or tap to drop a planet, and merge matching planets to score. The description warns that the pressure keeps rising, so the board becomes harder to manage over time.",
+      "check": "Check the stack height and the next planet size before dropping. A large planet on a narrow tower can end the run immediately.",
+      "fit": "For players who like merge physics and short score runs. If you want a long campaign, the scope is one board.",
+      "verdict": "A clean one-more-run merge game. Easy to understand and harder to keep stable."
+    },
+    "tailoff-io-snake-dragon-arena": {
+      "reviewedAt": "2026-11-23",
+      "why": "Tailoff.io is a snake survival game with extra progression: devour creatures, collect scales, fight bosses, unlock skins and discover elemental dragon transformations. The dungeon-arena framing gives it more direction than a bare snake pit.",
+      "loop": "Move the mouse to steer on desktop, or touch and drag on mobile; P or Esc pauses. Eating and item collection happen automatically as you move. Avoid larger enemies until you are strong enough, use power-ups carefully and climb the arena ranking.",
+      "check": "Check the nearest boss and larger snake before crossing open ground. A transformation is not worth a fight you cannot finish.",
+      "fit": "For players who want a snake game with bosses and progression. If you want pure classic snake, the extra systems add noise.",
+      "verdict": "A feature-rich snake survival game. Worth a run if the progression hooks appeal."
+    },
+    "warrior-way": {
+      "reviewedAt": "2026-11-23",
+      "why": "Warrior Way is a 2D top-down survival brawler with mouse-only movement and melee combat. Gold, crystals and experience orbs make each run a small power race against a crowd of rivals.",
+      "loop": "The mouse controls both movement and facing: left-click attacks and right-click moves faster. Gather orbs, choose fights and avoid getting surrounded. The publisher describes dozens of rivals, so crowd spacing is the core skill.",
+      "check": "Check the space behind you before committing to an attack. A mouse-only brawler punishes players who walk into a closing circle.",
+      "fit": "For players who want a simple melee survival game and are comfortable with mouse-only controls. If you want keyboard movement, this is a deliberate constraint.",
+      "verdict": "A straightforward arena brawler with a clean control idea. Best in short runs."
+    },
+    "break-a-lucky-egg-brainrots": {
+      "reviewedAt": "2026-11-23",
+      "why": "Break a Lucky Egg Brainrots is a risk-and-collection game: break eggs, carry rare Brainrots back to your base before the timer, and reinvest the income into better tools and a taller base. The two-player option makes it a local co-op race.",
+      "loop": "Player one uses WASD, Shift, F, E and Space; player two uses the arrow keys, K, J, U and L. Break eggs, pick up or sell characters, upgrade pickaxes and hammers, and expand the base up to three floors.",
+      "check": "Check the timer and your carry capacity before going deeper. A rare character is worthless if you cannot get it home.",
+      "fit": "For players who like collection loops and local co-op. If you want a solo story, the loop is still a grind.",
+      "verdict": "An active collection game with a clear risk decision. The two-player mode is the reason to pick it."
+    },
+    "yolk-ops-egg-arena": {
+      "reviewedAt": "2026-11-23",
+      "why": "Yolk Ops is a single-player FPS arena with egg fighters, eight maps, three modes and AI bots. The publisher is explicit that online multiplayer is not supported, so it is a bot arena rather than a live shooter.",
+      "loop": "WASD or arrows move, the mouse looks, left-click fires, right-click aims, Space jumps, Shift sprints, R reloads, G throws a grenade and 1/2 select weapons. Fight bots across Free for All, Team Scramble or King of the Yolk and chase the elimination count.",
+      "check": "Check the bot count and mode before judging difficulty. The publisher says bot counts vary between matches.",
+      "fit": "For players who want a solo arena shooter and do not need live opponents. If you want PvP, this is explicitly not that.",
+      "verdict": "A complete solo FPS package with a clear scope. Good for offline practice or a quick bot match."
+    },
+    "bolts-and-nuts-online": {
+      "reviewedAt": "2026-11-23",
+      "why": "Bolts and Nuts Online is a mechanical logic puzzle: remove, arrange and manage bolts and nuts to clear each level. The appeal is the order of operations, not speed.",
+      "loop": "The publisher does not list a key map, so read the first screen for the click and drag controls. Solve each board by planning which pieces can move and which need to stay. Difficulty rises with the number of interacting parts.",
+      "check": "Check which bolts are load-bearing before removing one. A move that looks free can lock the rest of the board.",
+      "fit": "For players who like slow mechanical puzzles. If you want action or a timer, the pace is deliberate.",
+      "verdict": "A solid logic puzzle with a tactile theme. Good when you want to think through a board."
+    },
+    "steal-my-egg": {
+      "reviewedAt": "2026-11-23",
+      "why": "Steal My Egg is a heist-and-collection game: raid 25 worlds, grab eggs from guardians, escape home and hatch pets. The garden and skins give the loop a longer progression than a single chase.",
+      "loop": "On PC, WASD moves, the mouse looks, E steals, Space jumps, click swings a bat and H returns home. Mobile uses a joystick, drag look and tap buttons. Grab an egg, outrun the guardian and deposit it to hatch a pet.",
+      "check": "Check the guardian's patrol and your route home before grabbing a large egg. The escape is the hard part, not the theft.",
+      "fit": "For players who like action collection and short heists. If you want a quiet puzzle, the guardians add constant pressure.",
+      "verdict": "An energetic heist loop with visible collection goals. Good for short sessions."
+    },
+    "sink-hole": {
+      "reviewedAt": "2026-11-23",
+      "why": "Sink Hole is a growth-and-destruction arcade game: swallow smaller objects, grow the hole, destroy buildings and avoid bigger rivals. Four modes and a combo system give the simple premise more replay value.",
+      "loop": "Move with the mouse, WASD or arrows on PC, or touch and drag on mobile. Swallow smaller objects and holes, chain combos, grab boosts and avoid larger rivals. Esc or P pauses on desktop.",
+      "check": "Check the size of the nearest rival hole before crossing an open street. A bigger hole can end a good run in one touch.",
+      "fit": "For players who like growth games and destruction. If you want a precise platformer, the movement is deliberately loose.",
+      "verdict": "A satisfying growth game with several modes. Best for short, noisy sessions."
+    },
+    "spotless": {
+      "reviewedAt": "2026-11-23",
+      "why": "Spotless is a pressure-washing game with 100 jobs, combo chains, a Fever mode, nozzle upgrades and boss contracts. The appeal is visible completion: dirt disappears, the surface changes and the next upgrade is close.",
+      "loop": "Hold left-click to spray, use 1-5 or the wheel to switch nozzles, Q/R or right-click to rotate the jet, E/F to detect dirt and Esc/P to pause. Mobile uses hold-and-drag, a toolbar and a rotate button. Clean the job, earn coins, upgrade the pump and unlock bigger contracts.",
+      "check": "Check the nozzle and jet angle before a large flat surface. The wrong spray wastes time and breaks a combo.",
+      "fit": "For players who like satisfying completion games and do not need combat. If you want action, the pace is meditative.",
+      "verdict": "A polished cleaning loop with a long upgrade path. Easy to recommend for a relaxed session."
+    },
+    "duckling-rush-io": {
+      "reviewedAt": "2026-11-23",
+      "why": "Duckling Rush.io is a 90-second pond race: collect ducklings, cut through rival lines and finish with the longest conga line. The round timer keeps it focused and the QUACK burst adds a timing decision.",
+      "loop": "Hold and drag with the mouse or touch to steer the duck; it always swims forward. Tap QUACK for a burst and shockwave, or use arrow keys/WASD and Space on keyboard. Dodge the pike and steal ducklings from rival mamas.",
+      "check": "Check the pike and the nearest rival line before cutting across the pond. A stolen duckling is not worth a collision.",
+      "fit": "For players who want a cute, short competitive round. If you want a long progression, the 90-second format is the point.",
+      "verdict": "A lively short-round arcade game with a clear goal. Good for a quick break."
+    },
+    "snake-vs-ai": {
+      "reviewedAt": "2026-11-23",
+      "why": "Snake VS AI takes the paper.io territory formula and adds snake trails and AI personalities. You claim land by closing loops, knock out AI snakes by touching their trails, and lose instantly if they touch yours.",
+      "loop": "Steer with the mouse, WASD, arrows or mobile drag. Leave your land, draw a loop and return to claim it. Win by holding the most land at the timer or taking half the island; climb from Beginner to Elite, then unlock Unlimited mode.",
+      "check": "Check the AI trail direction before cutting across it. The same move that knocks out a rival can put your trail in front of another.",
+      "fit": "For players who want a single-player territory game with progression. If you want live PvP, the opponents here are AI.",
+      "verdict": "One of the more complete single-player .io games in the catalogue. Worth a run for the rank climb."
+    },
+    "cute-cat-sort-puzzle": {
+      "reviewedAt": "2026-11-23",
+      "why": "Cute Cat Sort Puzzle is a sorting game about moving cats between containers until each group is organised. The cat theme is cosmetic; the challenge is the same as any colour-sort puzzle: plan the empty space before you move.",
+      "loop": "Click and drag cats with the mouse, or tap and drag on a touchscreen. Sort the kitties, complete each level and move to the next. The publisher frames it as relaxing, so there is no timer in the description.",
+      "check": "Check the empty slots before moving a full stack. A move that fills the last free space can leave the board unsolvable.",
+      "fit": "For players who like calm sorting puzzles and short levels. If you want action, the pace is intentionally slow.",
+      "verdict": "A gentle sorting puzzle with a friendly theme. Good for a quiet break."
+    },
+    "find-67-in-brainrot-world": {
+      "reviewedAt": "2026-11-23",
+      "why": "Find 67 in brainrot World is a hidden-object game built around spotting characters in crowded cartoon scenes. The theme is the hook, but the actual task is visual scanning and patience.",
+      "loop": "Click or tap hidden characters in each scene. The publisher does not list a key map or timer, so read the first screen for the objective. Expect colorful, busy scenes where the target is part of the clutter.",
+      "check": "Check the edges and overlapping characters before assuming a target is missing. Hidden-object games reward a slow scan.",
+      "fit": "For players who like seek-and-find games and the brainrot theme. If you want action, the pace is deliberately still.",
+      "verdict": "A light hidden-object game with a strong theme. Best in short sessions."
+    },
+    "splash-rush": {
+      "reviewedAt": "2026-11-23",
+      "why": "Splash Rush is a water-slide racer with 150 levels, 15 worlds and 24 characters. The glider and jump mechanics give the race more than a straight downhill slide, and the top-three finish condition keeps each run focused.",
+      "loop": "Drag or use the arrow keys/A and D to steer, steer hard into the edge to jump, and hold Space or your finger to glide; release to dive. Finish in the top three to progress. Coins unlock characters.",
+      "check": "Check your speed and the rival behind you before launching off an edge. A risky jump can cost more places than it gains.",
+      "fit": "For players who want a colorful casual racer on desktop or mobile. If you want a simulation racer, the handling is arcade-first.",
+      "verdict": "A bright, readable racer with a lot of levels. Good for short sessions and younger players."
+    },
+    "break-and-steal-my-egg": {
+      "reviewedAt": "2026-11-23",
+      "why": "Break And Steal My Egg is a mining-and-heist game: break giant eggs, carry them home, hatch animals and escape guardians. The combination of mining, carrying and escaping gives each run a clear three-part rhythm.",
+      "loop": "On PC, WASD moves, the mouse looks, left-click mines, F auto-swings, Space jumps and E places an egg. Mobile uses a joystick, swipe look, a pickaxe button and an arrow button. Train power, unlock 30 worlds and escape the guardians.",
+      "check": "Check the guardian's path and your carry load before mining a large egg. A full load slows the escape.",
+      "fit": "For players who like action collection and short runs. If you want a quiet puzzle, the guardians keep the pressure on.",
+      "verdict": "An energetic mining loop with a clear progression. Good for a quick session."
+    },
+    "soul-hunter": {
+      "reviewedAt": "2026-11-23",
+      "why": "Soul Hunter is an action-adventure premise about controlling a ghost, chasing humans and capturing souls to unlock abilities. The idea is stronger than the publisher's documentation, which is the main thing to know before starting.",
+      "loop": "The publisher does not list a key map, so read the first screen for movement and attack controls. Complete missions, avoid obstacles, collect souls and unlock new abilities. The description does not mention a shop, multiplayer or a level count.",
+      "check": "Check the mission objective and ability unlock before exploring. With no control list in the description, the first screen is the tutorial.",
+      "fit": "For players who want a short action-adventure and do not mind figuring out the controls. If you want documented systems, this page is thin.",
+      "verdict": "An intriguing premise with limited public detail. Try the first mission before deciding whether to continue."
     }
   }
 }
