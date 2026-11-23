@@ -714,6 +714,21 @@ body.hype main{flex:1 0 auto}
   max-width:64ch;margin-top:14px;color:var(--h-fg);font-size:clamp(14px,1.15vw,16px);
   line-height:1.66;opacity:.86;
 }
+.hype .channel-nav{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.hype .channel-pill{
+  display:inline-flex;align-items:center;height:34px;padding:0 15px;border-radius:99px;
+  background:var(--h-chip);border:1px solid var(--h-chip-border);color:var(--h-fg);
+  font-family:var(--h-font);font-size:13px;font-weight:800;text-decoration:none;
+  box-shadow:0 2px 0 rgba(150,180,222,.4),0 4px 10px var(--h-shadow-soft);
+}
+.hype .channel-pill:hover{color:var(--h-accent)}
+.hype .channel-pill.is-active{background:var(--h-tab-on);color:#123a2a;box-shadow:var(--h-tab-on-shadow)}
+.hype .post-check{
+  margin:22px 0 0;padding:14px 16px;border-radius:14px;
+  background:var(--h-surface-2);border:1px solid var(--h-line);
+  color:var(--h-fg-dim);font-size:13px;line-height:1.6;
+}
+.hype .post-check strong{color:var(--h-fg)}
 .hype .blog-section{max-width:1320px;margin:0 auto;padding:clamp(18px,2.4vw,30px) 40px clamp(30px,4vw,56px)}
 .hype .post-list{display:grid;gap:clamp(12px,1.4vw,18px)}
 

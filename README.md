@@ -284,3 +284,19 @@ API：
 - 命中后不导入，也不算 `skipped`，单独计数，方便观察库存质量。
 - 后台 `Skip titles that reference a known brand or game IP` 可关闭，只在你能核实授权时关闭。
 - 关键词表在 `lib/feeds.js` 的 `BRAND_RISK`，可自行增删。
+
+## 8. News / Codes / Modding
+
+三个独立栏目，避免和普通游戏列表混在一起：
+
+| 栏目 | 路径 | 用途 |
+| --- | --- | --- |
+| News | `/news` | 官宣、发售、玩法资讯 |
+| Codes | `/codes` | Roblox 兑换码，按“已确认 / 未确认 / 已过期”分区，带检查日期 |
+| Modding | `/modding` | 开源移植、模组项目状态，只写技术信息 |
+
+- 文章仍存在 `data/posts.json`，用 `section` 字段归类：`news` / `codes` / `modding`；留空就是 Journal，只在 `/blog` 出现。
+- 文章 URL 是 `/<section>/<slug>`；旧的 `/blog/<slug>` 访问带 section 的文章会 301 到栏目 URL。
+- 后台文章编辑页有 **Section** 和 **Last checked** 字段。Codes 页必须填检查日期，并在正文里写清楚来源和“未确认”的码。
+- 版权红线：栏目只做资讯和项目状态。**不放游戏本体、破解、预置打包、网盘/磁力链接、泄露资源**。Leonida 这类项目只链接原 GitHub、记录依赖与已知问题，不提供下载或逐步破解教程。
+- 首页会展示最新 3 篇 News/Codes/Modding 文章；`/sitemap.xml` 会自动加入三个栏目和栏目文章。

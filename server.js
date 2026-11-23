@@ -227,11 +227,27 @@ function handleFront(req, res, url) {
     return send(res, 200, blog.blogIndexPage(posts, settings, page));
   }
 
+  // News / Codes / Modding 栏目与文章
+  const sectionMatch = pathname.match(/^\/(news|codes|modding)(?:\/([^/]+))?$/);
+  if (sectionMatch) {
+    const section = sectionMatch[1];
+    if (!sectionMatch[2]) {
+      return send(res, 200, blog.sectionIndexPage(section, posts, settings));
+    }
+    const slug = sectionMatch[2];
+    const post = blog.livePosts(posts).find((p) => p.slug === slug && p.section === section);
+    if (!post) return null;
+    return send(res, 200, blog.blogPostPage(post, posts, games, settings));
+  }
+
   // Journal 文章
   if (pathname.startsWith('/blog/')) {
     const slug = pathname.slice('/blog/'.length);
     const post = blog.livePosts(posts).find((p) => p.slug === slug);
     if (!post) return null;
+    if (post.section) {
+      return send(res, 301, '', { Location: blog.postPath(post) });
+    }
     return send(res, 200, blog.blogPostPage(post, posts, games, settings));
   }
 
@@ -527,6 +543,15 @@ function buildPostRecord(payload, posts, settings, existing) {
     (authorRecord && authorRecord.name) ||
     (existing && existing.author) ||
     settings.siteName;
+  const allowedSections = new Set(['', 'news', 'codes', 'modding']);
+  const requestedSection = String(
+    payload.section != null ? payload.section : (existing && existing.section) || ''
+  ).trim();
+  const section = allowedSections.has(requestedSection) ? requestedSection : '';
+  const lastChecked =
+    String(payload.lastChecked != null ? payload.lastChecked : (existing && existing.lastChecked) || '')
+      .trim()
+      .slice(0, 10);
 
   return {
     id: existing ? existing.id : store.nextPostId(posts),
@@ -537,6 +562,8 @@ function buildPostRecord(payload, posts, settings, existing) {
     cover: String(payload.cover || '').trim(),
     author,
     authorSlug,
+    section,
+    lastChecked,
     tags: normaliseTags(payload.tags),
     relatedGames: relatedIds,
     seoTitle: String(payload.seoTitle || '').trim(),
