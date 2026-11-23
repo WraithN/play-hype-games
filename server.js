@@ -429,6 +429,11 @@ function handleFront(req, res, url) {
     return send(res, 200, site.gamePage(game, games, settings, related));
   }
 
+  // 游戏加载速度指数
+  if (pathname === '/research/browser-game-load-times') {
+    return send(res, 200, site.loadTimeIndexPage(games, settings));
+  }
+
   // 静态页
   if (['/about', '/privacy', '/terms', '/contact', '/editorial-policy'].includes(pathname)) {
     const html = site.staticPage(settings, pathname.slice(1));
