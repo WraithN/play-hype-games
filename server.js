@@ -295,6 +295,26 @@ function handleFront(req, res, url) {
     return send(res, 200, html);
   }
 
+  // 对比页
+  if (pathname === '/compare') {
+    const a = url.searchParams.get('a') || '';
+    const b = url.searchParams.get('b') || '';
+    if (a && b) {
+      const curated = site.comparisonSlugFor(a, b);
+      if (curated) return send(res, 301, '', { Location: `/compare/${curated}` });
+      const html = site.compareDynamic(a, b, games, settings);
+      if (!html) return null;
+      return send(res, 200, html);
+    }
+    return send(res, 200, site.compareHubPage(games, settings));
+  }
+  if (pathname.startsWith('/compare/')) {
+    const slug = pathname.slice('/compare/'.length);
+    const html = site.comparePage(slug, games, settings);
+    if (!html) return null;
+    return send(res, 200, html);
+  }
+
   // 最新
   if (pathname === '/new') {
     const live = [...site.published(games)].sort(site.byNewest);
@@ -450,6 +470,12 @@ function handleFront(req, res, url) {
   }
 
   // 游戏加载速度指数
+  if (pathname === '/research/browser-game-load-times.csv') {
+    return send(res, 200, site.loadTimeCsv(games), {
+      'Content-Type': 'text/csv; charset=utf-8',
+      'Content-Disposition': 'attachment; filename="playhypegames-load-times.csv"'
+    });
+  }
   if (pathname === '/research/browser-game-load-times') {
     return send(res, 200, site.loadTimeIndexPage(games, settings));
   }

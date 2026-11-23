@@ -308,3 +308,10 @@ API：
 - 评分来自 `data/game-meta.json`，由 `node scripts/seed-game-meta.js` 按固定 rubric 生成，再由编辑覆盖少量特例。所有分数都是编辑估计，不是实测通关数据。
 - `data/collections.json` 定义合集标题、导语、筛选标准和 pick 列表；新增合集改这个文件即可。
 - 首页和页脚都有 `/find` 与 `/collections` 入口。
+
+### 对比页 / Codes 模板 / OG / CSV
+
+- `/compare` 是精选对比与双游戏选择器；`/compare/<slug>` 是手写对比页，动态 `?a=&b=` 组合默认 `noindex`，精选组合会 301 到固定 URL。
+- Codes 文章支持结构化 `codeSets`（active / reported / expired），页面生成 Copy 按钮，并发送 GA4 `code_copy` 事件。
+- `public/og-default.png` 是 1200×630 默认分享图；没有封面的页面自动使用。
+- `/research/browser-game-load-times.csv` 导出 79 条冷抓取数据，研究页带 CSV 下载与引用格式。

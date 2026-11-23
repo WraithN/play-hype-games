@@ -1,0 +1,48 @@
+{
+  "comparisons": [
+    {
+      "slug": "sumo-smash-vs-sumo-battle",
+      "a": "sumo-smash",
+      "b": "sumo-battle",
+      "title": "Sumo Smash! vs Sumo Battle!",
+      "excerpt": "Two sumo games with the same growth idea and different priorities: arena chests and skins versus a simpler body-mass push.",
+      "intro": "Both games ask you to eat, grow and push an opponent out of the ring. The difference is what surrounds that loop: Sumo Smash! adds arena chests and skins, while Sumo Battle! keeps the focus on body mass and the podium.",
+      "pickA": "Pick Sumo Smash! if you want a slightly busier arena with chests, skins and a clearer party-game tone.",
+      "pickB": "Pick Sumo Battle! if you want the simpler version: eat sushi, gain size, push, repeat, with less around the edges.",
+      "verdict": "They are close enough that the theme and lobby decide it. Start with Sumo Smash! for the extra collectibles; choose Sumo Battle! for a cleaner push loop."
+    },
+    {
+      "slug": "snake-vs-ai-vs-grab-io",
+      "a": "snake-vs-ai",
+      "b": "grab-io",
+      "title": "Snake VS AI vs Grab.io",
+      "excerpt": "Two territory games: one is a single-player rank climb with snake trails, the other is a faster paper.io-style land grab against bots.",
+      "intro": "Both ask you to leave home, draw a loop and return without touching a trail. Snake VS AI adds a rank ladder, AI personalities and an Unlimited mode; Grab.io keeps the round short and the arena round.",
+      "pickA": "Pick Snake VS AI if you want a single-player progression arc, unlockable snake skins and a mode that removes the timer.",
+      "pickB": "Pick Grab.io if you want the cleaner paper.io loop: leave land, close the loop, dodge every trail, repeat.",
+      "verdict": "Snake VS AI is the better long-session package. Grab.io is the better “one quick round” pick if you do not care about ranks."
+    },
+    {
+      "slug": "duckling-rush-io-vs-ducklings-io",
+      "a": "duckling-rush-io",
+      "b": "ducklings-io",
+      "title": "Duckling Rush.io vs Ducklings.io",
+      "excerpt": "Two duck collection games with different pressures: a 90-second competitive dash versus a calmer nest-building rescue loop.",
+      "intro": "The theme is the same; the session is not. Duckling Rush.io is a timed pond race with rival mamas and a QUACK burst. Ducklings.io is a slower rescue-and-upgrade loop with boats as the main hazard.",
+      "pickA": "Pick Duckling Rush.io if you want a short competitive round with stealing, bursts and a clear 90-second finish.",
+      "pickB": "Pick Ducklings.io if you want a calmer collection game where the goal is a better nest rather than beating a rival.",
+      "verdict": "Choose by mood, not by theme. Rush is the arcade pick; Ducklings is the wind-down pick."
+    },
+    {
+      "slug": "yolk-ops-egg-arena-vs-block-team-deathmatch",
+      "a": "yolk-ops-egg-arena",
+      "b": "block-team-deathmatch",
+      "title": "Yolk Ops Egg Arena vs Block Team Deathmatch",
+      "excerpt": "Two solo-friendly browser shooters: an egg-themed arena with AI bots versus a pixel-block FPS with team, individual and sniper modes.",
+      "intro": "Both are first-person shooters that can be played without a live lobby, but they solve the population problem differently. Yolk Ops is explicit about being single-player against bots. Block Team Deathmatch offers team, individual and sniper modes, with team mode recommended first.",
+      "pickA": "Pick Yolk Ops if you want a complete solo arena package with eight maps, three modes and a clear bot count.",
+      "pickB": "Pick Block Team Deathmatch if you want a blocky FPS with team modes and a progression recommendation for new players.",
+      "verdict": "Yolk Ops is the safer solo recommendation. Block Team Deathmatch is the better fit if you want team modes and do not mind learning by playing."
+    }
+  ]
+}

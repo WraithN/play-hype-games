@@ -573,6 +573,34 @@ body.hype .prose .source-note{font-size:12px;line-height:1.5;opacity:1;margin-to
 .hype .collection-intro li{margin-bottom:6px}
 .hype .collection-method{font-size:12px;line-height:1.6;color:var(--h-fg-dim);margin:18px 0 0}
 .hype .collection-method a{color:var(--h-accent);font-weight:800}
+.hype .compare-form{display:grid;grid-template-columns:1fr 1fr auto;gap:10px;align-items:end;background:var(--h-surface);border:1px solid var(--h-line);border-radius:16px;padding:14px;margin-bottom:22px}
+.hype .compare-form .btn-primary{height:38px;padding:0 18px;border-radius:9px;border:0;cursor:pointer;font-weight:800;background:var(--h-accent);color:#fff}
+.hype .compare-intro{max-width:780px;color:var(--h-fg-dim);font-size:15px;line-height:1.7;margin:0 0 20px}
+.hype .compare-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-bottom:16px}
+.hype .compare-card{display:flex;flex-direction:column;background:var(--h-surface);border:1px solid var(--h-line);border-radius:16px;overflow:hidden;text-decoration:none;color:var(--h-fg);box-shadow:0 8px 20px var(--h-shadow-soft)}
+.hype .compare-cover{aspect-ratio:16/10;overflow:hidden;background:var(--h-surface-2)}
+.hype .compare-cover .thumb{width:100%;height:100%;border-radius:0}
+.hype .compare-body{padding:14px 16px;display:grid;gap:7px}
+.hype .compare-body h2{font-family:var(--h-font);font-size:clamp(18px,2vw,24px);font-weight:800;margin:0;line-height:1.15}
+.hype .compare-body p{font-size:13px;line-height:1.55;color:var(--h-fg-dim);margin:0}
+.hype .compare-table-wrap{overflow-x:auto;border:1px solid var(--h-line);border-radius:16px;background:var(--h-surface);margin:8px 0 20px}
+.hype .compare-table{width:100%;border-collapse:collapse;min-width:560px;font-size:13px}
+.hype .compare-table th,.hype .compare-table td{padding:10px 14px;border-bottom:1px solid var(--h-line);text-align:left}
+.hype .compare-table thead th{background:var(--h-surface-2);font-weight:800;color:var(--h-fg)}
+.hype .compare-table tbody th{font-weight:800;color:var(--h-fg-dim);width:130px}
+.hype .compare-table td{color:var(--h-fg)}
+.hype .compare-picks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:0 0 16px}
+.hype .compare-picks > div{background:var(--h-surface);border:1px solid var(--h-line);border-radius:14px;padding:16px}
+.hype .compare-picks h2{font-family:var(--h-font);font-size:17px;font-weight:800;margin:0 0 6px}
+.hype .compare-picks p{font-size:13px;line-height:1.6;color:var(--h-fg-dim);margin:0 0 10px}
+.hype .compare-picks a{font-size:12px;font-weight:800;color:var(--h-accent);text-decoration:none}
+.hype .compare-verdict{background:var(--h-surface-2);border:1px solid var(--h-line);border-radius:14px;padding:16px;margin:0 0 8px}
+.hype .compare-verdict h2{font-family:var(--h-font);font-size:18px;font-weight:800;margin:0 0 6px}
+.hype .compare-verdict p{font-size:14px;line-height:1.6;color:var(--h-fg-dim);margin:0}
+@media (max-width:760px){
+  .hype .compare-form{grid-template-columns:1fr}
+  .hype .compare-grid,.hype .compare-picks{grid-template-columns:1fr}
+}
 @media (max-width:980px){
   .hype .find-form{grid-template-columns:repeat(3,minmax(0,1fr))}
   .hype .find-actions{grid-column:1 / -1}
@@ -584,6 +612,11 @@ body.hype .prose .source-note{font-size:12px;line-height:1.5;opacity:1;margin-to
 }
 
 /* 研究页：加载速度指数 */.hype .research-summary{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:6px 0 22px}
+.hype .research-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:12px}
+.hype .citation{margin:18px 0 0;padding:14px 16px;border-radius:14px;background:var(--h-surface-2);border:1px solid var(--h-line);font-size:13px;line-height:1.6;color:var(--h-fg-dim)}
+.hype .citation strong{display:block;color:var(--h-fg);margin-bottom:4px}
+.hype .citation p{margin:0 0 4px;word-break:break-word}
+.hype .citation a{color:var(--h-accent);font-weight:800;text-decoration:none}
 .hype .research-section-title{font-family:var(--h-font);font-size:clamp(20px,2.2vw,28px);font-weight:800;color:var(--h-fg);margin:0 0 10px}
 .hype .research-summary > div{background:var(--h-surface);border:1px solid var(--h-line);border-radius:14px;padding:14px 16px;box-shadow:0 6px 16px var(--h-shadow-soft)}
 .hype .research-summary span{display:block;font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--h-fg-dim);margin-bottom:5px}
@@ -869,6 +902,35 @@ body.hype main{flex:1 0 auto}
   color:var(--h-fg-dim);font-size:13px;line-height:1.6;
 }
 .hype .post-check strong{color:var(--h-fg)}
+
+/* Codes 结构化清单 */
+.hype .post-codes{
+  margin:26px 0 0;padding:clamp(16px,2.2vw,24px);border-radius:16px;
+  background:var(--h-surface);border:1px solid var(--h-line);box-shadow:0 8px 20px var(--h-shadow-soft);
+}
+.hype .post-codes h2{font-family:var(--h-font);font-size:clamp(22px,2.4vw,30px);font-weight:800;color:var(--h-fg);margin:0 0 4px}
+.hype .code-last{font-size:12px;font-weight:700;color:var(--h-fg-dim);margin:0 0 12px}
+.hype .code-note{font-size:13px;line-height:1.6;color:var(--h-fg-dim);margin:0 0 12px;max-width:74ch}
+.hype .code-heading{font-family:var(--h-font);font-size:15px;font-weight:800;margin:18px 0 8px}
+.hype .code-active{color:#157a35}
+.hype .code-reported{color:#9a6410}
+.hype .code-expired{color:var(--h-fg-dim)}
+.hype .code-list{display:grid;gap:6px}
+.hype .code-row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:9px 10px;border:1px solid var(--h-line);border-radius:10px;background:var(--h-surface-2)}
+.hype .code-main{display:grid;gap:2px;min-width:0}
+.hype .code-main code{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:13px;font-weight:800;color:var(--h-fg);overflow-wrap:anywhere}
+.hype .code-main span{font-size:12px;font-weight:700;color:var(--h-fg-dim)}
+.hype .code-main small{font-size:10px;color:var(--h-fg-dim)}
+.hype .code-copy{
+  flex:0 0 auto;min-width:64px;height:32px;padding:0 12px;border-radius:8px;cursor:pointer;
+  border:1px solid var(--h-line);background:var(--h-surface);color:var(--h-accent);
+  font-family:var(--h-font);font-size:12px;font-weight:800;
+}
+.hype .code-copy:hover{background:var(--h-surface-2)}
+@media (max-width:520px){
+  .hype .code-row{align-items:flex-start;flex-direction:column}
+  .hype .code-copy{width:100%}
+}
 .hype .blog-section{max-width:1320px;margin:0 auto;padding:clamp(18px,2.4vw,30px) 40px clamp(30px,4vw,56px)}
 .hype .post-list{display:grid;gap:clamp(12px,1.4vw,18px)}
 
