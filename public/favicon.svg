@@ -4,18 +4,23 @@
       <stop offset="0" stop-color="#0b1220"/>
       <stop offset="1" stop-color="#1c2f52"/>
     </linearGradient>
-    <mask id="pad">
-      <rect width="512" height="512" fill="#000"/>
-      <rect x="118" y="188" width="276" height="142" rx="71" fill="#fff"/>
-      <ellipse cx="174" cy="310" rx="64" ry="60" fill="#fff"/>
-      <ellipse cx="338" cy="310" rx="64" ry="60" fill="#fff"/>
-      <rect x="170" y="220" width="34" height="100" rx="12" fill="#000"/>
-      <rect x="132" y="254" width="90" height="34" rx="12" fill="#000"/>
-      <circle cx="334" cy="240" r="17" fill="#000"/>
-      <circle cx="374" cy="282" r="17" fill="#000"/>
-    </mask>
+    <linearGradient id="pad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#6ff5ff"/>
+      <stop offset="1" stop-color="#10a9c9"/>
+    </linearGradient>
   </defs>
   <rect width="512" height="512" rx="120" fill="url(#bg)"/>
   <rect x="7" y="7" width="498" height="498" rx="113" fill="none" stroke="#ffffff" stroke-opacity=".10" stroke-width="12"/>
-  <rect width="512" height="512" fill="#22d3ee" mask="url(#pad)"/>
+  <g fill="url(#pad)">
+    <rect x="118" y="188" width="276" height="142" rx="71"/>
+    <ellipse cx="174" cy="310" rx="64" ry="60"/>
+    <ellipse cx="338" cy="310" rx="64" ry="60"/>
+  </g>
+  <ellipse cx="218" cy="214" rx="86" ry="28" fill="#ffffff" opacity=".18"/>
+  <g fill="#0e1a2e">
+    <rect x="170" y="220" width="34" height="100" rx="12"/>
+    <rect x="132" y="254" width="90" height="34" rx="12"/>
+    <circle cx="334" cy="240" r="17"/>
+    <circle cx="374" cy="282" r="17"/>
+  </g>
 </svg>
