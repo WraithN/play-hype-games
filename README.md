@@ -300,3 +300,11 @@ API：
 - 后台文章编辑页有 **Section** 和 **Last checked** 字段。Codes 页必须填检查日期，并在正文里写清楚来源和“未确认”的码。
 - 版权红线：栏目只做资讯和项目状态。**不放游戏本体、破解、预置打包、网盘/磁力链接、泄露资源**。Leonida 这类项目只链接原 GitHub、记录依赖与已知问题，不提供下载或逐步破解教程。
 - 首页会展示最新 3 篇 News/Codes/Modding 文章；`/sitemap.xml` 会自动加入三个栏目和栏目文章。
+
+### 筛选器与合集
+
+- `/find` 按一局时长、节奏、输入、设备、重玩价值和解压度筛选；筛选后的 URL 是 `noindex,follow`，基础 `/find` 可索引。
+- `/collections` 是 4 个主题合集，合集页带 `CollectionPage` + `ItemList` 结构化数据，并内链到具体游戏页。
+- 评分来自 `data/game-meta.json`，由 `node scripts/seed-game-meta.js` 按固定 rubric 生成，再由编辑覆盖少量特例。所有分数都是编辑估计，不是实测通关数据。
+- `data/collections.json` 定义合集标题、导语、筛选标准和 pick 列表；新增合集改这个文件即可。
+- 首页和页脚都有 `/find` 与 `/collections` 入口。

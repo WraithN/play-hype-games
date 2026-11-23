@@ -1,0 +1,122 @@
+{
+  "collections": [
+    {
+      "slug": "short-break-games",
+      "title": "Games for a five-minute break",
+      "kicker": "Short sessions",
+      "description": "Browser games we would open when there are only a few minutes left: quick to load, quick to understand, and easy to leave.",
+      "intro": [
+        "This is not a ranking of the best games in the catalogue. It is a practical short-session list: games that give you a complete little decision in roughly two to five minutes, without a long tutorial or a save file you have to protect.",
+        "The session labels are editor estimates, not measured playtimes. We combine the publisher's description, the control scheme and our own notes. If a game has a longer progression layer, it belongs in a different collection."
+      ],
+      "criteria": [
+        "Session estimate: 2–5 minutes.",
+        "The first screen explains the objective without a long tutorial.",
+        "No account or download; closing the tab is a clean exit.",
+        "A clear round, score or short objective rather than a multi-hour campaign."
+      ],
+      "picks": [
+        "survivalpixel-io",
+        "meteor-io",
+        "duckling-rush-io",
+        "fruitbasket",
+        "grab-io",
+        "paint-drive-io",
+        "snake-vs-ai",
+        "swordbattle-io",
+        "christmas-snowball-arena",
+        "balloons-pop",
+        "colors-matching",
+        "merge-room"
+      ]
+    },
+    {
+      "slug": "two-players-one-screen",
+      "title": "Two players, one screen",
+      "kicker": "Local & online",
+      "description": "Games for a second person in the room, a shared keyboard, or a friend in a lobby. Each entry says which kind of two-player mode it actually is.",
+      "intro": [
+        "“Two player” is not one mode. Some games put both players on the same keyboard; some pass one mouse back and forth; others are online matches that need another person in a lobby. This collection separates those cases instead of pretending they are the same.",
+        "Read the note under each pick before inviting someone. If a page says the publisher did not list controls, treat the first screen as the tutorial. A local game with no second player is not a local game."
+      ],
+      "criteria": [
+        "Supports at least two players in a local, pass-and-play or online mode.",
+        "The mode is stated by the publisher or visible on the game page.",
+        "We separate same-keyboard, shared-screen and online play.",
+        "No account required for the local picks."
+      ],
+      "picks": [
+        "growwars-io",
+        "break-a-lucky-egg-brainrots",
+        "rocketcar-cup",
+        "game-of-goose-2",
+        "would-you-rather",
+        "castle-wars-legacy",
+        "speen",
+        "ducklings-io",
+        "skibidi-online",
+        "imposter-duck-online"
+      ]
+    },
+    {
+      "slug": "chromebook-light-games",
+      "title": "Light browser games for a Chromebook",
+      "kicker": "Low-friction picks",
+      "description": "Games whose embeds declare a mobile viewport and whose initial payload is under 1 MB in our cold-fetch test. School networks can still block hosts.",
+      "intro": [
+        "A Chromebook runs the browser as its operating system, so the useful question is not “is there a ChromeOS version?” but “does this embed load without a heavy client and does it fit a small screen?”",
+        "These picks passed two static checks: the embed declares a viewport and the initial HTML plus linked runtime was under 1 MB in our cold-fetch test. That is not a promise that a managed school network will allow the host, and it is not a frame-rate measurement. Check the load-time index for the raw numbers."
+      ],
+      "criteria": [
+        "Embed declares a viewport.",
+        "Initial payload under 1 MB in the cold-fetch test.",
+        "No install or launcher.",
+        "A short or medium session, so a shared device is not tied up for long."
+      ],
+      "picks": [
+        "survivalpixel-io",
+        "merge-room",
+        "colors-matching",
+        "fruitbasket",
+        "balloons-pop",
+        "duckling-rush-io",
+        "grab-io",
+        "snake-vs-ai",
+        "paint-drive-io",
+        "astro-merge",
+        "grimace-matching",
+        "meteor-io"
+      ]
+    },
+    {
+      "slug": "no-save-pressure",
+      "title": "Games with no save-file pressure",
+      "kicker": "Close anytime",
+      "description": "Short runs and score chases where closing the tab does not cost you a carefully built save. Good for waiting rooms, queues and five-minute gaps.",
+      "intro": [
+        "Some games are relaxing until you remember the save file. This collection is the opposite: rounds reset, scores are disposable, and leaving early is a normal way to stop.",
+        "These are not all “easy” games. Some are frantic and competitive. The shared property is that the session is the unit, not a campaign you have to protect. If a game has meta-progression, it is not in this list."
+      ],
+      "criteria": [
+        "No campaign save that is lost when you close the tab.",
+        "Short runs or score-based sessions.",
+        "Leaving mid-run is an expected action.",
+        "No account or cloud save required."
+      ],
+      "picks": [
+        "survivalpixel-io",
+        "meteor-io",
+        "duckling-rush-io",
+        "fruitbasket",
+        "balloons-pop",
+        "colors-matching",
+        "merge-room",
+        "grimace-matching",
+        "astro-merge",
+        "grab-io",
+        "paint-drive-io",
+        "snake-vs-ai"
+      ]
+    }
+  ]
+}

@@ -275,6 +275,26 @@ function handleFront(req, res, url) {
     return send(res, 200, site.categoriesPage(games, settings));
   }
 
+  // 游戏筛选器
+  if (pathname === '/find') {
+    const q = {};
+    ['session', 'pace', 'input', 'device', 'replay', 'relax'].forEach((key) => {
+      q[key] = url.searchParams.get(key) || '';
+    });
+    return send(res, 200, site.findPage(games, settings, q));
+  }
+
+  // 主题合集
+  if (pathname === '/collections') {
+    return send(res, 200, site.collectionsPage(games, settings));
+  }
+  if (pathname.startsWith('/collections/')) {
+    const slug = pathname.slice('/collections/'.length);
+    const html = site.collectionPage(slug, games, settings);
+    if (!html) return null;
+    return send(res, 200, html);
+  }
+
   // 最新
   if (pathname === '/new') {
     const live = [...site.published(games)].sort(site.byNewest);

@@ -1,0 +1,1404 @@
+{
+  "generatedAt": "2026-11-23T14:33:25.321Z",
+  "rubric": "Editorial estimates, not measured playtests. Session is a typical sitting; pace is the intended rhythm; relax/focus/learn/replay are 1–5 editor scores. Inputs come from publisher controls plus static audit evidence. Chromebook appears only when the embed declares a viewport and the initial payload is under 1 MB.",
+  "games": {
+    "soul-hunter": {
+      "session": "5-15",
+      "pace": "frantic",
+      "relax": 2,
+      "focus": 3,
+      "learn": 2,
+      "replay": 2,
+      "inputs": [
+        "keyboard",
+        "touch"
+      ],
+      "devices": [
+        "desktop",
+        "mobile",
+        "chromebook"
+      ],
+      "engine": "Scirra Construct",
+      "estimate": true
+    },
+    "break-and-steal-my-egg": {
+      "session": "5-15",
+      "pace": "frantic",
+      "relax": 2,
+      "focus": 3,
+      "learn": 2,
+      "replay": 3,
+      "inputs": [
+        "mouse",
+        "keyboard",
+        "touch"
+      ],
+      "devices": [
+        "desktop",
+        "mobile"
+      ],
+      "estimate": true
+    },
+    "splash-rush": {
+      "session": "5-15",
+      "pace": "frantic",
+      "relax": 2,
+      "focus": 3,
+      "learn": 2,
+      "replay": 3,
+      "inputs": [
+        "mouse",
+        "keyboard",
+        "touch"
+      ],
+      "devices": [
+        "desktop",
+        "mobile",
+        "chromebook"
+      ],
+      "estimate": true
+    },
+    "find-67-in-brainrot-world": {
+      "session": "2-5",
+      "pace": "calm",
+      "relax": 3,
+      "focus": 4,
+      "learn": 3,
+      "replay": 3,
+      "inputs": [
+        "keyboard",
+        "touch"
+      ],
+      "devices": [
+        "desktop",
+        "mobile",
+        "chromebook"
+      ],
+      "engine": "Scirra Construct",
+      "estimate": true
+    },
+    "cute-cat-sort-puzzle": {
+      "session": "5-15",
+      "pace": "calm",
+      "relax": 5,
+      "focus": 3,
+      "learn": 1,
+      "replay": 3,
+      "inputs": [
+        "mouse",
+        "touch"
+      ],
+      "devices": [
+        "desktop",
+        "mobile"
+      ],
+      "estimate": true
+    },
+    "snake-vs-ai": {
+      "session": "2-5",
+      "pace": "frantic",
+      "relax": 2,
+      "focus": 3,
+      "learn": 2,
+      "replay": 3,
+      "inputs": [
+        "mouse",
+        "keyboard",
+        "touch"
+      ],
+      "devices": [
+        "desktop",
+        "mobile",
+        "chromebook"
+      ],
+      "estimate": true
+    },
+    "duckling-rush-io": {
+      "session": "2-5",
+      "pace": "frantic",
+      "relax": 2,
+      "focus": 3,
+      "learn": 2,
+      "replay": 3,
+      "inputs": [
+        "mouse",
+        "keyboard",
+        "touch"
+      ],
+      "devices": [
+        "desktop",
+        "mobile",
+        "chromebook"
+      ],
+      "estimate": true
+    },
+    "spotless": {
+      "session": "15+",
+      "pace": "calm",
+      "relax": 5,
+      "focus": 2,
+      "learn": 1,
+      "replay": 4,
+      "inputs": [
+        "mouse",
+        "keyboard",
+        "touch"
+      ],
+      "devices": [
+        "desktop",
+        "mobile",
+        "chromebook"
+      ],
+      "estimate": true
+    },
+    "sink-hole": {
+      "session": "5-15",
+      "pace": "frantic",
+      "relax": 2,
+      "focus": 3,
+      "learn": 2,
+      "replay": 3,
+      "inputs": [
+        "mouse",
+        "keyboard",
+        "touch"
+      ],
+      "devices": [
+        "desktop",
+        "mobile"
+      ],
+      "estimate": true
+    },
+    "steal-my-egg": {
+      "session": "5-15",
+      "pace": "frantic",
+      "relax": 2,
+      "focus": 3,
+      "learn": 2,
+      "replay": 3,
+      "inputs": [
+        "mouse",
+        "keyboard",
+        "touch"
+      ],
+      "devices": [
+        "desktop",
+        "mobile",
+        "chromebook"
+      ],
+      "estimate": true
+    },
+    "bolts-and-nuts-online": {
+      "session": "5-15",
+      "pace": "steady",
+      "relax": 3,
+      "focus": 5,
+      "learn": 3,
+      "replay": 3,
+      "inputs": [
+        "keyboard",
+        "touch"
+      ],
+      "devices": [
+        "desktop",
+        "mobile",
+        "chromebook"
+      ],
+      "engine": "Scirra Construct",
+      "estimate": true
+    },
+    "yolk-ops-egg-arena": {
+      "session": "2-5",
+      "pace": "frantic",
+      "relax": 2,
+      "focus": 3,
+      "learn": 2,
+      "replay": 3,
+      "inputs": [
+        "mouse",
+        "keyboard"
+      ],
+      "devices": [
+        "desktop"
+      ],
+      "estimate": true
+    },
+    "break-a-lucky-egg-brainrots": {
+      "session": "5-15",
+      "pace": "frantic",
+      "relax": 2,
+      "focus": 3,
+      "learn": 2,
+      "replay": 3,
+      "inputs": [
+        "keyboard"
+      ],
+      "devices": [
+        "desktop"
+      ],
+      "estimate": true
+    },
+    "warrior-way": {
+      "session": "2-5",
+      "pace": "frantic",
+      "relax": 2,
+      "focus": 3,
+      "learn": 2,
+      "replay": 3,
+      "inputs": [
+        "mouse"
+      ],
+      "devices": [
+        "desktop"
+      ],
+      "estimate": true
+    },
+    "tailoff-io-snake-dragon-arena": {
+      "session": "2-5",
+      "pace": "frantic",
+      "relax": 2,
+      "focus": 3,
+      "learn": 2,
+      "replay": 3,
+      "inputs": [
+        "mouse",
+        "touch"
+      ],
+      "devices": [
+        "desktop",
+        "mobile"
+      ],
+      "estimate": true
+    },
+    "astro-merge": {
+      "session": "5-15",
+      "pace": "steady",
+      "relax": 3,
+      "focus": 4,
+      "learn": 3,
+      "replay": 3,
+      "inputs": [
+        "mouse",
+        "keyboard",
+        "touch"
+      ],
+      "devices": [
+        "desktop",
+        "mobile",
+        "chromebook"
+      ],
+      "estimate": true
+    },
+    "boom-cell": {
+      "session": "2-5",
+      "pace": "frantic",
+      "relax": 2,
+      "focus": 3,
+      "learn": 2,
+      "replay": 4,
+      "inputs": [
+        "mouse",
+        "keyboard"
+      ],
+      "devices": [
+        "desktop",
+        "chromebook"
+      ],
+      "estimate": true
+    },
+    "paint-drive-io": {
+      "session": "2-5",
+      "pace": "frantic",
+      "relax": 2,
+      "focus": 3,
+      "learn": 2,
+      "replay": 3,
+      "inputs": [
+        "keyboard"
+      ],
+      "devices": [
+        "desktop",
+        "chromebook"
+      ],
+      "estimate": true
+    },
+    "obbloxgun-io-3d-fps-shooter": {
+      "session": "2-5",
+      "pace": "frantic",
+      "relax": 2,
+      "focus": 3,
+      "learn": 2,
+      "replay": 3,
+      "inputs": [
+        "mouse",
+        "keyboard",
+        "touch"
+      ],
+      "devices": [
+        "desktop",
+        "mobile",
+        "chromebook"
+      ],
+      "estimate": true
+    },
+    "grab-io": {
+      "session": "2-5",
+      "pace": "frantic",
+      "relax": 2,
+      "focus": 3,
+      "learn": 2,
+      "replay": 4,
+      "inputs": [
+        "mouse",
+        "keyboard",
+        "touch"
+      ],
+      "devices": [
+        "desktop",
+        "mobile",
+        "chromebook"
+      ],
+      "estimate": true
+    },
+    "blumgi-merge-online": {
+      "session": "5-15",
+      "pace": "steady",
+      "relax": 3,
+      "focus": 4,
+      "learn": 3,
+      "replay": 3,
+      "inputs": [
+        "keyboard",
+        "touch"
+      ],
+      "devices": [
+        "desktop",
+        "mobile",
+        "chromebook"
+      ],
+      "engine": "Scirra Construct",
+      "estimate": true
+    },
+    "balloons-pop": {
+      "session": "2-5",
+      "pace": "calm",
+      "relax": 4,
+      "focus": 1,
+      "learn": 1,
+      "replay": 3,
+      "inputs": [
+        "mouse",
+        "keyboard",
+        "touch"
+      ],
+      "devices": [
+        "desktop",
+        "mobile",
+        "chromebook"
+      ],
+      "engine": "Scirra Construct",
+      "estimate": true
+    },
+    "rocketcar-cup": {
+      "session": "2-5",
+      "pace": "steady",
+      "relax": 3,
+      "focus": 3,
+      "learn": 2,
+      "replay": 4,
+      "inputs": [
+        "keyboard",
+        "touch"
+      ],
+      "devices": [
+        "desktop",
+        "mobile",
+        "chromebook"
+      ],
+      "estimate": true
+    },
+    "imposter-duck-online": {
+      "session": "5-15",
+      "pace": "steady",
+      "relax": 3,
+      "focus": 3,
+      "learn": 2,
+      "replay": 4,
+      "inputs": [
+        "keyboard",
+        "touch"
+      ],
+      "devices": [
+        "desktop",
+        "mobile",
+        "chromebook"
+      ],
+      "estimate": true
+    },
+    "speen": {
+      "session": "2-5",
+      "pace": "steady",
+      "relax": 3,
+      "focus": 3,
+      "learn": 2,
+      "replay": 4,
+      "inputs": [
+        "mouse",
+        "touch"
+      ],
+      "devices": [
+        "desktop",
+        "mobile",
+        "chromebook"
+      ],
+      "estimate": true
+    },
+    "a-survival-legend": {
+      "session": "2-5",
+      "pace": "frantic",
+      "relax": 2,
+      "focus": 3,
+      "learn": 2,
+      "replay": 3,
+      "inputs": [
+        "mouse",
+        "touch"
+      ],
+      "devices": [
+        "desktop",
+        "mobile",
+        "chromebook"
+      ],
+      "estimate": true
+    },
+    "klondike-solitaire-game": {
+      "session": "15+",
+      "pace": "calm",
+      "relax": 5,
+      "focus": 3,
+      "learn": 1,
+      "replay": 4,
+      "inputs": [
+        "mouse"
+      ],
+      "devices": [
+        "desktop"
+      ],
+      "estimate": true
+    },
+    "thecheesiestclicker": {
+      "session": "15+",
+      "pace": "calm",
+      "relax": 5,
+      "focus": 2,
+      "learn": 1,
+      "replay": 4,
+      "inputs": [
+        "mouse",
+        "keyboard",
+        "touch"
+      ],
+      "devices": [
+        "desktop",
+        "mobile",
+        "chromebook"
+      ],
+      "estimate": true
+    },
+    "gun-shooting-game": {
+      "session": "2-5",
+      "pace": "frantic",
+      "relax": 2,
+      "focus": 3,
+      "learn": 2,
+      "replay": 3,
+      "inputs": [
+        "mouse",
+        "touch"
+      ],
+      "devices": [
+        "desktop",
+        "mobile"
+      ],
+      "estimate": true
+    },
+    "neck-stack-rush": {
+      "session": "2-5",
+      "pace": "frantic",
+      "relax": 2,
+      "focus": 3,
+      "learn": 2,
+      "replay": 3,
+      "inputs": [
+        "keyboard",
+        "touch"
+      ],
+      "devices": [
+        "desktop",
+        "mobile",
+        "chromebook"
+      ],
+      "estimate": true
+    },
+    "snash-master-snail-fun-game": {
+      "session": "2-5",
+      "pace": "frantic",
+      "relax": 2,
+      "focus": 3,
+      "learn": 2,
+      "replay": 3,
+      "inputs": [
+        "mouse",
+        "keyboard"
+      ],
+      "devices": [
+        "desktop",
+        "chromebook"
+      ],
+      "estimate": true
+    },
+    "castle-wars-legacy": {
+      "session": "5-15",
+      "pace": "steady",
+      "relax": 2,
+      "focus": 4,
+      "learn": 4,
+      "replay": 3,
+      "inputs": [
+        "mouse",
+        "touch"
+      ],
+      "devices": [
+        "desktop",
+        "mobile",
+        "chromebook"
+      ],
+      "estimate": true
+    },
+    "guardz-io": {
+      "session": "2-5",
+      "pace": "steady",
+      "relax": 3,
+      "focus": 3,
+      "learn": 2,
+      "replay": 4,
+      "inputs": [
+        "mouse",
+        "keyboard",
+        "touch"
+      ],
+      "devices": [
+        "desktop",
+        "mobile"
+      ],
+      "estimate": true
+    },
+    "colors-matching": {
+      "session": "2-5",
+      "pace": "calm",
+      "relax": 4,
+      "focus": 2,
+      "learn": 1,
+      "replay": 3,
+      "inputs": [
+        "mouse",
+        "touch"
+      ],
+      "devices": [
+        "desktop",
+        "mobile",
+        "chromebook"
+      ],
+      "estimate": true
+    },
+    "snake-warz": {
+      "session": "2-5",
+      "pace": "frantic",
+      "relax": 2,
+      "focus": 3,
+      "learn": 2,
+      "replay": 4,
+      "inputs": [
+        "mouse",
+        "touch"
+      ],
+      "devices": [
+        "desktop",
+        "mobile"
+      ],
+      "estimate": true
+    },
+    "feather-dash": {
+      "session": "2-5",
+      "pace": "frantic",
+      "relax": 2,
+      "focus": 3,
+      "learn": 2,
+      "replay": 3,
+      "inputs": [
+        "mouse",
+        "keyboard",
+        "touch"
+      ],
+      "devices": [
+        "desktop",
+        "mobile"
+      ],
+      "estimate": true
+    },
+    "game-of-goose-2": {
+      "session": "15+",
+      "pace": "calm",
+      "relax": 4,
+      "focus": 2,
+      "learn": 1,
+      "replay": 3,
+      "inputs": [
+        "mouse"
+      ],
+      "devices": [
+        "desktop",
+        "chromebook"
+      ],
+      "estimate": true
+    },
+    "idle-blocks-tycoon": {
+      "session": "15+",
+      "pace": "calm",
+      "relax": 5,
+      "focus": 2,
+      "learn": 1,
+      "replay": 4,
+      "inputs": [
+        "mouse",
+        "touch"
+      ],
+      "devices": [
+        "desktop",
+        "mobile",
+        "chromebook"
+      ],
+      "estimate": true
+    },
+    "crazy-lumberjack-cut-them-all": {
+      "session": "5-15",
+      "pace": "frantic",
+      "relax": 2,
+      "focus": 3,
+      "learn": 2,
+      "replay": 3,
+      "inputs": [
+        "mouse",
+        "touch"
+      ],
+      "devices": [
+        "desktop",
+        "mobile",
+        "chromebook"
+      ],
+      "estimate": true
+    },
+    "fruitbasket": {
+      "session": "2-5",
+      "pace": "frantic",
+      "relax": 2,
+      "focus": 3,
+      "learn": 2,
+      "replay": 3,
+      "inputs": [
+        "mouse",
+        "touch"
+      ],
+      "devices": [
+        "desktop",
+        "mobile"
+      ],
+      "estimate": true
+    },
+    "block-team-deathmatch": {
+      "session": "2-5",
+      "pace": "frantic",
+      "relax": 2,
+      "focus": 3,
+      "learn": 2,
+      "replay": 3,
+      "inputs": [
+        "mouse",
+        "keyboard",
+        "touch"
+      ],
+      "devices": [
+        "desktop",
+        "mobile"
+      ],
+      "estimate": true
+    },
+    "growwars-io": {
+      "session": "2-5",
+      "pace": "steady",
+      "relax": 3,
+      "focus": 3,
+      "learn": 2,
+      "replay": 4,
+      "inputs": [
+        "keyboard"
+      ],
+      "devices": [
+        "desktop",
+        "chromebook"
+      ],
+      "estimate": true
+    },
+    "snake-train-zone": {
+      "session": "2-5",
+      "pace": "frantic",
+      "relax": 2,
+      "focus": 3,
+      "learn": 2,
+      "replay": 3,
+      "inputs": [
+        "mouse",
+        "keyboard",
+        "touch"
+      ],
+      "devices": [
+        "desktop",
+        "mobile"
+      ],
+      "estimate": true
+    },
+    "snake-color-race": {
+      "session": "2-5",
+      "pace": "frantic",
+      "relax": 2,
+      "focus": 3,
+      "learn": 2,
+      "replay": 3,
+      "inputs": [
+        "mouse"
+      ],
+      "devices": [
+        "desktop",
+        "chromebook"
+      ],
+      "estimate": true
+    },
+    "treasure-of-alognov": {
+      "session": "15+",
+      "pace": "steady",
+      "relax": 3,
+      "focus": 4,
+      "learn": 3,
+      "replay": 2,
+      "inputs": [
+        "mouse",
+        "keyboard"
+      ],
+      "devices": [
+        "desktop",
+        "chromebook"
+      ],
+      "estimate": true
+    },
+    "marble-match-origin": {
+      "session": "5-15",
+      "pace": "frantic",
+      "relax": 2,
+      "focus": 3,
+      "learn": 2,
+      "replay": 3,
+      "inputs": [
+        "mouse"
+      ],
+      "devices": [
+        "desktop",
+        "chromebook"
+      ],
+      "estimate": true
+    },
+    "guerrillas-io": {
+      "session": "5-15",
+      "pace": "frantic",
+      "relax": 2,
+      "focus": 3,
+      "learn": 2,
+      "replay": 3,
+      "inputs": [
+        "mouse",
+        "keyboard",
+        "touch"
+      ],
+      "devices": [
+        "desktop",
+        "mobile"
+      ],
+      "estimate": true
+    },
+    "grind-io": {
+      "session": "5-15",
+      "pace": "frantic",
+      "relax": 2,
+      "focus": 3,
+      "learn": 2,
+      "replay": 3,
+      "inputs": [
+        "mouse",
+        "keyboard",
+        "touch"
+      ],
+      "devices": [
+        "desktop",
+        "mobile",
+        "chromebook"
+      ],
+      "estimate": true
+    },
+    "state-wars": {
+      "session": "5-15",
+      "pace": "frantic",
+      "relax": 3,
+      "focus": 4,
+      "learn": 3,
+      "replay": 3,
+      "inputs": [
+        "mouse",
+        "keyboard",
+        "touch"
+      ],
+      "devices": [
+        "desktop",
+        "mobile",
+        "chromebook"
+      ],
+      "engine": "Scirra Construct",
+      "estimate": true
+    },
+    "rolling-balls-io": {
+      "session": "2-5",
+      "pace": "steady",
+      "relax": 3,
+      "focus": 3,
+      "learn": 2,
+      "replay": 4,
+      "inputs": [
+        "mouse",
+        "touch"
+      ],
+      "devices": [
+        "desktop",
+        "mobile"
+      ],
+      "estimate": true
+    },
+    "snake-wars": {
+      "session": "2-5",
+      "pace": "frantic",
+      "relax": 2,
+      "focus": 3,
+      "learn": 2,
+      "replay": 3,
+      "inputs": [
+        "mouse",
+        "keyboard",
+        "touch"
+      ],
+      "devices": [
+        "desktop",
+        "mobile"
+      ],
+      "estimate": true
+    },
+    "cobraz-io": {
+      "session": "5-15",
+      "pace": "frantic",
+      "relax": 2,
+      "focus": 3,
+      "learn": 2,
+      "replay": 3,
+      "inputs": [
+        "mouse",
+        "keyboard",
+        "touch"
+      ],
+      "devices": [
+        "desktop",
+        "mobile"
+      ],
+      "estimate": true
+    },
+    "armed-forces-io": {
+      "session": "5-15",
+      "pace": "frantic",
+      "relax": 2,
+      "focus": 3,
+      "learn": 2,
+      "replay": 3,
+      "inputs": [
+        "mouse",
+        "keyboard",
+        "touch"
+      ],
+      "devices": [
+        "desktop",
+        "mobile"
+      ],
+      "estimate": true
+    },
+    "connect-fruits": {
+      "session": "5-15",
+      "pace": "calm",
+      "relax": 4,
+      "focus": 3,
+      "learn": 1,
+      "replay": 3,
+      "inputs": [
+        "mouse"
+      ],
+      "devices": [
+        "desktop"
+      ],
+      "estimate": true
+    },
+    "swordbattle-io": {
+      "session": "2-5",
+      "pace": "frantic",
+      "relax": 2,
+      "focus": 3,
+      "learn": 2,
+      "replay": 3,
+      "inputs": [
+        "mouse",
+        "keyboard",
+        "touch"
+      ],
+      "devices": [
+        "desktop",
+        "mobile"
+      ],
+      "estimate": true
+    },
+    "only-up-parkour-2": {
+      "session": "5-15",
+      "pace": "frantic",
+      "relax": 1,
+      "focus": 4,
+      "learn": 3,
+      "replay": 2,
+      "inputs": [
+        "keyboard"
+      ],
+      "devices": [
+        "desktop",
+        "chromebook"
+      ],
+      "estimate": true
+    },
+    "bricks-breakers-infinity": {
+      "session": "5-15",
+      "pace": "steady",
+      "relax": 3,
+      "focus": 3,
+      "learn": 1,
+      "replay": 3,
+      "inputs": [
+        "keyboard",
+        "touch"
+      ],
+      "devices": [
+        "desktop",
+        "mobile",
+        "chromebook"
+      ],
+      "engine": "Scirra Construct",
+      "estimate": true
+    },
+    "christmas-snowball-arena": {
+      "session": "2-5",
+      "pace": "frantic",
+      "relax": 2,
+      "focus": 3,
+      "learn": 2,
+      "replay": 3,
+      "inputs": [
+        "keyboard",
+        "touch"
+      ],
+      "devices": [
+        "desktop",
+        "mobile"
+      ],
+      "estimate": true
+    },
+    "worms-arena-io": {
+      "session": "2-5",
+      "pace": "frantic",
+      "relax": 2,
+      "focus": 3,
+      "learn": 2,
+      "replay": 3,
+      "inputs": [
+        "mouse",
+        "keyboard"
+      ],
+      "devices": [
+        "desktop"
+      ],
+      "estimate": true
+    },
+    "would-you-rather": {
+      "session": "5-15",
+      "pace": "calm",
+      "relax": 5,
+      "focus": 1,
+      "learn": 1,
+      "replay": 2,
+      "inputs": [
+        "mouse"
+      ],
+      "devices": [
+        "desktop",
+        "chromebook"
+      ],
+      "estimate": true
+    },
+    "ducklings-io": {
+      "session": "2-5",
+      "pace": "steady",
+      "relax": 3,
+      "focus": 3,
+      "learn": 2,
+      "replay": 4,
+      "inputs": [
+        "mouse",
+        "keyboard",
+        "touch",
+        "gamepad"
+      ],
+      "devices": [
+        "desktop",
+        "mobile",
+        "chromebook"
+      ],
+      "estimate": true
+    },
+    "cube-arena-2048-merge-numbers": {
+      "session": "5-15",
+      "pace": "steady",
+      "relax": 3,
+      "focus": 4,
+      "learn": 3,
+      "replay": 3,
+      "inputs": [
+        "mouse"
+      ],
+      "devices": [
+        "desktop",
+        "chromebook"
+      ],
+      "estimate": true
+    },
+    "island-battle-3d": {
+      "session": "2-5",
+      "pace": "frantic",
+      "relax": 2,
+      "focus": 3,
+      "learn": 2,
+      "replay": 3,
+      "inputs": [
+        "keyboard",
+        "touch"
+      ],
+      "devices": [
+        "desktop",
+        "mobile"
+      ],
+      "estimate": true
+    },
+    "bingo-real": {
+      "session": "5-15",
+      "pace": "calm",
+      "relax": 4,
+      "focus": 2,
+      "learn": 1,
+      "replay": 3,
+      "inputs": [
+        "mouse",
+        "keyboard",
+        "touch"
+      ],
+      "devices": [
+        "desktop",
+        "mobile",
+        "chromebook"
+      ],
+      "estimate": true
+    },
+    "eat-small-fish": {
+      "session": "2-5",
+      "pace": "frantic",
+      "relax": 2,
+      "focus": 3,
+      "learn": 2,
+      "replay": 3,
+      "inputs": [
+        "mouse",
+        "touch"
+      ],
+      "devices": [
+        "desktop",
+        "mobile",
+        "chromebook"
+      ],
+      "estimate": true
+    },
+    "protect-emojis": {
+      "session": "5-15",
+      "pace": "steady",
+      "relax": 3,
+      "focus": 4,
+      "learn": 3,
+      "replay": 3,
+      "inputs": [
+        "mouse",
+        "keyboard",
+        "touch"
+      ],
+      "devices": [
+        "desktop",
+        "mobile",
+        "chromebook"
+      ],
+      "engine": "Scirra Construct",
+      "estimate": true
+    },
+    "sumo-battle": {
+      "session": "2-5",
+      "pace": "frantic",
+      "relax": 2,
+      "focus": 3,
+      "learn": 2,
+      "replay": 3,
+      "inputs": [
+        "keyboard",
+        "touch"
+      ],
+      "devices": [
+        "desktop",
+        "mobile",
+        "chromebook"
+      ],
+      "engine": "Scirra Construct",
+      "estimate": true
+    },
+    "hole-and-collect": {
+      "session": "2-5",
+      "pace": "frantic",
+      "relax": 2,
+      "focus": 3,
+      "learn": 2,
+      "replay": 3,
+      "inputs": [
+        "keyboard"
+      ],
+      "devices": [
+        "desktop"
+      ],
+      "estimate": true
+    },
+    "skibidi-hero-io": {
+      "session": "2-5",
+      "pace": "frantic",
+      "relax": 2,
+      "focus": 3,
+      "learn": 2,
+      "replay": 3,
+      "inputs": [
+        "touch"
+      ],
+      "devices": [
+        "desktop",
+        "mobile"
+      ],
+      "estimate": true
+    },
+    "field-of-dreams-simulation-adventure": {
+      "session": "15+",
+      "pace": "calm",
+      "relax": 5,
+      "focus": 2,
+      "learn": 2,
+      "replay": 3,
+      "inputs": [
+        "mouse"
+      ],
+      "devices": [
+        "desktop",
+        "chromebook"
+      ],
+      "estimate": true
+    },
+    "meteor-io": {
+      "session": "2-5",
+      "pace": "frantic",
+      "relax": 2,
+      "focus": 3,
+      "learn": 2,
+      "replay": 3,
+      "inputs": [
+        "keyboard",
+        "touch"
+      ],
+      "devices": [
+        "desktop",
+        "mobile",
+        "chromebook"
+      ],
+      "estimate": true
+    },
+    "merge-room": {
+      "session": "2-5",
+      "pace": "calm",
+      "relax": 5,
+      "focus": 2,
+      "learn": 1,
+      "replay": 3,
+      "inputs": [
+        "keyboard",
+        "touch"
+      ],
+      "devices": [
+        "desktop",
+        "mobile"
+      ],
+      "estimate": true
+    },
+    "grimace-matching": {
+      "session": "5-15",
+      "pace": "steady",
+      "relax": 4,
+      "focus": 3,
+      "learn": 1,
+      "replay": 3,
+      "inputs": [
+        "mouse",
+        "keyboard",
+        "touch"
+      ],
+      "devices": [
+        "desktop",
+        "mobile",
+        "chromebook"
+      ],
+      "engine": "Scirra Construct",
+      "estimate": true
+    },
+    "sumo-smash": {
+      "session": "2-5",
+      "pace": "frantic",
+      "relax": 2,
+      "focus": 3,
+      "learn": 2,
+      "replay": 3,
+      "inputs": [
+        "keyboard",
+        "touch"
+      ],
+      "devices": [
+        "desktop",
+        "mobile",
+        "chromebook"
+      ],
+      "engine": "Scirra Construct",
+      "estimate": true
+    },
+    "monsters-dungeon-battle": {
+      "session": "2-5",
+      "pace": "frantic",
+      "relax": 2,
+      "focus": 3,
+      "learn": 2,
+      "replay": 3,
+      "inputs": [
+        "mouse",
+        "touch"
+      ],
+      "devices": [
+        "desktop",
+        "mobile"
+      ],
+      "estimate": true
+    },
+    "skibidi-online": {
+      "session": "2-5",
+      "pace": "steady",
+      "relax": 3,
+      "focus": 3,
+      "learn": 2,
+      "replay": 4,
+      "inputs": [
+        "mouse",
+        "keyboard",
+        "touch"
+      ],
+      "devices": [
+        "desktop",
+        "mobile",
+        "chromebook"
+      ],
+      "estimate": true
+    },
+    "skibidi-war-toilets-attack": {
+      "session": "2-5",
+      "pace": "frantic",
+      "relax": 2,
+      "focus": 3,
+      "learn": 2,
+      "replay": 3,
+      "inputs": [
+        "mouse"
+      ],
+      "devices": [
+        "desktop",
+        "chromebook"
+      ],
+      "estimate": true
+    },
+    "clown-park-hide-and-seek": {
+      "session": "2-5",
+      "pace": "frantic",
+      "relax": 2,
+      "focus": 3,
+      "learn": 2,
+      "replay": 3,
+      "inputs": [
+        "mouse",
+        "keyboard",
+        "touch"
+      ],
+      "devices": [
+        "desktop",
+        "mobile"
+      ],
+      "estimate": true
+    },
+    "survivalpixel-io": {
+      "session": "2-5",
+      "pace": "frantic",
+      "relax": 2,
+      "focus": 3,
+      "learn": 2,
+      "replay": 3,
+      "inputs": [
+        "keyboard",
+        "touch"
+      ],
+      "devices": [
+        "desktop",
+        "mobile",
+        "chromebook"
+      ],
+      "engine": "Scirra Construct",
+      "estimate": true
+    }
+  }
+}
