@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="PLAY HYPE GAMES">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1220"/>
+      <stop offset="1" stop-color="#1c2f52"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="120" fill="url(#bg)"/>
+  <rect x="7" y="7" width="498" height="498" rx="113" fill="none" stroke="#ffffff" stroke-opacity=".10" stroke-width="12"/>
+  <path d="M176 128 L396 256 L176 384 Z" fill="#22d3ee"/>
+</svg>
