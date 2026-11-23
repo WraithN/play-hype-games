@@ -103,8 +103,14 @@ Slime IO 2 | https://html5.gamedistribution.com/xxx/ | io-games | io, unblocked
 - 页面上的 “Test log” 只展示这些真实抓取值；静态扫描到输入代码不等于完整试玩，文案里已明确区分。游戏改版或 CDN 变化后重新跑脚本即可。
 - 编辑块只覆盖当前首页最新的 20 个游戏；新游戏上首页后，按同样标准补 `editorial.json` 后再让页面进入 Top 20。
 
-### 性能与缓存
+### 分析 / GSC
 
+- 后台 **Settings → GA4 measurement ID**（或环境变量 `GA4_ID`）填入 `G-...` 后，前台才会加载 gtag；留空时不会请求任何分析脚本。
+- 同一处可填 **Google site verification**（或 `GOOGLE_SITE_VERIFICATION`），输出 `<meta name="google-site-verification">`，用于 GSC 的 HTML 标签验证。
+- 启用 GA4 后，页面会在 `pagehide` / 切到后台时发送 `web_vitals` 事件，包含 `metric_lcp`、`metric_cls`、`metric_inp` 和 `page_path`，用于看真实用户的 p75。
+- PSI/CrUX 是外部测量工具，不需要站点代码；GSC 的索引与查询数据必须由站点所有者在 Search Console 里查看。
+
+### 性能与缓存
 - HTML 响应默认 `Cache-Control: public, max-age=0, s-maxage=300, stale-while-revalidate=600`，并带 ETag；正文超过 1 KB 时按 `Accept-Encoding` gzip。
 - CSS/JS/字体使用版本化查询串（如 `hype.css?v=7`）并设置一年 immutable 缓存；图片 30 天。
 - Render 免费实例的冷启动仍在，代码层无法消除。要让 Cloudflare 真正缓存 HTML，需要在 Cloudflare 侧加一条 Cache Rule（缓存 `/`、`/game/*`、`/category/*`、`/tag/*`），这是站点代码之外的配置。

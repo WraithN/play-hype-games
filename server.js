@@ -77,6 +77,8 @@ function send(res, status, body, headers) {
 
   if (status === 200) {
     if (!h['Cache-Control']) h['Cache-Control'] = 'public, max-age=0, s-maxage=300, stale-while-revalidate=600';
+    h['CDN-Cache-Control'] = 'public, max-age=300';
+    h['Cloudflare-CDN-Cache-Control'] = 'public, max-age=300';
     const etag = `"${crypto.createHash('sha1').update(buf).digest('base64url').slice(0, 20)}"`;
     h.ETag = etag;
     const req = res.req;
@@ -380,7 +382,7 @@ function handleFront(req, res, url) {
         settings,
         title: label,
         kicker: 'Tag',
-        description: seo.introDescription({ paras: [seo.tagIntro(tag.slug, settings)] }, `${live.length} ${label.toLowerCase()} to play in your browser. No download or install.`),
+        description: seo.tagDescription(tag.slug, label, live.length, settings),
         heroText: '',
         list: live,
         baseUrl: `/tag/${encodeURIComponent(tag.slug)}`,
@@ -866,10 +868,13 @@ async function handleApi(req, res, url, settings) {
   if (pathname === '/api/admin/settings' && req.method === 'PUT') {
     const body = await readJsonBody(req);
     const patch = {};
-    ['siteName', 'tagline', 'description', 'contactEmail', 'adsenseClient', 'adminPassword'].forEach((k) => {
+    ['siteName', 'tagline', 'description', 'contactEmail', 'adsenseClient', 'adminPassword', 'ga4Id', 'googleSiteVerification'].forEach((k) => {
       // 环境变量托管的字段不允许表单写回文件
       if (k === 'adminPassword' && process.env.ADMIN_PASSWORD) return;
-      if (body[k] != null) patch[k] = String(body[k]).trim();
+      if (body[k] == null) return;
+      if (k === 'ga4Id') patch[k] = String(body[k]).trim().toUpperCase().replace(/[^A-Z0-9-]/g, '');
+      else if (k === 'googleSiteVerification') patch[k] = String(body[k]).trim().replace(/[^A-Za-z0-9_-]/g, '');
+      else patch[k] = String(body[k]).trim();
     });
     if (body.domain && !process.env.SITE_DOMAIN) patch.domain = String(body.domain).trim().replace(/\/+$/, '');
     if (!patch.siteName) patch.siteName = settings.siteName;
