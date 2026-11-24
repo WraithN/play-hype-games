@@ -60,11 +60,11 @@
     },
     {
       "slug": "chromebook-light-games",
-      "title": "Light browser games for a Chromebook",
-      "kicker": "Low-friction picks",
-      "description": "Games whose embeds declare a mobile viewport and whose initial payload is under 1 MB in our cold-fetch test. School networks can still block hosts.",
+      "title": "Free Chromebook games with no download",
+      "kicker": "Chromebook",
+      "description": "Light browser games whose embeds declare a mobile viewport and a small initial payload. School networks can still block hosts.",
       "intro": [
-        "A Chromebook runs the browser as its operating system, so the useful question is not “is there a ChromeOS version?” but “does this embed load without a heavy client and does it fit a small screen?”",
+        "A Chromebook runs the browser as its operating system, so the useful question is not whether there is a ChromeOS version, but whether this free embed loads without a heavy client and fits a small screen.",
         "These picks passed two static checks: the embed declares a viewport and the initial HTML plus linked runtime was under 1 MB in our cold-fetch test. That is not a promise that a managed school network will allow the host, and it is not a frame-rate measurement. Check the load-time index for the raw numbers."
       ],
       "criteria": [

@@ -409,6 +409,7 @@ function handleFront(req, res, url) {
         games,
         settings,
         title: categorySeo.title,
+        seoTitle: categorySeo.seoTitle,
         kicker: 'Category',
         description: categorySeo.description,
         heroText: cat.short || '',
