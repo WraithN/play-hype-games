@@ -686,6 +686,14 @@
 
     var params = new URLSearchParams(location.search);
     var slug = params.get('theme') || 'world';
+    var ALIAS = {
+      country: 'world', countries: 'world', geography: 'world', geo: 'world', world: 'world',
+      film: 'movies', films: 'movies', movie: 'movies',
+      songs: 'music', song: 'music',
+      football: 'soccer', futbol: 'soccer', club: 'soccer',
+      nfl: 'nfl', space: 'space', history: 'history'
+    };
+    slug = ALIAS[slug] || slug;
     try {
       var res = await fetch('/rarity-tower/packs.json', { cache: 'no-cache' });
       if (!res.ok) throw new Error(res.status);
@@ -695,7 +703,9 @@
       els.hint.textContent = 'Refresh the page, or open the game page again.';
       return;
     }
-    theme = packs.themes.filter(function (t) { return t.slug === slug; })[0] || packs.themes[0];
+    theme = packs.themes.filter(function (t) { return t.slug === slug; })[0] ||
+      packs.themes.filter(function (t) { return t.slug === 'world'; })[0] ||
+      packs.themes[0];
     state = { questions: theme.questions, floor: 1, cleared: 0, score: 0, used: {}, results: [], status: 'intro' };
     layout.n = theme.questions.length;
     buildTower();
