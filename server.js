@@ -396,18 +396,21 @@ function handleFront(req, res, url) {
     const live =
       slug === 'chromebook-games'
         ? site.published(games).sort(site.byNewest)
-        : site.published(games).filter((g) => g.category === slug).sort(site.byNewest);
+        : slug === 'io-games'
+          ? site.published(games).filter((g) => seo.gameTags(g).includes('io')).sort(site.byNewest)
+          : site.published(games).filter((g) => g.category === slug).sort(site.byNewest);
     const introDesc = seo.introDescription(copy.categoryIntro(slug), '');
     const countLine = `${live.length} playable browser ${live.length === 1 ? 'game' : 'games'}, no download required.`;
+    const categorySeo = seo.categorySeo(slug, live.length, cat.name, seo.description(`${introDesc} ${countLine}`, countLine, 200));
     return send(
       res,
       200,
       site.listPage({
         games,
         settings,
-        title: cat.name,
+        title: categorySeo.title,
         kicker: 'Category',
-        description: seo.description(`${introDesc} ${countLine}`, countLine, 200),
+        description: categorySeo.description,
         heroText: cat.short || '',
         list: live,
         baseUrl: `/category/${slug}`,
@@ -420,13 +423,18 @@ function handleFront(req, res, url) {
   // 标签页
   if (pathname.startsWith('/tag/')) {
     const slug = pathname.slice('/tag/'.length);
+    const canonicalTag = seo.tagSlug(slug);
+    // .io 的完整集合以分类页为准，避免 tag/category 两份相同列表
+    if (canonicalTag === 'io') {
+      return send(res, 301, '', { Location: '/category/io-games' });
+    }
     const live = site
       .published(games)
-      .filter((g) => seo.gameTags(g).includes(seo.tagSlug(slug)));
+      .filter((g) => seo.gameTags(g).includes(canonicalTag));
     if (!live.length) return null;
-    const tag = { slug: seo.tagSlug(slug), count: live.length };
-    if (slug !== tag.slug) {
-      return send(res, 301, '', { Location: `/tag/${encodeURIComponent(tag.slug)}${url.search}` });
+    const tag = { slug: canonicalTag, count: live.length };
+    if (slug !== canonicalTag) {
+      return send(res, 301, '', { Location: `/tag/${encodeURIComponent(canonicalTag)}${url.search}` });
     }
     const indexable = seo.tagIndexable(tag, settings);
     const label = seo.tagLabel(tag.slug);
