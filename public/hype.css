@@ -611,8 +611,10 @@ body.hype .prose .source-note{font-size:12px;line-height:1.5;opacity:1;margin-to
   .hype .find-teaser{align-items:flex-start}
 }
 
-/* 研究页：加载速度指数 */.hype .research-summary{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:6px 0 22px}
-.hype .research-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:12px}
+/* 研究页：加载速度指数 */.hype .category-guide-link{margin:12px 0 0;font-size:13px;font-weight:800}
+.hype .category-guide-link a{color:var(--h-accent);text-decoration:none}
+.hype .category-guide-link a:hover{text-decoration:underline}
+.hype .research-summary{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:6px 0 22px}.hype .research-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:12px}
 .hype .citation{margin:18px 0 0;padding:14px 16px;border-radius:14px;background:var(--h-surface-2);border:1px solid var(--h-line);font-size:13px;line-height:1.6;color:var(--h-fg-dim)}
 .hype .citation strong{display:block;color:var(--h-fg);margin-bottom:4px}
 .hype .citation p{margin:0 0 4px;word-break:break-word}
