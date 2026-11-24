@@ -74,6 +74,14 @@
 
   function clamp(v, lo, hi) { return Math.max(lo, Math.min(hi, v)); }
 
+  function art(word) {
+    var w = String(word || 'answer');
+    if (/^[aeiou]/i.test(w) || /^(nfl|nba|nhl|mlb|ncaa|x)/i.test(w)) return 'an';
+    return 'a';
+  }
+
+  function one() { return (theme && theme.one) || 'answer'; }
+
   /* ---------- sound ---------- */
 
   function ac() {
@@ -272,7 +280,8 @@
     els.jumpBtn.disabled = false;
     els.input.classList.remove('bad');
     els.suggest.classList.remove('on');
-    els.hint.textContent = 'Type a country and press Enter. Wrong spelling is free — obvious answers are not.';
+    els.input.placeholder = theme.placeholder || 'Type an answer…';
+    els.hint.textContent = 'Type ' + art(one()) + ' ' + one() + ' and press Enter. Spelling is forgiven — obvious answers are not.';
     els.input.focus({ preventScroll: true });
     setFloorVisual(state.floor, 'is-current');
     els.hudFloor.textContent = state.floor;
@@ -327,7 +336,9 @@
     if (!answer) {
       els.input.classList.add('bad');
       setTimeout(function () { els.input.classList.remove('bad'); }, 320);
-      els.hint.innerHTML = 'Not a valid answer here. <b>Countries only — territories do not count.</b>';
+      els.hint.innerHTML = theme.kind === 'country'
+        ? 'Not a valid answer here. <b>Countries only — territories do not count.</b>'
+        : 'Not in this set. <b>Check the spelling, or try another answer.</b>';
       sfx.invalid();
       return;
     }
@@ -595,6 +606,10 @@
     els.introBadge.textContent = 'DAILY TOWER · ' + theme.name.toUpperCase() + ' · #' + dayNumber();
     els.introTag.textContent = theme.tagline;
     els.introFloors.textContent = ladder.length;
+    document.getElementById('rule1').textContent =
+      'Each floor asks for ' + art(one()) + ' ' + one() + '. Type one that fits, then jump.';
+    document.getElementById('microRules').innerHTML =
+      'Each floor needs a <b>rarer</b> ' + one() + '. Obvious answers collapse the slab. Clear every floor to reach the roof.';
     els.introLadder.innerHTML = ladder.map(function (t, i) {
       return '<span data-tier="' + t + '" title="Floor ' + (i + 1) + ' needs ' + TIER_LABEL[t] + '+">' +
         TIER_LABEL[t].charAt(0) + '</span>';

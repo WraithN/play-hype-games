@@ -318,12 +318,13 @@ API：
 
 ## 9. Rarity Tower（自研游戏）
 
-第一个自研游戏，独立于外部 feed，代码和题库都在仓库里，不依赖第三方面板。
+第一个自研游戏，独立于外部 feed，代码和题库都在仓库里，不依赖第三方面板。目前 **14 个主题塔 / 7 个大类**：地理 8 个塔，电影、音乐、NFL、足球、太空、历史各 1 个。
 
 | 路径 | 作用 |
 | --- | --- |
-| `/rarity-tower` | 总入口：玩法、8 个主题、分档口径 |
-| `/rarity-tower/<theme>` | 主题页：`world` `europe` `asia` `africa` `americas` `islands` `landlocked` `microstates` |
+| `/rarity-tower` | 总入口：玩法、14 个主题、分档口径 |
+| `/rarity-tower/<theme>` | 主题页：`world` `europe` `asia` `africa` `americas` `islands` `landlocked` `microstates` `movies` `music` `nfl` `soccer` `space` `history` |
+| `/rarity-tower/prompts` | 全部题目归档（静态、可索引，吃长尾） |
 | `/rarity-tower/method` | 稀有度算法、数据来源与已知局限 |
 | `/game/rarity-tower` | 目录里的游戏页（iframe 默认加载 world） |
 | `/rarity-tower/packs.json` | 游戏运行时读取的题库（服务端直出，短缓存） |
@@ -331,15 +332,17 @@ API：
 
 数据与口径：
 
-- 题库在 `data/rarity/packs.json`，由 `node scripts/build-rarity-packs.mjs` 生成。国家数据来自 mledoze/countries 与 World Bank 人口；稀有度用英文维基百科 2024-12 至 2025-10 的月浏览量，在**每道题的合法答案内部**做百分位分档。
-- 答案集固定 194 个（联合国成员 + 台湾、科索沃、巴勒斯坦、梵蒂冈），不接受属地；拼写和常见别名会归一化（USA / Holland / Burma / Czech Republic 等）。
-- 分档：最冷门 15% = Legendary，15–35% Epic，35–60% Rare，60–80% Uncommon，其余 Common；楼层最低要求固定在 `RARITY_LADDER`，目前最高只要求 Epic，避免小答案集必死。
-- 生成脚本需要访问 Wikipedia / World Bank / GitHub。若 Node 直连失败，先设置 `NODE_USE_ENV_PROXY=1` 和 `HTTPS_PROXY`（本机代理）再跑；缓存写在 `.cache/rarity/`，已加入 .gitignore。
+- 题库在 `data/rarity/packs.json`，由 `node scripts/build-rarity-packs.mjs` 生成。
+- 地理塔：国家来自 mledoze/countries + World Bank 人口；答案集 194 个（联合国成员 + 台湾、科索沃、巴勒斯坦、梵蒂冈），属地不算。
+- 其他塔：题目和答案写在 `data/rarity/custom-sources.mjs`（电影、音乐、NFL、足球、太空、历史）。每个答案可以指定维基条目；没指定的先按条目名取，再走 Wikipedia redirect 解析到规范标题（例如 Real Madrid → Real Madrid CF）。
+- 稀有度：英文维基 2024-12 至 2025-10 的月浏览量，在**每道题的合法答案内部**做百分位分档：最冷门 15% Legendary，15–35% Epic，35–60% Rare，60–80% Uncommon，其余 Common。
+- 生成脚本需要访问 Wikipedia / World Bank。若 Node 直连失败，先设置 `NODE_USE_ENV_PROXY=1` 和 `HTTPS_PROXY`（本机代理）再跑；缓存写在 `.cache/rarity/`，已加入 .gitignore。
+- 改完题库重跑脚本，hub、`/rarity-tower/prompts` 和 sitemap 会自动带上新塔。
 
 新增一个主题：
 
-1. 在 `scripts/build-rarity-packs.mjs` 的题库里加一组 `q(id, prompt, list)`（至少 6 道题，每题至少 6 个有效答案，否则会被丢弃）。
-2. 在 `themeDefs` 里登记 slug、名称、tagline 和导语。
-3. 重跑脚本；`/rarity-tower/<slug>`、sitemap 和游戏内主题切换会自动带上。
+1. 地理塔：在 `scripts/build-rarity-packs.mjs` 里加 `q(...)` 题组，并在 `themeDefs` 登记。
+2. 其他类别：在 `data/rarity/custom-sources.mjs` 加一个 theme（prompts + answers）。答案尽量给 `wiki` 规范条目名，没有就依赖 redirect 解析。
+3. 重跑脚本；主题页、题目归档、sitemap 和游戏内主题切换会自动出现。
 
 缓存注意：`index.html` 使用 `max-age=0, must-revalidate`；`game.js` / `rarity.css` 是长缓存，改动后要手动升 `?v=`（`public/games/rarity-tower/index.html` 和 `lib/rarity.js` 里的引用）。

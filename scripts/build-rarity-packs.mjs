@@ -10,6 +10,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import CUSTOM_THEMES from '../data/rarity/custom-sources.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -438,6 +439,15 @@ const themeDefs = [
 
 const RARITY_LADDER = ['uncommon', 'uncommon', 'rare', 'rare', 'epic', 'epic', 'epic'];
 
+for (const t of themeDefs) {
+  Object.assign(t, {
+    kind: 'country',
+    unit: 'countries',
+    one: 'country',
+    placeholder: 'Type a country…'
+  });
+}
+
 const themes = themeDefs
   .map((t) => {
     const questions = t.questions.map(buildQuestion).filter(Boolean);
@@ -451,12 +461,222 @@ const themes = themeDefs
       name: t.name,
       tagline: t.tagline,
       blurb: t.blurb,
+      kind: t.kind,
+      unit: t.unit,
+      one: t.one,
+      placeholder: t.placeholder,
       floors: pool.length,
       ladder: RARITY_LADDER.slice(0, pool.length),
       questions: pool
     };
   })
   .filter(Boolean);
+
+/* ---------- 6b. custom themes (films, music, NFL, football, space, history) ---------- */
+
+const searchFile = path.join(CACHE, 'wiki-search.json');
+const searchCache = fs.existsSync(searchFile) ? JSON.parse(fs.readFileSync(searchFile, 'utf8')) : {};
+const customViewsFile = path.join(CACHE, 'custom-pageviews.json');
+const customViews = fs.existsSync(customViewsFile) ? JSON.parse(fs.readFileSync(customViewsFile, 'utf8')) : {};
+
+/** Plain names that collide with a different article. */
+const WIKI_FIX = {
+  'Mercury|planet': 'Mercury (planet)',
+  'Aries|constellation': 'Aries (constellation)',
+  'Taurus|constellation': 'Taurus (constellation)',
+  'Gemini|constellation': 'Gemini (constellation)',
+  'Cancer|constellation': 'Cancer (constellation)',
+  'Leo|constellation': 'Leo (constellation)',
+  'Virgo|constellation': 'Virgo (constellation)',
+  'Libra|constellation': 'Libra (constellation)',
+  'Sagittarius|constellation': 'Sagittarius (constellation)',
+  'Aquarius|constellation': 'Aquarius (constellation)',
+  'Pisces|constellation': 'Pisces (constellation)',
+  'Spirit|Mars mission': 'Spirit (rover)',
+  'Opportunity|Mars mission': 'Opportunity (rover)',
+  'Curiosity|Mars mission': 'Curiosity (rover)',
+  'Perseverance|Mars mission': 'Perseverance (rover)',
+  'Phoenix|Mars mission': 'Phoenix (spacecraft)',
+  'Ingenuity|Mars mission': 'Ingenuity (helicopter)',
+  'Georgia|US state': 'Georgia (U.S. state)',
+  'New York|US state': 'New York (state)',
+  'Manchester United|football club': 'Manchester United F.C.',
+  'Manchester City|football club': 'Manchester City F.C.',
+  'Liverpool|football club': 'Liverpool F.C.',
+  'Arsenal|football club': 'Arsenal F.C.',
+  'Chelsea|football club': 'Chelsea F.C.',
+  'Barcelona|football club': 'FC Barcelona',
+  'Ajax|football club': 'AFC Ajax',
+  'Benfica|football club': 'S.L. Benfica',
+  'Porto|football club': 'FC Porto',
+  'Celtic|football club': 'Celtic F.C.',
+  'Marseille|football club': 'Olympique de Marseille',
+  'Aston Villa|football club': 'Aston Villa F.C.',
+  'Nottingham Forest|football club': 'Nottingham Forest F.C.',
+  'Leicester City|football club': 'Leicester City F.C.',
+  'Blackburn Rovers|football club': 'Blackburn Rovers F.C.',
+  'Steaua București|football club': 'FCSB',
+  'Ronaldo|footballer': 'Ronaldo (Brazilian footballer)'
+};
+
+async function withRetry(fn, tries = 4) {
+  for (let i = 0; i < tries; i++) {
+    try {
+      return await fn();
+    } catch (e) {
+      if (i === tries - 1) throw e;
+      await new Promise((r) => setTimeout(r, 500 * (i + 1)));
+    }
+  }
+}
+
+async function searchTitle(name, context) {
+  const key = `${name}|${context || ''}`;
+  if (searchCache[key]) return searchCache[key];
+  const q = `${name} ${context || ''}`.trim();
+  const data = await withRetry(() =>
+    getJSON(
+      `https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=${encodeURIComponent(q)}&srlimit=1&format=json`
+    )
+  );
+  const title =
+    (data.query && data.query.search && data.query.search[0] && data.query.search[0].title) || name;
+  searchCache[key] = title;
+  fs.writeFileSync(searchFile, JSON.stringify(searchCache, null, 2));
+  return title;
+}
+
+const customTasks = [];
+for (const t of CUSTOM_THEMES) {
+  for (const p of t.prompts) {
+    for (const a of p.answers) customTasks.push({ a, p });
+  }
+}
+
+const titleFor = new Map();
+
+/* Resolve redirects so pageviews count the canonical article, not a stub. */
+const baseTitles = [...new Set(customTasks.map((x) => x.a.wiki || WIKI_FIX[`${x.a.name}|${x.p.context || ''}`] || x.a.name))];
+const resolveMap = {};
+for (let i = 0; i < baseTitles.length; i += 40) {
+  const batch = baseTitles.slice(i, i + 40);
+  const data = await withRetry(() =>
+    getJSON(
+      `https://en.wikipedia.org/w/api.php?action=query&format=json&redirects=1&titles=${encodeURIComponent(batch.join('|'))}`
+    )
+  );
+  const q = (data && data.query) || {};
+  const map = {};
+  for (const n of q.normalized || []) map[n.from] = n.to;
+  for (const r of q.redirects || []) map[r.from] = r.to;
+  for (const base of batch) {
+    let cur = base;
+    for (let hop = 0; hop < 3; hop++) {
+      if (map[cur]) cur = map[cur];
+      else break;
+    }
+    resolveMap[base] = cur;
+  }
+  await new Promise((r) => setTimeout(r, 150));
+}
+
+async function fetchTask(item) {
+  const { a, p } = item;
+  const key = `${a.name}|${p.context || ''}`;
+  if (titleFor.has(key)) return true;
+  const base = a.wiki || WIKI_FIX[key] || a.name;
+  let title = resolveMap[base] || base;
+  let r = await pageviews(title);
+  if (r.failed) return false;
+  if (r.missing) {
+    const found = await searchTitle(a.name, p.context);
+    if (found && found !== title) {
+      title = found;
+      r = await pageviews(title);
+      if (r.failed) return false;
+    }
+  }
+  customViews[title] = r.views || 0;
+  titleFor.set(key, title);
+  return true;
+}
+
+let customQueue = [...customTasks];
+for (let pass = 0; pass < 3 && customQueue.length; pass++) {
+  const failed = [];
+  let cursor = 0;
+  async function worker() {
+    while (cursor < customQueue.length) {
+      const item = customQueue[cursor++];
+      const ok = await fetchTask(item);
+      if (!ok) failed.push(item);
+      await new Promise((res) => setTimeout(res, 90));
+    }
+  }
+  await Promise.all(Array.from({ length: 3 }, worker));
+  fs.writeFileSync(customViewsFile, JSON.stringify(customViews, null, 2));
+  console.log('pageview pass', pass + 1, 'failed:', failed.length);
+  customQueue = failed;
+}
+if (customQueue.length) {
+  console.log(customQueue.map((x) => `${x.a.name} -> ${titleFor.get(`${x.a.name}|${x.p.context || ''}`) || ''}`).join('\n'));
+  throw new Error('custom pageview fetch failed; rerun to retry');
+}
+console.log('custom titles:', titleFor.size);
+
+function buildCustomPrompt(p) {
+  const seen = new Set();
+  const rows = p.answers
+    .map((a) => {
+      const title = titleFor.get(`${a.name}|${p.context || ''}`) || a.wiki || a.name;
+      return { ...a, title, views: customViews[title] || 0 };
+    })
+    .filter((a) => a.views > 0)
+    .filter((a) => (seen.has(a.title) ? false : seen.add(a.title)));
+  if (rows.length < 6) {
+    console.log('  drop custom', p.id, 'answers:', rows.length);
+    return null;
+  }
+  const sorted = [...rows].sort((a, b) => a.views - b.views);
+  const answers = sorted.map((a, i) => {
+    const frac = (i + 1) / sorted.length;
+    const tier = tierFor(frac);
+    return {
+      name: a.name,
+      code: a.title,
+      aliases: a.aliases || [],
+      views: a.views,
+      tier: tier.key,
+      points: tier.points,
+      share: Math.round(frac * 100)
+    };
+  });
+  return { id: p.id, prompt: p.prompt, note: '', answers };
+}
+
+const customThemes = CUSTOM_THEMES.map((t) => {
+  const questions = t.prompts.map(buildCustomPrompt).filter(Boolean);
+  if (questions.length < 5) {
+    console.warn('SKIP custom theme', t.slug, 'only', questions.length, 'questions');
+    return null;
+  }
+  const pool = questions.slice(0, 7);
+  return {
+    slug: t.slug,
+    name: t.name,
+    tagline: t.tagline,
+    blurb: t.blurb,
+    kind: t.kind,
+    unit: t.unit,
+    one: t.one,
+    placeholder: t.placeholder,
+    floors: pool.length,
+    ladder: RARITY_LADDER.slice(0, pool.length),
+    questions: pool
+  };
+}).filter(Boolean);
+
+const allThemes = [...customThemes, ...themes];
 
 /* ---------- 7. output ---------- */
 
@@ -465,14 +685,14 @@ const out = {
   source: 'English Wikipedia pageviews (Dec 2024 - Oct 2025), monthly, user access',
   answerCount: states.length,
   tiers: TIERS.map(({ key, label, upTo, points }) => ({ key, label, upTo, points })),
-  themes
+  themes: allThemes
 };
 
 const dest = path.join(ROOT, 'data', 'rarity', 'packs.json');
 fs.mkdirSync(path.dirname(dest), { recursive: true });
 fs.writeFileSync(dest, JSON.stringify(out, null, 2));
 
-for (const t of themes) {
+for (const t of allThemes) {
   console.log(
     t.slug,
     'floors', t.floors,

@@ -239,6 +239,9 @@ function handleFront(req, res, url) {
   if (pathname === '/rarity-tower/method') {
     return send(res, 200, rarity.methodPage(settings));
   }
+  if (pathname === '/rarity-tower/prompts') {
+    return send(res, 200, rarity.promptsPage(settings));
+  }
   if (pathname === '/rarity-tower') {
     return send(res, 200, rarity.hubPage(settings));
   }

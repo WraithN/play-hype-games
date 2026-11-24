@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-24T15:17:33.269Z",
+  "generatedAt": "2026-11-24T15:48:07.499Z",
   "source": "English Wikipedia pageviews (Dec 2024 - Oct 2025), monthly, user access",
   "answerCount": 194,
   "tiers": [
@@ -36,10 +36,4466 @@
   ],
   "themes": [
     {
+      "slug": "movies",
+      "name": "Movies",
+      "tagline": "Animation, Oscars, and the films everyone quotes",
+      "blurb": "Film is the category young audiences still show up for — and animation most of all. This tower mixes the obvious studio canon with the corners only film people reach for.",
+      "kind": "film",
+      "unit": "films",
+      "one": "film",
+      "placeholder": "Type a film…",
+      "floors": 5,
+      "ladder": [
+        "uncommon",
+        "uncommon",
+        "rare",
+        "rare",
+        "epic"
+      ],
+      "questions": [
+        {
+          "id": "mv-pixar",
+          "prompt": "Name a Pixar film",
+          "note": "",
+          "answers": [
+            {
+              "name": "Inside Out",
+              "code": "Inside Out",
+              "aliases": [],
+              "views": 15115,
+              "tier": "legendary",
+              "points": 100,
+              "share": 3
+            },
+            {
+              "name": "Monsters University",
+              "code": "Monsters University",
+              "aliases": [],
+              "views": 389691,
+              "tier": "legendary",
+              "points": 100,
+              "share": 7
+            },
+            {
+              "name": "The Good Dinosaur",
+              "code": "The Good Dinosaur",
+              "aliases": [],
+              "views": 396466,
+              "tier": "legendary",
+              "points": 100,
+              "share": 10
+            },
+            {
+              "name": "Onward",
+              "code": "Onward (film)",
+              "aliases": [],
+              "views": 433980,
+              "tier": "legendary",
+              "points": 100,
+              "share": 13
+            },
+            {
+              "name": "Finding Dory",
+              "code": "Finding Dory",
+              "aliases": [],
+              "views": 492789,
+              "tier": "epic",
+              "points": 75,
+              "share": 17
+            },
+            {
+              "name": "Cars 2",
+              "code": "Cars 2",
+              "aliases": [],
+              "views": 505512,
+              "tier": "epic",
+              "points": 75,
+              "share": 20
+            },
+            {
+              "name": "Lightyear",
+              "code": "Lightyear (film)",
+              "aliases": [],
+              "views": 515842,
+              "tier": "epic",
+              "points": 75,
+              "share": 23
+            },
+            {
+              "name": "Cars 3",
+              "code": "Cars 3",
+              "aliases": [],
+              "views": 528573,
+              "tier": "epic",
+              "points": 75,
+              "share": 27
+            },
+            {
+              "name": "Toy Story 2",
+              "code": "Toy Story 2",
+              "aliases": [],
+              "views": 557158,
+              "tier": "epic",
+              "points": 75,
+              "share": 30
+            },
+            {
+              "name": "Hoppers",
+              "code": "Hoppers (film)",
+              "aliases": [],
+              "views": 566099,
+              "tier": "epic",
+              "points": 75,
+              "share": 33
+            },
+            {
+              "name": "Brave",
+              "code": "Brave (2012 film)",
+              "aliases": [],
+              "views": 595674,
+              "tier": "rare",
+              "points": 50,
+              "share": 37
+            },
+            {
+              "name": "Toy Story 3",
+              "code": "Toy Story 3",
+              "aliases": [],
+              "views": 614127,
+              "tier": "rare",
+              "points": 50,
+              "share": 40
+            },
+            {
+              "name": "Turning Red",
+              "code": "Turning Red",
+              "aliases": [],
+              "views": 620445,
+              "tier": "rare",
+              "points": 50,
+              "share": 43
+            },
+            {
+              "name": "Luca",
+              "code": "Luca (2021 film)",
+              "aliases": [],
+              "views": 623340,
+              "tier": "rare",
+              "points": 50,
+              "share": 47
+            },
+            {
+              "name": "A Bug's Life",
+              "code": "A Bug's Life",
+              "aliases": [],
+              "views": 641907,
+              "tier": "rare",
+              "points": 50,
+              "share": 50
+            },
+            {
+              "name": "Soul",
+              "code": "Soul (2020 film)",
+              "aliases": [],
+              "views": 660043,
+              "tier": "rare",
+              "points": 50,
+              "share": 53
+            },
+            {
+              "name": "Incredibles 2",
+              "code": "Incredibles 2",
+              "aliases": [],
+              "views": 748138,
+              "tier": "rare",
+              "points": 50,
+              "share": 57
+            },
+            {
+              "name": "Toy Story 4",
+              "code": "Toy Story 4",
+              "aliases": [],
+              "views": 749471,
+              "tier": "rare",
+              "points": 50,
+              "share": 60
+            },
+            {
+              "name": "WALL-E",
+              "code": "WALL-E",
+              "aliases": [],
+              "views": 770940,
+              "tier": "uncommon",
+              "points": 25,
+              "share": 63
+            },
+            {
+              "name": "Monsters, Inc.",
+              "code": "Monsters, Inc.",
+              "aliases": [],
+              "views": 788369,
+              "tier": "uncommon",
+              "points": 25,
+              "share": 67
+            },
+            {
+              "name": "Finding Nemo",
+              "code": "Finding Nemo",
+              "aliases": [],
+              "views": 797730,
+              "tier": "uncommon",
+              "points": 25,
+              "share": 70
+            },
+            {
+              "name": "Elemental",
+              "code": "Elemental (2023 film)",
+              "aliases": [],
+              "views": 797738,
+              "tier": "uncommon",
+              "points": 25,
+              "share": 73
+            },
+            {
+              "name": "Up",
+              "code": "Up (2009 film)",
+              "aliases": [],
+              "views": 822167,
+              "tier": "uncommon",
+              "points": 25,
+              "share": 77
+            },
+            {
+              "name": "The Incredibles",
+              "code": "The Incredibles",
+              "aliases": [],
+              "views": 1000172,
+              "tier": "uncommon",
+              "points": 25,
+              "share": 80
+            },
+            {
+              "name": "Toy Story",
+              "code": "Toy Story",
+              "aliases": [],
+              "views": 1091771,
+              "tier": "common",
+              "points": 10,
+              "share": 83
+            },
+            {
+              "name": "Coco",
+              "code": "Coco (2017 film)",
+              "aliases": [],
+              "views": 1185355,
+              "tier": "common",
+              "points": 10,
+              "share": 87
+            },
+            {
+              "name": "Cars",
+              "code": "Cars (film)",
+              "aliases": [],
+              "views": 1192790,
+              "tier": "common",
+              "points": 10,
+              "share": 90
+            },
+            {
+              "name": "Ratatouille",
+              "code": "Ratatouille (film)",
+              "aliases": [],
+              "views": 1217087,
+              "tier": "common",
+              "points": 10,
+              "share": 93
+            },
+            {
+              "name": "Inside Out 2",
+              "code": "Inside Out 2",
+              "aliases": [],
+              "views": 1996072,
+              "tier": "common",
+              "points": 10,
+              "share": 97
+            },
+            {
+              "name": "Elio",
+              "code": "Elio (film)",
+              "aliases": [],
+              "views": 2546949,
+              "tier": "common",
+              "points": 10,
+              "share": 100
+            }
+          ]
+        },
+        {
+          "id": "mv-bestpicture",
+          "prompt": "Name a Best Picture winner from the 2010s",
+          "note": "",
+          "answers": [
+            {
+              "name": "The Artist",
+              "code": "The Artist (film)",
+              "aliases": [],
+              "views": 266963,
+              "tier": "legendary",
+              "points": 100,
+              "share": 10
+            },
+            {
+              "name": "The King's Speech",
+              "code": "The King's Speech",
+              "aliases": [],
+              "views": 687686,
+              "tier": "epic",
+              "points": 75,
+              "share": 20
+            },
+            {
+              "name": "Birdman",
+              "code": "Birdman (film)",
+              "aliases": [],
+              "views": 714903,
+              "tier": "epic",
+              "points": 75,
+              "share": 30
+            },
+            {
+              "name": "Spotlight",
+              "code": "Spotlight (film)",
+              "aliases": [],
+              "views": 765203,
+              "tier": "rare",
+              "points": 50,
+              "share": 40
+            },
+            {
+              "name": "Argo",
+              "code": "Argo (2012 film)",
+              "aliases": [],
+              "views": 781454,
+              "tier": "rare",
+              "points": 50,
+              "share": 50
+            },
+            {
+              "name": "The Shape of Water",
+              "code": "The Shape of Water",
+              "aliases": [],
+              "views": 794148,
+              "tier": "rare",
+              "points": 50,
+              "share": 60
+            },
+            {
+              "name": "Moonlight",
+              "code": "Moonlight (2016 film)",
+              "aliases": [],
+              "views": 908707,
+              "tier": "uncommon",
+              "points": 25,
+              "share": 70
+            },
+            {
+              "name": "12 Years a Slave",
+              "code": "12 Years a Slave (film)",
+              "aliases": [],
+              "views": 1032550,
+              "tier": "uncommon",
+              "points": 25,
+              "share": 80
+            },
+            {
+              "name": "Green Book",
+              "code": "Green Book (film)",
+              "aliases": [],
+              "views": 1540907,
+              "tier": "common",
+              "points": 10,
+              "share": 90
+            },
+            {
+              "name": "Parasite",
+              "code": "Parasite (2019 film)",
+              "aliases": [],
+              "views": 2107617,
+              "tier": "common",
+              "points": 10,
+              "share": 100
+            }
+          ]
+        },
+        {
+          "id": "mv-disney90s",
+          "prompt": "Name a Disney animated film from the 1990s",
+          "note": "",
+          "answers": [
+            {
+              "name": "The Rescuers Down Under",
+              "code": "The Rescuers Down Under",
+              "aliases": [],
+              "views": 292219,
+              "tier": "legendary",
+              "points": 100,
+              "share": 11
+            },
+            {
+              "name": "Tarzan",
+              "code": "Tarzan (1999 film)",
+              "aliases": [],
+              "views": 531364,
+              "tier": "epic",
+              "points": 75,
+              "share": 22
+            },
+            {
+              "name": "Pocahontas",
+              "code": "Pocahontas (1995 film)",
+              "aliases": [],
+              "views": 537567,
+              "tier": "epic",
+              "points": 75,
+              "share": 33
+            },
+            {
+              "name": "The Hunchback of Notre Dame",
+              "code": "The Hunchback of Notre Dame (1996 film)",
+              "aliases": [],
+              "views": 635216,
+              "tier": "rare",
+              "points": 50,
+              "share": 44
+            },
+            {
+              "name": "Hercules",
+              "code": "Hercules (1997 film)",
+              "aliases": [],
+              "views": 703461,
+              "tier": "rare",
+              "points": 50,
+              "share": 56
+            },
+            {
+              "name": "Aladdin",
+              "code": "Aladdin (1992 Disney film)",
+              "aliases": [],
+              "views": 739530,
+              "tier": "uncommon",
+              "points": 25,
+              "share": 67
+            },
+            {
+              "name": "Mulan",
+              "code": "Mulan (1998 film)",
+              "aliases": [],
+              "views": 764793,
+              "tier": "uncommon",
+              "points": 25,
+              "share": 78
+            },
+            {
+              "name": "Beauty and the Beast",
+              "code": "Beauty and the Beast (1991 film)",
+              "aliases": [],
+              "views": 793135,
+              "tier": "common",
+              "points": 10,
+              "share": 89
+            },
+            {
+              "name": "The Lion King",
+              "code": "The Lion King",
+              "aliases": [],
+              "views": 1745713,
+              "tier": "common",
+              "points": 10,
+              "share": 100
+            }
+          ]
+        },
+        {
+          "id": "mv-ghibli",
+          "prompt": "Name a Studio Ghibli film",
+          "note": "",
+          "answers": [
+            {
+              "name": "The Tale of the Princess Kaguya",
+              "code": "The Tale of the Princess Kaguya",
+              "aliases": [],
+              "views": 4209,
+              "tier": "legendary",
+              "points": 100,
+              "share": 4
+            },
+            {
+              "name": "When Marnie Was There",
+              "code": "When Marnie Was There",
+              "aliases": [],
+              "views": 5540,
+              "tier": "legendary",
+              "points": 100,
+              "share": 8
+            },
+            {
+              "name": "Ocean Waves",
+              "code": "Ocean Waves",
+              "aliases": [],
+              "views": 92987,
+              "tier": "legendary",
+              "points": 100,
+              "share": 12
+            },
+            {
+              "name": "My Neighbors the Yamadas",
+              "code": "My Neighbors the Yamadas",
+              "aliases": [],
+              "views": 104896,
+              "tier": "epic",
+              "points": 75,
+              "share": 16
+            },
+            {
+              "name": "Earwig and the Witch",
+              "code": "Earwig and the Witch",
+              "aliases": [],
+              "views": 177611,
+              "tier": "epic",
+              "points": 75,
+              "share": 20
+            },
+            {
+              "name": "The Red Turtle",
+              "code": "The Red Turtle",
+              "aliases": [],
+              "views": 204616,
+              "tier": "epic",
+              "points": 75,
+              "share": 24
+            },
+            {
+              "name": "Pom Poko",
+              "code": "Pom Poko",
+              "aliases": [],
+              "views": 213422,
+              "tier": "epic",
+              "points": 75,
+              "share": 28
+            },
+            {
+              "name": "Only Yesterday",
+              "code": "Only Yesterday (1991 film)",
+              "aliases": [],
+              "views": 250136,
+              "tier": "epic",
+              "points": 75,
+              "share": 32
+            },
+            {
+              "name": "From Up on Poppy Hill",
+              "code": "From Up on Poppy Hill",
+              "aliases": [],
+              "views": 259182,
+              "tier": "rare",
+              "points": 50,
+              "share": 36
+            },
+            {
+              "name": "The Cat Returns",
+              "code": "The Cat Returns",
+              "aliases": [],
+              "views": 268736,
+              "tier": "rare",
+              "points": 50,
+              "share": 40
+            },
+            {
+              "name": "Tales from Earthsea",
+              "code": "Tales from Earthsea (film)",
+              "aliases": [],
+              "views": 268855,
+              "tier": "rare",
+              "points": 50,
+              "share": 44
+            },
+            {
+              "name": "Whisper of the Heart",
+              "code": "Whisper of the Heart",
+              "aliases": [],
+              "views": 366039,
+              "tier": "rare",
+              "points": 50,
+              "share": 48
+            },
+            {
+              "name": "Arrietty",
+              "code": "Arrietty",
+              "aliases": [],
+              "views": 387980,
+              "tier": "rare",
+              "points": 50,
+              "share": 52
+            },
+            {
+              "name": "Porco Rosso",
+              "code": "Porco Rosso",
+              "aliases": [],
+              "views": 414936,
+              "tier": "rare",
+              "points": 50,
+              "share": 56
+            },
+            {
+              "name": "Castle in the Sky",
+              "code": "Castle in the Sky",
+              "aliases": [],
+              "views": 455429,
+              "tier": "rare",
+              "points": 50,
+              "share": 60
+            },
+            {
+              "name": "Ponyo",
+              "code": "Ponyo",
+              "aliases": [],
+              "views": 513126,
+              "tier": "uncommon",
+              "points": 25,
+              "share": 64
+            },
+            {
+              "name": "The Wind Rises",
+              "code": "The Wind Rises",
+              "aliases": [],
+              "views": 536811,
+              "tier": "uncommon",
+              "points": 25,
+              "share": 68
+            },
+            {
+              "name": "Kiki's Delivery Service",
+              "code": "Kiki's Delivery Service",
+              "aliases": [],
+              "views": 550803,
+              "tier": "uncommon",
+              "points": 25,
+              "share": 72
+            },
+            {
+              "name": "Nausicaä of the Valley of the Wind",
+              "code": "Nausicaä of the Valley of the Wind (film)",
+              "aliases": [],
+              "views": 558091,
+              "tier": "uncommon",
+              "points": 25,
+              "share": 76
+            },
+            {
+              "name": "My Neighbor Totoro",
+              "code": "My Neighbor Totoro",
+              "aliases": [],
+              "views": 830110,
+              "tier": "uncommon",
+              "points": 25,
+              "share": 80
+            },
+            {
+              "name": "Princess Mononoke",
+              "code": "Princess Mononoke",
+              "aliases": [],
+              "views": 911007,
+              "tier": "common",
+              "points": 10,
+              "share": 84
+            },
+            {
+              "name": "Howl's Moving Castle",
+              "code": "Howl's Moving Castle (film)",
+              "aliases": [],
+              "views": 1053008,
+              "tier": "common",
+              "points": 10,
+              "share": 88
+            },
+            {
+              "name": "Grave of the Fireflies",
+              "code": "Grave of the Fireflies",
+              "aliases": [],
+              "views": 1292779,
+              "tier": "common",
+              "points": 10,
+              "share": 92
+            },
+            {
+              "name": "The Boy and the Heron",
+              "code": "The Boy and the Heron",
+              "aliases": [],
+              "views": 1326533,
+              "tier": "common",
+              "points": 10,
+              "share": 96
+            },
+            {
+              "name": "Spirited Away",
+              "code": "Spirited Away",
+              "aliases": [],
+              "views": 1350140,
+              "tier": "common",
+              "points": 10,
+              "share": 100
+            }
+          ]
+        },
+        {
+          "id": "mv-animated",
+          "prompt": "Name a film that won the Best Animated Feature Oscar",
+          "note": "",
+          "answers": [
+            {
+              "name": "Inside Out",
+              "code": "Inside Out",
+              "aliases": [],
+              "views": 15115,
+              "tier": "legendary",
+              "points": 100,
+              "share": 4
+            },
+            {
+              "name": "Guillermo del Toro's Pinocchio",
+              "code": "Guillermo del Toro's Pinocchio",
+              "aliases": [],
+              "views": 431868,
+              "tier": "legendary",
+              "points": 100,
+              "share": 8
+            },
+            {
+              "name": "Happy Feet",
+              "code": "Happy Feet",
+              "aliases": [],
+              "views": 435262,
+              "tier": "legendary",
+              "points": 100,
+              "share": 13
+            },
+            {
+              "name": "Wallace & Gromit: The Curse of the Were-Rabbit",
+              "code": "Wallace & Gromit: The Curse of the Were-Rabbit",
+              "aliases": [],
+              "views": 493751,
+              "tier": "epic",
+              "points": 75,
+              "share": 17
+            },
+            {
+              "name": "Rango",
+              "code": "Rango (2011 film)",
+              "aliases": [],
+              "views": 509330,
+              "tier": "epic",
+              "points": 75,
+              "share": 21
+            },
+            {
+              "name": "Brave",
+              "code": "Brave (2012 film)",
+              "aliases": [],
+              "views": 595674,
+              "tier": "epic",
+              "points": 75,
+              "share": 25
+            },
+            {
+              "name": "Toy Story 3",
+              "code": "Toy Story 3",
+              "aliases": [],
+              "views": 614127,
+              "tier": "epic",
+              "points": 75,
+              "share": 29
+            },
+            {
+              "name": "Soul",
+              "code": "Soul (2020 film)",
+              "aliases": [],
+              "views": 660043,
+              "tier": "epic",
+              "points": 75,
+              "share": 33
+            },
+            {
+              "name": "Big Hero 6",
+              "code": "Big Hero 6 (film)",
+              "aliases": [],
+              "views": 675123,
+              "tier": "rare",
+              "points": 50,
+              "share": 38
+            },
+            {
+              "name": "Toy Story 4",
+              "code": "Toy Story 4",
+              "aliases": [],
+              "views": 749471,
+              "tier": "rare",
+              "points": 50,
+              "share": 42
+            },
+            {
+              "name": "WALL-E",
+              "code": "WALL-E",
+              "aliases": [],
+              "views": 770940,
+              "tier": "rare",
+              "points": 50,
+              "share": 46
+            },
+            {
+              "name": "Finding Nemo",
+              "code": "Finding Nemo",
+              "aliases": [],
+              "views": 797730,
+              "tier": "rare",
+              "points": 50,
+              "share": 50
+            },
+            {
+              "name": "Up",
+              "code": "Up (2009 film)",
+              "aliases": [],
+              "views": 822167,
+              "tier": "rare",
+              "points": 50,
+              "share": 54
+            },
+            {
+              "name": "Encanto",
+              "code": "Encanto",
+              "aliases": [],
+              "views": 963819,
+              "tier": "rare",
+              "points": 50,
+              "share": 58
+            },
+            {
+              "name": "The Incredibles",
+              "code": "The Incredibles",
+              "aliases": [],
+              "views": 1000172,
+              "tier": "uncommon",
+              "points": 25,
+              "share": 63
+            },
+            {
+              "name": "Zootopia",
+              "code": "Zootopia",
+              "aliases": [],
+              "views": 1007598,
+              "tier": "uncommon",
+              "points": 25,
+              "share": 67
+            },
+            {
+              "name": "Spider-Man: Into the Spider-Verse",
+              "code": "Spider-Man: Into the Spider-Verse",
+              "aliases": [],
+              "views": 1071703,
+              "tier": "uncommon",
+              "points": 25,
+              "share": 71
+            },
+            {
+              "name": "Frozen",
+              "code": "Frozen (2013 film)",
+              "aliases": [],
+              "views": 1102845,
+              "tier": "uncommon",
+              "points": 25,
+              "share": 75
+            },
+            {
+              "name": "Coco",
+              "code": "Coco (2017 film)",
+              "aliases": [],
+              "views": 1185355,
+              "tier": "uncommon",
+              "points": 25,
+              "share": 79
+            },
+            {
+              "name": "Ratatouille",
+              "code": "Ratatouille (film)",
+              "aliases": [],
+              "views": 1217087,
+              "tier": "common",
+              "points": 10,
+              "share": 83
+            },
+            {
+              "name": "The Boy and the Heron",
+              "code": "The Boy and the Heron",
+              "aliases": [],
+              "views": 1326533,
+              "tier": "common",
+              "points": 10,
+              "share": 88
+            },
+            {
+              "name": "Spirited Away",
+              "code": "Spirited Away",
+              "aliases": [],
+              "views": 1350140,
+              "tier": "common",
+              "points": 10,
+              "share": 92
+            },
+            {
+              "name": "Shrek",
+              "code": "Shrek",
+              "aliases": [],
+              "views": 1376775,
+              "tier": "common",
+              "points": 10,
+              "share": 96
+            },
+            {
+              "name": "Flow",
+              "code": "Flow (2024 film)",
+              "aliases": [],
+              "views": 3855921,
+              "tier": "common",
+              "points": 10,
+              "share": 100
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "music",
+      "name": "Music",
+      "tagline": "Albums, No. 1s, and the songs everyone knows",
+      "blurb": "Pop, rock and Eurovision in one ladder. The trap is the same: the first song that comes to mind is usually the most obvious one on the board.",
+      "kind": "song",
+      "unit": "songs",
+      "one": "song or album",
+      "placeholder": "Type a song or album…",
+      "floors": 5,
+      "ladder": [
+        "uncommon",
+        "uncommon",
+        "rare",
+        "rare",
+        "epic"
+      ],
+      "questions": [
+        {
+          "id": "mu-taylor",
+          "prompt": "Name a Taylor Swift album",
+          "note": "",
+          "answers": [
+            {
+              "name": "Speak Now",
+              "code": "Speak Now",
+              "aliases": [],
+              "views": 455393,
+              "tier": "legendary",
+              "points": 100,
+              "share": 9
+            },
+            {
+              "name": "Fearless",
+              "code": "Fearless (Taylor Swift album)",
+              "aliases": [],
+              "views": 529744,
+              "tier": "epic",
+              "points": 75,
+              "share": 18
+            },
+            {
+              "name": "Evermore",
+              "code": "Evermore",
+              "aliases": [],
+              "views": 532360,
+              "tier": "epic",
+              "points": 75,
+              "share": 27
+            },
+            {
+              "name": "Red",
+              "code": "Red (Taylor Swift album)",
+              "aliases": [],
+              "views": 571112,
+              "tier": "rare",
+              "points": 50,
+              "share": 36
+            },
+            {
+              "name": "Lover",
+              "code": "Lover (album)",
+              "aliases": [],
+              "views": 578898,
+              "tier": "rare",
+              "points": 50,
+              "share": 45
+            },
+            {
+              "name": "1989",
+              "code": "1989 (album)",
+              "aliases": [],
+              "views": 674040,
+              "tier": "rare",
+              "points": 50,
+              "share": 55
+            },
+            {
+              "name": "Midnights",
+              "code": "Midnights",
+              "aliases": [],
+              "views": 716842,
+              "tier": "uncommon",
+              "points": 25,
+              "share": 64
+            },
+            {
+              "name": "Reputation",
+              "code": "Reputation (album)",
+              "aliases": [],
+              "views": 724031,
+              "tier": "uncommon",
+              "points": 25,
+              "share": 73
+            },
+            {
+              "name": "Taylor Swift",
+              "code": "Taylor Swift (album)",
+              "aliases": [],
+              "views": 739269,
+              "tier": "common",
+              "points": 10,
+              "share": 82
+            },
+            {
+              "name": "Folklore",
+              "code": "Folklore (Taylor Swift album)",
+              "aliases": [],
+              "views": 766858,
+              "tier": "common",
+              "points": 10,
+              "share": 91
+            },
+            {
+              "name": "The Tortured Poets Department",
+              "code": "The Tortured Poets Department",
+              "aliases": [],
+              "views": 1418013,
+              "tier": "common",
+              "points": 10,
+              "share": 100
+            }
+          ]
+        },
+        {
+          "id": "mu-beatles-albums",
+          "prompt": "Name a Beatles studio album",
+          "note": "",
+          "answers": [
+            {
+              "name": "Beatles for Sale",
+              "code": "Beatles for Sale",
+              "aliases": [],
+              "views": 323300,
+              "tier": "legendary",
+              "points": 100,
+              "share": 8
+            },
+            {
+              "name": "Yellow Submarine",
+              "code": "Yellow Submarine (album)",
+              "aliases": [],
+              "views": 340675,
+              "tier": "epic",
+              "points": 75,
+              "share": 17
+            },
+            {
+              "name": "With the Beatles",
+              "code": "With the Beatles",
+              "aliases": [],
+              "views": 348522,
+              "tier": "epic",
+              "points": 75,
+              "share": 25
+            },
+            {
+              "name": "A Hard Day's Night",
+              "code": "A Hard Day's Night (album)",
+              "aliases": [],
+              "views": 401690,
+              "tier": "epic",
+              "points": 75,
+              "share": 33
+            },
+            {
+              "name": "Help!",
+              "code": "Help!",
+              "aliases": [],
+              "views": 431939,
+              "tier": "rare",
+              "points": 50,
+              "share": 42
+            },
+            {
+              "name": "Please Please Me",
+              "code": "Please Please Me",
+              "aliases": [],
+              "views": 459004,
+              "tier": "rare",
+              "points": 50,
+              "share": 50
+            },
+            {
+              "name": "Rubber Soul",
+              "code": "Rubber Soul",
+              "aliases": [],
+              "views": 622598,
+              "tier": "rare",
+              "points": 50,
+              "share": 58
+            },
+            {
+              "name": "Revolver",
+              "code": "Revolver (Beatles album)",
+              "aliases": [],
+              "views": 679749,
+              "tier": "uncommon",
+              "points": 25,
+              "share": 67
+            },
+            {
+              "name": "Let It Be",
+              "code": "Let It Be (album)",
+              "aliases": [],
+              "views": 698027,
+              "tier": "uncommon",
+              "points": 25,
+              "share": 75
+            },
+            {
+              "name": "The Beatles",
+              "code": "The Beatles (album)",
+              "aliases": [
+                "The White Album",
+                "White Album"
+              ],
+              "views": 889497,
+              "tier": "common",
+              "points": 10,
+              "share": 83
+            },
+            {
+              "name": "Sgt. Pepper's Lonely Hearts Club Band",
+              "code": "Sgt. Pepper's Lonely Hearts Club Band",
+              "aliases": [],
+              "views": 1064450,
+              "tier": "common",
+              "points": 10,
+              "share": 92
+            },
+            {
+              "name": "Abbey Road",
+              "code": "Abbey Road",
+              "aliases": [],
+              "views": 1102817,
+              "tier": "common",
+              "points": 10,
+              "share": 100
+            }
+          ]
+        },
+        {
+          "id": "mu-beatles-no1",
+          "prompt": "Name a Beatles single that hit No. 1 in the US",
+          "note": "",
+          "answers": [
+            {
+              "name": "Ticket to Ride",
+              "code": "Ticket to Ride",
+              "aliases": [],
+              "views": 5873,
+              "tier": "legendary",
+              "points": 100,
+              "share": 5
+            },
+            {
+              "name": "Eight Days a Week",
+              "code": "Eight Days a Week",
+              "aliases": [],
+              "views": 54429,
+              "tier": "legendary",
+              "points": 100,
+              "share": 10
+            },
+            {
+              "name": "I Feel Fine",
+              "code": "I Feel Fine",
+              "aliases": [],
+              "views": 67953,
+              "tier": "legendary",
+              "points": 100,
+              "share": 15
+            },
+            {
+              "name": "Can't Buy Me Love",
+              "code": "Can't Buy Me Love",
+              "aliases": [],
+              "views": 71077,
+              "tier": "epic",
+              "points": 75,
+              "share": 20
+            },
+            {
+              "name": "A Hard Day's Night",
+              "code": "A Hard Day's Night (song)",
+              "aliases": [],
+              "views": 76045,
+              "tier": "epic",
+              "points": 75,
+              "share": 25
+            },
+            {
+              "name": "Hello, Goodbye",
+              "code": "Hello, Goodbye",
+              "aliases": [],
+              "views": 84675,
+              "tier": "epic",
+              "points": 75,
+              "share": 30
+            },
+            {
+              "name": "We Can Work It Out",
+              "code": "We Can Work It Out",
+              "aliases": [],
+              "views": 96996,
+              "tier": "epic",
+              "points": 75,
+              "share": 35
+            },
+            {
+              "name": "Paperback Writer",
+              "code": "Paperback Writer",
+              "aliases": [],
+              "views": 97593,
+              "tier": "rare",
+              "points": 50,
+              "share": 40
+            },
+            {
+              "name": "Help!",
+              "code": "Help! (song)",
+              "aliases": [],
+              "views": 102222,
+              "tier": "rare",
+              "points": 50,
+              "share": 45
+            },
+            {
+              "name": "She Loves You",
+              "code": "She Loves You",
+              "aliases": [],
+              "views": 104670,
+              "tier": "rare",
+              "points": 50,
+              "share": 50
+            },
+            {
+              "name": "The Long and Winding Road",
+              "code": "The Long and Winding Road",
+              "aliases": [],
+              "views": 137449,
+              "tier": "rare",
+              "points": 50,
+              "share": 55
+            },
+            {
+              "name": "I Want to Hold Your Hand",
+              "code": "I Want to Hold Your Hand",
+              "aliases": [],
+              "views": 142074,
+              "tier": "rare",
+              "points": 50,
+              "share": 60
+            },
+            {
+              "name": "Love Me Do",
+              "code": "Love Me Do",
+              "aliases": [],
+              "views": 143987,
+              "tier": "uncommon",
+              "points": 25,
+              "share": 65
+            },
+            {
+              "name": "Penny Lane",
+              "code": "Penny Lane",
+              "aliases": [],
+              "views": 154382,
+              "tier": "uncommon",
+              "points": 25,
+              "share": 70
+            },
+            {
+              "name": "All You Need Is Love",
+              "code": "All You Need Is Love",
+              "aliases": [],
+              "views": 156333,
+              "tier": "uncommon",
+              "points": 25,
+              "share": 75
+            },
+            {
+              "name": "Get Back",
+              "code": "Get Back",
+              "aliases": [],
+              "views": 163689,
+              "tier": "uncommon",
+              "points": 25,
+              "share": 80
+            },
+            {
+              "name": "Yesterday",
+              "code": "Yesterday (song)",
+              "aliases": [],
+              "views": 182109,
+              "tier": "common",
+              "points": 10,
+              "share": 85
+            },
+            {
+              "name": "Come Together",
+              "code": "Come Together",
+              "aliases": [],
+              "views": 216830,
+              "tier": "common",
+              "points": 10,
+              "share": 90
+            },
+            {
+              "name": "Let It Be",
+              "code": "Let It Be (song)",
+              "aliases": [],
+              "views": 238061,
+              "tier": "common",
+              "points": 10,
+              "share": 95
+            },
+            {
+              "name": "Hey Jude",
+              "code": "Hey Jude",
+              "aliases": [],
+              "views": 389378,
+              "tier": "common",
+              "points": 10,
+              "share": 100
+            }
+          ]
+        },
+        {
+          "id": "mu-abbey-road",
+          "prompt": "Name a song on Abbey Road",
+          "note": "",
+          "answers": [
+            {
+              "name": "Mean Mr. Mustard",
+              "code": "Mean Mr. Mustard",
+              "aliases": [],
+              "views": 27699,
+              "tier": "legendary",
+              "points": 100,
+              "share": 6
+            },
+            {
+              "name": "Polythene Pam",
+              "code": "Polythene Pam",
+              "aliases": [],
+              "views": 31496,
+              "tier": "legendary",
+              "points": 100,
+              "share": 12
+            },
+            {
+              "name": "Her Majesty",
+              "code": "Her Majesty (song)",
+              "aliases": [],
+              "views": 33473,
+              "tier": "epic",
+              "points": 75,
+              "share": 18
+            },
+            {
+              "name": "Sun King",
+              "code": "Sun King (song)",
+              "aliases": [],
+              "views": 34839,
+              "tier": "epic",
+              "points": 75,
+              "share": 24
+            },
+            {
+              "name": "She Came in Through the Bathroom Window",
+              "code": "She Came In Through the Bathroom Window",
+              "aliases": [],
+              "views": 41552,
+              "tier": "epic",
+              "points": 75,
+              "share": 29
+            },
+            {
+              "name": "Because",
+              "code": "Because (Beatles song)",
+              "aliases": [],
+              "views": 44853,
+              "tier": "rare",
+              "points": 50,
+              "share": 35
+            },
+            {
+              "name": "You Never Give Me Your Money",
+              "code": "You Never Give Me Your Money",
+              "aliases": [],
+              "views": 48164,
+              "tier": "rare",
+              "points": 50,
+              "share": 41
+            },
+            {
+              "name": "Oh! Darling",
+              "code": "Oh! Darling",
+              "aliases": [],
+              "views": 51844,
+              "tier": "rare",
+              "points": 50,
+              "share": 47
+            },
+            {
+              "name": "Carry That Weight",
+              "code": "Carry That Weight",
+              "aliases": [],
+              "views": 62517,
+              "tier": "rare",
+              "points": 50,
+              "share": 53
+            },
+            {
+              "name": "The End",
+              "code": "The End (Beatles song)",
+              "aliases": [],
+              "views": 84802,
+              "tier": "rare",
+              "points": 50,
+              "share": 59
+            },
+            {
+              "name": "I Want You (She's So Heavy)",
+              "code": "I Want You (She's So Heavy)",
+              "aliases": [],
+              "views": 90244,
+              "tier": "uncommon",
+              "points": 25,
+              "share": 65
+            },
+            {
+              "name": "Golden Slumbers",
+              "code": "Golden Slumbers",
+              "aliases": [],
+              "views": 90991,
+              "tier": "uncommon",
+              "points": 25,
+              "share": 71
+            },
+            {
+              "name": "Octopus's Garden",
+              "code": "Octopus's Garden",
+              "aliases": [],
+              "views": 98321,
+              "tier": "uncommon",
+              "points": 25,
+              "share": 76
+            },
+            {
+              "name": "Maxwell's Silver Hammer",
+              "code": "Maxwell's Silver Hammer",
+              "aliases": [],
+              "views": 117835,
+              "tier": "common",
+              "points": 10,
+              "share": 82
+            },
+            {
+              "name": "Something",
+              "code": "Something (Beatles song)",
+              "aliases": [],
+              "views": 201064,
+              "tier": "common",
+              "points": 10,
+              "share": 88
+            },
+            {
+              "name": "Come Together",
+              "code": "Come Together",
+              "aliases": [],
+              "views": 216830,
+              "tier": "common",
+              "points": 10,
+              "share": 94
+            },
+            {
+              "name": "Here Comes the Sun",
+              "code": "Here Comes the Sun",
+              "aliases": [],
+              "views": 225531,
+              "tier": "common",
+              "points": 10,
+              "share": 100
+            }
+          ]
+        },
+        {
+          "id": "mu-eurovision",
+          "prompt": "Name a country that has won Eurovision since 2010",
+          "note": "",
+          "answers": [
+            {
+              "name": "Portugal",
+              "code": "Portugal",
+              "aliases": [],
+              "views": 2280608,
+              "tier": "legendary",
+              "points": 100,
+              "share": 9
+            },
+            {
+              "name": "Austria",
+              "code": "Austria",
+              "aliases": [],
+              "views": 2332975,
+              "tier": "epic",
+              "points": 75,
+              "share": 18
+            },
+            {
+              "name": "Denmark",
+              "code": "Denmark",
+              "aliases": [],
+              "views": 2378408,
+              "tier": "epic",
+              "points": 75,
+              "share": 27
+            },
+            {
+              "name": "Sweden",
+              "code": "Sweden",
+              "aliases": [],
+              "views": 2487878,
+              "tier": "rare",
+              "points": 50,
+              "share": 36
+            },
+            {
+              "name": "Azerbaijan",
+              "code": "Azerbaijan",
+              "aliases": [],
+              "views": 2913915,
+              "tier": "rare",
+              "points": 50,
+              "share": 45
+            },
+            {
+              "name": "Italy",
+              "code": "Italy",
+              "aliases": [],
+              "views": 3178289,
+              "tier": "rare",
+              "points": 50,
+              "share": 55
+            },
+            {
+              "name": "Switzerland",
+              "code": "Switzerland",
+              "aliases": [],
+              "views": 3197453,
+              "tier": "uncommon",
+              "points": 25,
+              "share": 64
+            },
+            {
+              "name": "Netherlands",
+              "code": "Netherlands",
+              "aliases": [
+                "Holland"
+              ],
+              "views": 3469493,
+              "tier": "uncommon",
+              "points": 25,
+              "share": 73
+            },
+            {
+              "name": "Ukraine",
+              "code": "Ukraine",
+              "aliases": [],
+              "views": 3766998,
+              "tier": "common",
+              "points": 10,
+              "share": 82
+            },
+            {
+              "name": "Germany",
+              "code": "Germany",
+              "aliases": [],
+              "views": 4584981,
+              "tier": "common",
+              "points": 10,
+              "share": 91
+            },
+            {
+              "name": "Israel",
+              "code": "Israel",
+              "aliases": [],
+              "views": 6828347,
+              "tier": "common",
+              "points": 10,
+              "share": 100
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "nfl",
+      "name": "NFL",
+      "tagline": "Thirty-two teams, one obvious answer",
+      "blurb": "American football is still the biggest league in the US, and the Cowboys and Chiefs are the first names out of most mouths. That is exactly the problem.",
+      "kind": "team",
+      "unit": "teams",
+      "one": "NFL team",
+      "placeholder": "Type an NFL team…",
+      "floors": 5,
+      "ladder": [
+        "uncommon",
+        "uncommon",
+        "rare",
+        "rare",
+        "epic"
+      ],
+      "questions": [
+        {
+          "id": "nfl-all",
+          "prompt": "Name an NFL team",
+          "note": "",
+          "answers": [
+            {
+              "name": "Atlanta Falcons",
+              "code": "Atlanta Falcons",
+              "aliases": [],
+              "views": 531873,
+              "tier": "legendary",
+              "points": 100,
+              "share": 3
+            },
+            {
+              "name": "Carolina Panthers",
+              "code": "Carolina Panthers",
+              "aliases": [],
+              "views": 561850,
+              "tier": "legendary",
+              "points": 100,
+              "share": 6
+            },
+            {
+              "name": "New Orleans Saints",
+              "code": "New Orleans Saints",
+              "aliases": [],
+              "views": 588770,
+              "tier": "legendary",
+              "points": 100,
+              "share": 9
+            },
+            {
+              "name": "Houston Texans",
+              "code": "Houston Texans",
+              "aliases": [],
+              "views": 631068,
+              "tier": "legendary",
+              "points": 100,
+              "share": 13
+            },
+            {
+              "name": "Tennessee Titans",
+              "code": "Tennessee Titans",
+              "aliases": [],
+              "views": 633675,
+              "tier": "epic",
+              "points": 75,
+              "share": 16
+            },
+            {
+              "name": "Indianapolis Colts",
+              "code": "Indianapolis Colts",
+              "aliases": [],
+              "views": 646425,
+              "tier": "epic",
+              "points": 75,
+              "share": 19
+            },
+            {
+              "name": "Cincinnati Bengals",
+              "code": "Cincinnati Bengals",
+              "aliases": [],
+              "views": 652687,
+              "tier": "epic",
+              "points": 75,
+              "share": 22
+            },
+            {
+              "name": "Arizona Cardinals",
+              "code": "Arizona Cardinals",
+              "aliases": [],
+              "views": 666122,
+              "tier": "epic",
+              "points": 75,
+              "share": 25
+            },
+            {
+              "name": "Jacksonville Jaguars",
+              "code": "Jacksonville Jaguars",
+              "aliases": [],
+              "views": 681414,
+              "tier": "epic",
+              "points": 75,
+              "share": 28
+            },
+            {
+              "name": "Miami Dolphins",
+              "code": "Miami Dolphins",
+              "aliases": [],
+              "views": 682380,
+              "tier": "epic",
+              "points": 75,
+              "share": 31
+            },
+            {
+              "name": "Denver Broncos",
+              "code": "Denver Broncos",
+              "aliases": [],
+              "views": 723906,
+              "tier": "epic",
+              "points": 75,
+              "share": 34
+            },
+            {
+              "name": "Los Angeles Chargers",
+              "code": "Los Angeles Chargers",
+              "aliases": [],
+              "views": 758176,
+              "tier": "rare",
+              "points": 50,
+              "share": 38
+            },
+            {
+              "name": "Seattle Seahawks",
+              "code": "Seattle Seahawks",
+              "aliases": [],
+              "views": 776044,
+              "tier": "rare",
+              "points": 50,
+              "share": 41
+            },
+            {
+              "name": "Tampa Bay Buccaneers",
+              "code": "Tampa Bay Buccaneers",
+              "aliases": [],
+              "views": 793734,
+              "tier": "rare",
+              "points": 50,
+              "share": 44
+            },
+            {
+              "name": "Minnesota Vikings",
+              "code": "Minnesota Vikings",
+              "aliases": [],
+              "views": 803958,
+              "tier": "rare",
+              "points": 50,
+              "share": 47
+            },
+            {
+              "name": "Baltimore Ravens",
+              "code": "Baltimore Ravens",
+              "aliases": [],
+              "views": 877927,
+              "tier": "rare",
+              "points": 50,
+              "share": 50
+            },
+            {
+              "name": "New York Jets",
+              "code": "New York Jets",
+              "aliases": [],
+              "views": 893774,
+              "tier": "rare",
+              "points": 50,
+              "share": 53
+            },
+            {
+              "name": "Las Vegas Raiders",
+              "code": "Las Vegas Raiders",
+              "aliases": [],
+              "views": 920154,
+              "tier": "rare",
+              "points": 50,
+              "share": 56
+            },
+            {
+              "name": "San Francisco 49ers",
+              "code": "San Francisco 49ers",
+              "aliases": [],
+              "views": 993165,
+              "tier": "rare",
+              "points": 50,
+              "share": 59
+            },
+            {
+              "name": "Chicago Bears",
+              "code": "Chicago Bears",
+              "aliases": [],
+              "views": 1005599,
+              "tier": "uncommon",
+              "points": 25,
+              "share": 63
+            },
+            {
+              "name": "New York Giants",
+              "code": "New York Giants",
+              "aliases": [],
+              "views": 1005962,
+              "tier": "uncommon",
+              "points": 25,
+              "share": 66
+            },
+            {
+              "name": "Los Angeles Rams",
+              "code": "Los Angeles Rams",
+              "aliases": [],
+              "views": 1036951,
+              "tier": "uncommon",
+              "points": 25,
+              "share": 69
+            },
+            {
+              "name": "Cleveland Browns",
+              "code": "Cleveland Browns",
+              "aliases": [],
+              "views": 1044193,
+              "tier": "uncommon",
+              "points": 25,
+              "share": 72
+            },
+            {
+              "name": "Pittsburgh Steelers",
+              "code": "Pittsburgh Steelers",
+              "aliases": [],
+              "views": 1098977,
+              "tier": "uncommon",
+              "points": 25,
+              "share": 75
+            },
+            {
+              "name": "Green Bay Packers",
+              "code": "Green Bay Packers",
+              "aliases": [],
+              "views": 1099035,
+              "tier": "uncommon",
+              "points": 25,
+              "share": 78
+            },
+            {
+              "name": "Detroit Lions",
+              "code": "Detroit Lions",
+              "aliases": [],
+              "views": 1127867,
+              "tier": "common",
+              "points": 10,
+              "share": 81
+            },
+            {
+              "name": "New England Patriots",
+              "code": "New England Patriots",
+              "aliases": [],
+              "views": 1307180,
+              "tier": "common",
+              "points": 10,
+              "share": 84
+            },
+            {
+              "name": "Buffalo Bills",
+              "code": "Buffalo Bills",
+              "aliases": [],
+              "views": 1315952,
+              "tier": "common",
+              "points": 10,
+              "share": 88
+            },
+            {
+              "name": "Dallas Cowboys",
+              "code": "Dallas Cowboys",
+              "aliases": [],
+              "views": 1532813,
+              "tier": "common",
+              "points": 10,
+              "share": 91
+            },
+            {
+              "name": "Washington Commanders",
+              "code": "Washington Commanders",
+              "aliases": [],
+              "views": 1669101,
+              "tier": "common",
+              "points": 10,
+              "share": 94
+            },
+            {
+              "name": "Kansas City Chiefs",
+              "code": "Kansas City Chiefs",
+              "aliases": [],
+              "views": 1727123,
+              "tier": "common",
+              "points": 10,
+              "share": 97
+            },
+            {
+              "name": "Philadelphia Eagles",
+              "code": "Philadelphia Eagles",
+              "aliases": [],
+              "views": 2183350,
+              "tier": "common",
+              "points": 10,
+              "share": 100
+            }
+          ]
+        },
+        {
+          "id": "nfl-sb-winners",
+          "prompt": "Name a team that has won the Super Bowl",
+          "note": "",
+          "answers": [
+            {
+              "name": "New Orleans Saints",
+              "code": "New Orleans Saints",
+              "aliases": [],
+              "views": 588770,
+              "tier": "legendary",
+              "points": 100,
+              "share": 5
+            },
+            {
+              "name": "Indianapolis Colts",
+              "code": "Indianapolis Colts",
+              "aliases": [],
+              "views": 646425,
+              "tier": "legendary",
+              "points": 100,
+              "share": 10
+            },
+            {
+              "name": "Miami Dolphins",
+              "code": "Miami Dolphins",
+              "aliases": [],
+              "views": 682380,
+              "tier": "legendary",
+              "points": 100,
+              "share": 15
+            },
+            {
+              "name": "Denver Broncos",
+              "code": "Denver Broncos",
+              "aliases": [],
+              "views": 723906,
+              "tier": "epic",
+              "points": 75,
+              "share": 20
+            },
+            {
+              "name": "Seattle Seahawks",
+              "code": "Seattle Seahawks",
+              "aliases": [],
+              "views": 776044,
+              "tier": "epic",
+              "points": 75,
+              "share": 25
+            },
+            {
+              "name": "Tampa Bay Buccaneers",
+              "code": "Tampa Bay Buccaneers",
+              "aliases": [],
+              "views": 793734,
+              "tier": "epic",
+              "points": 75,
+              "share": 30
+            },
+            {
+              "name": "Baltimore Ravens",
+              "code": "Baltimore Ravens",
+              "aliases": [],
+              "views": 877927,
+              "tier": "epic",
+              "points": 75,
+              "share": 35
+            },
+            {
+              "name": "New York Jets",
+              "code": "New York Jets",
+              "aliases": [],
+              "views": 893774,
+              "tier": "rare",
+              "points": 50,
+              "share": 40
+            },
+            {
+              "name": "Las Vegas Raiders",
+              "code": "Las Vegas Raiders",
+              "aliases": [],
+              "views": 920154,
+              "tier": "rare",
+              "points": 50,
+              "share": 45
+            },
+            {
+              "name": "San Francisco 49ers",
+              "code": "San Francisco 49ers",
+              "aliases": [],
+              "views": 993165,
+              "tier": "rare",
+              "points": 50,
+              "share": 50
+            },
+            {
+              "name": "Chicago Bears",
+              "code": "Chicago Bears",
+              "aliases": [],
+              "views": 1005599,
+              "tier": "rare",
+              "points": 50,
+              "share": 55
+            },
+            {
+              "name": "New York Giants",
+              "code": "New York Giants",
+              "aliases": [],
+              "views": 1005962,
+              "tier": "rare",
+              "points": 50,
+              "share": 60
+            },
+            {
+              "name": "Los Angeles Rams",
+              "code": "Los Angeles Rams",
+              "aliases": [],
+              "views": 1036951,
+              "tier": "uncommon",
+              "points": 25,
+              "share": 65
+            },
+            {
+              "name": "Pittsburgh Steelers",
+              "code": "Pittsburgh Steelers",
+              "aliases": [],
+              "views": 1098977,
+              "tier": "uncommon",
+              "points": 25,
+              "share": 70
+            },
+            {
+              "name": "Green Bay Packers",
+              "code": "Green Bay Packers",
+              "aliases": [],
+              "views": 1099035,
+              "tier": "uncommon",
+              "points": 25,
+              "share": 75
+            },
+            {
+              "name": "New England Patriots",
+              "code": "New England Patriots",
+              "aliases": [],
+              "views": 1307180,
+              "tier": "uncommon",
+              "points": 25,
+              "share": 80
+            },
+            {
+              "name": "Dallas Cowboys",
+              "code": "Dallas Cowboys",
+              "aliases": [],
+              "views": 1532813,
+              "tier": "common",
+              "points": 10,
+              "share": 85
+            },
+            {
+              "name": "Washington Commanders",
+              "code": "Washington Commanders",
+              "aliases": [],
+              "views": 1669101,
+              "tier": "common",
+              "points": 10,
+              "share": 90
+            },
+            {
+              "name": "Kansas City Chiefs",
+              "code": "Kansas City Chiefs",
+              "aliases": [],
+              "views": 1727123,
+              "tier": "common",
+              "points": 10,
+              "share": 95
+            },
+            {
+              "name": "Philadelphia Eagles",
+              "code": "Philadelphia Eagles",
+              "aliases": [],
+              "views": 2183350,
+              "tier": "common",
+              "points": 10,
+              "share": 100
+            }
+          ]
+        },
+        {
+          "id": "nfl-no-sb",
+          "prompt": "Name an NFL team that has never won a Super Bowl",
+          "note": "",
+          "answers": [
+            {
+              "name": "Atlanta Falcons",
+              "code": "Atlanta Falcons",
+              "aliases": [],
+              "views": 531873,
+              "tier": "legendary",
+              "points": 100,
+              "share": 8
+            },
+            {
+              "name": "Carolina Panthers",
+              "code": "Carolina Panthers",
+              "aliases": [],
+              "views": 561850,
+              "tier": "epic",
+              "points": 75,
+              "share": 17
+            },
+            {
+              "name": "Houston Texans",
+              "code": "Houston Texans",
+              "aliases": [],
+              "views": 631068,
+              "tier": "epic",
+              "points": 75,
+              "share": 25
+            },
+            {
+              "name": "Tennessee Titans",
+              "code": "Tennessee Titans",
+              "aliases": [],
+              "views": 633675,
+              "tier": "epic",
+              "points": 75,
+              "share": 33
+            },
+            {
+              "name": "Cincinnati Bengals",
+              "code": "Cincinnati Bengals",
+              "aliases": [],
+              "views": 652687,
+              "tier": "rare",
+              "points": 50,
+              "share": 42
+            },
+            {
+              "name": "Arizona Cardinals",
+              "code": "Arizona Cardinals",
+              "aliases": [],
+              "views": 666122,
+              "tier": "rare",
+              "points": 50,
+              "share": 50
+            },
+            {
+              "name": "Jacksonville Jaguars",
+              "code": "Jacksonville Jaguars",
+              "aliases": [],
+              "views": 681414,
+              "tier": "rare",
+              "points": 50,
+              "share": 58
+            },
+            {
+              "name": "Los Angeles Chargers",
+              "code": "Los Angeles Chargers",
+              "aliases": [],
+              "views": 758176,
+              "tier": "uncommon",
+              "points": 25,
+              "share": 67
+            },
+            {
+              "name": "Minnesota Vikings",
+              "code": "Minnesota Vikings",
+              "aliases": [],
+              "views": 803958,
+              "tier": "uncommon",
+              "points": 25,
+              "share": 75
+            },
+            {
+              "name": "Cleveland Browns",
+              "code": "Cleveland Browns",
+              "aliases": [],
+              "views": 1044193,
+              "tier": "common",
+              "points": 10,
+              "share": 83
+            },
+            {
+              "name": "Detroit Lions",
+              "code": "Detroit Lions",
+              "aliases": [],
+              "views": 1127867,
+              "tier": "common",
+              "points": 10,
+              "share": 92
+            },
+            {
+              "name": "Buffalo Bills",
+              "code": "Buffalo Bills",
+              "aliases": [],
+              "views": 1315952,
+              "tier": "common",
+              "points": 10,
+              "share": 100
+            }
+          ]
+        },
+        {
+          "id": "nfl-nfc",
+          "prompt": "Name an NFC team",
+          "note": "",
+          "answers": [
+            {
+              "name": "Atlanta Falcons",
+              "code": "Atlanta Falcons",
+              "aliases": [],
+              "views": 531873,
+              "tier": "legendary",
+              "points": 100,
+              "share": 6
+            },
+            {
+              "name": "Carolina Panthers",
+              "code": "Carolina Panthers",
+              "aliases": [],
+              "views": 561850,
+              "tier": "legendary",
+              "points": 100,
+              "share": 13
+            },
+            {
+              "name": "New Orleans Saints",
+              "code": "New Orleans Saints",
+              "aliases": [],
+              "views": 588770,
+              "tier": "epic",
+              "points": 75,
+              "share": 19
+            },
+            {
+              "name": "Arizona Cardinals",
+              "code": "Arizona Cardinals",
+              "aliases": [],
+              "views": 666122,
+              "tier": "epic",
+              "points": 75,
+              "share": 25
+            },
+            {
+              "name": "Seattle Seahawks",
+              "code": "Seattle Seahawks",
+              "aliases": [],
+              "views": 776044,
+              "tier": "epic",
+              "points": 75,
+              "share": 31
+            },
+            {
+              "name": "Tampa Bay Buccaneers",
+              "code": "Tampa Bay Buccaneers",
+              "aliases": [],
+              "views": 793734,
+              "tier": "rare",
+              "points": 50,
+              "share": 38
+            },
+            {
+              "name": "Minnesota Vikings",
+              "code": "Minnesota Vikings",
+              "aliases": [],
+              "views": 803958,
+              "tier": "rare",
+              "points": 50,
+              "share": 44
+            },
+            {
+              "name": "San Francisco 49ers",
+              "code": "San Francisco 49ers",
+              "aliases": [],
+              "views": 993165,
+              "tier": "rare",
+              "points": 50,
+              "share": 50
+            },
+            {
+              "name": "Chicago Bears",
+              "code": "Chicago Bears",
+              "aliases": [],
+              "views": 1005599,
+              "tier": "rare",
+              "points": 50,
+              "share": 56
+            },
+            {
+              "name": "New York Giants",
+              "code": "New York Giants",
+              "aliases": [],
+              "views": 1005962,
+              "tier": "uncommon",
+              "points": 25,
+              "share": 63
+            },
+            {
+              "name": "Los Angeles Rams",
+              "code": "Los Angeles Rams",
+              "aliases": [],
+              "views": 1036951,
+              "tier": "uncommon",
+              "points": 25,
+              "share": 69
+            },
+            {
+              "name": "Green Bay Packers",
+              "code": "Green Bay Packers",
+              "aliases": [],
+              "views": 1099035,
+              "tier": "uncommon",
+              "points": 25,
+              "share": 75
+            },
+            {
+              "name": "Detroit Lions",
+              "code": "Detroit Lions",
+              "aliases": [],
+              "views": 1127867,
+              "tier": "common",
+              "points": 10,
+              "share": 81
+            },
+            {
+              "name": "Dallas Cowboys",
+              "code": "Dallas Cowboys",
+              "aliases": [],
+              "views": 1532813,
+              "tier": "common",
+              "points": 10,
+              "share": 88
+            },
+            {
+              "name": "Washington Commanders",
+              "code": "Washington Commanders",
+              "aliases": [],
+              "views": 1669101,
+              "tier": "common",
+              "points": 10,
+              "share": 94
+            },
+            {
+              "name": "Philadelphia Eagles",
+              "code": "Philadelphia Eagles",
+              "aliases": [],
+              "views": 2183350,
+              "tier": "common",
+              "points": 10,
+              "share": 100
+            }
+          ]
+        },
+        {
+          "id": "nfl-afc",
+          "prompt": "Name an AFC team",
+          "note": "",
+          "answers": [
+            {
+              "name": "Houston Texans",
+              "code": "Houston Texans",
+              "aliases": [],
+              "views": 631068,
+              "tier": "legendary",
+              "points": 100,
+              "share": 6
+            },
+            {
+              "name": "Tennessee Titans",
+              "code": "Tennessee Titans",
+              "aliases": [],
+              "views": 633675,
+              "tier": "legendary",
+              "points": 100,
+              "share": 13
+            },
+            {
+              "name": "Indianapolis Colts",
+              "code": "Indianapolis Colts",
+              "aliases": [],
+              "views": 646425,
+              "tier": "epic",
+              "points": 75,
+              "share": 19
+            },
+            {
+              "name": "Cincinnati Bengals",
+              "code": "Cincinnati Bengals",
+              "aliases": [],
+              "views": 652687,
+              "tier": "epic",
+              "points": 75,
+              "share": 25
+            },
+            {
+              "name": "Jacksonville Jaguars",
+              "code": "Jacksonville Jaguars",
+              "aliases": [],
+              "views": 681414,
+              "tier": "epic",
+              "points": 75,
+              "share": 31
+            },
+            {
+              "name": "Miami Dolphins",
+              "code": "Miami Dolphins",
+              "aliases": [],
+              "views": 682380,
+              "tier": "rare",
+              "points": 50,
+              "share": 38
+            },
+            {
+              "name": "Denver Broncos",
+              "code": "Denver Broncos",
+              "aliases": [],
+              "views": 723906,
+              "tier": "rare",
+              "points": 50,
+              "share": 44
+            },
+            {
+              "name": "Los Angeles Chargers",
+              "code": "Los Angeles Chargers",
+              "aliases": [],
+              "views": 758176,
+              "tier": "rare",
+              "points": 50,
+              "share": 50
+            },
+            {
+              "name": "Baltimore Ravens",
+              "code": "Baltimore Ravens",
+              "aliases": [],
+              "views": 877927,
+              "tier": "rare",
+              "points": 50,
+              "share": 56
+            },
+            {
+              "name": "New York Jets",
+              "code": "New York Jets",
+              "aliases": [],
+              "views": 893774,
+              "tier": "uncommon",
+              "points": 25,
+              "share": 63
+            },
+            {
+              "name": "Las Vegas Raiders",
+              "code": "Las Vegas Raiders",
+              "aliases": [],
+              "views": 920154,
+              "tier": "uncommon",
+              "points": 25,
+              "share": 69
+            },
+            {
+              "name": "Cleveland Browns",
+              "code": "Cleveland Browns",
+              "aliases": [],
+              "views": 1044193,
+              "tier": "uncommon",
+              "points": 25,
+              "share": 75
+            },
+            {
+              "name": "Pittsburgh Steelers",
+              "code": "Pittsburgh Steelers",
+              "aliases": [],
+              "views": 1098977,
+              "tier": "common",
+              "points": 10,
+              "share": 81
+            },
+            {
+              "name": "New England Patriots",
+              "code": "New England Patriots",
+              "aliases": [],
+              "views": 1307180,
+              "tier": "common",
+              "points": 10,
+              "share": 88
+            },
+            {
+              "name": "Buffalo Bills",
+              "code": "Buffalo Bills",
+              "aliases": [],
+              "views": 1315952,
+              "tier": "common",
+              "points": 10,
+              "share": 94
+            },
+            {
+              "name": "Kansas City Chiefs",
+              "code": "Kansas City Chiefs",
+              "aliases": [],
+              "views": 1727123,
+              "tier": "common",
+              "points": 10,
+              "share": 100
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "soccer",
+      "name": "Football",
+      "tagline": "The European game, minus the obvious picks",
+      "blurb": "Soccer is the sport young fans in the US and Europe are converging on. Real Madrid and Brazil are the reflex answers — the tower wants the rest.",
+      "kind": "club",
+      "unit": "clubs and countries",
+      "one": "club or country",
+      "placeholder": "Type a club or country…",
+      "floors": 5,
+      "ladder": [
+        "uncommon",
+        "uncommon",
+        "rare",
+        "rare",
+        "epic"
+      ],
+      "questions": [
+        {
+          "id": "sc-pl",
+          "prompt": "Name a club that has won the Premier League",
+          "note": "",
+          "answers": [
+            {
+              "name": "Blackburn Rovers",
+              "code": "Blackburn Rovers F.C.",
+              "aliases": [],
+              "views": 811237,
+              "tier": "legendary",
+              "points": 100,
+              "share": 14
+            },
+            {
+              "name": "Leicester City",
+              "code": "Leicester City F.C.",
+              "aliases": [],
+              "views": 1378245,
+              "tier": "epic",
+              "points": 75,
+              "share": 29
+            },
+            {
+              "name": "Manchester City",
+              "code": "Manchester City F.C.",
+              "aliases": [],
+              "views": 3338968,
+              "tier": "rare",
+              "points": 50,
+              "share": 43
+            },
+            {
+              "name": "Arsenal",
+              "code": "Arsenal F.C.",
+              "aliases": [],
+              "views": 3775133,
+              "tier": "rare",
+              "points": 50,
+              "share": 57
+            },
+            {
+              "name": "Chelsea",
+              "code": "Chelsea F.C.",
+              "aliases": [],
+              "views": 4043309,
+              "tier": "uncommon",
+              "points": 25,
+              "share": 71
+            },
+            {
+              "name": "Liverpool",
+              "code": "Liverpool F.C.",
+              "aliases": [],
+              "views": 4734596,
+              "tier": "common",
+              "points": 10,
+              "share": 86
+            },
+            {
+              "name": "Manchester United",
+              "code": "Manchester United F.C.",
+              "aliases": [],
+              "views": 5243986,
+              "tier": "common",
+              "points": 10,
+              "share": 100
+            }
+          ]
+        },
+        {
+          "id": "sc-worldcup",
+          "prompt": "Name a country that has won the World Cup",
+          "note": "",
+          "answers": [
+            {
+              "name": "Uruguay",
+              "code": "Uruguay",
+              "aliases": [],
+              "views": 1247019,
+              "tier": "legendary",
+              "points": 100,
+              "share": 13
+            },
+            {
+              "name": "Argentina",
+              "code": "Argentina",
+              "aliases": [],
+              "views": 2707301,
+              "tier": "epic",
+              "points": 75,
+              "share": 25
+            },
+            {
+              "name": "England",
+              "code": "England",
+              "aliases": [],
+              "views": 2969694,
+              "tier": "rare",
+              "points": 50,
+              "share": 38
+            },
+            {
+              "name": "Italy",
+              "code": "Italy",
+              "aliases": [],
+              "views": 3178289,
+              "tier": "rare",
+              "points": 50,
+              "share": 50
+            },
+            {
+              "name": "Brazil",
+              "code": "Brazil",
+              "aliases": [],
+              "views": 3203460,
+              "tier": "uncommon",
+              "points": 25,
+              "share": 63
+            },
+            {
+              "name": "Spain",
+              "code": "Spain",
+              "aliases": [],
+              "views": 3227989,
+              "tier": "uncommon",
+              "points": 25,
+              "share": 75
+            },
+            {
+              "name": "France",
+              "code": "France",
+              "aliases": [],
+              "views": 3868944,
+              "tier": "common",
+              "points": 10,
+              "share": 88
+            },
+            {
+              "name": "Germany",
+              "code": "Germany",
+              "aliases": [],
+              "views": 4584981,
+              "tier": "common",
+              "points": 10,
+              "share": 100
+            }
+          ]
+        },
+        {
+          "id": "sc-ucl",
+          "prompt": "Name a club that has won the Champions League",
+          "note": "",
+          "answers": [
+            {
+              "name": "Hamburger SV",
+              "code": "Hamburger SV",
+              "aliases": [],
+              "views": 502798,
+              "tier": "legendary",
+              "points": 100,
+              "share": 4
+            },
+            {
+              "name": "Red Star Belgrade",
+              "code": "Red Star Belgrade",
+              "aliases": [],
+              "views": 556197,
+              "tier": "legendary",
+              "points": 100,
+              "share": 9
+            },
+            {
+              "name": "Steaua București",
+              "code": "FCSB",
+              "aliases": [],
+              "views": 575171,
+              "tier": "legendary",
+              "points": 100,
+              "share": 13
+            },
+            {
+              "name": "Porto",
+              "code": "FC Porto",
+              "aliases": [],
+              "views": 761611,
+              "tier": "epic",
+              "points": 75,
+              "share": 17
+            },
+            {
+              "name": "Feyenoord",
+              "code": "Feyenoord",
+              "aliases": [],
+              "views": 773631,
+              "tier": "epic",
+              "points": 75,
+              "share": 22
+            },
+            {
+              "name": "PSV Eindhoven",
+              "code": "PSV Eindhoven",
+              "aliases": [],
+              "views": 808537,
+              "tier": "epic",
+              "points": 75,
+              "share": 26
+            },
+            {
+              "name": "Marseille",
+              "code": "Olympique de Marseille",
+              "aliases": [],
+              "views": 862306,
+              "tier": "epic",
+              "points": 75,
+              "share": 30
+            },
+            {
+              "name": "Benfica",
+              "code": "S.L. Benfica",
+              "aliases": [],
+              "views": 1029791,
+              "tier": "epic",
+              "points": 75,
+              "share": 35
+            },
+            {
+              "name": "Ajax",
+              "code": "AFC Ajax",
+              "aliases": [],
+              "views": 1063589,
+              "tier": "rare",
+              "points": 50,
+              "share": 39
+            },
+            {
+              "name": "Borussia Dortmund",
+              "code": "Borussia Dortmund",
+              "aliases": [],
+              "views": 1309246,
+              "tier": "rare",
+              "points": 50,
+              "share": 43
+            },
+            {
+              "name": "Celtic",
+              "code": "Celtic F.C.",
+              "aliases": [],
+              "views": 1353100,
+              "tier": "rare",
+              "points": 50,
+              "share": 48
+            },
+            {
+              "name": "Juventus",
+              "code": "Juventus FC",
+              "aliases": [],
+              "views": 1706758,
+              "tier": "rare",
+              "points": 50,
+              "share": 52
+            },
+            {
+              "name": "Aston Villa",
+              "code": "Aston Villa F.C.",
+              "aliases": [],
+              "views": 1720979,
+              "tier": "rare",
+              "points": 50,
+              "share": 57
+            },
+            {
+              "name": "AC Milan",
+              "code": "AC Milan",
+              "aliases": [],
+              "views": 1915083,
+              "tier": "uncommon",
+              "points": 25,
+              "share": 61
+            },
+            {
+              "name": "Bayern Munich",
+              "code": "FC Bayern Munich",
+              "aliases": [],
+              "views": 2008357,
+              "tier": "uncommon",
+              "points": 25,
+              "share": 65
+            },
+            {
+              "name": "Inter Milan",
+              "code": "Inter Milan",
+              "aliases": [],
+              "views": 2124443,
+              "tier": "uncommon",
+              "points": 25,
+              "share": 70
+            },
+            {
+              "name": "Nottingham Forest",
+              "code": "Nottingham Forest F.C.",
+              "aliases": [],
+              "views": 2148108,
+              "tier": "uncommon",
+              "points": 25,
+              "share": 74
+            },
+            {
+              "name": "Manchester City",
+              "code": "Manchester City F.C.",
+              "aliases": [],
+              "views": 3338968,
+              "tier": "uncommon",
+              "points": 25,
+              "share": 78
+            },
+            {
+              "name": "Chelsea",
+              "code": "Chelsea F.C.",
+              "aliases": [],
+              "views": 4043309,
+              "tier": "common",
+              "points": 10,
+              "share": 83
+            },
+            {
+              "name": "Barcelona",
+              "code": "FC Barcelona",
+              "aliases": [],
+              "views": 4253932,
+              "tier": "common",
+              "points": 10,
+              "share": 87
+            },
+            {
+              "name": "Real Madrid",
+              "code": "Real Madrid CF",
+              "aliases": [],
+              "views": 4622179,
+              "tier": "common",
+              "points": 10,
+              "share": 91
+            },
+            {
+              "name": "Liverpool",
+              "code": "Liverpool F.C.",
+              "aliases": [],
+              "views": 4734596,
+              "tier": "common",
+              "points": 10,
+              "share": 96
+            },
+            {
+              "name": "Manchester United",
+              "code": "Manchester United F.C.",
+              "aliases": [],
+              "views": 5243986,
+              "tier": "common",
+              "points": 10,
+              "share": 100
+            }
+          ]
+        },
+        {
+          "id": "sc-ballon",
+          "prompt": "Name a Ballon d'Or winner since 2000",
+          "note": "",
+          "answers": [
+            {
+              "name": "Rodri",
+              "code": "Rodri",
+              "aliases": [],
+              "views": 17516,
+              "tier": "legendary",
+              "points": 100,
+              "share": 7
+            },
+            {
+              "name": "Pavel Nedvěd",
+              "code": "Pavel Nedvěd",
+              "aliases": [],
+              "views": 297162,
+              "tier": "legendary",
+              "points": 100,
+              "share": 14
+            },
+            {
+              "name": "Andriy Shevchenko",
+              "code": "Andriy Shevchenko",
+              "aliases": [],
+              "views": 494332,
+              "tier": "epic",
+              "points": 75,
+              "share": 21
+            },
+            {
+              "name": "Fabio Cannavaro",
+              "code": "Fabio Cannavaro",
+              "aliases": [],
+              "views": 573279,
+              "tier": "epic",
+              "points": 75,
+              "share": 29
+            },
+            {
+              "name": "Luís Figo",
+              "code": "Luís Figo",
+              "aliases": [],
+              "views": 683742,
+              "tier": "rare",
+              "points": 50,
+              "share": 36
+            },
+            {
+              "name": "Kaká",
+              "code": "Kaká",
+              "aliases": [],
+              "views": 1036094,
+              "tier": "rare",
+              "points": 50,
+              "share": 43
+            },
+            {
+              "name": "Karim Benzema",
+              "code": "Karim Benzema",
+              "aliases": [],
+              "views": 1175063,
+              "tier": "rare",
+              "points": 50,
+              "share": 50
+            },
+            {
+              "name": "Michael Owen",
+              "code": "Michael Owen",
+              "aliases": [],
+              "views": 1360747,
+              "tier": "rare",
+              "points": 50,
+              "share": 57
+            },
+            {
+              "name": "Ronaldinho",
+              "code": "Ronaldinho",
+              "aliases": [],
+              "views": 1797665,
+              "tier": "uncommon",
+              "points": 25,
+              "share": 64
+            },
+            {
+              "name": "Luka Modrić",
+              "code": "Luka Modrić",
+              "aliases": [],
+              "views": 2099104,
+              "tier": "uncommon",
+              "points": 25,
+              "share": 71
+            },
+            {
+              "name": "Ousmane Dembélé",
+              "code": "Ousmane Dembélé",
+              "aliases": [],
+              "views": 2106734,
+              "tier": "uncommon",
+              "points": 25,
+              "share": 79
+            },
+            {
+              "name": "Ronaldo",
+              "code": "Ronaldo (Brazilian footballer)",
+              "aliases": [],
+              "views": 2292398,
+              "tier": "common",
+              "points": 10,
+              "share": 86
+            },
+            {
+              "name": "Lionel Messi",
+              "code": "Lionel Messi",
+              "aliases": [],
+              "views": 7409687,
+              "tier": "common",
+              "points": 10,
+              "share": 93
+            },
+            {
+              "name": "Cristiano Ronaldo",
+              "code": "Cristiano Ronaldo",
+              "aliases": [],
+              "views": 12447382,
+              "tier": "common",
+              "points": 10,
+              "share": 100
+            }
+          ]
+        },
+        {
+          "id": "sc-euro",
+          "prompt": "Name a country that has won the European Championship",
+          "note": "",
+          "answers": [
+            {
+              "name": "Greece",
+              "code": "Greece",
+              "aliases": [],
+              "views": 2242071,
+              "tier": "legendary",
+              "points": 100,
+              "share": 10
+            },
+            {
+              "name": "Portugal",
+              "code": "Portugal",
+              "aliases": [],
+              "views": 2280608,
+              "tier": "epic",
+              "points": 75,
+              "share": 20
+            },
+            {
+              "name": "Denmark",
+              "code": "Denmark",
+              "aliases": [],
+              "views": 2378408,
+              "tier": "epic",
+              "points": 75,
+              "share": 30
+            },
+            {
+              "name": "Czech Republic",
+              "code": "Czech Republic",
+              "aliases": [
+                "Czechoslovakia"
+              ],
+              "views": 2997448,
+              "tier": "rare",
+              "points": 50,
+              "share": 40
+            },
+            {
+              "name": "Italy",
+              "code": "Italy",
+              "aliases": [],
+              "views": 3178289,
+              "tier": "rare",
+              "points": 50,
+              "share": 50
+            },
+            {
+              "name": "Spain",
+              "code": "Spain",
+              "aliases": [],
+              "views": 3227989,
+              "tier": "rare",
+              "points": 50,
+              "share": 60
+            },
+            {
+              "name": "Netherlands",
+              "code": "Netherlands",
+              "aliases": [
+                "Holland"
+              ],
+              "views": 3469493,
+              "tier": "uncommon",
+              "points": 25,
+              "share": 70
+            },
+            {
+              "name": "France",
+              "code": "France",
+              "aliases": [],
+              "views": 3868944,
+              "tier": "uncommon",
+              "points": 25,
+              "share": 80
+            },
+            {
+              "name": "Germany",
+              "code": "Germany",
+              "aliases": [],
+              "views": 4584981,
+              "tier": "common",
+              "points": 10,
+              "share": 90
+            },
+            {
+              "name": "Russia",
+              "code": "Russia",
+              "aliases": [
+                "Soviet Union",
+                "USSR"
+              ],
+              "views": 5520724,
+              "tier": "common",
+              "points": 10,
+              "share": 100
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "space",
+      "name": "Space",
+      "tagline": "Planets, moonshots, and the names in the sky",
+      "blurb": "Space is having another moment — Artemis, Mars rovers, private launches. The easy answers are the eight planets and the first Moon landing; the rest is where the climb starts.",
+      "kind": "space",
+      "unit": "answers",
+      "one": "answer",
+      "placeholder": "Type an answer…",
+      "floors": 6,
+      "ladder": [
+        "uncommon",
+        "uncommon",
+        "rare",
+        "rare",
+        "epic",
+        "epic"
+      ],
+      "questions": [
+        {
+          "id": "sp-planets",
+          "prompt": "Name a planet in the Solar System",
+          "note": "",
+          "answers": [
+            {
+              "name": "Uranus",
+              "code": "Uranus",
+              "aliases": [],
+              "views": 966880,
+              "tier": "legendary",
+              "points": 100,
+              "share": 13
+            },
+            {
+              "name": "Neptune",
+              "code": "Neptune",
+              "aliases": [],
+              "views": 1106851,
+              "tier": "epic",
+              "points": 75,
+              "share": 25
+            },
+            {
+              "name": "Mercury",
+              "code": "Mercury (planet)",
+              "aliases": [],
+              "views": 1121286,
+              "tier": "rare",
+              "points": 50,
+              "share": 38
+            },
+            {
+              "name": "Saturn",
+              "code": "Saturn",
+              "aliases": [],
+              "views": 1326350,
+              "tier": "rare",
+              "points": 50,
+              "share": 50
+            },
+            {
+              "name": "Venus",
+              "code": "Venus",
+              "aliases": [],
+              "views": 1426584,
+              "tier": "uncommon",
+              "points": 25,
+              "share": 63
+            },
+            {
+              "name": "Mars",
+              "code": "Mars",
+              "aliases": [],
+              "views": 1434633,
+              "tier": "uncommon",
+              "points": 25,
+              "share": 75
+            },
+            {
+              "name": "Jupiter",
+              "code": "Jupiter",
+              "aliases": [],
+              "views": 1678952,
+              "tier": "common",
+              "points": 10,
+              "share": 88
+            },
+            {
+              "name": "Earth",
+              "code": "Earth",
+              "aliases": [],
+              "views": 3798157,
+              "tier": "common",
+              "points": 10,
+              "share": 100
+            }
+          ]
+        },
+        {
+          "id": "sp-moonwalkers",
+          "prompt": "Name a person who has walked on the Moon",
+          "note": "",
+          "answers": [
+            {
+              "name": "John Young",
+              "code": "John Young",
+              "aliases": [],
+              "views": 2944,
+              "tier": "legendary",
+              "points": 100,
+              "share": 8
+            },
+            {
+              "name": "James Irwin",
+              "code": "James Irwin",
+              "aliases": [],
+              "views": 69622,
+              "tier": "epic",
+              "points": 75,
+              "share": 17
+            },
+            {
+              "name": "Edgar Mitchell",
+              "code": "Edgar Mitchell",
+              "aliases": [],
+              "views": 74091,
+              "tier": "epic",
+              "points": 75,
+              "share": 25
+            },
+            {
+              "name": "Alan Bean",
+              "code": "Alan Bean",
+              "aliases": [],
+              "views": 83387,
+              "tier": "epic",
+              "points": 75,
+              "share": 33
+            },
+            {
+              "name": "Pete Conrad",
+              "code": "Pete Conrad",
+              "aliases": [],
+              "views": 120274,
+              "tier": "rare",
+              "points": 50,
+              "share": 42
+            },
+            {
+              "name": "Charles Duke",
+              "code": "Charles Duke",
+              "aliases": [],
+              "views": 121970,
+              "tier": "rare",
+              "points": 50,
+              "share": 50
+            },
+            {
+              "name": "David Scott",
+              "code": "David Scott",
+              "aliases": [],
+              "views": 129337,
+              "tier": "rare",
+              "points": 50,
+              "share": 58
+            },
+            {
+              "name": "Harrison Schmitt",
+              "code": "Harrison Schmitt",
+              "aliases": [],
+              "views": 150890,
+              "tier": "uncommon",
+              "points": 25,
+              "share": 67
+            },
+            {
+              "name": "Eugene Cernan",
+              "code": "Gene Cernan",
+              "aliases": [],
+              "views": 180116,
+              "tier": "uncommon",
+              "points": 25,
+              "share": 75
+            },
+            {
+              "name": "Alan Shepard",
+              "code": "Alan Shepard",
+              "aliases": [],
+              "views": 433972,
+              "tier": "common",
+              "points": 10,
+              "share": 83
+            },
+            {
+              "name": "Buzz Aldrin",
+              "code": "Buzz Aldrin",
+              "aliases": [],
+              "views": 1460575,
+              "tier": "common",
+              "points": 10,
+              "share": 92
+            },
+            {
+              "name": "Neil Armstrong",
+              "code": "Neil Armstrong",
+              "aliases": [],
+              "views": 1698801,
+              "tier": "common",
+              "points": 10,
+              "share": 100
+            }
+          ]
+        },
+        {
+          "id": "sp-programs",
+          "prompt": "Name a NASA crewed spaceflight program",
+          "note": "",
+          "answers": [
+            {
+              "name": "Space Shuttle",
+              "code": "Space Shuttle program",
+              "aliases": [],
+              "views": 139678,
+              "tier": "epic",
+              "points": 75,
+              "share": 17
+            },
+            {
+              "name": "Gemini",
+              "code": "Project Gemini",
+              "aliases": [],
+              "views": 193003,
+              "tier": "epic",
+              "points": 75,
+              "share": 33
+            },
+            {
+              "name": "Mercury",
+              "code": "Project Mercury",
+              "aliases": [],
+              "views": 229479,
+              "tier": "rare",
+              "points": 50,
+              "share": 50
+            },
+            {
+              "name": "Skylab",
+              "code": "Skylab",
+              "aliases": [],
+              "views": 240301,
+              "tier": "uncommon",
+              "points": 25,
+              "share": 67
+            },
+            {
+              "name": "Artemis",
+              "code": "Artemis program",
+              "aliases": [],
+              "views": 649997,
+              "tier": "common",
+              "points": 10,
+              "share": 83
+            },
+            {
+              "name": "Apollo",
+              "code": "Apollo program",
+              "aliases": [],
+              "views": 1413335,
+              "tier": "common",
+              "points": 10,
+              "share": 100
+            }
+          ]
+        },
+        {
+          "id": "sp-zodiac",
+          "prompt": "Name a zodiac constellation",
+          "note": "",
+          "answers": [
+            {
+              "name": "Libra",
+              "code": "Libra (constellation)",
+              "aliases": [],
+              "views": 93145,
+              "tier": "legendary",
+              "points": 100,
+              "share": 8
+            },
+            {
+              "name": "Cancer",
+              "code": "Cancer (constellation)",
+              "aliases": [],
+              "views": 98541,
+              "tier": "epic",
+              "points": 75,
+              "share": 17
+            },
+            {
+              "name": "Pisces",
+              "code": "Pisces (constellation)",
+              "aliases": [],
+              "views": 110626,
+              "tier": "epic",
+              "points": 75,
+              "share": 25
+            },
+            {
+              "name": "Capricornus",
+              "code": "Capricornus",
+              "aliases": [
+                "Capricorn"
+              ],
+              "views": 124979,
+              "tier": "epic",
+              "points": 75,
+              "share": 33
+            },
+            {
+              "name": "Scorpius",
+              "code": "Scorpius",
+              "aliases": [
+                "Scorpio"
+              ],
+              "views": 136770,
+              "tier": "rare",
+              "points": 50,
+              "share": 42
+            },
+            {
+              "name": "Aries",
+              "code": "Aries (constellation)",
+              "aliases": [],
+              "views": 139182,
+              "tier": "rare",
+              "points": 50,
+              "share": 50
+            },
+            {
+              "name": "Leo",
+              "code": "Leo (constellation)",
+              "aliases": [],
+              "views": 143113,
+              "tier": "rare",
+              "points": 50,
+              "share": 58
+            },
+            {
+              "name": "Virgo",
+              "code": "Virgo (constellation)",
+              "aliases": [],
+              "views": 144624,
+              "tier": "uncommon",
+              "points": 25,
+              "share": 67
+            },
+            {
+              "name": "Aquarius",
+              "code": "Aquarius (constellation)",
+              "aliases": [],
+              "views": 151738,
+              "tier": "uncommon",
+              "points": 25,
+              "share": 75
+            },
+            {
+              "name": "Taurus",
+              "code": "Taurus (constellation)",
+              "aliases": [],
+              "views": 170283,
+              "tier": "common",
+              "points": 10,
+              "share": 83
+            },
+            {
+              "name": "Gemini",
+              "code": "Gemini (constellation)",
+              "aliases": [],
+              "views": 205482,
+              "tier": "common",
+              "points": 10,
+              "share": 92
+            },
+            {
+              "name": "Sagittarius",
+              "code": "Sagittarius (constellation)",
+              "aliases": [],
+              "views": 267052,
+              "tier": "common",
+              "points": 10,
+              "share": 100
+            }
+          ]
+        },
+        {
+          "id": "sp-apollo",
+          "prompt": "Name an Apollo mission that landed on the Moon",
+          "note": "",
+          "answers": [
+            {
+              "name": "Apollo 16",
+              "code": "Apollo 16",
+              "aliases": [],
+              "views": 137078,
+              "tier": "epic",
+              "points": 75,
+              "share": 17
+            },
+            {
+              "name": "Apollo 14",
+              "code": "Apollo 14",
+              "aliases": [],
+              "views": 164430,
+              "tier": "epic",
+              "points": 75,
+              "share": 33
+            },
+            {
+              "name": "Apollo 15",
+              "code": "Apollo 15",
+              "aliases": [],
+              "views": 182732,
+              "tier": "rare",
+              "points": 50,
+              "share": 50
+            },
+            {
+              "name": "Apollo 12",
+              "code": "Apollo 12",
+              "aliases": [],
+              "views": 288918,
+              "tier": "uncommon",
+              "points": 25,
+              "share": 67
+            },
+            {
+              "name": "Apollo 17",
+              "code": "Apollo 17",
+              "aliases": [],
+              "views": 321472,
+              "tier": "common",
+              "points": 10,
+              "share": 83
+            },
+            {
+              "name": "Apollo 11",
+              "code": "Apollo 11",
+              "aliases": [],
+              "views": 1642379,
+              "tier": "common",
+              "points": 10,
+              "share": 100
+            }
+          ]
+        },
+        {
+          "id": "sp-mars",
+          "prompt": "Name a mission sent to Mars",
+          "note": "",
+          "answers": [
+            {
+              "name": "Viking 2",
+              "code": "Viking 2",
+              "aliases": [],
+              "views": 25266,
+              "tier": "legendary",
+              "points": 100,
+              "share": 8
+            },
+            {
+              "name": "MAVEN",
+              "code": "MAVEN",
+              "aliases": [],
+              "views": 27701,
+              "tier": "epic",
+              "points": 75,
+              "share": 15
+            },
+            {
+              "name": "Phoenix",
+              "code": "Phoenix (spacecraft)",
+              "aliases": [],
+              "views": 32050,
+              "tier": "epic",
+              "points": 75,
+              "share": 23
+            },
+            {
+              "name": "InSight",
+              "code": "InSight",
+              "aliases": [],
+              "views": 39883,
+              "tier": "epic",
+              "points": 75,
+              "share": 31
+            },
+            {
+              "name": "2001 Mars Odyssey",
+              "code": "2001 Mars Odyssey",
+              "aliases": [],
+              "views": 48522,
+              "tier": "rare",
+              "points": 50,
+              "share": 38
+            },
+            {
+              "name": "Mars Reconnaissance Orbiter",
+              "code": "Mars Reconnaissance Orbiter",
+              "aliases": [],
+              "views": 59369,
+              "tier": "rare",
+              "points": 50,
+              "share": 46
+            },
+            {
+              "name": "Viking 1",
+              "code": "Viking 1",
+              "aliases": [],
+              "views": 66240,
+              "tier": "rare",
+              "points": 50,
+              "share": 54
+            },
+            {
+              "name": "Spirit",
+              "code": "Spirit (rover)",
+              "aliases": [],
+              "views": 75721,
+              "tier": "uncommon",
+              "points": 25,
+              "share": 62
+            },
+            {
+              "name": "Mars Pathfinder",
+              "code": "Mars Pathfinder",
+              "aliases": [],
+              "views": 85138,
+              "tier": "uncommon",
+              "points": 25,
+              "share": 69
+            },
+            {
+              "name": "Ingenuity",
+              "code": "Ingenuity (helicopter)",
+              "aliases": [],
+              "views": 157313,
+              "tier": "uncommon",
+              "points": 25,
+              "share": 77
+            },
+            {
+              "name": "Opportunity",
+              "code": "Opportunity (rover)",
+              "aliases": [],
+              "views": 176650,
+              "tier": "common",
+              "points": 10,
+              "share": 85
+            },
+            {
+              "name": "Perseverance",
+              "code": "Perseverance (rover)",
+              "aliases": [],
+              "views": 267282,
+              "tier": "common",
+              "points": 10,
+              "share": 92
+            },
+            {
+              "name": "Curiosity",
+              "code": "Curiosity (rover)",
+              "aliases": [],
+              "views": 293346,
+              "tier": "common",
+              "points": 10,
+              "share": 100
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "history",
+      "name": "History",
+      "tagline": "Empires, presidents, and the seven wonders",
+      "blurb": "History is the category the Roman Empire meme never let die. The big names are obvious; the tower is decided by the second and third names you can dig out.",
+      "kind": "history",
+      "unit": "answers",
+      "one": "answer",
+      "placeholder": "Type an answer…",
+      "floors": 5,
+      "ladder": [
+        "uncommon",
+        "uncommon",
+        "rare",
+        "rare",
+        "epic"
+      ],
+      "questions": [
+        {
+          "id": "hi-presidents",
+          "prompt": "Name a US president who served in the 20th century",
+          "note": "",
+          "answers": [
+            {
+              "name": "William Howard Taft",
+              "code": "William Howard Taft",
+              "aliases": [],
+              "views": 1413570,
+              "tier": "legendary",
+              "points": 100,
+              "share": 6
+            },
+            {
+              "name": "Calvin Coolidge",
+              "code": "Calvin Coolidge",
+              "aliases": [],
+              "views": 1461190,
+              "tier": "legendary",
+              "points": 100,
+              "share": 11
+            },
+            {
+              "name": "Warren G. Harding",
+              "code": "Warren G. Harding",
+              "aliases": [],
+              "views": 1494642,
+              "tier": "epic",
+              "points": 75,
+              "share": 17
+            },
+            {
+              "name": "Herbert Hoover",
+              "code": "Herbert Hoover",
+              "aliases": [],
+              "views": 1824591,
+              "tier": "epic",
+              "points": 75,
+              "share": 22
+            },
+            {
+              "name": "Woodrow Wilson",
+              "code": "Woodrow Wilson",
+              "aliases": [],
+              "views": 2003316,
+              "tier": "epic",
+              "points": 75,
+              "share": 28
+            },
+            {
+              "name": "Harry S. Truman",
+              "code": "Harry S. Truman",
+              "aliases": [],
+              "views": 2649111,
+              "tier": "epic",
+              "points": 75,
+              "share": 33
+            },
+            {
+              "name": "William McKinley",
+              "code": "William McKinley",
+              "aliases": [],
+              "views": 2749573,
+              "tier": "rare",
+              "points": 50,
+              "share": 39
+            },
+            {
+              "name": "Gerald Ford",
+              "code": "Gerald Ford",
+              "aliases": [],
+              "views": 3253178,
+              "tier": "rare",
+              "points": 50,
+              "share": 44
+            },
+            {
+              "name": "Dwight D. Eisenhower",
+              "code": "Dwight D. Eisenhower",
+              "aliases": [],
+              "views": 3404760,
+              "tier": "rare",
+              "points": 50,
+              "share": 50
+            },
+            {
+              "name": "Lyndon B. Johnson",
+              "code": "Lyndon B. Johnson",
+              "aliases": [],
+              "views": 3434854,
+              "tier": "rare",
+              "points": 50,
+              "share": 56
+            },
+            {
+              "name": "Richard Nixon",
+              "code": "Richard Nixon",
+              "aliases": [],
+              "views": 4115253,
+              "tier": "uncommon",
+              "points": 25,
+              "share": 61
+            },
+            {
+              "name": "Theodore Roosevelt",
+              "code": "Theodore Roosevelt",
+              "aliases": [],
+              "views": 4287238,
+              "tier": "uncommon",
+              "points": 25,
+              "share": 67
+            },
+            {
+              "name": "George H. W. Bush",
+              "code": "George H. W. Bush",
+              "aliases": [],
+              "views": 4380645,
+              "tier": "uncommon",
+              "points": 25,
+              "share": 72
+            },
+            {
+              "name": "Bill Clinton",
+              "code": "Bill Clinton",
+              "aliases": [],
+              "views": 5024230,
+              "tier": "uncommon",
+              "points": 25,
+              "share": 78
+            },
+            {
+              "name": "Ronald Reagan",
+              "code": "Ronald Reagan",
+              "aliases": [],
+              "views": 5834637,
+              "tier": "common",
+              "points": 10,
+              "share": 83
+            },
+            {
+              "name": "Franklin D. Roosevelt",
+              "code": "Franklin D. Roosevelt",
+              "aliases": [],
+              "views": 5864966,
+              "tier": "common",
+              "points": 10,
+              "share": 89
+            },
+            {
+              "name": "John F. Kennedy",
+              "code": "John F. Kennedy",
+              "aliases": [],
+              "views": 7121971,
+              "tier": "common",
+              "points": 10,
+              "share": 94
+            },
+            {
+              "name": "Jimmy Carter",
+              "code": "Jimmy Carter",
+              "aliases": [],
+              "views": 10387602,
+              "tier": "common",
+              "points": 10,
+              "share": 100
+            }
+          ]
+        },
+        {
+          "id": "hi-wonders",
+          "prompt": "Name a Wonder of the Ancient World",
+          "note": "",
+          "answers": [
+            {
+              "name": "Statue of Zeus at Olympia",
+              "code": "Statue of Zeus at Olympia",
+              "aliases": [],
+              "views": 446667,
+              "tier": "legendary",
+              "points": 100,
+              "share": 14
+            },
+            {
+              "name": "Mausoleum at Halicarnassus",
+              "code": "Mausoleum at Halicarnassus",
+              "aliases": [],
+              "views": 478362,
+              "tier": "epic",
+              "points": 75,
+              "share": 29
+            },
+            {
+              "name": "Lighthouse of Alexandria",
+              "code": "Lighthouse of Alexandria",
+              "aliases": [],
+              "views": 593191,
+              "tier": "rare",
+              "points": 50,
+              "share": 43
+            },
+            {
+              "name": "Temple of Artemis",
+              "code": "Temple of Artemis",
+              "aliases": [],
+              "views": 599442,
+              "tier": "rare",
+              "points": 50,
+              "share": 57
+            },
+            {
+              "name": "Colossus of Rhodes",
+              "code": "Colossus of Rhodes",
+              "aliases": [],
+              "views": 822130,
+              "tier": "uncommon",
+              "points": 25,
+              "share": 71
+            },
+            {
+              "name": "Hanging Gardens of Babylon",
+              "code": "Hanging Gardens of Babylon",
+              "aliases": [],
+              "views": 1004902,
+              "tier": "common",
+              "points": 10,
+              "share": 86
+            },
+            {
+              "name": "Great Pyramid of Giza",
+              "code": "Great Pyramid of Giza",
+              "aliases": [],
+              "views": 1468282,
+              "tier": "common",
+              "points": 10,
+              "share": 100
+            }
+          ]
+        },
+        {
+          "id": "hi-ussr",
+          "prompt": "Name a republic of the Soviet Union",
+          "note": "",
+          "answers": [
+            {
+              "name": "Tajikistan",
+              "code": "Tajik Soviet Socialist Republic",
+              "aliases": [
+                "Tajik SSR"
+              ],
+              "views": 60178,
+              "tier": "legendary",
+              "points": 100,
+              "share": 7
+            },
+            {
+              "name": "Turkmenistan",
+              "code": "Turkmen Soviet Socialist Republic",
+              "aliases": [
+                "Turkmen SSR"
+              ],
+              "views": 61405,
+              "tier": "legendary",
+              "points": 100,
+              "share": 13
+            },
+            {
+              "name": "Kyrgyzstan",
+              "code": "Kirghiz Soviet Socialist Republic",
+              "aliases": [
+                "Kirghiz SSR"
+              ],
+              "views": 64683,
+              "tier": "epic",
+              "points": 75,
+              "share": 20
+            },
+            {
+              "name": "Latvia",
+              "code": "Latvian Soviet Socialist Republic",
+              "aliases": [
+                "Latvian SSR"
+              ],
+              "views": 69058,
+              "tier": "epic",
+              "points": 75,
+              "share": 27
+            },
+            {
+              "name": "Lithuania",
+              "code": "Lithuanian Soviet Socialist Republic",
+              "aliases": [
+                "Lithuanian SSR"
+              ],
+              "views": 77259,
+              "tier": "epic",
+              "points": 75,
+              "share": 33
+            },
+            {
+              "name": "Estonia",
+              "code": "Estonian Soviet Socialist Republic",
+              "aliases": [
+                "Estonian SSR"
+              ],
+              "views": 77431,
+              "tier": "rare",
+              "points": 50,
+              "share": 40
+            },
+            {
+              "name": "Uzbekistan",
+              "code": "Uzbek Soviet Socialist Republic",
+              "aliases": [
+                "Uzbek SSR"
+              ],
+              "views": 91142,
+              "tier": "rare",
+              "points": 50,
+              "share": 47
+            },
+            {
+              "name": "Armenia",
+              "code": "Armenian Soviet Socialist Republic",
+              "aliases": [
+                "Armenian SSR"
+              ],
+              "views": 103904,
+              "tier": "rare",
+              "points": 50,
+              "share": 53
+            },
+            {
+              "name": "Georgia",
+              "code": "Georgian Soviet Socialist Republic",
+              "aliases": [
+                "Georgian SSR"
+              ],
+              "views": 105356,
+              "tier": "rare",
+              "points": 50,
+              "share": 60
+            },
+            {
+              "name": "Azerbaijan",
+              "code": "Azerbaijan Soviet Socialist Republic",
+              "aliases": [
+                "Azerbaijan SSR"
+              ],
+              "views": 106801,
+              "tier": "uncommon",
+              "points": 25,
+              "share": 67
+            },
+            {
+              "name": "Moldova",
+              "code": "Moldavian Soviet Socialist Republic",
+              "aliases": [
+                "Moldavian SSR"
+              ],
+              "views": 123295,
+              "tier": "uncommon",
+              "points": 25,
+              "share": 73
+            },
+            {
+              "name": "Kazakhstan",
+              "code": "Kazakh Soviet Socialist Republic",
+              "aliases": [
+                "Kazakh SSR"
+              ],
+              "views": 133055,
+              "tier": "uncommon",
+              "points": 25,
+              "share": 80
+            },
+            {
+              "name": "Belarus",
+              "code": "Byelorussian Soviet Socialist Republic",
+              "aliases": [
+                "Byelorussian SSR"
+              ],
+              "views": 206516,
+              "tier": "common",
+              "points": 10,
+              "share": 87
+            },
+            {
+              "name": "Ukraine",
+              "code": "Ukrainian Soviet Socialist Republic",
+              "aliases": [
+                "Ukrainian SSR"
+              ],
+              "views": 404544,
+              "tier": "common",
+              "points": 10,
+              "share": 93
+            },
+            {
+              "name": "Russia",
+              "code": "Russian Soviet Federative Socialist Republic",
+              "aliases": [
+                "Russian SFSR"
+              ],
+              "views": 718680,
+              "tier": "common",
+              "points": 10,
+              "share": 100
+            }
+          ]
+        },
+        {
+          "id": "hi-emperors",
+          "prompt": "Name one of the first twelve Roman emperors",
+          "note": "",
+          "answers": [
+            {
+              "name": "Vitellius",
+              "code": "Vitellius",
+              "aliases": [],
+              "views": 305528,
+              "tier": "legendary",
+              "points": 100,
+              "share": 8
+            },
+            {
+              "name": "Otho",
+              "code": "Otho",
+              "aliases": [],
+              "views": 307596,
+              "tier": "epic",
+              "points": 75,
+              "share": 17
+            },
+            {
+              "name": "Galba",
+              "code": "Galba",
+              "aliases": [],
+              "views": 332314,
+              "tier": "epic",
+              "points": 75,
+              "share": 25
+            },
+            {
+              "name": "Nerva",
+              "code": "Nerva",
+              "aliases": [],
+              "views": 369623,
+              "tier": "epic",
+              "points": 75,
+              "share": 33
+            },
+            {
+              "name": "Domitian",
+              "code": "Domitian",
+              "aliases": [],
+              "views": 540877,
+              "tier": "rare",
+              "points": 50,
+              "share": 42
+            },
+            {
+              "name": "Vespasian",
+              "code": "Vespasian",
+              "aliases": [],
+              "views": 568291,
+              "tier": "rare",
+              "points": 50,
+              "share": 50
+            },
+            {
+              "name": "Titus",
+              "code": "Titus",
+              "aliases": [],
+              "views": 603273,
+              "tier": "rare",
+              "points": 50,
+              "share": 58
+            },
+            {
+              "name": "Claudius",
+              "code": "Claudius",
+              "aliases": [],
+              "views": 662072,
+              "tier": "uncommon",
+              "points": 25,
+              "share": 67
+            },
+            {
+              "name": "Tiberius",
+              "code": "Tiberius",
+              "aliases": [],
+              "views": 1008593,
+              "tier": "uncommon",
+              "points": 25,
+              "share": 75
+            },
+            {
+              "name": "Caligula",
+              "code": "Caligula",
+              "aliases": [],
+              "views": 1534015,
+              "tier": "common",
+              "points": 10,
+              "share": 83
+            },
+            {
+              "name": "Nero",
+              "code": "Nero",
+              "aliases": [],
+              "views": 1813671,
+              "tier": "common",
+              "points": 10,
+              "share": 92
+            },
+            {
+              "name": "Augustus",
+              "code": "Augustus",
+              "aliases": [],
+              "views": 2288433,
+              "tier": "common",
+              "points": 10,
+              "share": 100
+            }
+          ]
+        },
+        {
+          "id": "hi-states",
+          "prompt": "Name a US state that joined the Union before 1800",
+          "note": "",
+          "answers": [
+            {
+              "name": "South Carolina",
+              "code": "South Carolina",
+              "aliases": [],
+              "views": 793423,
+              "tier": "legendary",
+              "points": 100,
+              "share": 6
+            },
+            {
+              "name": "New Hampshire",
+              "code": "New Hampshire",
+              "aliases": [],
+              "views": 833666,
+              "tier": "legendary",
+              "points": 100,
+              "share": 13
+            },
+            {
+              "name": "Delaware",
+              "code": "Delaware",
+              "aliases": [],
+              "views": 840798,
+              "tier": "epic",
+              "points": 75,
+              "share": 19
+            },
+            {
+              "name": "Kentucky",
+              "code": "Kentucky",
+              "aliases": [],
+              "views": 919068,
+              "tier": "epic",
+              "points": 75,
+              "share": 25
+            },
+            {
+              "name": "Vermont",
+              "code": "Vermont",
+              "aliases": [],
+              "views": 949916,
+              "tier": "epic",
+              "points": 75,
+              "share": 31
+            },
+            {
+              "name": "Tennessee",
+              "code": "Tennessee",
+              "aliases": [],
+              "views": 1041018,
+              "tier": "rare",
+              "points": 50,
+              "share": 38
+            },
+            {
+              "name": "Rhode Island",
+              "code": "Rhode Island",
+              "aliases": [],
+              "views": 1056787,
+              "tier": "rare",
+              "points": 50,
+              "share": 44
+            },
+            {
+              "name": "Connecticut",
+              "code": "Connecticut",
+              "aliases": [],
+              "views": 1095236,
+              "tier": "rare",
+              "points": 50,
+              "share": 50
+            },
+            {
+              "name": "Maryland",
+              "code": "Maryland",
+              "aliases": [],
+              "views": 1099052,
+              "tier": "rare",
+              "points": 50,
+              "share": 56
+            },
+            {
+              "name": "Virginia",
+              "code": "Virginia",
+              "aliases": [],
+              "views": 1259734,
+              "tier": "uncommon",
+              "points": 25,
+              "share": 63
+            },
+            {
+              "name": "North Carolina",
+              "code": "North Carolina",
+              "aliases": [],
+              "views": 1333128,
+              "tier": "uncommon",
+              "points": 25,
+              "share": 69
+            },
+            {
+              "name": "Georgia",
+              "code": "Georgia (U.S. state)",
+              "aliases": [],
+              "views": 1352277,
+              "tier": "uncommon",
+              "points": 25,
+              "share": 75
+            },
+            {
+              "name": "New Jersey",
+              "code": "New Jersey",
+              "aliases": [],
+              "views": 1369488,
+              "tier": "common",
+              "points": 10,
+              "share": 81
+            },
+            {
+              "name": "Massachusetts",
+              "code": "Massachusetts",
+              "aliases": [],
+              "views": 1502181,
+              "tier": "common",
+              "points": 10,
+              "share": 88
+            },
+            {
+              "name": "New York",
+              "code": "New York (state)",
+              "aliases": [],
+              "views": 1620541,
+              "tier": "common",
+              "points": 10,
+              "share": 94
+            },
+            {
+              "name": "Pennsylvania",
+              "code": "Pennsylvania",
+              "aliases": [],
+              "views": 1817001,
+              "tier": "common",
+              "points": 10,
+              "share": 100
+            }
+          ]
+        }
+      ]
+    },
+    {
       "slug": "world",
       "name": "World",
       "tagline": "Every country counts",
       "blurb": "The full 197-country board. Start here if you want the widest spread of answers — and the widest spread of things that can go wrong.",
+      "kind": "country",
+      "unit": "countries",
+      "one": "country",
+      "placeholder": "Type a country…",
       "floors": 7,
       "ladder": [
         "uncommon",
@@ -4841,6 +9297,10 @@
       "name": "Europe",
       "tagline": "Small continent, famous answers",
       "blurb": "Europe punishes autopilot. France and Germany are the first words most players type, which is exactly why they are the fastest way to fall.",
+      "kind": "country",
+      "unit": "countries",
+      "one": "country",
+      "placeholder": "Type a country…",
       "floors": 7,
       "ladder": [
         "uncommon",
@@ -6471,6 +10931,10 @@
       "name": "Asia",
       "tagline": "Half the world, one ladder",
       "blurb": "Asia runs from the Mediterranean to the Pacific. The easy answers are huge and obvious; the safe ones are the countries you have to think twice to name.",
+      "kind": "country",
+      "unit": "countries",
+      "one": "country",
+      "placeholder": "Type a country…",
       "floors": 7,
       "ladder": [
         "uncommon",
@@ -7996,6 +12460,10 @@
       "name": "Africa",
       "tagline": "Fifty-four countries, five defaults",
       "blurb": "Most players can name five African countries without thinking. The tower only lets you use the ones that take a second pass.",
+      "kind": "country",
+      "unit": "countries",
+      "one": "country",
+      "placeholder": "Type a country…",
       "floors": 7,
       "ladder": [
         "uncommon",
@@ -9430,6 +13898,10 @@
       "name": "Americas",
       "tagline": "Two continents, one long tail",
       "blurb": "From Canada down to Tierra del Fuego. The Caribbean is where the rarity lives — if you can get past the obvious picks.",
+      "kind": "country",
+      "unit": "countries",
+      "one": "country",
+      "placeholder": "Type a country…",
       "floors": 7,
       "ladder": [
         "uncommon",
@@ -10576,6 +15048,10 @@
       "name": "Islands",
       "tagline": "No land borders, no easy exits",
       "blurb": "Every answer here is a country you cannot walk into. The famous islands are traps; the safe ones are specks with a UN seat.",
+      "kind": "country",
+      "unit": "countries",
+      "one": "country",
+      "placeholder": "Type a country…",
       "floors": 7,
       "ladder": [
         "uncommon",
@@ -12050,6 +16526,10 @@
       "name": "Landlocked",
       "tagline": "No coast, no cover",
       "blurb": "Forty-four countries with no sea access. Switzerland and Austria are the reflex answers, and the tower knows it.",
+      "kind": "country",
+      "unit": "countries",
+      "one": "country",
+      "placeholder": "Type a country…",
       "floors": 6,
       "ladder": [
         "uncommon",
@@ -13413,6 +17893,10 @@
       "name": "Microstates",
       "tagline": "Tiny countries, sharp edges",
       "blurb": "Under 5,000 square kilometres. At this size the whole answer pool is obscure — which means the tiers are decided by inches.",
+      "kind": "country",
+      "unit": "countries",
+      "one": "country",
+      "placeholder": "Type a country…",
       "floors": 6,
       "ladder": [
         "uncommon",

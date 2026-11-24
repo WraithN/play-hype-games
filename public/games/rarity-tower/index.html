@@ -332,11 +332,11 @@ body{
       <h1>CLIMB THE <span class="accent">RARITY</span> TOWER</h1>
       <p class="sub" id="introTag">Every country counts</p>
       <ul class="rules">
-        <li><span class="k">01</span><span>Each floor asks for a country. Type one that fits, then jump.</span></li>
+        <li><span class="k">01</span><span id="rule1">Each floor asks for a country. Type one that fits, then jump.</span></li>
         <li><span class="k">02</span><span>The obvious answers are rotten. Each floor sets a minimum rarity — pick a common answer and the slab collapses.</span></li>
         <li><span class="k">03</span><span>Clear all <b id="introFloors">7</b> floors to reach the roof. One bad answer drops you.</span></li>
       </ul>
-      <p class="micro-rules">Each floor needs a <b>rarer</b> country. Obvious answers collapse the slab. Clear every floor to reach the roof.</p>
+      <p class="micro-rules" id="microRules">Each floor needs a <b>rarer</b> country. Obvious answers collapse the slab. Clear every floor to reach the roof.</p>
       <div class="ladder" id="introLadder" aria-label="Required tier per floor"></div>
       <div class="actions">
         <button class="btn primary" id="startBtn">START CLIMB</button>
@@ -369,6 +369,6 @@ body{
     </div>
   </div>
 </div>
-<script src="game.js?v=3"></script>
+<script src="game.js?v=4"></script>
 </body>
 </html>
