@@ -21,6 +21,7 @@ const feeds = require('./lib/feeds');
 const copy = require('./lib/copy');
 const seo = require('./lib/seo');
 const authors = require('./lib/authors');
+const rarity = require('./lib/rarity');
 
 // 默认 4180：避开 3000/8080 这类常被本机其他服务占用的端口
 const PORT = Number(process.env.PORT) || 4180;
@@ -54,6 +55,7 @@ process.on('SIGTERM', () => {
 });
 
 const MIME = {
+  '.html': 'text/html; charset=utf-8',
   '.css': 'text/css; charset=utf-8',
   '.js': 'application/javascript; charset=utf-8',
   '.svg': 'image/svg+xml',
@@ -192,11 +194,13 @@ function serveStatic(req, res, urlPath) {
     'Last-Modified': stat.mtime.toUTCString(),
     ETag: etag,
     'Cache-Control':
-      ext === '.woff2' || ext === '.ttf'
-        ? 'public, max-age=31536000, immutable'
-        : ext === '.css' || ext === '.js'
+      ext === '.html'
+        ? 'public, max-age=0, must-revalidate'
+        : ext === '.woff2' || ext === '.ttf'
           ? 'public, max-age=31536000, immutable'
-          : 'public, max-age=2592000'
+          : ext === '.css' || ext === '.js'
+            ? 'public, max-age=31536000, immutable'
+            : 'public, max-age=2592000'
   };
   if (req.headers['if-none-match'] === etag) {
     res.writeHead(304, headers);
@@ -220,6 +224,30 @@ function handleFront(req, res, url) {
   // 首页
   if (pathname === '/') {
     return send(res, 200, site.homePage(games, settings, posts));
+  }
+
+  // Rarity Tower（自研游戏 + 主题子目录）
+  if (pathname === '/rarity-tower/packs.json') {
+    const file = path.join(__dirname, 'data', 'rarity', 'packs.json');
+    res.writeHead(200, {
+      'Content-Type': 'application/json; charset=utf-8',
+      'Cache-Control': 'public, max-age=0, must-revalidate'
+    });
+    res.end(fs.readFileSync(file));
+    return;
+  }
+  if (pathname === '/rarity-tower/method') {
+    return send(res, 200, rarity.methodPage(settings));
+  }
+  if (pathname === '/rarity-tower') {
+    return send(res, 200, rarity.hubPage(settings));
+  }
+  {
+    const m = pathname.match(/^\/rarity-tower\/([a-z0-9-]+)$/);
+    if (m) {
+      const page = rarity.themePage(settings, m[1]);
+      if (page) return send(res, 200, page);
+    }
   }
 
   // Journal 索引

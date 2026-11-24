@@ -43,9 +43,15 @@
       "name": "Chromebook Games",
       "short": "School & office ready",
       "icon": "chromebook"
+    },
+    {
+      "slug": "puzzle-games",
+      "name": "Puzzle Games",
+      "short": "Think & solve",
+      "icon": "spark"
     }
   ],
-  "updatedAt": "2026-11-18T10:18:22.511Z",
+  "updatedAt": "2026-11-24T15:22:42.704Z",
   "feeds": {
     "gameMonetize": {
       "enabled": true,

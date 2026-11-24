@@ -2547,5 +2547,35 @@
     "createdAt": "2026-11-18T10:19:52.827Z",
     "updatedAt": "2026-11-20T16:42:00.303Z",
     "controls": "Move back and forth with the WASD keys to play Mobile control buttons available"
+  },
+  {
+    "id": 93,
+    "title": "Rarity Tower",
+    "slug": "rarity-tower",
+    "description": "A daily country-climbing game: seven floors, one country per floor, and only the rarer answers keep the slab standing. Free, no download.",
+    "content": "<p>Rarity Tower is an original Play Hype game. Every floor asks for a country that fits a constraint; the closer your answer sits to the least-viewed countries on English Wikipedia, the higher its tier. Clear the floor minimum and you jump one slab up. Pick a country everyone would think of and the floor collapses.</p><p>It runs with sound off, needs no account, and has eight themed towers. <a href=\"/rarity-tower\">Open the tower hub</a> for the Europe, Asia, Africa, Americas, islands, landlocked and microstate ladders, or read <a href=\"/rarity-tower/method\">how the rarity tiers are calculated</a>.</p>",
+    "embedUrl": "/assets/games/rarity-tower/index.html?theme=world",
+    "thumb": "/assets/thumbs/rarity-tower.png",
+    "category": "puzzle-games",
+    "tags": [
+      "trivia",
+      "geography",
+      "daily",
+      "pixel",
+      "quiz",
+      "country"
+    ],
+    "rating": null,
+    "heat": 12,
+    "source": "Play Hype Studio",
+    "externalId": "",
+    "releasedAt": "2026-11-24",
+    "seoTitle": "Rarity Tower — daily country trivia game",
+    "seoDescription": "Climb seven floors of country trivia. Each answer is scored by rarity; the obvious ones collapse the floor. Free browser game, eight themed towers.",
+    "status": "published",
+    "featured": true,
+    "views": 3,
+    "createdAt": "2026-11-24T15:22:42.707Z",
+    "updatedAt": "2026-11-24T15:22:42.707Z"
   }
 ]
