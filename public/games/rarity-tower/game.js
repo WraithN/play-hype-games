@@ -14,7 +14,7 @@
   var $ = function (id) { return document.getElementById(id); };
   var els = {
     app: $('app'), stage: $('stage'), sky: $('sky'), world: $('world'), tower: $('tower'),
-    player: $('player'), splat: $('splat'),
+    player: $('player'), splat: $('splat'), pshadow: $('pshadow'), guide: $('guide'),
     hudTheme: $('hudTheme'), hudFloor: $('hudFloor'), hudTotal: $('hudTotal'), hudScore: $('hudScore'),
     muteBtn: $('muteBtn'), fsBtn: $('fsBtn'),
     needBox: $('needBox'), timerWrap: $('timerWrap'), timerBar: $('timerBar'),
@@ -141,11 +141,17 @@
       positionFloors();
       updateCamera(true);
       els.player.style.setProperty('--py', playerY(state.floor) + 'px');
+      placeShadow(state.floor);
     }
   }
 
   function playerY(floor) {
     return (floor - 1) * layout.fh + 13;
+  }
+
+  function placeShadow(floor) {
+    if (!els.pshadow) return;
+    els.pshadow.style.bottom = (playerY(floor) + 3) + 'px';
   }
 
   function positionFloors() {
@@ -155,6 +161,7 @@
       if (el) el.style.bottom = ((k - 1) * layout.fh) + 'px';
     }
     els.tower.style.height = (n * layout.fh + 120) + 'px';
+    if (els.guide) els.guide.style.height = Math.max(0, n * layout.fh - 22) + 'px';
   }
 
   function updateCamera(instant) {
@@ -177,13 +184,15 @@
     var n = layout.n;
     var html = '<div class="ground"></div>';
     for (var k = 1; k <= n; k++) {
-      html += '<div class="floor" data-k="' + k + '">' +
+      var zone = k === 1 ? 'lobby' : k <= 3 ? 'mid' : k <= 5 ? 'upper' : 'high';
+      html += '<div class="floor" data-k="' + k + '" data-zone="' + zone + '">' +
+        (k === 1 ? '<span class="spot"></span>' : '') +
         '<span class="name">' + (FLOOR_NAMES[k - 1] || ('FLOOR ' + k)) + '</span>' +
         '<span class="tag">' + String(k).padStart(2, '0') + '</span>' +
         '<span class="slab"></span></div>';
     }
-    html += '<div class="floor roof" data-k="' + (n + 1) + '">' +
-      '<span class="name">ROOF</span><span class="tag">GOAL</span><span class="slab"></span></div>';
+    html += '<div class="floor roof" data-k="' + (n + 1) + '" data-zone="roof">' +
+      '<span class="name">ROOF</span><span class="tag">GOAL</span><span class="goalstar"></span><span class="slab"></span></div>';
     els.tower.innerHTML = html;
     positionFloors();
     els.hudTotal.textContent = n;
@@ -196,20 +205,41 @@
     if (cls) el.classList.add(cls);
   }
 
+  function moonSvg() {
+    var size = 18, R = 8.4, out = '', ring = '';
+    for (var y = 0; y < size; y++) {
+      for (var x = 0; x < size; x++) {
+        var dx = x - (size - 1) / 2, dy = y - (size - 1) / 2;
+        var d2 = dx * dx + dy * dy;
+        if (d2 <= R * R) {
+          out += '<rect x="' + x + '" y="' + y + '" width="1" height="1" fill="#e9eeff"/>';
+        } else if (d2 <= (R + 0.85) * (R + 0.85)) {
+          ring += '<rect x="' + x + '" y="' + y + '" width="1" height="1" fill="#93a4cc"/>';
+        }
+      }
+    }
+    [[4, 5], [9, 7], [6, 11], [11, 4], [8, 13]].forEach(function (c) {
+      out += '<rect x="' + c[0] + '" y="' + c[1] + '" width="2" height="1" fill="#c6d0ee"/>';
+    });
+    return '<svg viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">' + ring + out + '</svg>';
+  }
+
   function stars() {
     var frag = document.createDocumentFragment();
-    for (var i = 0; i < 42; i++) {
+    for (var i = 0; i < 30; i++) {
       var s = document.createElement('i');
-      s.className = 'star';
+      s.className = 'star' + (i % 8 === 0 ? ' big' : '');
       s.style.left = (Math.random() * 100).toFixed(2) + '%';
-      s.style.top = (Math.random() * 62).toFixed(2) + '%';
-      s.style.animationDelay = (Math.random() * 3).toFixed(2) + 's';
-      s.style.opacity = (0.25 + Math.random() * 0.6).toFixed(2);
-      if (i === 0) s.style.width = s.style.height = '3px';
+      s.style.top = (Math.random() * 58).toFixed(2) + '%';
+      s.style.animationDelay = (Math.random() * 4).toFixed(2) + 's';
+      s.style.opacity = (0.22 + Math.random() * 0.55).toFixed(2);
+      var big = i % 8 === 0;
+      s.style.width = s.style.height = (big ? 3 : 2) + 'px';
       frag.appendChild(s);
     }
     var moon = document.createElement('div');
     moon.className = 'moon';
+    moon.innerHTML = moonSvg();
     frag.appendChild(moon);
     var city = document.createElement('div');
     city.className = 'city';
@@ -253,6 +283,7 @@
     els.player.classList.remove('falling');
     els.player.classList.add('idle');
     els.player.style.setProperty('--py', playerY(1) + 'px');
+    if (els.pshadow) { els.pshadow.classList.remove('off'); placeShadow(1); }
     els.splat.classList.remove('on');
     buildTower();
     setFloorVisual(1, 'is-current');
@@ -384,6 +415,7 @@
       els.player.classList.add('squash');
       setTimeout(function () { els.player.classList.remove('squash'); }, 160);
       els.player.style.setProperty('--py', playerY(to) + 'px');
+      placeShadow(to);
       setFloorVisual(from, 'is-cleared');
       setFloorVisual(to, 'is-current');
       state.floor = to;
@@ -409,6 +441,7 @@
 
     var k = state.floor;
     setFloorVisual(k, 'is-collapsed');
+    if (els.pshadow) els.pshadow.classList.add('off');
     els.stage.classList.add('shake');
     setTimeout(function () { els.stage.classList.remove('shake'); }, 460);
     sfx.fail();
@@ -443,6 +476,7 @@
     state.status = 'over';
     setFloorVisual(layout.n + 1, 'is-current');
     els.player.style.setProperty('--py', playerY(layout.n + 1) + 'px');
+    placeShadow(layout.n + 1);
     updateCamera(false);
     sfx.win();
     setTimeout(function () { showResult(true, {}); }, 750);

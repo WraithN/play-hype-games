@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Rarity Tower</title>
 <meta name="robots" content="noindex">
+<link rel="icon" href="data:,">
 <style>
 @font-face{font-family:'Silkscreen';src:url('silkscreen-400.woff2') format('woff2');font-weight:400;font-display:swap}
 @font-face{font-family:'Silkscreen';src:url('silkscreen-700.woff2') format('woff2');font-weight:700;font-display:swap}
@@ -222,6 +223,103 @@ body{
 .scoreline{display:flex;gap:14px;flex-wrap:wrap;font-family:var(--pixel);font-size:10px;color:var(--muted);margin-bottom:12px}
 .scoreline b{color:var(--yellow)}
 
+/* ---------- polish pass ---------- */
+.aurora{position:absolute;left:-10%;right:-10%;top:-14%;height:52%;pointer-events:none;
+  background:radial-gradient(58% 78% at 50% 0%,rgba(124,92,255,.26),rgba(34,211,238,.06) 45%,transparent 72%);
+  filter:blur(8px);animation:auroraPulse 7s ease-in-out infinite}
+@keyframes auroraPulse{50%{opacity:.62}}
+.star{background:#dce8ff;box-shadow:0 0 6px rgba(180,210,255,.45)}
+.star.big{box-shadow:0 0 10px rgba(200,225,255,.65)}
+.moon{right:16%;top:5%;width:40px;height:40px;background:none;border-radius:0;box-shadow:none;
+  filter:drop-shadow(0 0 10px rgba(190,215,255,.55)) drop-shadow(0 0 26px rgba(150,185,255,.28))}
+.moon svg{display:block;width:100%;height:100%;shape-rendering:crispEdges}
+.moon::after{display:none}
+.city{opacity:.42}
+
+.floor .slab{height:14px;border-top:1px solid rgba(180,170,255,.16)}
+.floor .slab::before{content:'';position:absolute;left:0;right:0;top:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(197,184,255,.75),rgba(120,220,255,.45),transparent);
+  opacity:.65}
+.floor .name{font-size:8px;color:#4c587e;letter-spacing:.12em}
+.floor .tag{font-size:9px;color:#68759c;letter-spacing:.06em;font-variant-numeric:tabular-nums}
+
+.floor[data-zone="lobby"] .slab{background:linear-gradient(180deg,#5a48a8,#33276e);
+  box-shadow:inset 0 2px 0 #9b86ff,0 0 20px rgba(124,92,255,.28),0 5px 0 #1a1238}
+.floor[data-zone="lobby"] .name{color:#a99bff}
+.spot{position:absolute;left:50%;bottom:13px;width:34px;height:4px;margin-left:-17px;
+  background:linear-gradient(90deg,transparent,rgba(34,211,238,.55),transparent);
+  box-shadow:0 0 12px rgba(34,211,238,.45);opacity:.9}
+
+.floor[data-zone="mid"] .slab{background:linear-gradient(180deg,#3b2f72,#211a42);
+  box-shadow:inset 0 2px 0 #5f4bb8,0 4px 0 #120e26,0 8px 14px rgba(0,0,0,.45)}
+.floor[data-zone="mid"] .slab::after{background:repeating-linear-gradient(90deg,transparent 0 6px,rgba(0,0,0,.32) 6px 8px)}
+
+.floor[data-zone="upper"] .slab{background:linear-gradient(180deg,#2f2a63,#1a1738);
+  box-shadow:inset 0 2px 0 #4d47a0,0 4px 0 #0e0c22,0 8px 14px rgba(0,0,0,.5)}
+.floor[data-zone="upper"] .slab::after{background:
+  radial-gradient(circle at 3px 4px,rgba(34,211,238,.4) 1px,transparent 1.6px) 0 0/14px 11px,
+  radial-gradient(circle at 9px 8px,rgba(167,139,250,.35) 1px,transparent 1.6px) 0 0/22px 13px}
+
+.floor[data-zone="high"] .slab{background:linear-gradient(180deg,#262055,#14112e);
+  box-shadow:inset 0 2px 0 #3d3885,0 4px 0 #0b091c,0 8px 16px rgba(0,0,0,.55)}
+.floor[data-zone="high"] .slab::after{background:
+  radial-gradient(circle at 5px 5px,rgba(255,255,255,.35) .8px,transparent 1.4px) 0 0/18px 12px,
+  radial-gradient(circle at 12px 7px,rgba(34,211,238,.3) .8px,transparent 1.4px) 0 0/26px 15px}
+
+.floor[data-zone="roof"] .slab{background:linear-gradient(180deg,#8a6bff,#4a35a8);
+  box-shadow:inset 0 2px 0 #d8ccff,0 0 30px rgba(124,92,255,.55),0 0 60px rgba(34,211,238,.18),0 5px 0 #241a55;
+  animation:roofGlow 2.6s ease-in-out infinite}
+@keyframes roofGlow{50%{box-shadow:inset 0 2px 0 #fff,0 0 40px rgba(150,120,255,.7),0 0 80px rgba(34,211,238,.28),0 5px 0 #241a55}}
+.floor[data-zone="roof"] .name{font-size:10px;color:#efe8ff;text-shadow:0 0 12px rgba(167,139,250,.9)}
+.floor[data-zone="roof"] .tag{color:#ffe9a8;text-shadow:0 0 10px rgba(255,209,102,.8)}
+.goalstar{position:absolute;right:48px;bottom:18px;width:12px;height:12px;background:#ffe9a8;
+  clip-path:polygon(50% 0,62% 35%,100% 35%,69% 57%,80% 92%,50% 70%,20% 92%,31% 57%,0 35%,38% 35%);
+  animation:goalBlink 1.3s steps(2) infinite;filter:drop-shadow(0 0 6px rgba(255,225,150,.8))}
+@keyframes goalBlink{50%{opacity:.35;transform:scale(.8)}}
+
+.floor.is-current .slab{background:linear-gradient(180deg,#2f5a72,#173743);
+  box-shadow:inset 0 2px 0 var(--neon),0 0 22px rgba(34,211,238,.5),0 4px 0 #0b2030}
+.floor.is-current .name,.floor.is-current .tag{color:var(--neon)}
+.floor.is-cleared .slab{background:linear-gradient(180deg,#4b3a8f,#2b2159);
+  box-shadow:inset 0 2px 0 var(--purple),0 0 14px rgba(167,139,250,.3),0 4px 0 #171033}
+.floor.is-cleared .name{color:#b9a6ff}
+
+.guide{position:absolute;left:50%;bottom:13px;width:2px;margin-left:-1px;z-index:2;pointer-events:none;
+  background-image:linear-gradient(180deg,rgba(34,211,238,.6),rgba(167,139,250,.22) 55%,transparent);
+  -webkit-mask-image:repeating-linear-gradient(180deg,#000 0 6px,transparent 6px 13px);
+  mask-image:repeating-linear-gradient(180deg,#000 0 6px,transparent 6px 13px);
+  opacity:.38;transition:height .3s ease}
+.guide::after{content:'';position:absolute;top:-7px;left:-3px;width:8px;height:8px;
+  border-left:2px solid rgba(34,211,238,.75);border-top:2px solid rgba(34,211,238,.75);transform:rotate(45deg)}
+
+.pshadow{position:absolute;left:50%;width:34px;height:6px;margin-left:-17px;bottom:13px;z-index:3;
+  background:radial-gradient(ellipse at center,rgba(0,0,0,.62),rgba(0,0,0,.18) 70%,transparent);
+  transition:bottom .45s cubic-bezier(.2,.85,.35,1),opacity .25s ease}
+.pshadow.off{opacity:0}
+.player .shadow{display:none}
+
+.panel{border-top:1px solid #1a2138;
+  background:
+    repeating-linear-gradient(180deg,rgba(180,200,255,.02) 0 1px,transparent 1px 3px),
+    linear-gradient(180deg,#0c1224,#070a12 72%);
+  box-shadow:inset 0 1px 0 rgba(120,160,255,.10)}
+.panel::before{content:'';position:absolute;left:0;right:0;top:0;height:2px;
+  background:linear-gradient(90deg,transparent,rgba(34,211,238,.55),rgba(167,139,250,.5),transparent);
+  box-shadow:0 0 14px rgba(34,211,238,.4)}
+.need{border-width:1px;padding:6px 9px;
+  clip-path:polygon(0 0,calc(100% - 7px) 0,100% 7px,100% 100%,7px 100%,0 calc(100% - 7px))}
+.timer{height:9px;border:1px solid #223052;
+  background:linear-gradient(180deg,#080d18,#111a2e);box-shadow:inset 0 2px 4px rgba(0,0,0,.65)}
+.timer i{background:linear-gradient(90deg,#1fbf9a,#22d3ee 62%,#a78bfa);
+  box-shadow:0 0 12px rgba(34,211,238,.35)}
+.prompt{font-size:clamp(14px,2.2vw,20px);text-shadow:0 0 16px rgba(34,211,238,.18);margin-top:2px}
+#answer{border-color:#2a3860;box-shadow:inset 0 2px 6px rgba(0,0,0,.5)}
+#answer:focus{border-color:#3ee9ff;animation:borderpulse 1.2s steps(2) infinite;
+  box-shadow:0 0 0 3px rgba(34,211,238,.12),0 0 16px rgba(34,211,238,.18)}
+@keyframes borderpulse{50%{border-color:#8af4ff;box-shadow:0 0 0 3px rgba(34,211,238,.2),0 0 22px rgba(34,211,238,.28)}}
+.jump-btn:hover{filter:brightness(1.08)}
+.jump-btn:disabled{filter:none}
+
 @media (max-height:560px){.overlay{place-items:start center}}
 @media (max-height:300px){
   .card{padding:10px}
@@ -282,10 +380,12 @@ body{
 
   <main class="stage" id="stage">
     <div class="sky" id="sky"></div>
+    <div class="aurora"></div>
     <div class="world" id="world">
+      <div class="guide" id="guide"></div>
       <div class="tower" id="tower"></div>
+      <div class="pshadow" id="pshadow"></div>
       <div class="player idle" id="player">
-        <div class="shadow"></div>
         <svg viewBox="0 0 16 20" aria-hidden="true">
           <g>
             <rect x="5" y="1" width="6" height="2" fill="#4b3a8f"/>
@@ -369,6 +469,6 @@ body{
     </div>
   </div>
 </div>
-<script src="game.js?v=5"></script>
+<script src="game.js?v=8"></script>
 </body>
 </html>
