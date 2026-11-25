@@ -1,327 +1,256 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>RarePop — pop-culture rare-answer game</title>
-<meta name="robots" content="noindex">
-<link rel="icon" href="data:,">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SOLAR NETWORK · RarePop</title>
 <style>
-:root{
-  --bg:#05070f; --panel:#0b1224; --panel2:#101a31; --line:#1e2f52;
-  --fg:#e9f1ff; --muted:#93a8c8; --dim:#5f7396;
-  --cyan:#22d3ee; --blue:#48c8ff; --purple:#a78bfa; --pink:#ff4fa3;
-  --green:#34d399; --yellow:#ffd166; --red:#ff5d73;
-  --mono:ui-monospace,'Cascadia Mono',Consolas,monospace;
-  --sans:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
-}
-*{box-sizing:border-box}
-html,body{margin:0;height:100%}
-body{background:var(--bg);color:var(--fg);font-family:var(--sans);overflow:hidden;user-select:none}
-#app{height:100dvh;display:flex;flex-direction:column;position:relative;
-  background:radial-gradient(120% 90% at 50% -10%,#131a33 0%,#070a14 55%,#04050a 100%)}
-#app::after{content:'';position:absolute;inset:0;z-index:60;pointer-events:none;
-  background:repeating-linear-gradient(180deg,rgba(255,255,255,.025) 0 1px,transparent 1px 3px);opacity:.6}
-#app::before{content:'';position:absolute;inset:0;z-index:59;pointer-events:none;
-  background:radial-gradient(120% 90% at 50% 45%,transparent 55%,rgba(0,0,0,.6))}
+  :root{
+    --bg0:#070b1d; --bg1:#101736;
+    --ink:#e8efff; --dim:#8b96c9; --line:rgba(90,120,190,.3);
+    --cyan:#46d6e6; --purple:#b78bff; --pink:#ff7bd5; --orange:#ffb347;
+    --panel:rgba(13,20,44,.78);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{
+    font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--ink);
+    background:radial-gradient(1200px 760px at 50% 35%,var(--bg1),var(--bg0) 75%);
+    overflow:hidden;
+  }
+  .wrap{display:flex;flex-direction:column;height:100dvh;padding:14px 18px 16px;gap:12px}
 
-/* HUD */
-header{display:flex;align-items:center;gap:10px;padding:8px 12px;border-bottom:1px solid #17233e;
-  background:rgba(7,10,18,.82);backdrop-filter:blur(6px);z-index:20}
-.logo{font-family:var(--mono);font-size:13px;letter-spacing:.22em;color:var(--cyan);white-space:nowrap}
-.logo b{color:var(--fg)}
-header .spacer{flex:1}
-.chip{font-family:var(--mono);font-size:10px;letter-spacing:.08em;color:var(--muted);
-  border:1px solid var(--line);background:rgba(16,26,49,.6);padding:4px 8px;white-space:nowrap}
-.chip b{color:var(--fg)}
-.chip.lives b{color:var(--pink)}
-.chip.dist b{color:var(--cyan)}
+  header{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
+  .brand{display:flex;align-items:center;gap:12px}
+  .brand .logo{width:30px;height:30px;border:2px solid var(--cyan);border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--cyan);font-weight:900}
+  .brand h1{font-size:18px;font-weight:900;letter-spacing:3px}
+  .brand h1 span{color:var(--cyan)}
+  .hud{display:flex;gap:10px;flex-wrap:wrap}
+  .chip{border:1px solid var(--line);border-radius:10px;padding:8px 14px;background:var(--panel);font-size:12px;color:var(--dim);letter-spacing:1px}
+  .chip b{color:var(--ink);font-weight:700}
+  .chip .k{color:var(--cyan)}
 
-/* scene */
-.scene{position:relative;flex:1;min-height:80px;overflow:hidden;z-index:5}
-#svg-space{width:100%;height:100%;display:block}
-.flash{position:absolute;inset:0;pointer-events:none;background:rgba(255,93,115,.18);opacity:0;z-index:8}
-.flash.on{animation:flash .45s ease}
-@keyframes flash{0%{opacity:.9}100%{opacity:0}}
-.shake{animation:shake .4s steps(2)}
-@keyframes shake{0%,100%{transform:translate(0,0)}25%{transform:translate(-5px,2px)}50%{transform:translate(4px,-3px)}75%{transform:translate(2px,3px)}}
+  .scene{flex:1;position:relative;border:1px solid var(--line);border-radius:18px;overflow:hidden;
+    background:linear-gradient(180deg,rgba(16,23,54,.2),rgba(7,11,29,.1))}
+  svg{position:absolute;inset:0;width:100%;height:100%}
+  #sky.shake{animation:skyShake .4s ease}
+  @keyframes skyShake{0%,100%{transform:translate(0,0)}20%{transform:translate(-3px,2px)}40%{transform:translate(3px,-2px)}60%{transform:translate(-2px,-1px)}80%{transform:translate(2px,1px)}}
 
-/* arrival card */
-.arrive{position:absolute;right:16px;bottom:14px;width:min(340px,72vw);padding:12px 14px;z-index:12;
-  border:1px solid rgba(72,200,255,.5);border-radius:10px;background:rgba(6,12,28,.94);
-  box-shadow:0 12px 30px rgba(0,0,0,.5);opacity:0;transform:translateX(24px);transition:all .25s ease;pointer-events:none}
-.arrive.show{opacity:1;transform:translateX(0)}
-.arrive .head{font-family:var(--mono);font-size:10px;letter-spacing:.12em;color:var(--dim);text-transform:uppercase}
-.arrive .name{font-size:16px;font-weight:800;margin:2px 0 4px;color:var(--fg)}
-.arrive .meta{font-size:12px;color:var(--muted);line-height:1.45}
-.arrive .meta b{color:var(--cyan)}
+  .panel{
+    display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center;
+    background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:16px 18px;
+    backdrop-filter:blur(12px);
+    clip-path:polygon(18px 0,100% 0,100% calc(100% - 18px),calc(100% - 18px) 100%,0 100%,0 18px);
+  }
+  .q-left{display:flex;flex-direction:column;gap:8px;min-width:0}
+  .q-meta{display:flex;align-items:center;gap:10px;font-size:12px;color:var(--dim);flex-wrap:wrap}
+  .badge{font-size:11px;font-weight:700;letter-spacing:1px;padding:3px 10px;border-radius:6px}
+  .q-text{font-size:19px;font-weight:700}
+  .q-right{display:flex;gap:10px}
+  input[type=text]{
+    width:260px;padding:13px 15px;border:1px solid var(--line);border-radius:12px;
+    background:rgba(9,14,34,.85);color:var(--ink);font-size:15px;font-family:inherit;outline:none;transition:border-color .15s;
+  }
+  input[type=text]:focus{border-color:var(--cyan)}
+  button.launch{
+    padding:13px 24px;border:1px solid var(--cyan);border-radius:12px;cursor:pointer;font-weight:700;font-size:15px;
+    font-family:inherit;color:#06222a;letter-spacing:1px;
+    background:linear-gradient(135deg,#6fe6f2,#46d6e6);box-shadow:0 0 18px rgba(70,214,230,.35);
+    transition:transform .12s,filter .12s;
+  }
+  button.launch:hover{filter:brightness(1.08)}
+  button.launch:active{transform:translateY(2px)}
+  button.launch:disabled{opacity:.4;cursor:not-allowed}
+  button.ghost{background:rgba(183,139,255,.12);border-color:var(--purple);color:#e6d9ff;box-shadow:none}
+  .feedback{min-height:16px;font-size:13px;font-weight:700}
+  .feedback.ok{color:#3ddc97}
+  .feedback.err{color:#ff6b8a}
+  .feedback.hint{color:#d9ccff;border-left:3px solid var(--purple);padding-left:8px}
 
-/* arrival: planet card */
-.arrive{width:min(430px,88vw);padding:0;display:flex;gap:0;pointer-events:auto;overflow:hidden}
-.arrive.show{pointer-events:auto}
-.aplanet{width:104px;height:104px;align-self:center;flex:none;margin:14px;border-radius:50%;position:relative;
-  background:radial-gradient(circle at 34% 30%,#bfe9ff,#3b82f6 58%,#0b1b3a);
-  box-shadow:0 0 34px rgba(72,200,255,.35),inset -12px -10px 24px rgba(0,0,0,.45)}
-.aplanet::after{content:'';position:absolute;left:-12px;right:-12px;top:46%;height:10px;
-  border:1px solid rgba(255,255,255,.38);border-radius:50%;transform:rotate(-16deg)}
-.aplanet span{position:absolute;left:26%;top:24%;width:14px;height:10px;border-radius:50%;background:rgba(255,255,255,.28)}
-.aplanet[data-tier="uncommon"]{background:radial-gradient(circle at 34% 30%,#ccfbf1,#10b981 58%,#062b22);box-shadow:0 0 34px rgba(52,211,153,.35),inset -12px -10px 24px rgba(0,0,0,.45)}
-.aplanet[data-tier="rare"]{background:radial-gradient(circle at 34% 30%,#dbeafe,#3b82f6 58%,#0b1b3a)}
-.aplanet[data-tier="epic"]{background:radial-gradient(circle at 34% 30%,#ede9fe,#8b5cf6 58%,#1b0f3a);box-shadow:0 0 34px rgba(167,139,250,.4),inset -12px -10px 24px rgba(0,0,0,.45)}
-.aplanet[data-tier="legendary"]{background:radial-gradient(circle at 34% 30%,#fff3c4,#f59e0b 58%,#3a2305);box-shadow:0 0 40px rgba(255,209,102,.55),inset -12px -10px 24px rgba(0,0,0,.45)}
-.abody{padding:14px 14px 12px 0;flex:1;min-width:0}
-.arrive .head{font-size:10px}
-.arrive .name{font-size:18px;line-height:1.2}
-.arrive .desc{font-size:12px;color:var(--muted);line-height:1.45;margin:6px 0 10px;min-height:34px;transition:opacity .35s ease}
-.anext{width:100%;height:34px;border:1px solid rgba(34,211,238,.5);background:rgba(34,211,238,.12);
-  color:var(--cyan);border-radius:6px;font-family:var(--mono);font-size:10px;letter-spacing:.08em}
-.anext:hover{background:rgba(34,211,238,.2)}
+  .badge.rarity1{background:rgba(159,180,200,.16);color:#9fb4c8}
+  .badge.rarity2{background:rgba(90,168,255,.16);color:#5aa8ff}
+  .badge.rarity3{background:rgba(183,139,255,.16);color:#b78bff}
+  .badge.rarity4{background:rgba(255,179,71,.18);color:#ffb347;box-shadow:0 0 12px rgba(255,179,71,.35)}
+  .badge.rarity5{background:rgba(255,209,102,.2);color:#ffd166;box-shadow:0 0 14px rgba(255,209,102,.45)}
 
-/* jump prep */
-.overlay.jump .jumpcard{width:min(520px,100%);background:rgba(6,11,24,.97);border:1px solid rgba(72,200,255,.55);
-  border-radius:12px;padding:22px 22px 20px;box-shadow:0 24px 60px rgba(0,0,0,.65)}
-.jk{font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:var(--cyan);margin-bottom:14px}
-.jstep{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--dim);margin:9px 0}
-.jstep i{width:14px;height:14px;border-radius:50%;border:2px solid var(--line);flex:none;position:relative}
-.jstep.active{color:var(--fg)}
-.jstep.active i{border-color:var(--cyan);border-top-color:transparent;animation:jspin .8s linear infinite}
-.jstep.done{color:var(--fg)}
-.jstep.done i{background:var(--green);border-color:var(--green)}
-.jstep.done i::after{content:'';position:absolute;left:4px;top:1px;width:3px;height:7px;
-  border-right:2px solid #04231a;border-bottom:2px solid #04231a;transform:rotate(40deg)}
-.jstep.failed{color:#ffb3bd}
-.jstep.failed i{border-color:var(--red);background:rgba(255,93,115,.18)}
-.jstep.failed i::after{content:'';position:absolute;left:3px;top:3px;width:6px;height:6px;
-  background:linear-gradient(45deg,transparent 44%,var(--red) 44%,var(--red) 56%,transparent 56%),
-             linear-gradient(-45deg,transparent 44%,var(--red) 44%,var(--red) 56%,transparent 56%)}
-.jbar.fail i{background:linear-gradient(90deg,#ff4fa3,#ff5d73);box-shadow:0 0 10px rgba(255,93,115,.4)}
-.jumpcard.fail{border-color:rgba(255,93,115,.55);box-shadow:0 24px 60px rgba(0,0,0,.65),0 0 30px rgba(255,93,115,.12)}
-.aplanet[data-tier="fail"]{background:radial-gradient(circle at 34% 30%,#6b7280,#374151 58%,#111827);
-  box-shadow:0 0 26px rgba(107,114,128,.35),inset -12px -10px 24px rgba(0,0,0,.5)}
-.jbar{height:8px;background:#0a1224;border:1px solid #1e2f52;margin-top:16px;overflow:hidden}
-.jbar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--purple),var(--cyan));transition:width .5s ease}
-@keyframes jspin{to{transform:rotate(360deg)}}
+  .overlay{position:absolute;inset:0;display:none;align-items:center;justify-content:center;background:rgba(6,10,26,.7);backdrop-filter:blur(6px);z-index:20}
+  .overlay.show{display:flex}
 
-/* console */
-.console{border-top:1px solid #1a2745;background:
-    repeating-linear-gradient(180deg,rgba(180,200,255,.02) 0 1px,transparent 1px 3px),
-    linear-gradient(180deg,#0b1224,#070a12 75%);
-  padding:9px 12px 11px;display:flex;flex-direction:column;gap:7px;position:relative;z-index:20}
-.console::before{content:'';position:absolute;left:0;right:0;top:0;height:2px;
-  background:linear-gradient(90deg,transparent,rgba(34,211,238,.55),rgba(167,139,250,.5),transparent);
-  box-shadow:0 0 14px rgba(34,211,238,.35)}
-.qrow{display:flex;align-items:center;gap:10px}
-.tag{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--cyan);
-  border:1px solid rgba(34,211,238,.35);background:rgba(34,211,238,.08);padding:3px 7px;white-space:nowrap}
-.qtext{font-size:clamp(14px,2.1vw,19px);font-weight:800;line-height:1.3;margin:0;flex:1;min-width:0;color:var(--fg);
-  text-shadow:0 0 16px rgba(34,211,238,.16)}
-.timer{height:8px;background:#0a1224;border:1px solid #1e2f52;position:relative;overflow:hidden;flex:none;width:34%}
-.timer i{position:absolute;inset:0;transform-origin:left;background:linear-gradient(90deg,var(--green),var(--cyan))}
-.timer.low i{background:linear-gradient(90deg,var(--pink),var(--red));animation:pulse .5s steps(2) infinite}
-@keyframes pulse{50%{opacity:.55}}
-.inputrow{display:flex;gap:8px}
-#ans{flex:1;min-width:0;height:40px;padding:0 12px;background:#070d1b;border:2px solid #26395f;
-  color:var(--fg);font-family:var(--sans);font-size:16px;outline:none;border-radius:6px}
-#ans::placeholder{color:#5a6d90}
-#ans:focus{border-color:#3ee9ff;box-shadow:0 0 0 3px rgba(34,211,238,.12),0 0 16px rgba(34,211,238,.18)}
-#ans.bad{border-color:var(--red);animation:nudge .3s}
-@keyframes nudge{25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
-button{font-family:var(--sans);cursor:pointer}
-.hintbtn,.confirmbtn{height:40px;border-radius:6px;border:2px solid;font-weight:800;font-size:12px;letter-spacing:.04em}
-.hintbtn{padding:0 12px;border-color:#5a3f96;background:linear-gradient(180deg,#8b5cf6,#5b3ea8);color:#f4ecff;
-  box-shadow:0 4px 0 #382566,inset 0 2px 0 rgba(255,255,255,.3);white-space:nowrap}
-.hintbtn:hover{filter:brightness(1.08)}
-.hintbtn:disabled{opacity:.4;cursor:not-allowed;filter:none}
-.confirmbtn{padding:0 18px;border-color:#0b6b7a;background:linear-gradient(180deg,#2ee6ff,#12a9c4);color:#031018;
-  box-shadow:0 4px 0 #086070,inset 0 2px 0 rgba(255,255,255,.45);white-space:nowrap}
-.confirmbtn:hover{filter:brightness(1.08)}
-.confirmbtn:active,.hintbtn:active{transform:translateY(3px);box-shadow:none}
-.hintline{display:none;margin:0;font-size:12px;line-height:1.45;color:#d9ccff;border-left:3px solid var(--purple);
-  background:rgba(139,92,246,.08);padding:5px 8px}
-.hintline.on{display:block}
-.feedback{margin:0;min-height:14px;font-size:11px;color:var(--dim);line-height:1.4}
-.feedback b{color:var(--muted);font-weight:600}
+  .cyber{width:400px;background:rgba(10,16,38,.94);border:1px solid var(--cyan);border-radius:16px;padding:20px 22px;
+    clip-path:polygon(0 16px,16px 0,100% 0,100% calc(100% - 16px),calc(100% - 16px) 100%,0 100%);
+    box-shadow:0 0 30px rgba(70,214,230,.25)}
+  .cyber-head{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:700;letter-spacing:2px;color:var(--cyan);margin-bottom:16px}
+  .cyber-head .dot{width:8px;height:8px;border-radius:50%;background:var(--cyan);box-shadow:0 0 8px var(--cyan);animation:blink 1s infinite}
+  .cyber-list{list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:18px}
+  .st{display:flex;align-items:center;gap:10px;font-size:14px;color:#cdd6f5}
+  .st i{width:14px;height:14px;border-radius:50%;border:2px solid var(--cyan);flex:none;position:relative}
+  .st.doing i::after{content:"";position:absolute;inset:3px;border-radius:50%;background:var(--cyan);animation:pulse .7s infinite}
+  .st.done{color:#3ddc97}
+  .st.done i{border-color:#3ddc97}
+  .st.done i::after{content:"✓";position:absolute;inset:-3px;display:flex;align-items:center;justify-content:center;font-size:11px;color:#3ddc97;background:none}
+  .cyber-bar{height:6px;border-radius:999px;background:rgba(70,214,230,.15);overflow:hidden}
+  .cyber-bar div{height:100%;width:0;background:linear-gradient(90deg,var(--cyan),var(--purple));border-radius:999px;transition:width .4s ease}
+  #cyber-progress.waiting{animation:blink 1s infinite}
 
-/* overlays */
-.overlay{position:absolute;inset:0;z-index:50;display:none;place-items:center;padding:16px;
-  background:rgba(4,6,12,.82);backdrop-filter:blur(4px);overflow:auto}
-.overlay.on{display:grid}
-.card{width:min(620px,100%);background:linear-gradient(180deg,#0c1428,#070b16);border:1px solid #26395f;
-  border-radius:12px;padding:20px;box-shadow:0 28px 70px rgba(0,0,0,.65);position:relative;overflow:hidden}
-.card::before{content:'';position:absolute;left:0;right:0;top:0;height:2px;
-  background:linear-gradient(90deg,transparent,var(--cyan),var(--purple),transparent);opacity:.8}
-.kicker{font-family:var(--mono);font-size:10px;letter-spacing:.2em;color:var(--cyan);text-transform:uppercase}
-h1{font-size:clamp(30px,5vw,46px);line-height:1;margin:8px 0 4px;letter-spacing:-.02em}
-h1 span{color:var(--yellow)}
-.sub{color:var(--muted);font-size:13px;margin:0 0 14px;line-height:1.5}
-.rules{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:0 0 14px}
-.rules div{border:1px solid var(--line);background:rgba(16,26,49,.55);border-radius:8px;padding:8px 9px}
-.rules b{display:block;font-family:var(--mono);font-size:9px;letter-spacing:.1em;color:var(--dim);margin-bottom:3px}
-.rules span{font-size:12px;color:var(--fg);line-height:1.35}
-.ladder{display:grid;grid-template-columns:repeat(auto-fit,minmax(88px,1fr));gap:6px;margin:0 0 14px}
-.ladder span{border:1px solid var(--line);background:rgba(16,26,49,.5);border-radius:7px;padding:6px 5px;text-align:center;
-  font-family:var(--mono);letter-spacing:.04em}
-.ladder b{display:block;font-size:9px;color:var(--muted)}
-.ladder i{font-style:normal;display:block;font-size:8.5px;color:var(--dim);margin-top:2px}
-.ladder span[data-r="1"] b{color:#cbd5e1}
-.ladder span[data-r="2"] b{color:#6ee7b7}
-.ladder span[data-r="3"] b{color:#93c5fd}
-.ladder span[data-r="4"] b{color:#c4b5fd}
-.ladder span[data-r="5"]{border-color:rgba(255,209,102,.55);background:rgba(255,209,102,.08)}
-.ladder span[data-r="5"] b{color:var(--yellow)}
-.bestline{margin:0 0 12px;font-size:12px;color:var(--muted);border-left:3px solid rgba(255,209,102,.6);padding-left:10px;line-height:1.5}
-.bestline b{color:var(--yellow)}
-.cats{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 14px}
-.cats button{font-family:var(--mono);font-size:9px;letter-spacing:.06em;color:var(--muted);
-  border:1px solid var(--line);background:#0b1224;padding:6px 9px;border-radius:6px}
-.cats button.on{color:var(--cyan);border-color:rgba(34,211,238,.5);background:rgba(34,211,238,.1)}
-.actions{display:flex;gap:8px;flex-wrap:wrap}
-.btn{flex:1;min-width:140px;height:44px;border-radius:8px;border:2px solid var(--line);background:#101a31;color:var(--fg);
-  font-weight:800;font-size:13px;letter-spacing:.03em}
-.btn.primary{border-color:#0b6b7a;background:linear-gradient(180deg,#2ee6ff,#12a9c4);color:#031018;
-  box-shadow:0 4px 0 #086070,inset 0 2px 0 rgba(255,255,255,.45)}
-.btn.ghost{background:transparent}
-.btn:hover{filter:brightness(1.06)}
-.foot{margin:12px 0 0;font-size:10.5px;color:var(--dim);line-height:1.55}
-.foot a{color:var(--muted)}
-.resultgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin:10px 0 14px}
-.resultgrid div{border:1px solid var(--line);border-radius:8px;padding:9px 11px;background:rgba(16,26,49,.5)}
-.resultgrid b{display:block;font-family:var(--mono);font-size:9px;letter-spacing:.1em;color:var(--dim);margin-bottom:3px}
-.resultgrid span{font-size:18px;font-weight:800;color:var(--fg)}
-.resultgrid .y span{color:var(--yellow)}
-.sharetext{font-size:12px;color:var(--muted);line-height:1.55;margin:0 0 12px;white-space:pre-line;
-  border-left:3px solid var(--line);padding-left:10px}
+  .card{text-align:center;max-width:440px;padding:34px 30px;border:1px solid var(--line);border-radius:22px;background:var(--panel)}
+  .card .big{font-size:28px;font-weight:900;margin:10px 0 6px}
+  .card p{color:var(--dim);font-size:14px;line-height:1.6;margin-bottom:18px}
+  .card .rank{font-size:12px;color:var(--pink);letter-spacing:2px}
 
-@media (max-width:620px){
-  header .chip.jumps{display:none}
-  .timer{width:28%}
-  .rules{grid-template-columns:1fr}
-  .arrive{width:min(320px,92vw)}
-  .aplanet{width:78px;height:78px;margin:10px}
-}
-@media (max-height:430px){
-  header{padding:4px 8px;gap:6px}
-  .logo{font-size:10px;letter-spacing:.14em}
-  .chip{font-size:8px;padding:2px 5px}
-  .console{padding:5px 8px 7px;gap:4px}
-  .ladder{display:none}
-  .qtext{font-size:12px}
-  #ans,.hintbtn,.confirmbtn{height:32px;font-size:11px}
-  .hintbtn{padding:0 8px;font-size:9px}
-  .confirmbtn{padding:0 12px}
-  .feedback{display:none}
-  .arrive{position:fixed;left:50%;top:50%;right:auto;bottom:auto;width:min(330px,92vw);
-    transform:translate(-50%,-50%) scale(.97);box-shadow:0 0 0 100vmax rgba(4,6,12,.55),0 16px 40px rgba(0,0,0,.6)}
-  .arrive.show{transform:translate(-50%,-50%) scale(1)}
-  .aplanet{width:66px;height:66px;margin:8px}
-  .abody{padding:8px 8px 8px 0}
-  .arrive .name{font-size:13px}
-  .arrive .desc{font-size:10px;margin:4px 0 6px;min-height:0}
-  .anext{height:26px;font-size:8px}
-  .jumpcard{padding:14px}
-  .jstep{font-size:12px;margin:6px 0}
-  .arrive .meta{font-size:10px}
-}
+  .arrive{position:absolute;right:28px;top:50%;transform:translateY(-50%);width:340px;display:none;gap:16px;align-items:center;
+    background:rgba(10,16,38,.94);border:1px solid #46d6e6;border-radius:16px;padding:18px 20px;z-index:12;
+    clip-path:polygon(0 14px,14px 0,100% 0,100% calc(100% - 14px),calc(100% - 14px) 100%,0 100%);
+    box-shadow:0 0 26px rgba(70,214,230,.25)}
+  .arrive.show{display:flex}
+  .arrive.fail{border-color:#ff6b8a;box-shadow:0 0 26px rgba(255,107,138,.25)}
+  .arrive-planet{width:60px;height:60px;flex:none}
+  .arrive-planet svg{width:60px;height:60px;display:block;animation:wobble .9s ease-in-out 2}
+  .arrive-info{flex:1;min-width:0}
+  .arrive-name{font-size:19px;font-weight:900;color:#fff;margin-bottom:5px}
+  .arrive-tag{display:inline-block;font-size:11px;color:#46d6e6;border:1px solid #46d6e6;border-radius:6px;padding:2px 8px;margin-bottom:8px}
+  .arrive.fail .arrive-tag{color:#ff9db0;border-color:#ff6b8a}
+  .arrive-desc{font-size:13px;color:#c3cbec;line-height:1.6}
+
+  @keyframes blink{50%{opacity:.3}}
+  @keyframes pulse{50%{transform:scale(.5)}}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  @keyframes spinR{to{transform:rotate(-360deg)}}
+  @keyframes pulseRing{0%{transform:scale(.85);opacity:.8}100%{transform:scale(1.15);opacity:.2}}
+  @keyframes wobble{0%{transform:rotate(0)}20%{transform:rotate(-11deg)}40%{transform:rotate(10deg)}60%{transform:rotate(-6deg)}80%{transform:rotate(4deg)}100%{transform:rotate(0)}}
+
+  @media (max-width:860px){
+    .panel{grid-template-columns:1fr}
+    input[type=text]{width:100%}
+    .q-right{flex-wrap:wrap}
+    .arrive{width:min(320px,90vw)}
+  }
+  @media (max-height:430px){
+    .wrap{padding:6px 8px 8px;gap:6px}
+    header{gap:5px;flex-wrap:nowrap}
+    .brand h1{display:none}
+    .brand .logo{width:24px;height:24px;font-size:14px;border-radius:6px}
+    .hud{gap:5px;flex-wrap:nowrap}
+    .hud .chip:nth-child(2),.hud .chip:nth-child(5){display:none}
+    .chip{font-size:8px;padding:3px 6px;border-radius:7px;letter-spacing:.5px}
+    .scene{min-height:60px}
+    .panel{padding:5px 7px;gap:5px;border-radius:10px}
+    .q-left{gap:2px}
+    .q-meta{font-size:8px;gap:5px}
+    .q-text{font-size:12px;line-height:1.25}
+    .feedback{font-size:9px;min-height:0}
+    input[type=text]{padding:5px 7px;font-size:11px;border-radius:7px;width:auto;flex:1;min-width:0}
+    button.launch{padding:5px 8px;font-size:10px;border-radius:7px}
+    .q-right{gap:5px;flex-wrap:nowrap}
+    .cyber{width:300px;padding:12px}
+    .cyber-list{gap:8px;margin-bottom:12px}
+    .st{font-size:11px}
+    .arrive{width:auto;left:6px;right:6px;top:50%;transform:translateY(-50%);padding:6px 8px;gap:8px;border-radius:10px}
+    .arrive-planet,.arrive-planet svg{width:26px;height:26px}
+    .arrive-name{font-size:13px;margin-bottom:1px}
+    .arrive-tag{font-size:8px;padding:0 4px;margin-bottom:2px}
+    .arrive-desc{font-size:9px;line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  }
 </style>
 </head>
 <body>
-<div id="app">
+<div class="wrap">
   <header>
-    <div class="logo">RARE<b>POP</b></div>
-    <span class="spacer"></span>
-    <span class="chip" id="mode">DAILY</span>
-    <span class="chip">TARGET <b id="target">—</b></span>
-    <span class="chip">LAST <b id="last">0.00 AU</b></span>
-    <span class="chip dist">TOTAL <b id="dist">0.00 AU</b></span>
-    <span class="chip jumps">JUMPS <b id="jumps">0</b></span>
-    <span class="chip">RING <b id="far">1</b></span>
-    <button class="chip" id="fsBtn" type="button" style="cursor:pointer;font-family:var(--mono)">FULL</button>
+    <div class="brand">
+      <div class="logo">◈</div>
+      <h1>SOLAR <span>NETWORK</span></h1>
+    </div>
+    <div class="hud">
+      <div class="chip">TARGET <b id="hud-target">---</b></div>
+      <div class="chip">LAST JUMP <b id="hud-last">0.00 AU</b></div>
+      <div class="chip">TOTAL <b id="hud-total">0.00 AU</b></div>
+      <div class="chip">JUMPS <b id="hud-reach">0</b></div>
+      <div class="chip">FARTHEST <b id="hud-far">1</b></div>
+    </div>
   </header>
 
-  <main class="scene" id="scene">
-    <svg id="svg-space" viewBox="-560 -290 1120 580" preserveAspectRatio="xMidYMid meet" aria-hidden="true"></svg>
-    <div class="flash" id="flash"></div>
+  <div class="scene">
+    <svg id="sky" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid meet">
+      <defs>
+        <radialGradient id="nebPurple" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#7d4fd1" stop-opacity=".32"/>
+          <stop offset="100%" stop-color="#7d4fd1" stop-opacity="0"/>
+        </radialGradient>
+        <radialGradient id="nebCyan" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#2f9fb5" stop-opacity=".3"/>
+          <stop offset="100%" stop-color="#2f9fb5" stop-opacity="0"/>
+        </radialGradient>
+        <radialGradient id="nebPink" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#c94fa8" stop-opacity=".28"/>
+          <stop offset="100%" stop-color="#c94fa8" stop-opacity="0"/>
+        </radialGradient>
+        <radialGradient id="sunGrad" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#fff8e0"/>
+          <stop offset="35%" stop-color="#ffd36b"/>
+          <stop offset="100%" stop-color="#ff7a3d"/>
+        </radialGradient>
+        <radialGradient id="halo" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#ffffff" stop-opacity=".35"/>
+          <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+      <g id="nebula"></g>
+      <g id="grid"></g>
+      <g id="bgstars"></g>
+      <g id="orbits"></g>
+      <g id="trails"></g>
+      <g id="planets"></g>
+      <g id="sun"></g>
+      <g id="hit"></g>
+      <g id="rocket"></g>
+    </svg>
+
+    <div class="overlay" id="cyber">
+      <div class="cyber">
+        <div class="cyber-head"><span class="dot"></span>SYSTEM // JUMP PREP</div>
+        <ul class="cyber-list" id="cyber-list"></ul>
+        <div class="cyber-bar"><div id="cyber-progress"></div></div>
+      </div>
+    </div>
+
     <div class="arrive" id="arrive">
-      <div class="aplanet" id="arrPlanet"><span></span></div>
-      <div class="abody">
-        <div class="head" id="arrHead">NEW DISCOVERY</div>
-        <div class="name" id="arrName">—</div>
-        <div class="meta" id="arrMeta"></div>
-        <div class="desc" id="arrDesc"></div>
-        <button class="anext" id="arrNext" type="button">NEXT PROMPT →</button>
+      <div class="arrive-planet" id="arrive-planet">
+        <svg viewBox="0 0 64 64" width="60" height="60">
+          <circle cx="32" cy="32" r="26" fill="none" stroke="#46d6e6" stroke-width="1.5" opacity=".6"/>
+          <circle class="body" cx="32" cy="32" r="20" fill="#8be9ff"/>
+          <ellipse cx="26" cy="25" rx="7" ry="4.5" fill="#fff" opacity=".5"/>
+        </svg>
+      </div>
+      <div class="arrive-info">
+        <div class="arrive-name" id="arrive-name"></div>
+        <div class="arrive-tag" id="arrive-tag"></div>
+        <p class="arrive-desc" id="arrive-desc"></p>
       </div>
     </div>
-  </main>
 
-  <section class="console">
-    <div class="qrow">
-      <span class="tag" id="qtag">MOVIES</span>
-      <p class="qtext" id="qtext">Loading…</p>
-    </div>
-    <div class="inputrow">
-      <input id="ans" type="text" placeholder="Type an answer…" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" aria-label="Your answer">
-      <button class="hintbtn" id="hintBtn" type="button">HINT</button>
-      <button class="confirmbtn" id="confirmBtn" type="button">JUMP</button>
-    </div>
-    <p class="hintline" id="hintLine" hidden></p>
-    <p class="feedback" id="feedback">Rarer answers score more — 10 / 25 / 50 / 75 / 100. One hint per prompt costs 10 points.</p>
-  </section>
-
-  <div class="overlay on" id="start">
-    <div class="card">
-      <div class="kicker">Pop-culture rare-answer game</div>
-      <h1>RARE<span>POP</span></h1>
-      <p class="sub">Name a pop-culture answer nobody else thinks of. Ten jumps make a run — rarity decides how far each jump travels.</p>
-      <div class="rules">
-        <div><b>NO TIMER</b><span>Take your time. The rarer the answer, the farther the jump.</span></div>
-        <div><b>WRONG?</b><span>The ship shakes and you try again. No lives.</span></div>
-        <div><b>HINT</b><span>Once per prompt, free.</span></div>
+    <div class="overlay" id="overlay">
+      <div class="card">
+        <div class="rank" id="rank-label">MISSION REPORT</div>
+        <div class="big" id="rank-title"></div>
+        <p id="rank-desc"></p>
+        <button class="launch" id="btn-restart">FLY AGAIN</button>
       </div>
-      <div class="ladder" aria-label="Rarity tiers and points">
-        <span data-r="1"><b>COMMON</b><i>1 ring · 1.0 AU</i></span>
-        <span data-r="2"><b>UNCOMMON</b><i>2 rings · 2.3 AU</i></span>
-        <span data-r="3"><b>RARE</b><i>3 rings · 3.2 AU</i></span>
-        <span data-r="4"><b>EPIC</b><i>4 rings · 4.1 AU</i></span>
-        <span data-r="5"><b>LEGENDARY</b><i>5 rings · 5.0 AU</i></span>
-      </div>
-      <div class="cats" id="cats"></div>
-      <div class="actions">
-        <button class="btn primary" id="startBtn">START DAILY RUN</button>
-        <button class="btn ghost" id="practiceBtn">PRACTICE</button>
-      </div>
-      <p class="foot" id="startFoot">Rarity comes from public Wikipedia pageviews. A wrong answer is a valid answer that is not on the list — spelling and nicknames get a second pass.</p>
     </div>
   </div>
 
-  <div class="overlay jump" id="jump">
-    <div class="jumpcard">
-      <div class="jk">SYSTEM // JUMP PREP</div>
-      <div class="jstep" id="step1"><i></i><span>Charging the ship</span></div>
-      <div class="jstep" id="step2"><i></i><span>Igniting engines</span></div>
-      <div class="jstep" id="step3"><i></i><span id="step3Text">Locking target <b id="jumpTarget">—</b></span></div>
-      <div class="jstep" id="step4"><i></i><span id="step4Text">Jumping to ring <b id="jumpRing">1</b></span></div>
-      <div class="jbar"><i id="jumpBar"></i></div>
+  <div class="panel">
+    <div class="q-left">
+      <div class="q-meta">
+        <span class="badge rarity1" id="q-tier">LOCKING</span>
+        <span>NEXT · <b id="q-target">---</b></span>
+        <span id="q-dist"></span>
+      </div>
+      <div class="q-text" id="q-text"></div>
+      <div class="feedback" id="feedback"></div>
     </div>
-  </div>
-
-  <div class="overlay" id="result">
-    <div class="card">
-      <div class="kicker" id="resKicker">Mission report</div>
-      <h1 id="resTitle">RUN COMPLETE</h1>
-      <p class="sub" id="resSub">Ten jumps, one route through the system.</p>
-      <p class="bestline" id="resBest"></p>
-      <div class="resultgrid">
-        <div class="y"><b>TOTAL DISTANCE</b><span id="resDist">0.00 AU</span></div>
-        <div><b>JUMPS</b><span id="resJumps">0</span></div>
-        <div><b>FARTHEST RING</b><span id="resFar">1</span></div>
-        <div><b>LEGENDARIES</b><span id="resLegend">0</span></div>
-      </div>
-      <p class="sharetext" id="resShare"></p>
-      <div class="actions">
-        <button class="btn primary" id="replayBtn">PLAY AGAIN</button>
-        <button class="btn" id="copyBtn">COPY RESULT</button>
-      </div>
-      <p class="foot">RarePop is an original Play Hype game. Ten jumps, no timer, and rarity from public Wikipedia pageviews.</p>
+    <div class="q-right">
+      <input type="text" id="answer" placeholder="Type an answer…" autocomplete="off">
+      <button class="launch ghost" id="btn-hint">HINT</button>
+      <button class="launch" id="btn-launch">CONFIRM</button>
     </div>
   </div>
 </div>
@@ -329,72 +258,36 @@ h1 span{color:var(--yellow)}
 <script>
 (function () {
   'use strict';
-  var RARITY = { common: 1, uncommon: 2, rare: 3, epic: 4, legendary: 5 };
-  var RARITY_LABEL = { 1: 'COMMON', 2: 'UNCOMMON', 3: 'RARE', 4: 'EPIC', 5: 'LEGENDARY' };
-  var RING_DIST = [0, 1.0, 2.3, 3.2, 4.1, 5.0];
-  var RING_COUNT = 5;
-  var MISSION = 10;
+  var NS = 'http://www.w3.org/2000/svg';
   var $ = function (id) { return document.getElementById(id); };
-
-  var els = {
-    svg: $('svg-space'), scene: $('scene'), flash: $('flash'),
-    mode: $('mode'), target: $('target'), last: $('last'), dist: $('dist'), jumps: $('jumps'), far: $('far'),
-    arrive: $('arrive'), arrHead: $('arrHead'), arrName: $('arrName'), arrMeta: $('arrMeta'),
-    arrPlanet: $('arrPlanet'), arrDesc: $('arrDesc'), arrNext: $('arrNext'),
-    qtag: $('qtag'), qtext: $('qtext'),
-    ans: $('ans'), hintBtn: $('hintBtn'), confirmBtn: $('confirmBtn'),
-    hintLine: $('hintLine'), feedback: $('feedback'),
-    start: $('start'), cats: $('cats'), startBtn: $('startBtn'), practiceBtn: $('practiceBtn'), startFoot: $('startFoot'),
-    jump: $('jump'), step1: $('step1'), step2: $('step2'), step3: $('step3'), step4: $('step4'),
-    step3Text: $('step3Text'), step4Text: $('step4Text'), jumpBar: $('jumpBar'),
-    result: $('result'), resKicker: $('resKicker'), resTitle: $('resTitle'), resSub: $('resSub'),
-    resBest: $('resBest'), resDist: $('resDist'), resJumps: $('resJumps'), resFar: $('resFar'),
-    resLegend: $('resLegend'), resShare: $('resShare'), replayBtn: $('replayBtn'), copyBtn: $('copyBtn')
-  };
+  var CX = 560, CY = 340;
+  var RINGS = [64, 104, 144, 184, 224, 264, 300, 336];
+  var RING_DIST = ['NEAR 01','NEAR 02','MID 03','MID 04','FAR 05','FAR 06','DEEP 07','VOID 08'];
+  var RING_TIER = ['EASY','EASY','NORMAL','NORMAL','HARD','HARD','EXPERT','EXPERT'];
+  var RARITY = [
+    null,
+    { name: 'COMMON',    color: '#9fb4c8', rings: [0, 1], cls: 'rarity1' },
+    { name: 'UNCOMMON',  color: '#5aa8ff', rings: [2, 3], cls: 'rarity2' },
+    { name: 'RARE',      color: '#b78bff', rings: [4, 5], cls: 'rarity3' },
+    { name: 'EPIC',      color: '#ffb347', rings: [6],    cls: 'rarity4' },
+    { name: 'LEGENDARY', color: '#ffd166', rings: [7],    cls: 'rarity5' }
+  ];
+  var TIER_LEVEL = { common: 1, uncommon: 2, rare: 3, epic: 4, legendary: 5 };
+  var MISSION = 10;
+  var PREFIX = ['Neon','Velvet','Quantum','Static','Midnight','Chrome','Solar','Lunar','Echo','Nova','Crystal','Plasma'];
+  var SUFFIX = ['Star','Nebula','Orbit','Drift','Signal','Halo','Comet','Bloom'];
+  var COLORS = ['#ff9ec4','#c6e25e','#7bd8c2','#ffb347','#b78bff','#ffe066','#6aa8ff','#ff7bd5','#8be9ff','#ff8a6b'];
+  var DESC_TYPE = ['gas giant','rocky desert','ice moon','coral ocean world','crystal jungle','lava asteroid','floating mossball','magnetic frontier'];
+  var DESC_FEAT = ['low gravity; the locals drift on glowing spores','rare spores light up the upper atmosphere','days and nights swing wildly; moss covers the ground','meteor showers pass overhead and crystal ore floats in the air','the magnetic field is unstable and compasses fail','a coral forest hides under the ocean','the crust pulses into new hills every few hours','two coloured auroras cross the night sky'];
 
   var packs = null;
-  var pool = [];
-  var planets = [];
-  var state = { cat: 'all', ship: null };
-  var shipPos = { x: -40, y: 0 };
-  var trailPoints = [];
-  var flightRaf = null;
+  var QUESTIONS = [];
+  var PLANETS = [];
+  var state = { current: 0, reached: new Set([0]), target: null, flying: false, finished: false, launching: false, totalAU: 0, lastAU: 0, jumps: 0, hintUsed: false, answer: null, cardTimer: null, cardToken: 0 };
+  var rocket = null;
   var lastJudge = 0;
   var audio = null;
 
-  function norm(s) {
-    return String(s || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '')
-      .toLowerCase().replace(/&/g, ' and ').replace(/[^a-z0-9]+/g, ' ').trim();
-  }
-  function dayNumber() {
-    var now = new Date();
-    var utc = Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate());
-    return Math.floor((utc - Date.UTC(2026, 0, 1)) / 86400000) + 1;
-  }
-  function hash(str) {
-    var h = 2166136261;
-    for (var i = 0; i < str.length; i++) { h ^= str.charCodeAt(i); h = Math.imul(h, 16777619); }
-    return h >>> 0;
-  }
-  function mulberry32(a) {
-    return function () {
-      a |= 0; a = a + 0x6D2B79F5 | 0;
-      var t = Math.imul(a ^ a >>> 15, 1 | a);
-      t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;
-      return ((t ^ t >>> 14) >>> 0) / 4294967296;
-    };
-  }
-  function shuffle(arr, seed) {
-    var r = mulberry32(seed), a = arr.slice();
-    for (var i = a.length - 1; i > 0; i--) {
-      var j = Math.floor(r() * (i + 1));
-      var t = a[i]; a[i] = a[j]; a[j] = t;
-    }
-    return a;
-  }
-  function esc(s) {
-    return String(s).replace(/[&<>"]/g, function (c) { return ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]; });
-  }
   function beep(freq, dur, type, vol, delay) {
     try {
       var Ctx = window.AudioContext || window.webkitAudioContext;
@@ -406,590 +299,649 @@ h1 span{color:var(--yellow)}
       o.type = type || 'sine';
       o.frequency.setValueAtTime(freq, t0);
       g.gain.setValueAtTime(0.0001, t0);
-      g.gain.exponentialRampToValueAtTime(vol == null ? 0.05 : vol, t0 + 0.01);
+      g.gain.exponentialRampToValueAtTime(vol == null ? 0.03 : vol, t0 + 0.01);
       g.gain.exponentialRampToValueAtTime(0.0001, t0 + dur);
       o.connect(g); g.connect(audio.destination);
       o.start(t0); o.stop(t0 + dur + 0.02);
     } catch (e) {}
   }
 
-  /* ---------- space ---------- */
-  function buildSystem() {
-    var svg = els.svg, ns = 'http://www.w3.org/2000/svg';
-    svg.innerHTML = '';
-    planets = [];
-    trailPoints = [];
-    var defs = document.createElementNS(ns, 'defs');
-    defs.innerHTML =
-      '<radialGradient id="sunGlow" cx="50%" cy="50%" r="50%">' +
-      '<stop offset="0%" stop-color="#fff8e0" stop-opacity=".95"/>' +
-      '<stop offset="35%" stop-color="#ffd36b" stop-opacity=".45"/>' +
-      '<stop offset="100%" stop-color="#ff7a3d" stop-opacity="0"/></radialGradient>' +
-      '<radialGradient id="neb1" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#5b3ea8" stop-opacity=".22"/><stop offset="100%" stop-color="#5b3ea8" stop-opacity="0"/></radialGradient>' +
-      '<radialGradient id="neb2" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#0e7490" stop-opacity=".18"/><stop offset="100%" stop-color="#0e7490" stop-opacity="0"/></radialGradient>';
-    svg.appendChild(defs);
+  function pick(a) { return a[Math.floor(Math.random() * a.length)]; }
+  function rand(a, b) { return a + Math.random() * (b - a); }
+  function norm(s) {
+    return String(s || '').trim().toLowerCase().replace(/[\s,，。.!！?？&]/g, '');
+  }
+  function makeDesc() { return pick(DESC_TYPE) + '; ' + pick(DESC_FEAT) + '.'; }
+  function fallbackLore(answer) {
+    var base = String(answer).replace(/[^A-Za-z0-9' -]/g, '').split(/\s+/).slice(0, 2).join(' ');
+    var h = 0;
+    for (var i = 0; i < String(answer).length; i++) h = (h * 31 + String(answer).charCodeAt(i)) >>> 0;
+    return { name: base + ' ' + SUFFIX[h % SUFFIX.length], desc: 'A small world assembled from ' + answer + ' trivia.' };
+  }
 
-    var stars = document.createElementNS(ns, 'g');
-    var r = mulberry32(42);
-    for (var i = 0; i < 150; i++) {
-      var c = document.createElementNS(ns, 'circle');
-      c.setAttribute('cx', (r() * 740 - 370).toFixed(1));
-      c.setAttribute('cy', (r() * 420 - 210).toFixed(1));
-      c.setAttribute('r', (r() < 0.12 ? 1.8 : 0.9).toFixed(1));
-      c.setAttribute('fill', '#cfe3ff');
-      c.setAttribute('opacity', (0.15 + r() * 0.55).toFixed(2));
-      stars.appendChild(c);
-    }
-    svg.appendChild(stars);
-
-    var n1 = document.createElementNS(ns, 'circle');
-    n1.setAttribute('cx', -300); n1.setAttribute('cy', -150); n1.setAttribute('r', 170);
-    n1.setAttribute('fill', 'url(#neb1)');
-    svg.appendChild(n1);
-    var n2 = document.createElementNS(ns, 'circle');
-    n2.setAttribute('cx', 300); n2.setAttribute('cy', 150); n2.setAttribute('r', 160);
-    n2.setAttribute('fill', 'url(#neb2)');
-    svg.appendChild(n2);
-
-    for (var k = 1; k <= RING_COUNT; k++) {
-      var ring = document.createElementNS(ns, 'ellipse');
-      ring.setAttribute('cx', 0); ring.setAttribute('cy', 0);
-      ring.setAttribute('rx', k * 70);
-      ring.setAttribute('ry', k * 38);
-      ring.setAttribute('fill', 'none');
-      ring.setAttribute('stroke', k === RING_COUNT ? 'rgba(255,209,102,.35)' : 'rgba(72,140,220,.28)');
-      ring.setAttribute('stroke-width', k === RING_COUNT ? 1.8 : 1.2);
-      ring.setAttribute('stroke-dasharray', '5 8');
-      svg.appendChild(ring);
-    }
-
-    var glow = document.createElementNS(ns, 'circle');
-    glow.setAttribute('r', 70); glow.setAttribute('fill', 'url(#sunGlow)');
-    svg.appendChild(glow);
-    var sun = document.createElementNS(ns, 'circle');
-    sun.setAttribute('r', 17); sun.setAttribute('fill', '#ffd166');
-    svg.appendChild(sun);
-
-    var pr = mulberry32(7);
-    for (var ringIdx = 1; ringIdx <= RING_COUNT; ringIdx++) {
-      var count = 5 + ringIdx * 2;
-      for (var j = 0; j < count; j++) {
-        var ang = (Math.PI * 2 * j) / count + pr() * 0.3;
-        var rx = ringIdx * 70 + (pr() * 6 - 3);
-        var ry = ringIdx * 38 + (pr() * 4 - 2);
-        var p = {
-          ring: ringIdx,
-          x: Math.cos(ang) * rx,
-          y: Math.sin(ang) * ry,
-          size: 4 + ringIdx * 0.6 + pr() * 2,
-          used: false
-        };
-        var pc = document.createElementNS(ns, 'circle');
-        pc.setAttribute('cx', p.x.toFixed(1));
-        pc.setAttribute('cy', p.y.toFixed(1));
-        pc.setAttribute('r', p.size.toFixed(1));
-        pc.setAttribute('fill', ringIdx >= 4 ? '#ffd166' : ringIdx >= 3 ? '#a78bfa' : '#48c8ff');
-        pc.setAttribute('opacity', '0.85');
-        p.el = pc;
-        planets.push(p);
-        svg.appendChild(pc);
+  /* ---------- build the system ---------- */
+  function genPlanets() {
+    var used = new Set();
+    var arr = [];
+    RINGS.forEach(function (radius, ri) {
+      var count = [5, 6, 7, 8, 8, 9, 9, 10][ri];
+      for (var i = 0; i < count; i++) {
+        var ang = rand(0, Math.PI * 2);
+        var name;
+        do { name = pick(PREFIX) + ' ' + pick(SUFFIX); } while (used.has(name));
+        used.add(name);
+        arr.push({
+          name: name,
+          ring: ri,
+          radius: radius,
+          distAU: +(0.6 * (ri + 1) + rand(0, 0.3)).toFixed(2),
+          x: CX + radius * Math.cos(ang),
+          y: CY + radius * Math.sin(ang) * 0.82,
+          color: pick(COLORS),
+          size: rand(4, 6),
+          desc: makeDesc(),
+          reached: false
+        });
       }
-    }
-
-    var trail = document.createElementNS(ns, 'polyline');
-    trail.setAttribute('fill', 'none');
-    trail.setAttribute('stroke', '#22d3ee');
-    trail.setAttribute('stroke-width', '1.4');
-    trail.setAttribute('stroke-linecap', 'round');
-    trail.setAttribute('opacity', '0.35');
-    svg.appendChild(trail);
-    state.trail = trail;
-
-    var ship = document.createElementNS(ns, 'g');
-    ship.id = 'ship';
-    ship.innerHTML =
-      '<path d="M0,-8 L11,0 L0,8 L-5,0 Z" fill="#e8f2ff"/>' +
-      '<circle cx="0" cy="0" r="3" fill="#22d3ee"/>' +
-      '<path d="M-5,0 L-12,-5 L-12,5 Z" fill="#8866dd"/>' +
-      '<path d="M-12,0 L-19,-3 L-19,3 Z" fill="#3ad0ff"/>';
-    svg.appendChild(ship);
-    state.ship = ship;
-    shipPos = { x: -40, y: 0 };
-    ship.setAttribute('transform', 'translate(-40,0) scale(1.5)');
+    });
+    arr[0].name = 'Earth';
+    arr[0].color = '#3d8bfd';
+    arr[0].isEarth = true;
+    return arr;
   }
 
-  function planetFor(tier) {
-    var ring = Math.min(5, Math.max(1, RARITY[tier] || 1));
-    var avail = planets.filter(function (p) { return p.ring === ring && !p.used; });
-    if (!avail.length) {
-      for (var d = 1; d < 5 && !avail.length; d++) {
-        avail = planets.filter(function (p) { return Math.abs(p.ring - ring) === d && !p.used; });
+  function buildNebula() {
+    var g = $('nebula'); g.innerHTML = '';
+    [[170,150,210,'url(#nebPurple)'],[990,520,220,'url(#nebCyan)'],[1010,130,160,'url(#nebPink)'],[150,560,180,'url(#nebPurple)'],[600,640,170,'url(#nebCyan)']].forEach(function (n) {
+      var e = document.createElementNS(NS, 'ellipse');
+      e.setAttribute('cx', n[0]); e.setAttribute('cy', n[1]);
+      e.setAttribute('rx', n[2]); e.setAttribute('ry', n[2] * 0.7);
+      e.setAttribute('fill', n[3]); g.appendChild(e);
+    });
+  }
+  function buildGrid() {
+    var g = $('grid'); g.innerHTML = '';
+    for (var x = 0; x <= 1200; x += 60) {
+      var l = document.createElementNS(NS, 'line');
+      l.setAttribute('x1', x); l.setAttribute('y1', 0); l.setAttribute('x2', x); l.setAttribute('y2', 700);
+      l.setAttribute('stroke', '#2a3566'); l.setAttribute('stroke-width', .5); l.setAttribute('opacity', .3);
+      g.appendChild(l);
+    }
+    for (var y = 0; y <= 700; y += 60) {
+      var h = document.createElementNS(NS, 'line');
+      h.setAttribute('x1', 0); h.setAttribute('y1', y); h.setAttribute('x2', 1200); h.setAttribute('y2', y);
+      h.setAttribute('stroke', '#2a3566'); h.setAttribute('stroke-width', .5); h.setAttribute('opacity', .3);
+      g.appendChild(h);
+    }
+  }
+  function buildStars() {
+    var g = $('bgstars'); g.innerHTML = '';
+    for (var i = 0; i < 110; i++) {
+      var c = document.createElementNS(NS, 'circle');
+      c.setAttribute('cx', Math.random() * 1200); c.setAttribute('cy', Math.random() * 700);
+      c.setAttribute('r', rand(.6, 1.7)); c.setAttribute('fill', '#fff');
+      c.setAttribute('opacity', rand(.15, .6).toFixed(2)); g.appendChild(c);
+    }
+  }
+  function buildOrbits() {
+    var g = $('orbits'); g.innerHTML = '';
+    RINGS.forEach(function (r, ri) {
+      var col = ri % 2 ? '#b78bff' : '#46d6e6';
+      var c = document.createElementNS(NS, 'ellipse');
+      c.setAttribute('cx', CX); c.setAttribute('cy', CY);
+      c.setAttribute('rx', r); c.setAttribute('ry', r * 0.82);
+      c.setAttribute('fill', 'none'); c.setAttribute('stroke', col);
+      c.setAttribute('stroke-width', 1.3); c.setAttribute('stroke-dasharray', '6 9');
+      c.setAttribute('opacity', .35); g.appendChild(c);
+      for (var k = 0; k < 24; k++) {
+        var ang = k / 24 * Math.PI * 2;
+        var tx = CX + r * Math.cos(ang), ty = CY + r * 0.82 * Math.sin(ang);
+        var main = k % 6 === 0;
+        var t = document.createElementNS(NS, 'rect');
+        var sz = main ? 3.2 : 1.8;
+        t.setAttribute('x', tx - sz / 2); t.setAttribute('y', ty - sz / 2);
+        t.setAttribute('width', sz); t.setAttribute('height', sz);
+        t.setAttribute('fill', col); t.setAttribute('opacity', main ? .75 : .4); g.appendChild(t);
       }
-    }
-    if (!avail.length) avail = planets.filter(function (p) { return !p.used; });
-    if (!avail.length) avail = planets;
-    var p = avail[Math.floor(Math.random() * avail.length)];
-    p.used = true;
-    if (p.el) p.el.setAttribute('fill', '#ff7777');
-    return p;
+    });
   }
-
-  function flyTo(target, done) {
-    var start = { x: shipPos.x, y: shipPos.y };
-    var mid = { x: (start.x + target.x) / 2, y: Math.min(start.y, target.y) - 70 };
-    var dur = 950, t0 = performance.now();
-    trailPoints = [];
-    function frame(t) {
-      var k = Math.min(1, (t - t0) / dur);
-      var e = 1 - Math.pow(1 - k, 3);
-      var x = (1 - e) * (1 - e) * start.x + 2 * (1 - e) * e * mid.x + e * e * target.x;
-      var y = (1 - e) * (1 - e) * start.y + 2 * (1 - e) * e * mid.y + e * e * target.y;
-      var dx = 2 * (1 - e) * (mid.x - start.x) + 2 * e * (target.x - mid.x);
-      var dy = 2 * (1 - e) * (mid.y - start.y) + 2 * e * (target.y - mid.y);
-      var ang = Math.atan2(dy, dx) * 180 / Math.PI;
-      shipPos = { x: x, y: y };
-      if (state.ship) state.ship.setAttribute('transform', 'translate(' + x.toFixed(1) + ',' + y.toFixed(1) + ') rotate(' + ang.toFixed(1) + ') scale(1.5)');
-      trailPoints.push({ x: x, y: y });
-      if (trailPoints.length > 24) trailPoints.shift();
-      if (state.trail) {
-        state.trail.setAttribute('points', trailPoints.map(function (p) { return p.x.toFixed(1) + ',' + p.y.toFixed(1); }).join(' '));
+  function drawPlanets() {
+    var g = $('planets'); g.innerHTML = '';
+    PLANETS.forEach(function (p, i) {
+      var wrap = document.createElementNS(NS, 'g');
+      wrap.setAttribute('transform', 'translate(' + p.x + ',' + p.y + ')');
+      var ring = document.createElementNS(NS, 'circle');
+      ring.setAttribute('r', p.size + 4); ring.setAttribute('fill', 'none');
+      ring.setAttribute('stroke', p.color); ring.setAttribute('stroke-width', 1);
+      ring.setAttribute('opacity', p.reached ? .9 : .35); wrap.appendChild(ring);
+      if (p.reached) {
+        var halo = document.createElementNS(NS, 'circle');
+        halo.setAttribute('r', p.size + 7); halo.setAttribute('fill', 'url(#halo)'); wrap.appendChild(halo);
       }
-      if (k < 1) flightRaf = requestAnimationFrame(frame);
-      else { flightRaf = null; done && done(); }
+      var el = document.createElementNS(NS, 'circle');
+      el.setAttribute('r', p.size); el.setAttribute('fill', p.color);
+      el.setAttribute('opacity', p.reached ? 1 : .6); wrap.appendChild(el);
+      var hi = document.createElementNS(NS, 'circle');
+      hi.setAttribute('cx', -p.size * .25); hi.setAttribute('cy', -p.size * .25);
+      hi.setAttribute('r', p.size * .35); hi.setAttribute('fill', '#fff'); hi.setAttribute('opacity', .4);
+      wrap.appendChild(hi);
+      var num = document.createElementNS(NS, 'text');
+      num.setAttribute('y', -p.size - 8); num.setAttribute('text-anchor', 'middle');
+      num.setAttribute('fill', p.reached ? '#e8efff' : '#8b96c9'); num.setAttribute('font-size', '10');
+      num.setAttribute('font-family', 'ui-monospace,monospace');
+      num.textContent = '#' + String(i + 1).padStart(2, '0'); wrap.appendChild(num);
+      if (p.isEarth) {
+        var tag = document.createElementNS(NS, 'text');
+        tag.setAttribute('y', p.size + 16); tag.setAttribute('text-anchor', 'middle');
+        tag.setAttribute('fill', '#9fd0ff'); tag.setAttribute('font-size', '11'); tag.setAttribute('font-weight', '700');
+        tag.textContent = 'EARTH'; wrap.appendChild(tag);
+      }
+      g.appendChild(wrap);
+    });
+  }
+  function drawSun() {
+    var g = $('sun'); g.innerHTML = '';
+    var wrap = document.createElementNS(NS, 'g');
+    wrap.setAttribute('transform', 'translate(' + CX + ',' + CY + ')');
+    [[96,'#ffb347',.10],[74,'#46d6e6',.10]].forEach(function (c) {
+      var h = document.createElementNS(NS, 'circle');
+      h.setAttribute('r', c[0]); h.setAttribute('fill', c[1]); h.setAttribute('opacity', c[2]); wrap.appendChild(h);
+    });
+    for (var i = 0; i < 12; i++) {
+      var ang = i / 12 * Math.PI * 2;
+      var ray = document.createElementNS(NS, 'line');
+      ray.setAttribute('x1', Math.cos(ang) * 22); ray.setAttribute('y1', Math.sin(ang) * 22);
+      ray.setAttribute('x2', Math.cos(ang) * 36); ray.setAttribute('y2', Math.sin(ang) * 36);
+      ray.setAttribute('stroke', '#ffd36b'); ray.setAttribute('stroke-width', 2); ray.setAttribute('opacity', .35);
+      wrap.appendChild(ray);
     }
-    flightRaf = requestAnimationFrame(frame);
+    [[62,'#ffb347','14 8',2,'spin 20s linear infinite',.55],[52,'#46d6e6','8 7',1.6,'spinR 26s linear infinite',.55],[44,'#b78bff','3 9',1.4,'spin 32s linear infinite',.5]].forEach(function (cfg) {
+      var rg = document.createElementNS(NS, 'g'); rg.style.animation = cfg[4];
+      var c = document.createElementNS(NS, 'circle');
+      c.setAttribute('r', cfg[0]); c.setAttribute('fill', 'none'); c.setAttribute('stroke', cfg[1]);
+      c.setAttribute('stroke-width', cfg[3]); c.setAttribute('stroke-dasharray', cfg[2]); c.setAttribute('opacity', cfg[5]);
+      rg.appendChild(c); wrap.appendChild(rg);
+    });
+    var body = document.createElementNS(NS, 'circle');
+    body.setAttribute('r', 30); body.setAttribute('fill', 'url(#sunGrad)'); wrap.appendChild(body);
+    var core = document.createElementNS(NS, 'circle');
+    core.setAttribute('r', 14); core.setAttribute('fill', '#fff'); core.setAttribute('opacity', .85); wrap.appendChild(core);
+    g.appendChild(wrap);
+  }
+  function buildRocket() {
+    var g = document.createElementNS(NS, 'g'); g.id = 'rocket-el';
+    g.innerHTML =
+      '<g transform="scale(0.72)">' +
+      '<path d="M -15 -4 L -25 0 L -15 4 Z" fill="#46d6e6" opacity=".7"/>' +
+      '<path d="M -15 -2 L -21 0 L -15 2 Z" fill="#ffe066"/>' +
+      '<path d="M -4 -5 L -12 -12 L 2 -6 Z" fill="#b78bff"/>' +
+      '<path d="M -4 5 L -12 12 L 2 6 Z" fill="#b78bff"/>' +
+      '<path d="M -15 0 C -15 -6 -6 -8 4 -7 L 12 -4 C 17 -2 17 2 12 4 L 4 7 C -6 8 -15 6 -15 0 Z" fill="#eef2ff"/>' +
+      '<path d="M -13 0 C -13 -4 -6 -6 3 -5 L 11 -3.5 C 14 -2 14 2 11 3.5 L 3 5 C -6 6 -13 4 -13 0 Z" fill="#c9d6ff" opacity=".5"/>' +
+      '<ellipse cx="2" cy="-5" rx="5" ry="3.5" fill="#3f6fe0"/>' +
+      '<ellipse cx="2" cy="-5" rx="2.4" ry="1.6" fill="#8be9ff"/>' +
+      '<circle cx="-6" cy="0" r="1.6" fill="#8be9ff" opacity=".7"/>' +
+      '</g>';
+    $('rocket').appendChild(g); return g;
+  }
+  function placeRocket(x, y, ang) {
+    rocket.setAttribute('transform', 'translate(' + x + ',' + y + ') rotate(' + (ang || 0) + ')');
   }
 
-  /* ---------- game ---------- */
-  function categoryPool(cat) {
-    return pool.filter(function (x) { return cat === 'all' || x.themeSlug === cat; });
+  /* ---------- questions ---------- */
+  function buildQuestions() {
+    QUESTIONS = [];
+    packs.themes.forEach(function (t) {
+      t.questions.forEach(function (q) {
+        QUESTIONS.push({
+          q: q.prompt,
+          qid: q.id,
+          theme: t.slug,
+          themeName: t.name,
+          hint: q.hint || '',
+          ans: q.answers.map(function (a) {
+            return { v: a.name, r: TIER_LEVEL[a.tier] || 1, aliases: a.aliases || [], tier: a.tier };
+          })
+        });
+      });
+    });
   }
 
-  function startRun(practice) {
-    var cat = state.cat || 'all';
-    var items = categoryPool(cat);
-    if (!items.length) items = pool;
-    var seed = practice ? (Date.now() >>> 0) : hash(dayNumber() + '|' + cat);
-    var order = shuffle(items, seed);
-    state = {
-      cat: cat,
-      practice: !!practice,
-      dist: 0,
-      jumps: 0,
-      far: 1,
-      legend: 0,
-      rarest: null,
-      used: {},
-      queue: shuffle(order, (seed ^ 0x9e3779b9) >>> 0),
-      current: null,
-      hintUsed: false,
-      checking: false,
-      status: 'playing',
-      cardTimer: null,
-      ship: null,
-      trail: null
-    };
-    buildSystem();
-    els.start.classList.remove('on');
-    els.result.classList.remove('on');
-    els.arrive.classList.remove('show');
-    els.hintLine.classList.remove('on');
-    els.hintLine.hidden = true;
-    els.feedback.textContent = 'Rarer answers jump farther. A hint is free, once per prompt.';
-    els.feedback.className = 'feedback';
-    els.mode.textContent = practice ? 'PRACTICE' : 'DAILY #' + dayNumber();
-    updateHud();
-    nextQuestion();
-  }
-
-  function updateHud() {
-    els.dist.textContent = state.dist.toFixed(2) + ' AU';
-    els.jumps.textContent = state.jumps;
-    els.far.textContent = state.far;
-    els.target.textContent = state.targetName || '—';
-  }
-
-  function nextQuestion() {
-    if (!state.queue.length) state.queue = shuffle(categoryPool(state.cat), Date.now() >>> 0);
-    var item = state.queue.shift();
-    if (!item) return endRun();
-    if (state.cardTimer) { clearTimeout(state.cardTimer); state.cardTimer = null; }
-    els.arrive.classList.remove('show');
-    els.arrNext.textContent = 'NEXT PROMPT →';
-    state.current = item;
+  function renderQuestion() {
+    if (state.jumps >= MISSION) return finish();
+    state.launching = false;
+    state.cyber = null;
+    state.cardToken += 1;
+    var q = pick(QUESTIONS);
+    state._q = q;
+    state.target = null;
     state.hintUsed = false;
-    state.status = 'playing';
-    state.checking = false;
-    state.targetName = null;
-    els.qtag.textContent = item.themeName.toUpperCase();
-    els.qtext.textContent = item.q.prompt;
-    els.ans.value = '';
-    els.ans.disabled = false;
-    els.confirmBtn.disabled = false;
-    els.ans.classList.remove('bad');
-    els.hintBtn.disabled = false;
-    els.hintLine.classList.remove('on');
-    els.hintLine.hidden = true;
-    els.feedback.textContent = 'Rarer answers jump farther. A hint is free, once per prompt.';
-    els.feedback.className = 'feedback';
-    els.ans.focus({ preventScroll: true });
-    updateHud();
+    $('q-tier').textContent = 'LOCKING';
+    $('q-tier').className = 'badge rarity1';
+    $('q-target').textContent = '---';
+    $('q-dist').textContent = '· rarer answers jump farther';
+    $('q-text').textContent = q.q;
+    $('hud-target').textContent = '---';
+    $('hud-last').textContent = '—';
+    $('hud-total').textContent = state.totalAU.toFixed(2) + ' AU';
+    $('hud-reach').textContent = state.jumps;
+    $('hud-far').textContent = state.far ? state.far + 1 : 1;
+    $('feedback').textContent = '';
+    $('feedback').className = 'feedback';
+    $('answer').value = '';
+    $('answer').disabled = false;
+    $('btn-launch').disabled = false;
+    $('btn-hint').disabled = false;
+    $('answer').focus();
   }
 
-  function matches(q, text) {
-    var n = norm(text);
+  function matchAnswer(v, q) {
+    var n = norm(v);
     if (!n) return null;
-    for (var i = 0; i < q.answers.length; i++) {
-      var a = q.answers[i];
-      if (norm(a.name) === n) return a;
-      for (var j = 0; j < (a.aliases || []).length; j++) {
-        if (norm(a.aliases[j]) === n) return a;
+    for (var i = 0; i < q.ans.length; i++) {
+      var item = q.ans[i];
+      if (norm(item.v) === n) return item;
+      for (var j = 0; j < item.aliases.length; j++) {
+        if (norm(item.aliases[j]) === n) return item;
       }
     }
     return null;
   }
 
-  function shakeShip() {
-    els.scene.classList.add('shake');
-    setTimeout(function () { els.scene.classList.remove('shake'); }, 450);
-    beep(150, 0.08, 'square', 0.03);
+  /* ---------- target / flight ---------- */
+  function chooseTarget(rarity) {
+    var left = PLANETS.map(function (_, i) { return i; }).filter(function (i) { return !PLANETS[i].reached; });
+    if (!left.length) return null;
+    var cands = left.filter(function (i) { return rarity.rings.indexOf(PLANETS[i].ring) !== -1; });
+    if (!cands.length) cands = left;
+    state.target = pick(cands);
+    return PLANETS[state.target];
+  }
+
+  function fly(from, to, done) {
+    state.flying = true;
+    $('btn-launch').disabled = true;
+    $('btn-hint').disabled = true;
+    var A = PLANETS[from], B = PLANETS[to];
+    var sx = A.x, sy = A.y, ex = B.x, ey = B.y;
+    var cx = (sx + ex) / 2, cy = Math.min(sy, ey) - 60;
+    var dur = 950, t0 = performance.now();
+    function frame(t) {
+      var k = Math.min(1, (t - t0) / dur), e = 1 - Math.pow(1 - k, 3);
+      var x = (1 - e) * (1 - e) * sx + 2 * (1 - e) * e * cx + e * e * ex;
+      var y = (1 - e) * (1 - e) * sy + 2 * (1 - e) * e * cy + e * e * ey;
+      var dx = 2 * (1 - e) * (cx - sx) + 2 * e * (ex - cx);
+      var dy = 2 * (1 - e) * (cy - sy) + 2 * e * (ey - cy);
+      placeRocket(x, y, Math.atan2(dy, dx) * 180 / Math.PI);
+      var dot = document.createElementNS(NS, 'circle');
+      dot.setAttribute('cx', x); dot.setAttribute('cy', y); dot.setAttribute('r', 3);
+      dot.setAttribute('fill', '#46d6e6'); dot.setAttribute('opacity', .65);
+      $('trails').appendChild(dot);
+      if (k < 1) requestAnimationFrame(frame);
+      else { state.flying = false; done && done(); }
+    }
+    requestAnimationFrame(frame);
+  }
+
+  function drawHit(idx) {
+    var g = $('hit'); g.innerHTML = '';
+    var p = PLANETS[idx];
+    var wrap = document.createElementNS(NS, 'g');
+    wrap.setAttribute('transform', 'translate(' + p.x + ',' + p.y + ')');
+    var pulse = document.createElementNS(NS, 'circle');
+    pulse.setAttribute('r', 44); pulse.setAttribute('fill', 'none');
+    pulse.setAttribute('stroke', p.color); pulse.setAttribute('stroke-width', 1.5);
+    pulse.setAttribute('opacity', .7);
+    pulse.style.animation = 'pulseRing 1.2s infinite';
+    wrap.appendChild(pulse);
+    var glow = document.createElementNS(NS, 'circle');
+    glow.setAttribute('r', 50); glow.setAttribute('fill', p.color); glow.setAttribute('opacity', .18); wrap.appendChild(glow);
+    var body = document.createElementNS(NS, 'circle');
+    body.setAttribute('r', 32); body.setAttribute('fill', p.color); wrap.appendChild(body);
+    var shade = document.createElementNS(NS, 'circle');
+    shade.setAttribute('cx', 7); shade.setAttribute('cy', 9); shade.setAttribute('r', 25);
+    shade.setAttribute('fill', '#000'); shade.setAttribute('opacity', .16); wrap.appendChild(shade);
+    var hi = document.createElementNS(NS, 'ellipse');
+    hi.setAttribute('cx', -12); hi.setAttribute('cy', -15); hi.setAttribute('rx', 11); hi.setAttribute('ry', 7);
+    hi.setAttribute('fill', '#fff'); hi.setAttribute('opacity', .5); wrap.appendChild(hi);
+    var rim = document.createElementNS(NS, 'circle');
+    rim.setAttribute('r', 32); rim.setAttribute('fill', 'none'); rim.setAttribute('stroke', '#fff');
+    rim.setAttribute('stroke-width', 2); rim.setAttribute('opacity', .9); wrap.appendChild(rim);
+    var L = 42, col = '#46d6e6';
+    [[-L,-L,1,1],[L,-L,-1,1],[-L,L,1,-1],[L,L,-1,-1]].forEach(function (c) {
+      var a = document.createElementNS(NS, 'path');
+      a.setAttribute('d', 'M ' + c[0] + ' ' + (c[1] + 14 * c[3]) + ' L ' + c[0] + ' ' + c[1] + ' L ' + (c[0] + 14 * c[2]) + ' ' + c[1]);
+      a.setAttribute('fill', 'none'); a.setAttribute('stroke', col); a.setAttribute('stroke-width', 2.5);
+      wrap.appendChild(a);
+    });
+    var tag = document.createElementNS(NS, 'g');
+    var box = document.createElementNS(NS, 'rect');
+    box.setAttribute('id', 'hit-box');
+    box.setAttribute('x', 50); box.setAttribute('y', -18); box.setAttribute('width', Math.max(120, p.name.length * 9 + 44)); box.setAttribute('height', 34);
+    box.setAttribute('rx', 8); box.setAttribute('fill', 'rgba(10,16,38,.92)');
+    box.setAttribute('stroke', '#46d6e6'); box.setAttribute('stroke-width', 1.5); tag.appendChild(box);
+    var txt = document.createElementNS(NS, 'text');
+    txt.setAttribute('id', 'hit-name');
+    txt.setAttribute('x', 62); txt.setAttribute('y', 4); txt.setAttribute('fill', '#fff');
+    txt.setAttribute('font-size', '16'); txt.setAttribute('font-weight', '700');
+    txt.textContent = p.name; tag.appendChild(txt);
+    var sub = document.createElementNS(NS, 'text');
+    sub.setAttribute('x', 62); sub.setAttribute('y', 16); sub.setAttribute('fill', '#8b96c9');
+    sub.setAttribute('font-size', '10'); sub.setAttribute('font-family', 'ui-monospace,monospace');
+    sub.textContent = 'DISTANCE ' + RING_DIST[p.ring] + ' · ' + RING_TIER[p.ring]; tag.appendChild(sub);
+    wrap.appendChild(tag);
+    g.appendChild(wrap);
+    for (var i = 0; i < 12; i++) {
+      var sp = document.createElementNS(NS, 'circle');
+      var ang = rand(0, Math.PI * 2), dist = rand(24, 48);
+      sp.setAttribute('cx', p.x); sp.setAttribute('cy', p.y); sp.setAttribute('r', rand(2.5, 4.5));
+      sp.setAttribute('fill', pick(['#fff', '#ffe066', p.color])); g.appendChild(sp);
+      sp.animate([{ transform: 'translate(0,0)', opacity: 1 }, { transform: 'translate(' + Math.cos(ang) * dist + ',' + Math.sin(ang) * dist + ')', opacity: 0 }], { duration: 700, easing: 'ease-out' });
+    }
+  }
+
+  function showArrive(p, item) {
+    state.cardToken += 1;
+    var token = state.cardToken;
+    var rar = RARITY[item ? item.r : 1];
+    $('arrive').classList.remove('fail');
+    $('arrive-name').textContent = p.name;
+    $('arrive-tag').textContent = rar.name + ' · ' + RING_DIST[p.ring] + ' · ' + p.distAU.toFixed(2) + ' AU';
+    $('arrive-desc').textContent = p.desc;
+    $('arrive-planet').querySelector('circle.body').setAttribute('fill', p.color);
+    $('arrive').classList.add('show');
+    beep(660, 0.08, 'sine', 0.03);
+    beep(990, 0.12, 'sine', 0.02, 0.08);
+    if (item) {
+      fetch('/api/rarepop/lore', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ theme: state._q.theme, questionId: state._q.qid, answer: item.v })
+      }).then(function (r) { return r.ok ? r.json() : null; }).then(function (d) {
+        if (!d || !d.name || state.cardToken !== token) return;
+        p.name = d.name;
+        p.desc = d.desc;
+        $('arrive-name').textContent = d.name;
+        $('arrive-desc').textContent = d.desc;
+        $('hud-target').textContent = d.name;
+        $('q-target').textContent = d.name;
+        $('feedback').textContent = '✓ Locked ' + d.name + '!';
+        var hitName = document.getElementById('hit-name');
+        if (hitName) hitName.textContent = d.name;
+        var hitBox = document.getElementById('hit-box');
+        if (hitBox) hitBox.setAttribute('width', Math.max(120, d.name.length * 9 + 44));
+      }).catch(function () {});
+    }
+  }
+
+  function showFailCard(text, reason) {
+    state.launching = false;
+    state.cardToken += 1;
+    $('arrive').classList.add('fail');
+    $('arrive-name').textContent = 'The Void';
+    $('arrive-tag').textContent = reason === 'rate' ? 'SCANNER BUSY' : 'NOT ON THE LIST';
+    $('arrive-desc').textContent = reason === 'rate'
+      ? 'The scanner is cooling down. Try again in a moment.'
+      : 'Nothing answers at those coordinates. Try another name from the list.';
+    $('arrive-planet').querySelector('circle.body').setAttribute('fill', '#4b5563');
+    $('arrive').classList.add('show');
+    beep(130, 0.16, 'sawtooth', 0.025);
+    var sky = $('sky');
+    sky.classList.remove('shake'); void sky.offsetWidth; sky.classList.add('shake');
+    setTimeout(function () { sky.classList.remove('shake'); }, 450);
+    $('answer').disabled = true;
+    $('btn-launch').disabled = true;
+    $('btn-hint').disabled = true;
+    if (state.cardTimer) clearTimeout(state.cardTimer);
+    state.cardTimer = setTimeout(function () {
+      $('arrive').classList.remove('show');
+      $('answer').value = '';
+      $('answer').disabled = false;
+      $('btn-launch').disabled = false;
+      $('btn-hint').disabled = false;
+      $('answer').focus();
+      $('feedback').textContent = 'Not on the list — try another answer.';
+      $('feedback').className = 'feedback err';
+    }, 3200);
+  }
+
+  function onLand() {
+    var idx = state.target, p = PLANETS[idx];
+    p.reached = true;
+    state.reached.add(idx);
+    state.current = idx;
+    state.lastAU = p.distAU;
+    state.totalAU = +(state.totalAU + p.distAU).toFixed(2);
+    state.jumps += 1;
+    state.far = Math.max(state.far || 0, p.ring);
+    $('hud-last').textContent = p.distAU.toFixed(2) + ' AU';
+    $('hud-total').textContent = state.totalAU.toFixed(2) + ' AU';
+    $('hud-reach').textContent = state.jumps;
+    $('hud-far').textContent = p.ring + 1;
+    drawHit(idx);
+    drawPlanets();
+    $('feedback').textContent = '✓ Locked ' + p.name + '!';
+    $('feedback').className = 'feedback ok';
+    showArrive(p, state._hit);
+    setTimeout(function () { $('trails').innerHTML = ''; }, 600);
+    setTimeout(function () {
+      $('hit').innerHTML = '';
+      $('arrive').classList.remove('show');
+      state._hit = null;
+      if (state.jumps >= MISSION) finish();
+      else renderQuestion();
+    }, 2800);
+  }
+
+  function finish() {
+    state.finished = true;
+    state.launching = false;
+    state.cyber = null;
+    state.cardToken += 1;
+    $('cyber').classList.remove('show');
+    $('answer').disabled = true;
+    $('btn-launch').disabled = true;
+    $('btn-hint').disabled = true;
+    var au = state.totalAU;
+    var ranks = [
+      { min: 0, label: 'ORBIT ROOKIE', desc: 'Barely left Earth orbit. The ship is still warm.' },
+      { min: 5, label: 'INNER RING RUNNER', desc: 'Bouncing between the near rings.' },
+      { min: 12, label: 'DEEP SPACE REGULAR', desc: 'Out past the middle rings, comfortably.' },
+      { min: 20, label: 'OUTER RING LEGEND', desc: 'One of the far travellers now.' },
+      { min: 30, label: 'GALACTIC ACE', desc: 'You took the long way and it paid off.' }
+    ];
+    var rank = ranks.slice().reverse().filter(function (x) { return au >= x.min; })[0] || ranks[0];
+    $('rank-label').textContent = state.jumps >= MISSION ? 'MISSION COMPLETE' : 'MISSION REPORT';
+    $('rank-title').textContent = au.toFixed(2) + ' AU';
+    $('rank-desc').textContent = state.jumps + ' jumps · farthest ring ' + (state.far + 1) + ' · ' + rank.label + ' — ' + rank.desc;
+    $('overlay').classList.add('show');
+    beep(523, 0.1, 'sine', 0.03);
+    beep(659, 0.1, 'sine', 0.03, 0.1);
+    beep(784, 0.18, 'sine', 0.03, 0.2);
+  }
+
+  function setCyberTarget(p) {
+    if (!state.cyber || state.cyber.aborted) { beginLaunch(p); return; }
+    state.cyber.planet = p;
+    var lis = $('cyber-list').children;
+    if (lis[2]) lis[2].querySelector('span').textContent = 'Locking target · ' + RING_DIST[p.ring];
+    if (lis[3]) lis[3].querySelector('span').textContent = 'Jumping to ring ' + (p.ring + 1);
+    if (state.cyber.ready) startCyberFlight();
+  }
+
+  function startCyberFlight() {
+    if (!state.cyber || state.cyber.flying || state.cyber.aborted || !state.cyber.planet) return;
+    var seq = state.cyber;
+    seq.flying = true;
+    $('cyber').classList.remove('show');
+    beep(620, 0.12, 'sine', 0.03);
+    setTimeout(function () {
+      if (!state || state.finished || state.cyber !== seq || seq.aborted) return;
+      fly(state.current, state.target, onLand);
+    }, 350);
+  }
+
+  function abortCyber() {
+    if (state.cyber) state.cyber.aborted = true;
+    state.cyber = null;
+    $('cyber').classList.remove('show');
+  }
+
+  function beginLaunch(planet) {
+    var cy = $('cyber'), list = $('cyber-list'), bar = $('cyber-progress');
+    $('btn-launch').disabled = true;
+    $('btn-hint').disabled = true;
+    cy.classList.add('show');
+    list.innerHTML = ''; bar.style.width = '0%'; bar.classList.remove('waiting');
+    var seq = state.cyber = { planet: planet || null, ready: false, flying: false, aborted: false };
+    var steps = planet
+      ? ['Charging the ship', 'Igniting engines', 'Locking target · ' + RING_DIST[planet.ring], 'Jumping to ring ' + (planet.ring + 1)]
+      : ['Charging the ship', 'Igniting engines', 'Scanning coordinates', 'Locking jump vector'];
+    var i = 0;
+    function next() {
+      if (!state || state.cyber !== seq || seq.aborted) return;
+      if (i >= steps.length) {
+        bar.style.width = '100%';
+        seq.ready = true;
+        if (seq.planet) startCyberFlight();
+        else bar.classList.add('waiting');
+        return;
+      }
+      var label = steps[i];
+      if (i === 2 && seq.planet) label = 'Locking target · ' + RING_DIST[seq.planet.ring];
+      if (i === 3 && seq.planet) label = 'Jumping to ring ' + (seq.planet.ring + 1);
+      var li = document.createElement('li');
+      li.className = 'st doing';
+      li.innerHTML = '<i></i><span>' + label + '</span>';
+      list.appendChild(li);
+      bar.style.width = (i / steps.length * 100) + '%';
+      beep(420 + i * 90, 0.05, 'sine', 0.018);
+      setTimeout(function () {
+        if (!state || state.cyber !== seq || seq.aborted) return;
+        li.classList.remove('doing'); li.classList.add('done'); i++; next();
+      }, 700);
+    }
+    next();
   }
 
   function askJudge(q, text) {
     return fetch('/api/rarepop/judge', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ theme: state.current.themeSlug, questionId: q.id, answer: String(text).slice(0, 80) })
-    })
-      .then(function (r) {
-        if (r.status === 429) return { rate: true };
-        return r.ok ? r.json() : { match: null };
-      })
-      .then(function (data) {
-        if (data && data.rate) return { rate: true };
-        var name = data && data.match;
-        if (!name) return null;
-        for (var i = 0; i < q.answers.length; i++) if (q.answers[i].name === name) return q.answers[i];
-        return null;
-      })
-      .catch(function () { return null; });
+      body: JSON.stringify({ theme: q.theme, questionId: q.qid, answer: String(text).slice(0, 80) })
+    }).then(function (r) {
+      if (r.status === 429) return { rate: true };
+      return r.ok ? r.json() : null;
+    }).then(function (d) {
+      if (!d || d.rate) return d;
+      if (!d.match) return null;
+      for (var i = 0; i < q.ans.length; i++) if (q.ans[i].v === d.match) return q.ans[i];
+      return null;
+    }).catch(function () { return null; });
   }
 
   function submit() {
-    if (!state || state.status !== 'playing' || state.checking) return;
-    var text = els.ans.value;
-    var q = state.current.q;
+    if (!state || state.flying || state.finished || state.launching) return;
+    var text = $('answer').value;
     if (!String(text || '').trim()) {
-      els.feedback.textContent = 'Type an answer first.';
-      els.feedback.className = 'feedback err';
-      shakeShip();
+      $('feedback').textContent = 'Type an answer first.';
+      $('feedback').className = 'feedback err';
       return;
     }
-    var local = matches(q, text);
-    if (local && state.used[local.name]) {
-      els.feedback.textContent = 'Already used that answer. Pick a different one.';
-      els.feedback.className = 'feedback err';
+    var q = state._q;
+    var hit = matchAnswer(text, q);
+    if (hit) return launch(hit);
+    if (Date.now() - lastJudge < 1500) {
+      $('feedback').textContent = 'Easy — one check at a time.';
+      $('feedback').className = 'feedback err';
       return;
     }
-    state.checking = true;
-    state.status = 'launching';
-    els.ans.disabled = true;
-    els.confirmBtn.disabled = true;
-    var ring = local ? RARITY[local.tier] : '?';
-    var lookup = local ? Promise.resolve(local) : askJudge(q, text);
-
-    showJump(ring).then(function () {
-      return lookup;
-    }).then(function (found) {
-      state.checking = false;
-      if (!state) return;
-      if (found && found.rate) return showFailCard(text, 'rate');
-      if (found) return land(found);
-      return showFailCard(text, 'invalid');
-    }).catch(function () {
-      state.checking = false;
-      if (state) showFailCard(text, 'invalid');
+    lastJudge = Date.now();
+    state.launching = true;
+    $('answer').disabled = true;
+    $('btn-launch').disabled = true;
+    $('btn-hint').disabled = true;
+    $('feedback').textContent = '';
+    $('feedback').className = 'feedback';
+    beginLaunch(null);
+    askJudge(q, text).then(function (found) {
+      if (!state || state.finished) return;
+      if (found && !found.rate) return launch(found, true);
+      abortCyber();
+      showFailCard(text, found && found.rate ? 'rate' : 'invalid');
     });
   }
 
-  function fallbackLore(a) {
-    var suffixes = ['Star', 'Nebula', 'Orbit', 'Signal', 'Drift', 'Halo', 'Comet', 'Bloom'];
-    var base = a.name.replace(/[^A-Za-z0-9' -]/g, '').split(/\s+/).slice(0, 2).join(' ');
-    var h = 0;
-    for (var i = 0; i < a.name.length; i++) h = (h * 31 + a.name.charCodeAt(i)) >>> 0;
-    return {
-      name: base + ' ' + suffixes[h % suffixes.length],
-      desc: 'A small world assembled from ' + a.name + ' trivia.'
-    };
-  }
-
-  function fetchLore(a) {
-    if (!state || !state.current) return Promise.resolve(fallbackLore(a));
-    return fetch('/api/rarepop/lore', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ theme: state.current.themeSlug, questionId: state.current.q.id, answer: a.name })
-    })
-      .then(function (r) { return r.ok ? r.json() : null; })
-      .then(function (d) { return d && d.name && d.desc ? d : fallbackLore(a); })
-      .catch(function () { return fallbackLore(a); });
-  }
-
-  function land(a) {
-    if (state.used[a.name]) return showFailCard(a.name, 'used');
-    state.used[a.name] = true;
-    state.status = 'flying';
-    state.jumps += 1;
-    var p = planetFor(a.tier);
-    var au = RING_DIST[p.ring] || 0;
-    state.dist += au;
-    state.lastAU = au;
-    state.far = Math.max(state.far, p.ring);
-    if (a.tier === 'legendary') state.legend += 1;
-    if (!state.rarest || RARITY[a.tier] > RARITY[state.rarest.tier]) state.rarest = a;
-    var lore = fallbackLore(a);
-    state.targetName = 'RING ' + p.ring;
-    updateHud();
-    els.last.textContent = au.toFixed(2) + ' AU';
-    els.ans.disabled = true;
-    els.confirmBtn.disabled = true;
-    beep(420 + RARITY[a.tier] * 70, 0.08, 'triangle', 0.04);
-
-    flyTo({ x: p.x, y: p.y }, function () {
-      if (!state || state.status !== 'flying') return;
-      showArrive(a, p, lore);
-      var token = state.cardToken;
-      fetchLore(a).then(function (text) {
-        if (!state || state.cardToken !== token) return;
-        if (!text || !text.name) return;
-        els.arrName.textContent = text.name;
-        els.arrDesc.textContent = text.desc;
-        if (state.targetName !== text.name) {
-          state.targetName = text.name;
-          updateHud();
-        }
-      });
-    });
-  }
-
-  function showFailCard(text, reason) {
-    if (!state) return;
-    state.status = 'failing';
-    state.cardToken = (state.cardToken || 0) + 1;
-    var head = 'NO COORDINATES · NOT ON THE LIST';
-    var desc = 'Nothing answers at those coordinates. Try another name from the list.';
-    if (reason === 'rate') {
-      head = 'SCANNER BUSY';
-      desc = 'The scanner is cooling down. Give it a second and try again.';
-    } else if (reason === 'used') {
-      head = 'ALREADY SCANNED · ' + String(text).toUpperCase();
-      desc = 'You already used that answer this run. Pick a different one.';
-    }
-    els.arrHead.textContent = head;
-    els.arrName.textContent = 'The Void';
-    els.arrPlanet.dataset.tier = 'fail';
-    els.arrDesc.textContent = desc;
-    els.arrMeta.innerHTML = 'Answer: <b>' + esc(text) + '</b>';
-    els.arrNext.textContent = 'TRY AGAIN →';
-    els.arrive.classList.add('show');
-    els.flash.classList.remove('on');
-    void els.flash.offsetWidth;
-    els.flash.classList.add('on');
-    shakeShip();
-    if (state.cardTimer) clearTimeout(state.cardTimer);
-    state.cardTimer = setTimeout(retryQuestion, 6000);
-  }
-
-  function retryQuestion() {
-    if (!state) return;
-    if (state.cardTimer) { clearTimeout(state.cardTimer); state.cardTimer = null; }
-    els.arrive.classList.remove('show');
-    state.status = 'playing';
-    state.checking = false;
-    els.ans.disabled = false;
-    els.confirmBtn.disabled = false;
-    els.ans.value = '';
-    els.feedback.textContent = 'Not on the list — try another answer.';
-    els.feedback.className = 'feedback err';
-    els.ans.focus({ preventScroll: true });
-  }
-
-  function showJump(ring) {
-    return new Promise(function (done) {
-      [els.step1, els.step2, els.step3, els.step4].forEach(function (s) { s.className = 'jstep'; });
-      els.step3Text.innerHTML = 'Locking target · ring <b>' + ring + '</b>';
-      els.step4Text.innerHTML = 'Jumping to ring <b>' + ring + '</b>';
-      els.jumpBar.style.width = '0%';
-      els.jump.classList.add('on');
-      beep(90, 0.45, 'sawtooth', 0.03);
-      setTimeout(function () { els.step1.classList.add('active'); els.jumpBar.style.width = '20%'; }, 60);
-      setTimeout(function () {
-        els.step1.classList.add('done'); els.step1.classList.remove('active');
-        els.step2.classList.add('active'); els.jumpBar.style.width = '45%';
-        beep(160, 0.18, 'sawtooth', 0.03);
-      }, 500);
-      setTimeout(function () {
-        els.step2.classList.add('done'); els.step2.classList.remove('active');
-        els.step3.classList.add('active'); els.jumpBar.style.width = '70%';
-        beep(240, 0.18, 'sawtooth', 0.03);
-      }, 1000);
-      setTimeout(function () {
-        els.step3.classList.add('done'); els.step3.classList.remove('active');
-        els.step4.classList.add('active'); els.jumpBar.style.width = '90%';
-        beep(340, 0.2, 'sawtooth', 0.035);
-      }, 1500);
-      setTimeout(function () {
-        els.step4.classList.add('done'); els.step4.classList.remove('active');
-        els.jumpBar.style.width = '100%';
-      }, 1900);
-      setTimeout(function () {
-        els.jump.classList.remove('on');
-        done();
-      }, 2250);
-    });
-  }
-
-  function showArrive(a, p, lore) {
-    state.cardToken = (state.cardToken || 0) + 1;
-    els.arrHead.textContent = 'NEW DISCOVERY · RING ' + p.ring + ' · ' + RARITY_LABEL[RARITY[a.tier]];
-    els.arrName.textContent = lore.name;
-    els.arrPlanet.dataset.tier = a.tier;
-    els.arrDesc.textContent = lore.desc;
-    els.arrMeta.innerHTML = 'Answer: <b>' + esc(a.name) + '</b> · +' + (RING_DIST[p.ring] || 0).toFixed(2) +
-      ' AU · rarer than <b>' + Math.max(1, 100 - a.share) + '%</b> of valid answers';
-    els.arrNext.textContent = state.jumps >= MISSION ? 'MISSION REPORT →' : 'NEXT PROMPT →';
-    els.arrive.classList.add('show');
-    if (state.cardTimer) clearTimeout(state.cardTimer);
-    state.cardTimer = setTimeout(function () {
-      if (!state) return;
-      if (state.jumps >= MISSION) endRun(); else nextQuestion();
-    }, 12000);
-    beep(720, 0.08, 'sine', 0.04);
-    beep(980, 0.12, 'sine', 0.03, 0.08);
+  function launch(hit, cyberStarted) {
+    var rarity = RARITY[hit.r];
+    var p = chooseTarget(rarity);
+    if (!p) { finish(); return; }
+    state._hit = hit;
+    state.launching = true;
+    $('feedback').textContent = '';
+    $('feedback').className = 'feedback';
+    $('answer').disabled = true;
+    $('q-tier').textContent = rarity.name;
+    $('q-tier').className = 'badge ' + rarity.cls;
+    $('q-target').textContent = p.name;
+    $('q-dist').textContent = '· ' + RING_DIST[p.ring] + ' · ' + p.distAU.toFixed(2) + ' AU';
+    $('hud-target').textContent = p.name;
+    $('hud-last').textContent = p.distAU.toFixed(2) + ' AU';
+    beep(320, 0.07, 'triangle', 0.025);
+    if (cyberStarted) setCyberTarget(p);
+    else beginLaunch(p);
   }
 
   function useHint() {
-    if (!state || state.status !== 'playing' || state.hintUsed) return;
+    if (!state || state.hintUsed || state.flying || state.finished || state.launching) return;
     state.hintUsed = true;
-    els.hintBtn.disabled = true;
-    els.hintLine.hidden = false;
-    els.hintLine.textContent = state.current.q.hint ? 'HINT: ' + state.current.q.hint : 'No hint for this prompt.';
-    els.hintLine.classList.add('on');
-    beep(880, 0.05, 'square', 0.03);
+    $('btn-hint').disabled = true;
+    $('feedback').textContent = '💡 ' + (state._q.hint || 'No hint for this prompt.');
+    $('feedback').className = 'feedback hint';
+    beep(880, 0.05, 'square', 0.02);
   }
 
-  function endRun() {
-    if (!state) return;
-    state.status = 'over';
-    if (state.cardTimer) { clearTimeout(state.cardTimer); state.cardTimer = null; }
-    els.arrive.classList.remove('show');
-    els.result.classList.add('on');
-    var ranks = [
-      { min: 0, label: 'Orbit Rookie', desc: 'Barely left Earth orbit. The ship is still warm.' },
-      { min: 10, label: 'Inner Ring Runner', desc: 'Bouncing between the near rings.' },
-      { min: 20, label: 'Deep Space Regular', desc: 'Out past the middle rings, comfortably.' },
-      { min: 30, label: 'Outer Ring Legend', desc: 'One of the far travellers now.' },
-      { min: 40, label: 'Galactic Ace', desc: 'You took the long way and it paid off.' }
-    ];
-    var rank = ranks.slice().reverse().filter(function (x) { return state.dist >= x.min; })[0] || ranks[0];
-    els.resKicker.textContent = (state.practice ? 'Practice run' : 'Daily #' + dayNumber()) + ' · mission report';
-    els.resTitle.textContent = state.dist.toFixed(2) + ' AU';
-    els.resSub.textContent = rank.label + ' — ' + rank.desc;
-    els.resBest.innerHTML = state.rarest
-      ? 'Rarest find: <b>' + esc(state.rarest.name) + '</b> — ' + RARITY_LABEL[RARITY[state.rarest.tier]]
-      : 'No answers landed this run. Try a rarer name next time.';
-    els.resDist.textContent = state.dist.toFixed(2) + ' AU';
-    els.resJumps.textContent = state.jumps;
-    els.resFar.textContent = state.far;
-    els.resLegend.textContent = state.legend;
-    els.resShare.textContent = 'RarePop · pop-culture rare answers\n' + state.dist.toFixed(2) + ' AU · ' +
-      state.jumps + ' jumps · farthest ring ' + state.far + ' · ' + state.legend + ' legendary' +
-      (state.rarest ? '\nRarest: ' + state.rarest.name + ' (' + RARITY_LABEL[RARITY[state.rarest.tier]] + ')' : '');
-  }
-
-  function copyResult() {
-    var text = els.resShare.textContent;
-    function done() { els.copyBtn.textContent = 'COPIED!'; setTimeout(function () { els.copyBtn.textContent = 'COPY RESULT'; }, 1500); }
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(text).then(done).catch(fallback);
-    } else fallback();
-    function fallback() {
-      var ta = document.createElement('textarea');
-      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
-      document.body.appendChild(ta); ta.select();
-      try { document.execCommand('copy'); } catch (e) {}
-      document.body.removeChild(ta); done();
-    }
-  }
-
-  function renderCats() {
-    var cats = [{ slug: 'all', name: 'ALL' }].concat(packs.themes.map(function (t) { return { slug: t.slug, name: t.name.toUpperCase() }; }));
-    els.cats.innerHTML = '';
-    cats.forEach(function (c) {
-      var b = document.createElement('button');
-      b.type = 'button';
-      b.textContent = c.name;
-      b.dataset.cat = c.slug;
-      if (c.slug === 'all') b.className = 'on';
-      b.addEventListener('click', function () {
-        state.cat = c.slug;
-        Array.prototype.forEach.call(els.cats.children, function (x) { x.classList.toggle('on', x === b); });
-      });
-      els.cats.appendChild(b);
-    });
-  }
-
-  function bind() {
-    els.startBtn.addEventListener('click', function () { startRun(false); });
-    els.practiceBtn.addEventListener('click', function () { startRun(true); });
-    els.confirmBtn.addEventListener('click', submit);
-    els.hintBtn.addEventListener('click', useHint);
-    els.replayBtn.addEventListener('click', function () { startRun(state ? state.practice : false); });
-    els.copyBtn.addEventListener('click', copyResult);
-    els.arrNext.addEventListener('click', function () {
-      if (!state) return;
-      if (state.status === 'failing') { retryQuestion(); return; }
-      if (state.status !== 'flying') return;
-      if (state.cardTimer) { clearTimeout(state.cardTimer); state.cardTimer = null; }
-      els.arrive.classList.remove('show');
-      if (state.jumps >= MISSION) endRun(); else nextQuestion();
-    });
-    els.ans.addEventListener('keydown', function (e) { if (e.key === 'Enter') submit(); });
-    var fs = document.getElementById('fsBtn');
-    if (fs) fs.addEventListener('click', function () {
-      if (!document.fullscreenElement) {
-        (document.documentElement.requestFullscreen || function () {}).call(document.documentElement);
-      } else {
-        (document.exitFullscreen || function () {}).call(document);
-      }
-    });
+  function restart() {
+    if (state && state.cardTimer) clearTimeout(state.cardTimer);
+    PLANETS = genPlanets();
+    state = { current: 0, reached: new Set([0]), target: null, flying: false, finished: false, launching: false, totalAU: 0, lastAU: 0, jumps: 0, far: 0, hintUsed: false, answer: null, cardTimer: null, cardToken: 0, _hit: null };
+    $('overlay').classList.remove('show');
+    $('cyber').classList.remove('show');
+    $('arrive').classList.remove('show');
+    $('hit').innerHTML = '';
+    $('trails').innerHTML = '';
+    buildNebula(); buildGrid(); buildStars(); buildOrbits(); drawPlanets(); drawSun();
+    var e0 = PLANETS[0];
+    placeRocket(e0.x, e0.y - 18, 0);
+    renderQuestion();
   }
 
   async function boot() {
-    bind();
-    state = { cat: 'all', ship: null };
     try {
       var res = await fetch('/rarepop/packs.json?v=1', { cache: 'no-cache' });
       if (!res.ok) throw new Error(res.status);
       packs = await res.json();
     } catch (e) {
-      els.qtext.textContent = 'Could not load the question data.';
-      els.feedback.textContent = 'Refresh the page or try again in a moment.';
+      $('q-text').textContent = 'Could not load the question data.';
+      $('feedback').textContent = 'Refresh the page or try again in a moment.';
       return;
     }
-    pool = [];
-    packs.themes.forEach(function (t) {
-      t.questions.forEach(function (q) { pool.push({ themeSlug: t.slug, themeName: t.name, q: q }); });
-    });
-    renderCats();
-    buildSystem();
-    els.startFoot.textContent = packs.themes.length + ' categories · ' + pool.length +
-      ' prompts · 10 jumps a run · rarity from public Wikipedia pageviews.';
+    buildQuestions();
+    PLANETS = genPlanets();
+    buildNebula(); buildGrid(); buildStars(); buildOrbits(); drawPlanets(); drawSun();
+    rocket = buildRocket();
+    var e0 = PLANETS[0];
+    placeRocket(e0.x, e0.y - 18, 0);
+    state.far = 0;
+    renderQuestion();
+    $('btn-launch').addEventListener('click', submit);
+    $('btn-hint').addEventListener('click', useHint);
+    $('btn-restart').addEventListener('click', restart);
+    $('answer').addEventListener('keydown', function (e) { if (e.key === 'Enter') submit(); });
   }
 
   boot();
 })();
-
 </script>
 </body>
 </html>

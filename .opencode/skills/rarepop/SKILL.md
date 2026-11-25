@@ -5,7 +5,7 @@ description: Maintain and extend RarePop, the self-hosted pop-culture rare-answe
 
 # RarePop
 
-A self-hosted arcade game at `playhypegames.com/rarepop`. Pop-culture prompts (movies, music, games, anime), ten jumps, no timer. A correct answer moves the ship 1–5 rings out by rarity; a wrong answer shakes the ship and shows a Void card so the player can retry the same prompt.
+A self-hosted arcade game at `playhypegames.com/rarepop`. Pop-culture prompts (movies, music, games, anime), ten jumps, no timer. A correct answer moves the ship across eight rings by rarity; a wrong answer shakes the ship and shows a Void card for three seconds, then the same prompt is playable again.
 
 ## Files
 
@@ -50,7 +50,7 @@ Tiers are computed per prompt from English Wikipedia pageviews (Dec 2024–Oct 2
 ## Hints and lives
 
 - Hint button: free, once per prompt, resets next prompt. Implementation in the game's `useHint()` / `state.hintUsed`.
-- Ten jumps per run. No timer. A wrong answer shows a Void card and retries the same prompt; reusing an answer is rejected the same way.
+- Ten jumps per run. No timer. A wrong answer shows a Void card for three seconds, then the same prompt is playable again. Reusing an answer is allowed and lands on another planet.
 - Never put hints in the client only — they live in packs so they can be edited with the questions.
 
 ## LLM fuzzy judge
