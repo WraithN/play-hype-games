@@ -268,6 +268,15 @@ code {
 .badge-live { color: var(--ok); border-color: rgba(52, 211, 153, 0.35); background: rgba(52, 211, 153, 0.08); }
 .badge-draft { color: var(--dim); background: rgba(255, 255, 255, 0.03); }
 
+.row-badges { display: flex; gap: 4px; margin: 3px 0; flex-wrap: wrap; }
+.adm-mini-badge {
+  font-size: 10px; font-weight: 800; letter-spacing: .5px;
+  padding: 2px 7px; border-radius: 99px; color: #fff; line-height: 1.4;
+}
+.adm-mb-hot { background: linear-gradient(180deg, #ff7a45, #ff3d55); }
+.adm-mb-new { background: linear-gradient(180deg, #4fcf2e, #249b10); }
+.adm-mb-original { background: linear-gradient(180deg, #9d7bf5, #7c3aed); }
+
 /* ---------------- Forms ---------------- */
 
 .adm-form {

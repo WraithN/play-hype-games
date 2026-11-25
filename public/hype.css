@@ -175,8 +175,8 @@ body.hype .main-nav .nav-item.is-active,
 body.hype .main-nav .nav-item.is-active{
   color:var(--h-nav-active) !important;text-shadow:0 2px 0 rgba(20,70,10,.55),0 0 16px rgba(140,255,69,.35);
 }
-body.hype .main-nav .nav-item:nth-child(n+6),
-body.hype .main-nav .nav-item:nth-child(n+6){display:none}
+body.hype .main-nav .nav-item:nth-child(n+7),
+body.hype .main-nav .nav-item:nth-child(n+7){display:none}
 
 body.hype .search-form,
 body.hype .search-form{
@@ -358,6 +358,29 @@ body.hype .more-link{color:var(--h-accent);font-weight:800}
   background:rgba(18,38,68,.55);
 }
 .hheat svg{width:clamp(8px,.78vw,11px);height:clamp(8px,.78vw,11px);fill:#ffd84d;stroke:none}
+
+/* 卡片角标 HOT / NEW / ORIGINAL（右上角竖排，数据来自 game.badges） */
+.hbadges{
+  position:absolute;top:clamp(6px,.7vw,9px);right:clamp(6px,.7vw,9px);z-index:3;
+  display:flex;flex-direction:column;align-items:flex-end;gap:5px;
+}
+.hbadge{
+  display:inline-flex;align-items:center;gap:4px;
+  height:clamp(19px,1.7vw,24px);padding:0 clamp(8px,.85vw,12px);
+  border-radius:99px;font-family:var(--h-font);
+  font-size:clamp(9px,.85vw,12px);font-weight:800;letter-spacing:.6px;
+  color:#fff;text-transform:uppercase;white-space:nowrap;line-height:1;
+  text-shadow:0 1px 1px rgba(0,0,0,.28);
+  box-shadow:0 3px 0 rgba(0,0,0,.22),inset 0 1px 0 rgba(255,255,255,.35);
+}
+.hbadge svg{width:clamp(9px,.8vw,12px);height:clamp(9px,.8vw,12px);fill:#fff;stroke:none}
+.hbadge-hot{background:linear-gradient(180deg,#ff7a45,#ff3d55)}
+.hbadge-new{background:linear-gradient(180deg,#7df04a,#2fbf14)}
+.hbadge-original{background:linear-gradient(180deg,#a78bfa,#7c3aed)}
+/* 详情页标题下的横向大角标 */
+.game-sub .hbadges{position:static;flex-direction:row;gap:8px}
+.game-sub .hbadge{height:30px;padding:0 14px;font-size:13px;letter-spacing:.8px}
+.game-sub .hbadge svg{width:13px;height:13px}
 
 /* ============================================================
    详情页

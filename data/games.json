@@ -24,7 +24,7 @@
     "seoDescription": "",
     "status": "published",
     "featured": false,
-    "views": 4,
+    "views": 9,
     "createdAt": "2026-11-18T09:51:33.892Z",
     "updatedAt": "2026-11-20T16:42:00.300Z"
   },
@@ -62,7 +62,7 @@
     "seoDescription": "",
     "status": "published",
     "featured": false,
-    "views": 1,
+    "views": 2,
     "createdAt": "2026-11-18T09:51:33.892Z",
     "updatedAt": "2026-11-20T16:42:00.302Z",
     "controls": "Controls PC WASD move · Mouse look · Left click mine · F auto swing · Space jump · E place egg Controls Mobile Joystick move · Swipe look · Pickaxe button mine · Arrow button jump"
@@ -2553,13 +2553,14 @@
     "title": "RarePop",
     "slug": "rarepop",
     "description": "A pop-culture rare-answer arcade game: ten jumps through eight rings, no timer, and the rarer your answer the farther your ship travels.",
-    "content": "<p>RarePop is a pop-culture rare-answer arcade game framed as a spaceship-cockpit mission. A Star-Navigator Fish runs the pre-flight loading checks, an alien transmission asks each question, and the answer is ranked by how obscure it is: Common answers stay in the near rings while Legendary answers reach VOID 08 across eight rings.</p><p>Ten jumps make a run with no timer and no lives. Every submission plays the full jump-prep sequence; a miss shows the Void card and the same prompt stays open, while after ten jumps the Interstellar Voyage Report logs the rarity mix. A hint is free, once per prompt. Movies, music, games and anime. <a href=\"/rarepop\">Open the RarePop page</a> or read <a href=\"/rarepop/method\">how the rarity tiers are calculated</a>.</p>",
+    "controls": "",
+    "content": "<p>RarePop is a pop-culture rare-answer arcade game framed as a spaceship-cockpit mission. A Star-Navigator Fish runs the pre-flight loading checks, an alien transmission asks each question, and the answer is ranked by how obscure it is: Common answers stay in the near rings while Legendary answers reach VOID 08 across eight rings.</p><p>Ten jumps make a run with no timer and no lives. Every submission plays the full jump-prep sequence; a miss shows the Void card and the same prompt stays open, while after ten jumps the Interstellar Voyage Report logs the rarity mix. A hint is free, once per prompt. Movies, music, games and anime. <a href=\"/rarepop\">Open the RarePop page</a> or read <a href=\"/rarepop/method\">how the rarity tiers are calculated</a>.</p><h2>Looking for games like Krillion?</h2><p>If Krillion is your reference point, the core loop is the same rare-answer family: one prompt with a closed list of valid answers, and the answer nobody else picks flies the farthest. RarePop takes that mechanic off the general-knowledge deck and points it at pop culture — movies, music, games and anime — inside a ten-jump spaceship mission with no timer and no lives.</p><h2>RarePop vs Krillion geography and sports decks</h2><p>RarePop does not include a Krillion geography deck, so there are no country, capital or landmark prompts, and no Krillion sports deck either — no football, basketball or Olympics questions. The closest equivalents are franchise prompts from Super Mario, The Legend of Zelda, Grand Theft Auto, Call of Duty and Sonic the Hedgehog, shuffled at random with film, music and anime questions on every run.</p><h2>Krillion infinite, bounded into ten-jump missions</h2><p>Krillion infinite keeps dealing prompts until you run out of answers. RarePop instead bounds every session at ten jumps and closes with an Interstellar Voyage Report, so a full run fits a two-minute break and always has a clear finish. If you typed ktillion, that is simply a common misspelling of Krillion — same rare-answer genre, different wrapper. For the full side-by-side, read the <a href=\"/blog/rare-answer-trivia-games\">games like Krillion guide</a>, which compares the geography, sports and infinite decks in detail.</p>",
     "embedUrl": "/assets/games/rarepop/index.html",
     "thumb": "/assets/thumbs/rarepop.png?v=2",
     "category": "puzzle-games",
     "tags": [
       "trivia",
-      "pop culture",
+      "pop-culture",
       "daily",
       "arcade",
       "quiz",
@@ -2567,17 +2568,19 @@
       "music",
       "anime"
     ],
+    "badges": [
+      "new",
+      "original"
+    ],
     "rating": null,
     "heat": 10,
     "source": "Play Hype Studio",
-    "externalId": "",
-    "releasedAt": "2026-11-25",
-    "seoTitle": "RarePop — pop-culture rare-answer arcade game",
+    "seoTitle": "RarePop - pop-culture rare-answer arcade game",
     "seoDescription": "Eight rings, ten jumps, no timer: the rarer your pop-culture answer the farther the jump. Movies, music, games and anime. Free browser game.",
     "status": "published",
     "featured": true,
-    "views": 3,
+    "views": 18,
     "createdAt": "2026-11-25T05:40:23.731Z",
-    "updatedAt": "2026-11-25T05:40:23.731Z"
+    "updatedAt": "2026-11-25T12:27:02.083Z"
   }
 ]

@@ -161,7 +161,7 @@ const SESSION_COOKIE = 'ph_admin';
 function tokenFor(settings) {
   return crypto
     .createHmac('sha256', 'playhypegames-session')
-    .update(String(settings.adminPassword))
+    .update(`${settings.adminUser || ''}:${settings.adminPassword}`)
     .digest('hex')
     .slice(0, 32);
 }
@@ -392,6 +392,32 @@ function handleFront(req, res, url) {
     );
   }
 
+  // 自研原创游戏（依据 badges 里的 original 角标，与卡片展示同源）
+  if (pathname === '/originals') {
+    const live = site
+      .published(games)
+      .filter((g) => Array.isArray(g.badges) && g.badges.includes('original'))
+      .sort(site.byNewest);
+    return send(
+      res,
+      200,
+      site.listPage({
+        games,
+        settings,
+        title: 'Original games',
+        kicker: 'Made by Play Hype',
+        description:
+          'Games designed and built in-house by the Play Hype studio — original mechanics, no third-party feed listings.',
+        heroText:
+          'Every title on this page is designed and built in-house by the Play Hype studio rather than syndicated from a game feed. New experiments land here first; when one retires it leaves the catalogue cleanly.',
+        list: live,
+        baseUrl: '/originals',
+        page,
+        active: 'originals'
+      })
+    );
+  }
+
   // 搜索
   if (pathname === '/search') {
     const q = String(url.searchParams.get('q') || '').trim();
@@ -561,13 +587,22 @@ function normaliseTags(input) {
   return out;
 }
 
+/* 卡片角标白名单：只接受 hot/new/original，输出按固定顺序，脏数据不入库 */
+const ALLOWED_BADGES = ['hot', 'new', 'original'];
+function normaliseBadges(input) {
+  const raw = (Array.isArray(input) ? input : String(input || '').split(','))
+    .map((b) => String(b || '').trim().toLowerCase());
+  return ALLOWED_BADGES.filter((b) => raw.includes(b));
+}
+
 function buildGameRecord(payload, games, settings, existing) {
   const title = seo.cleanText(payload.title);
   if (!title) throw new Error('Title is required');
 
   const embedUrl = String(payload.embedUrl || '').trim();
   if (!embedUrl && !existing) throw new Error('Embed URL is required');
-  if (embedUrl && !/^https?:\/\//i.test(embedUrl)) throw new Error('Embed URL must start with http:// or https://');
+  // 自研游戏用站内相对路径（/assets/games/...），分发游戏是 http(s) 绝对地址
+  if (embedUrl && !/^(https?:\/\/|\/)/i.test(embedUrl)) throw new Error('Embed URL must start with http://, https:// or /');
 
   const category = String(payload.category || '').trim() || (settings.categories[0] || {}).slug || '';
   if (category && !settings.categories.some((c) => c.slug === category)) {
@@ -592,6 +627,7 @@ function buildGameRecord(payload, games, settings, existing) {
     thumb: String(payload.thumb || '').trim(),
     category,
     tags: normaliseTags(payload.tags),
+    badges: normaliseBadges(payload.badges),
     rating: payload.rating === '' || payload.rating == null ? null : Number(payload.rating),
     heat: payload.heat === '' || payload.heat == null
       ? (existing ? Number(existing.heat) || 0 : 0)
@@ -785,9 +821,11 @@ async function handleApi(req, res, url, settings) {
   // 登录
   if (pathname === '/api/admin/login' && req.method === 'POST') {
     const body = await readJsonBody(req);
+    const username = String(body.username || '');
     const password = String(body.password || '');
-    if (password !== settings.adminPassword) {
-      return send(res, 200, admin.loginPage(settings, 'Wrong password. Try again.'));
+    // 统一报错，不透露是用户名还是密码错了
+    if (username !== String(settings.adminUser || '') || password !== settings.adminPassword) {
+      return send(res, 200, admin.loginPage(settings, 'Invalid username or password.'));
     }
     const token = tokenFor(settings);
     res.writeHead(302, {
@@ -1028,9 +1066,10 @@ async function handleApi(req, res, url, settings) {
   if (pathname === '/api/admin/settings' && req.method === 'PUT') {
     const body = await readJsonBody(req);
     const patch = {};
-    ['siteName', 'tagline', 'description', 'contactEmail', 'adsenseClient', 'adminPassword', 'ga4Id', 'googleSiteVerification'].forEach((k) => {
+    ['siteName', 'tagline', 'description', 'contactEmail', 'adsenseClient', 'adminUser', 'adminPassword', 'ga4Id', 'googleSiteVerification'].forEach((k) => {
       // 环境变量托管的字段不允许表单写回文件
       if (k === 'adminPassword' && process.env.ADMIN_PASSWORD) return;
+      if (k === 'adminUser' && process.env.ADMIN_USERNAME) return;
       if (body[k] == null) return;
       if (k === 'ga4Id') patch[k] = String(body[k]).trim().toUpperCase().replace(/[^A-Z0-9-]/g, '');
       else if (k === 'googleSiteVerification') patch[k] = String(body[k]).trim().replace(/[^A-Za-z0-9_-]/g, '');

@@ -4,9 +4,11 @@
   "tagline": "Play the Hype",
   "description": "Play the hottest free browser games online. New .io, idle, action and 2-player games added every day. No download, no install.",
   "adsenseClient": "",
-  "adminPassword": "playhype2026",
+  "adminUser": "admin",
+  "adminPassword": "dev-only-change-me",
   "contactEmail": "hello@playhypegames.com",
   "ga4Id": "G-SKRVPXB3S4",
+  "googleSiteVerification": "",
   "categories": [
     {
       "slug": "io-games",
@@ -51,7 +53,7 @@
       "icon": "spark"
     }
   ],
-  "updatedAt": "2026-11-24T15:22:42.704Z",
+  "updatedAt": "2026-11-25T12:44:16.407Z",
   "feeds": {
     "gameMonetize": {
       "enabled": true,

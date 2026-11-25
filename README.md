@@ -14,7 +14,7 @@ node server.js
 
 - 前台：http://localhost:4180
 - 后台：http://localhost:4180/admin
-- 默认后台密码：`playhype2026`（在 后台 → Settings 里改）
+- 后台登录需要用户名 + 密码。仓库是公开的，`data/settings.json` 与默认值里只放开发占位凭据（`admin` / `dev-only-change-me`），**生产真实凭据必须通过环境变量 `ADMIN_USERNAME` / `ADMIN_PASSWORD` 注入**；环境变量生效后，后台 Settings 页对应字段锁定不可改
 
 改端口：`set PORT=9000 && node server.js`
 端口 4180 是特意避开的：3000 在本机已被 draw.io 占用（IPv6），用 `localhost:3000` 会打开错误页面。如果 4180 也被占用，服务会自动往后试到 4181、4182，启动日志里会打印实际端口。
@@ -122,7 +122,8 @@ Slime IO 2 | https://html5.gamedistribution.com/xxx/ | io-games | io, unblocked
 
 | 变量 | 作用 |
 | --- | --- |
-| `ADMIN_PASSWORD` | 覆盖后台密码；设置后后台 Settings 页不可再改密码，避免公开仓库里的默认密码 `playhype2026` 直接生效 |
+| `ADMIN_USERNAME` | 覆盖后台用户名；设置后后台 Settings 页不可再改用户名 |
+| `ADMIN_PASSWORD` | 覆盖后台密码；设置后后台 Settings 页不可再改密码，避免仓库里的凭据直接生效 |
 | `SITE_DOMAIN` | 覆盖 canonical 域名（sitemap / RSS / OG 用） |
 | `PORT` | 监听端口，平台自动注入；本地默认 4180 |
 
