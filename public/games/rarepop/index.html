@@ -89,6 +89,15 @@ header .spacer{flex:1}
 .jstep.done i{background:var(--green);border-color:var(--green)}
 .jstep.done i::after{content:'';position:absolute;left:4px;top:1px;width:3px;height:7px;
   border-right:2px solid #04231a;border-bottom:2px solid #04231a;transform:rotate(40deg)}
+.jstep.failed{color:#ffb3bd}
+.jstep.failed i{border-color:var(--red);background:rgba(255,93,115,.18)}
+.jstep.failed i::after{content:'';position:absolute;left:3px;top:3px;width:6px;height:6px;
+  background:linear-gradient(45deg,transparent 44%,var(--red) 44%,var(--red) 56%,transparent 56%),
+             linear-gradient(-45deg,transparent 44%,var(--red) 44%,var(--red) 56%,transparent 56%)}
+.jbar.fail i{background:linear-gradient(90deg,#ff4fa3,#ff5d73);box-shadow:0 0 10px rgba(255,93,115,.4)}
+.jumpcard.fail{border-color:rgba(255,93,115,.55);box-shadow:0 24px 60px rgba(0,0,0,.65),0 0 30px rgba(255,93,115,.12)}
+.aplanet[data-tier="fail"]{background:radial-gradient(circle at 34% 30%,#6b7280,#374151 58%,#111827);
+  box-shadow:0 0 26px rgba(107,114,128,.35),inset -12px -10px 24px rgba(0,0,0,.5)}
 .jbar{height:8px;background:#0a1224;border:1px solid #1e2f52;margin-top:16px;overflow:hidden}
 .jbar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--purple),var(--cyan));transition:width .5s ease}
 @keyframes jspin{to{transform:rotate(360deg)}}
@@ -221,10 +230,11 @@ h1 span{color:var(--yellow)}
     <div class="logo">RARE<b>POP</b></div>
     <span class="spacer"></span>
     <span class="chip" id="mode">DAILY</span>
-    <span class="chip">SCORE <b id="score">0</b></span>
-    <span class="chip lives">LIVES <b id="lives">❤❤❤</b></span>
+    <span class="chip">TARGET <b id="target">—</b></span>
+    <span class="chip">LAST <b id="last">0.00 AU</b></span>
+    <span class="chip dist">TOTAL <b id="dist">0.00 AU</b></span>
     <span class="chip jumps">JUMPS <b id="jumps">0</b></span>
-    <span class="chip dist">DIST <b id="dist">0.00 AU</b></span>
+    <span class="chip">RING <b id="far">1</b></span>
     <button class="chip" id="fsBtn" type="button" style="cursor:pointer;font-family:var(--mono)">FULL</button>
   </header>
 
@@ -247,11 +257,10 @@ h1 span{color:var(--yellow)}
     <div class="qrow">
       <span class="tag" id="qtag">MOVIES</span>
       <p class="qtext" id="qtext">Loading…</p>
-      <div class="timer" id="timerWrap"><i id="timerBar"></i></div>
     </div>
     <div class="inputrow">
       <input id="ans" type="text" placeholder="Type an answer…" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" aria-label="Your answer">
-      <button class="hintbtn" id="hintBtn" type="button">HINT -10</button>
+      <button class="hintbtn" id="hintBtn" type="button">HINT</button>
       <button class="confirmbtn" id="confirmBtn" type="button">JUMP</button>
     </div>
     <p class="hintline" id="hintLine" hidden></p>
@@ -262,18 +271,18 @@ h1 span{color:var(--yellow)}
     <div class="card">
       <div class="kicker">Pop-culture rare-answer game</div>
       <h1>RARE<span>POP</span></h1>
-      <p class="sub">Name a pop-culture answer nobody else thinks of. Every answer is scored by how rare it is — the rarer the answer, the deeper the ship jumps.</p>
+      <p class="sub">Name a pop-culture answer nobody else thinks of. Ten jumps make a run — rarity decides how far each jump travels.</p>
       <div class="rules">
-        <div><b>LIVES</b><span>Three hearts. A wrong answer or a timeout costs one.</span></div>
-        <div><b>TIMER</b><span>40 seconds per prompt.</span></div>
-        <div><b>HINT</b><span>Once per prompt, −10 points.</span></div>
+        <div><b>NO TIMER</b><span>Take your time. The rarer the answer, the farther the jump.</span></div>
+        <div><b>WRONG?</b><span>The ship shakes and you try again. No lives.</span></div>
+        <div><b>HINT</b><span>Once per prompt, free.</span></div>
       </div>
       <div class="ladder" aria-label="Rarity tiers and points">
-        <span data-r="1"><b>COMMON</b><i>10 pts · 1 ring</i></span>
-        <span data-r="2"><b>UNCOMMON</b><i>25 pts · 2 rings</i></span>
-        <span data-r="3"><b>RARE</b><i>50 pts · 3 rings</i></span>
-        <span data-r="4"><b>EPIC</b><i>75 pts · 4 rings</i></span>
-        <span data-r="5"><b>LEGENDARY</b><i>100 pts · 5 rings</i></span>
+        <span data-r="1"><b>COMMON</b><i>1 ring · 1.0 AU</i></span>
+        <span data-r="2"><b>UNCOMMON</b><i>2 rings · 2.3 AU</i></span>
+        <span data-r="3"><b>RARE</b><i>3 rings · 3.2 AU</i></span>
+        <span data-r="4"><b>EPIC</b><i>4 rings · 4.1 AU</i></span>
+        <span data-r="5"><b>LEGENDARY</b><i>5 rings · 5.0 AU</i></span>
       </div>
       <div class="cats" id="cats"></div>
       <div class="actions">
@@ -289,21 +298,22 @@ h1 span{color:var(--yellow)}
       <div class="jk">SYSTEM // JUMP PREP</div>
       <div class="jstep" id="step1"><i></i><span>Charging the ship</span></div>
       <div class="jstep" id="step2"><i></i><span>Igniting engines</span></div>
-      <div class="jstep" id="step3"><i></i><span>Jumping to ring <b id="jumpRing">1</b></span></div>
+      <div class="jstep" id="step3"><i></i><span id="step3Text">Locking target <b id="jumpTarget">—</b></span></div>
+      <div class="jstep" id="step4"><i></i><span id="step4Text">Jumping to ring <b id="jumpRing">1</b></span></div>
       <div class="jbar"><i id="jumpBar"></i></div>
     </div>
   </div>
 
   <div class="overlay" id="result">
     <div class="card">
-      <div class="kicker" id="resKicker">Run over</div>
-      <h1 id="resTitle">OUT OF LIVES</h1>
-      <p class="sub" id="resSub">Here's the run — and the rarest answer you found.</p>
+      <div class="kicker" id="resKicker">Mission report</div>
+      <h1 id="resTitle">RUN COMPLETE</h1>
+      <p class="sub" id="resSub">Ten jumps, one route through the system.</p>
       <p class="bestline" id="resBest"></p>
       <div class="resultgrid">
-        <div><b>SCORE</b><span id="resScore">0</span></div>
-        <div class="y"><b>DISTANCE</b><span id="resDist">0.00 AU</span></div>
+        <div class="y"><b>TOTAL DISTANCE</b><span id="resDist">0.00 AU</span></div>
         <div><b>JUMPS</b><span id="resJumps">0</span></div>
+        <div><b>FARTHEST RING</b><span id="resFar">1</span></div>
         <div><b>LEGENDARIES</b><span id="resLegend">0</span></div>
       </div>
       <p class="sharetext" id="resShare"></p>
@@ -311,7 +321,7 @@ h1 span{color:var(--yellow)}
         <button class="btn primary" id="replayBtn">PLAY AGAIN</button>
         <button class="btn" id="copyBtn">COPY RESULT</button>
       </div>
-      <p class="foot">RarePop is an original Play Hype game. Three lives, 40 seconds a prompt, and rarity from public Wikipedia pageviews.</p>
+      <p class="foot">RarePop is an original Play Hype game. Ten jumps, no timer, and rarity from public Wikipedia pageviews.</p>
     </div>
   </div>
 </div>
@@ -323,34 +333,33 @@ h1 span{color:var(--yellow)}
   var RARITY_LABEL = { 1: 'COMMON', 2: 'UNCOMMON', 3: 'RARE', 4: 'EPIC', 5: 'LEGENDARY' };
   var RING_DIST = [0, 1.0, 2.3, 3.2, 4.1, 5.0];
   var RING_COUNT = 5;
-  var TIME_LIMIT = 40;
+  var MISSION = 10;
   var $ = function (id) { return document.getElementById(id); };
+
   var els = {
     svg: $('svg-space'), scene: $('scene'), flash: $('flash'),
-    mode: $('mode'), score: $('score'), lives: $('lives'), jumps: $('jumps'), dist: $('dist'),
+    mode: $('mode'), target: $('target'), last: $('last'), dist: $('dist'), jumps: $('jumps'), far: $('far'),
     arrive: $('arrive'), arrHead: $('arrHead'), arrName: $('arrName'), arrMeta: $('arrMeta'),
     arrPlanet: $('arrPlanet'), arrDesc: $('arrDesc'), arrNext: $('arrNext'),
-    jump: $('jump'), step1: $('step1'), step2: $('step2'), step3: $('step3'),
-    jumpRing: $('jumpRing'), jumpBar: $('jumpBar'),
-    qtag: $('qtag'), qtext: $('qtext'), timerWrap: $('timerWrap'), timerBar: $('timerBar'),
+    qtag: $('qtag'), qtext: $('qtext'),
     ans: $('ans'), hintBtn: $('hintBtn'), confirmBtn: $('confirmBtn'),
     hintLine: $('hintLine'), feedback: $('feedback'),
     start: $('start'), cats: $('cats'), startBtn: $('startBtn'), practiceBtn: $('practiceBtn'), startFoot: $('startFoot'),
+    jump: $('jump'), step1: $('step1'), step2: $('step2'), step3: $('step3'), step4: $('step4'),
+    step3Text: $('step3Text'), step4Text: $('step4Text'), jumpBar: $('jumpBar'),
     result: $('result'), resKicker: $('resKicker'), resTitle: $('resTitle'), resSub: $('resSub'),
-    resScore: $('resScore'), resDist: $('resDist'), resJumps: $('resJumps'), resLegend: $('resLegend'),
-    resBest: $('resBest'),
-    resShare: $('resShare'), replayBtn: $('replayBtn'), copyBtn: $('copyBtn')
+    resBest: $('resBest'), resDist: $('resDist'), resJumps: $('resJumps'), resFar: $('resFar'),
+    resLegend: $('resLegend'), resShare: $('resShare'), replayBtn: $('replayBtn'), copyBtn: $('copyBtn')
   };
 
   var packs = null;
   var pool = [];
-  var state = null;
   var planets = [];
-  var shipTarget = { x: 0, y: 0 };
-  var shipPos = { x: 0, y: 0 };
+  var state = { cat: 'all', ship: null };
+  var shipPos = { x: -40, y: 0 };
   var trailPoints = [];
+  var flightRaf = null;
   var lastJudge = 0;
-  var raf = null;
   var audio = null;
 
   function norm(s) {
@@ -406,105 +415,95 @@ h1 span{color:var(--yellow)}
 
   /* ---------- space ---------- */
   function buildSystem() {
-    planets = [];
-    var svg = els.svg;
+    var svg = els.svg, ns = 'http://www.w3.org/2000/svg';
     svg.innerHTML = '';
-    var ns = 'http://www.w3.org/2000/svg';
+    planets = [];
+    trailPoints = [];
     var defs = document.createElementNS(ns, 'defs');
     defs.innerHTML =
       '<radialGradient id="sunGlow" cx="50%" cy="50%" r="50%">' +
-      '<stop offset="0%" stop-color="#ffd166" stop-opacity=".9"/>' +
-      '<stop offset="45%" stop-color="#ff9f43" stop-opacity=".35"/>' +
-      '<stop offset="100%" stop-color="#ff9f43" stop-opacity="0"/></radialGradient>' +
+      '<stop offset="0%" stop-color="#fff8e0" stop-opacity=".95"/>' +
+      '<stop offset="35%" stop-color="#ffd36b" stop-opacity=".45"/>' +
+      '<stop offset="100%" stop-color="#ff7a3d" stop-opacity="0"/></radialGradient>' +
       '<radialGradient id="neb1" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#5b3ea8" stop-opacity=".22"/><stop offset="100%" stop-color="#5b3ea8" stop-opacity="0"/></radialGradient>' +
       '<radialGradient id="neb2" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#0e7490" stop-opacity=".18"/><stop offset="100%" stop-color="#0e7490" stop-opacity="0"/></radialGradient>';
     svg.appendChild(defs);
 
-    // starfield
     var stars = document.createElementNS(ns, 'g');
     var r = mulberry32(42);
-    for (var i = 0; i < 160; i++) {
+    for (var i = 0; i < 150; i++) {
       var c = document.createElementNS(ns, 'circle');
-      c.setAttribute('cx', (r() * 1120 - 560).toFixed(1));
-      c.setAttribute('cy', (r() * 580 - 290).toFixed(1));
-      c.setAttribute('r', (r() < 0.12 ? 2.2 : 1.1).toFixed(1));
+      c.setAttribute('cx', (r() * 740 - 370).toFixed(1));
+      c.setAttribute('cy', (r() * 420 - 210).toFixed(1));
+      c.setAttribute('r', (r() < 0.12 ? 1.8 : 0.9).toFixed(1));
       c.setAttribute('fill', '#cfe3ff');
-      c.setAttribute('opacity', (0.15 + r() * 0.6).toFixed(2));
+      c.setAttribute('opacity', (0.15 + r() * 0.55).toFixed(2));
       stars.appendChild(c);
     }
     svg.appendChild(stars);
 
-    // nebulas
     var n1 = document.createElementNS(ns, 'circle');
-    n1.setAttribute('cx', -420); n1.setAttribute('cy', -360); n1.setAttribute('r', 300);
+    n1.setAttribute('cx', -300); n1.setAttribute('cy', -150); n1.setAttribute('r', 170);
     n1.setAttribute('fill', 'url(#neb1)');
     svg.appendChild(n1);
     var n2 = document.createElementNS(ns, 'circle');
-    n2.setAttribute('cx', 430); n2.setAttribute('cy', 380); n2.setAttribute('r', 280);
+    n2.setAttribute('cx', 300); n2.setAttribute('cy', 150); n2.setAttribute('r', 160);
     n2.setAttribute('fill', 'url(#neb2)');
     svg.appendChild(n2);
 
-    // rings
-    var rings = document.createElementNS(ns, 'g');
     for (var k = 1; k <= RING_COUNT; k++) {
       var ring = document.createElementNS(ns, 'ellipse');
       ring.setAttribute('cx', 0); ring.setAttribute('cy', 0);
-      ring.setAttribute('rx', k * 100);
-      ring.setAttribute('ry', k * 50);
+      ring.setAttribute('rx', k * 70);
+      ring.setAttribute('ry', k * 38);
       ring.setAttribute('fill', 'none');
-      ring.setAttribute('stroke', k === 5 ? 'rgba(255,209,102,.36)' : 'rgba(72,140,220,.3)');
-      ring.setAttribute('stroke-width', k === 5 ? 1.8 : 1.2);
-      ring.setAttribute('stroke-dasharray', '3 9');
-      rings.appendChild(ring);
+      ring.setAttribute('stroke', k === RING_COUNT ? 'rgba(255,209,102,.35)' : 'rgba(72,140,220,.28)');
+      ring.setAttribute('stroke-width', k === RING_COUNT ? 1.8 : 1.2);
+      ring.setAttribute('stroke-dasharray', '5 8');
+      svg.appendChild(ring);
     }
-    svg.appendChild(rings);
 
-    // sun
     var glow = document.createElementNS(ns, 'circle');
-    glow.setAttribute('cx', 0); glow.setAttribute('cy', 0); glow.setAttribute('r', 80);
-    glow.setAttribute('fill', 'url(#sunGlow)');
+    glow.setAttribute('r', 70); glow.setAttribute('fill', 'url(#sunGlow)');
     svg.appendChild(glow);
     var sun = document.createElementNS(ns, 'circle');
-    sun.setAttribute('cx', 0); sun.setAttribute('cy', 0); sun.setAttribute('r', 16);
-    sun.setAttribute('fill', '#ffd166');
+    sun.setAttribute('r', 17); sun.setAttribute('fill', '#ffd166');
     svg.appendChild(sun);
 
-    // planets
     var pr = mulberry32(7);
     for (var ringIdx = 1; ringIdx <= RING_COUNT; ringIdx++) {
       var count = 5 + ringIdx * 2;
       for (var j = 0; j < count; j++) {
         var ang = (Math.PI * 2 * j) / count + pr() * 0.3;
-        var rx = ringIdx * 100 + (pr() * 8 - 4);
-        var ry = ringIdx * 50 + (pr() * 4 - 2);
+        var rx = ringIdx * 70 + (pr() * 6 - 3);
+        var ry = ringIdx * 38 + (pr() * 4 - 2);
         var p = {
           ring: ringIdx,
           x: Math.cos(ang) * rx,
           y: Math.sin(ang) * ry,
-          size: 4 + ringIdx * 0.7 + pr() * 2,
+          size: 4 + ringIdx * 0.6 + pr() * 2,
           used: false
         };
-        planets.push(p);
         var pc = document.createElementNS(ns, 'circle');
         pc.setAttribute('cx', p.x.toFixed(1));
         pc.setAttribute('cy', p.y.toFixed(1));
         pc.setAttribute('r', p.size.toFixed(1));
         pc.setAttribute('fill', ringIdx >= 4 ? '#ffd166' : ringIdx >= 3 ? '#a78bfa' : '#48c8ff');
-        pc.setAttribute('opacity', '0.9');
-        pc.setAttribute('data-ring', ringIdx);
+        pc.setAttribute('opacity', '0.85');
         p.el = pc;
+        planets.push(p);
         svg.appendChild(pc);
       }
     }
 
-    // ship
     var trail = document.createElementNS(ns, 'polyline');
     trail.setAttribute('fill', 'none');
     trail.setAttribute('stroke', '#22d3ee');
     trail.setAttribute('stroke-width', '1.4');
     trail.setAttribute('stroke-linecap', 'round');
-    trail.setAttribute('opacity', '0.32');
+    trail.setAttribute('opacity', '0.35');
     svg.appendChild(trail);
+    state.trail = trail;
 
     var ship = document.createElementNS(ns, 'g');
     ship.id = 'ship';
@@ -515,39 +514,18 @@ h1 span{color:var(--yellow)}
       '<path d="M-12,0 L-19,-3 L-19,3 Z" fill="#3ad0ff"/>';
     svg.appendChild(ship);
     state.ship = ship;
-    state.trail = trail;
-    trailPoints = [];
-    trail.setAttribute('points', '');
-
-    // place ship at rim start
     shipPos = { x: -40, y: 0 };
-    shipTarget = { x: -40, y: 0 };
     ship.setAttribute('transform', 'translate(-40,0) scale(1.5)');
   }
 
-  function animateShip() {
-    if (raf) cancelAnimationFrame(raf);
-    var step = function () {
-      shipPos.x += (shipTarget.x - shipPos.x) * 0.16;
-      shipPos.y += (shipTarget.y - shipPos.y) * 0.16;
-      if (state && state.ship) {
-        state.ship.setAttribute('transform', 'translate(' + shipPos.x.toFixed(1) + ',' + shipPos.y.toFixed(1) + ') scale(1.5)');
-      }
-      trailPoints.push({ x: shipPos.x, y: shipPos.y });
-      if (trailPoints.length > 18) trailPoints.shift();
-      if (state && state.trail) {
-        state.trail.setAttribute('points', trailPoints.map(function (p) { return p.x.toFixed(1) + ',' + p.y.toFixed(1); }).join(' '));
-      }
-      var dx = shipTarget.x - shipPos.x, dy = shipTarget.y - shipPos.y;
-      if (Math.abs(dx) + Math.abs(dy) > 0.6) raf = requestAnimationFrame(step);
-      else raf = null;
-    };
-    raf = requestAnimationFrame(step);
-  }
-
-  function planetFor(rarity) {
-    var ring = Math.min(5, Math.max(1, RARITY[rarity] || 1));
+  function planetFor(tier) {
+    var ring = Math.min(5, Math.max(1, RARITY[tier] || 1));
     var avail = planets.filter(function (p) { return p.ring === ring && !p.used; });
+    if (!avail.length) {
+      for (var d = 1; d < 5 && !avail.length; d++) {
+        avail = planets.filter(function (p) { return Math.abs(p.ring - ring) === d && !p.used; });
+      }
+    }
     if (!avail.length) avail = planets.filter(function (p) { return !p.used; });
     if (!avail.length) avail = planets;
     var p = avail[Math.floor(Math.random() * avail.length)];
@@ -556,46 +534,60 @@ h1 span{color:var(--yellow)}
     return p;
   }
 
+  function flyTo(target, done) {
+    var start = { x: shipPos.x, y: shipPos.y };
+    var mid = { x: (start.x + target.x) / 2, y: Math.min(start.y, target.y) - 70 };
+    var dur = 950, t0 = performance.now();
+    trailPoints = [];
+    function frame(t) {
+      var k = Math.min(1, (t - t0) / dur);
+      var e = 1 - Math.pow(1 - k, 3);
+      var x = (1 - e) * (1 - e) * start.x + 2 * (1 - e) * e * mid.x + e * e * target.x;
+      var y = (1 - e) * (1 - e) * start.y + 2 * (1 - e) * e * mid.y + e * e * target.y;
+      var dx = 2 * (1 - e) * (mid.x - start.x) + 2 * e * (target.x - mid.x);
+      var dy = 2 * (1 - e) * (mid.y - start.y) + 2 * e * (target.y - mid.y);
+      var ang = Math.atan2(dy, dx) * 180 / Math.PI;
+      shipPos = { x: x, y: y };
+      if (state.ship) state.ship.setAttribute('transform', 'translate(' + x.toFixed(1) + ',' + y.toFixed(1) + ') rotate(' + ang.toFixed(1) + ') scale(1.5)');
+      trailPoints.push({ x: x, y: y });
+      if (trailPoints.length > 24) trailPoints.shift();
+      if (state.trail) {
+        state.trail.setAttribute('points', trailPoints.map(function (p) { return p.x.toFixed(1) + ',' + p.y.toFixed(1); }).join(' '));
+      }
+      if (k < 1) flightRaf = requestAnimationFrame(frame);
+      else { flightRaf = null; done && done(); }
+    }
+    flightRaf = requestAnimationFrame(frame);
+  }
+
   /* ---------- game ---------- */
   function categoryPool(cat) {
     return pool.filter(function (x) { return cat === 'all' || x.themeSlug === cat; });
   }
 
-  function buildPool() {
-    pool = [];
-    packs.themes.forEach(function (t) {
-      t.questions.forEach(function (q) {
-        pool.push({ themeSlug: t.slug, themeName: t.name, q: q });
-      });
-    });
-  }
-
   function startRun(practice) {
-    var cat = state.cat;
+    var cat = state.cat || 'all';
     var items = categoryPool(cat);
     if (!items.length) items = pool;
     var seed = practice ? (Date.now() >>> 0) : hash(dayNumber() + '|' + cat);
     var order = shuffle(items, seed);
-    var runQuestions = shuffle(order, (seed ^ 0x9e3779b9) >>> 0);
     state = {
       cat: cat,
       practice: !!practice,
-      score: 0,
-      lives: 3,
-      jumps: 0,
       dist: 0,
+      jumps: 0,
+      far: 1,
       legend: 0,
-      used: {},
-      tiers: { common: 0, uncommon: 0, rare: 0, epic: 0, legendary: 0 },
       rarest: null,
-      queue: runQuestions,
-      qi: 0,
+      used: {},
+      queue: shuffle(order, (seed ^ 0x9e3779b9) >>> 0),
       current: null,
       hintUsed: false,
       checking: false,
-      deadline: 0,
       status: 'playing',
-      ship: state.ship
+      cardTimer: null,
+      ship: null,
+      trail: null
     };
     buildSystem();
     els.start.classList.remove('on');
@@ -603,37 +595,34 @@ h1 span{color:var(--yellow)}
     els.arrive.classList.remove('show');
     els.hintLine.classList.remove('on');
     els.hintLine.hidden = true;
-    els.feedback.textContent = 'Rarer answers score more — 10 / 25 / 50 / 75 / 100. One hint per prompt costs 10 points.';
-    updateHud();
+    els.feedback.textContent = 'Rarer answers jump farther. A hint is free, once per prompt.';
+    els.feedback.className = 'feedback';
     els.mode.textContent = practice ? 'PRACTICE' : 'DAILY #' + dayNumber();
+    updateHud();
     nextQuestion();
   }
 
   function updateHud() {
-    els.score.textContent = state.score;
-    els.lives.textContent = '❤'.repeat(Math.max(0, state.lives)) + '♡'.repeat(Math.max(0, 3 - state.lives));
-    els.jumps.textContent = state.jumps;
     els.dist.textContent = state.dist.toFixed(2) + ' AU';
+    els.jumps.textContent = state.jumps;
+    els.far.textContent = state.far;
+    els.target.textContent = state.targetName || '—';
   }
 
   function nextQuestion() {
-    if (!state.queue.length) {
-      var seed = (Date.now() >>> 0);
-      state.queue = shuffle(categoryPool(state.cat), seed);
-    }
+    if (!state.queue.length) state.queue = shuffle(categoryPool(state.cat), Date.now() >>> 0);
     var item = state.queue.shift();
     if (!item) return endRun();
     if (state.cardTimer) { clearTimeout(state.cardTimer); state.cardTimer = null; }
     els.arrive.classList.remove('show');
+    els.arrNext.textContent = 'NEXT PROMPT →';
     state.current = item;
     state.hintUsed = false;
     state.status = 'playing';
     state.checking = false;
-    state.deadline = performance.now() + TIME_LIMIT * 1000;
+    state.targetName = null;
     els.qtag.textContent = item.themeName.toUpperCase();
     els.qtext.textContent = item.q.prompt;
-    trailPoints = [];
-    if (state.trail) state.trail.setAttribute('points', '');
     els.ans.value = '';
     els.ans.disabled = false;
     els.confirmBtn.disabled = false;
@@ -641,45 +630,10 @@ h1 span{color:var(--yellow)}
     els.hintBtn.disabled = false;
     els.hintLine.classList.remove('on');
     els.hintLine.hidden = true;
-    els.feedback.textContent = 'Rarer answers score more — 10 / 25 / 50 / 75 / 100. One hint per prompt costs 10 points.';
-    els.timerWrap.classList.remove('low');
-    els.timerBar.style.transform = 'scaleX(1)';
+    els.feedback.textContent = 'Rarer answers jump farther. A hint is free, once per prompt.';
+    els.feedback.className = 'feedback';
     els.ans.focus({ preventScroll: true });
-    state.tickToken = (state.tickToken || 0) + 1;
-    tick(state.tickToken);
-  }
-
-  function tick(token) {
-    if (!state || state.status !== 'playing' || token !== state.tickToken) return;
-    var left = Math.max(0, state.deadline - performance.now()) / 1000;
-    els.timerBar.style.transform = 'scaleX(' + Math.min(1, left / TIME_LIMIT) + ')';
-    els.timerWrap.classList.toggle('low', left <= 8);
-    if (left <= 0) return timeout();
-    requestAnimationFrame(function () { tick(token); });
-  }
-
-  function timeout() {
-    if (!state || state.status !== 'playing') return;
-    state.status = 'waiting';
-    loseLife('Time is up. The prompt moved on.');
-  }
-
-  function loseLife(message) {
-    state.lives -= 1;
     updateHud();
-    els.flash.classList.remove('on');
-    void els.flash.offsetWidth;
-    els.flash.classList.add('on');
-    els.scene.classList.add('shake');
-    setTimeout(function () { els.scene.classList.remove('shake'); }, 450);
-    beep(220, 0.18, 'sawtooth', 0.05);
-    beep(120, 0.3, 'sawtooth', 0.05, 0.12);
-    if (state.lives <= 0) {
-      setTimeout(endRun, 500);
-    } else {
-      els.feedback.textContent = message + ' ' + state.lives + ' live' + (state.lives === 1 ? '' : 's') + ' left.';
-      setTimeout(nextQuestion, 900);
-    }
   }
 
   function matches(q, text) {
@@ -695,140 +649,66 @@ h1 span{color:var(--yellow)}
     return null;
   }
 
-  function submit() {
-    if (!state || state.status !== 'playing' || state.checking) return;
-    var text = els.ans.value;
-    var q = state.current.q;
-    var a = matches(q, text);
-    if (a) return resolve(a);
-    if (!String(text || '').trim()) {
-      badAnswer('Type an answer first.', false);
-      return;
-    }
-    if (Date.now() - lastJudge < 1500) {
-      els.feedback.textContent = 'Easy — one check at a time.';
-      return;
-    }
-    lastJudge = Date.now();
-    state.checking = true;
-    els.ans.disabled = true;
-    els.confirmBtn.disabled = true;
-    els.feedback.textContent = 'Checking that answer…';
-    fetch('/api/rarepop/judge', {
+  function shakeShip() {
+    els.scene.classList.add('shake');
+    setTimeout(function () { els.scene.classList.remove('shake'); }, 450);
+    beep(150, 0.08, 'square', 0.03);
+  }
+
+  function askJudge(q, text) {
+    return fetch('/api/rarepop/judge', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ theme: state.current.themeSlug, questionId: q.id, answer: String(text).slice(0, 80) })
     })
       .then(function (r) {
-        if (r.status === 429) {
-          var e = new Error('rate');
-          e.rate = true;
-          throw e;
-        }
+        if (r.status === 429) return { rate: true };
         return r.ok ? r.json() : { match: null };
       })
       .then(function (data) {
-        state.checking = false;
-        if (!state || state.status !== 'playing') return;
-        els.ans.disabled = false;
-        els.confirmBtn.disabled = false;
-        var found = null;
+        if (data && data.rate) return { rate: true };
         var name = data && data.match;
-        if (name) {
-          for (var i = 0; i < q.answers.length; i++) if (q.answers[i].name === name) { found = q.answers[i]; break; }
-        }
-        if (found) { els.ans.value = found.name; resolve(found); }
-        else badAnswer('Not in this set. That costs a life.', true);
+        if (!name) return null;
+        for (var i = 0; i < q.answers.length; i++) if (q.answers[i].name === name) return q.answers[i];
+        return null;
       })
-      .catch(function (e) {
-        state.checking = false;
-        if (!state || state.status !== 'playing') return;
-        els.ans.disabled = false;
-        els.confirmBtn.disabled = false;
-        if (e && e.rate) {
-          els.feedback.textContent = 'Too many checks — give it a second.';
-          return;
-        }
-        badAnswer('Not in this set. That costs a life.', true);
-      });
+      .catch(function () { return null; });
   }
 
-  function badAnswer(message, penalize) {
-    els.ans.classList.add('bad');
-    setTimeout(function () { els.ans.classList.remove('bad'); }, 320);
-    els.feedback.textContent = message;
-    beep(180, 0.08, 'square', 0.03);
-    if (penalize && state && state.status === 'playing') {
-      state.status = 'waiting';
-      setTimeout(function () { if (state && state.status === 'waiting') loseLife(message); }, 450);
-    }
-  }
-
-  function resolve(a) {
-    if (state.used[a.name]) {
-      badAnswer('Already used that answer. Pick a different one.', false);
+  function submit() {
+    if (!state || state.status !== 'playing' || state.checking) return;
+    var text = els.ans.value;
+    var q = state.current.q;
+    if (!String(text || '').trim()) {
+      els.feedback.textContent = 'Type an answer first.';
+      els.feedback.className = 'feedback err';
+      shakeShip();
       return;
     }
-    state.used[a.name] = true;
-    state.status = 'jumping';
-    state.score += a.points;
-    state.jumps += 1;
-    state.tiers[a.tier] = (state.tiers[a.tier] || 0) + 1;
-    if (!state.rarest || RARITY[a.tier] > RARITY[state.rarest.tier]) state.rarest = a;
-    if (a.tier === 'legendary') state.legend += 1;
-    var p = planetFor(a.tier);
-    state.dist += RING_DIST[p.ring] || 0;
-    updateHud();
+    var local = matches(q, text);
+    if (local && state.used[local.name]) {
+      els.feedback.textContent = 'Already used that answer. Pick a different one.';
+      els.feedback.className = 'feedback err';
+      return;
+    }
+    state.checking = true;
+    state.status = 'launching';
     els.ans.disabled = true;
     els.confirmBtn.disabled = true;
+    var ring = local ? RARITY[local.tier] : '?';
+    var lookup = local ? Promise.resolve(local) : askJudge(q, text);
 
-    var lorePromise = fetchLore(a);
-
-    showJump(p.ring).then(function () {
-      shipTarget = { x: p.x, y: p.y };
-      animateShip();
-      beep(440 + RARITY[a.tier] * 80, 0.08, 'triangle', 0.04);
-      beep(660 + RARITY[a.tier] * 80, 0.12, 'triangle', 0.035, 0.07);
-      if (!state || state.status !== 'jumping') return;
-      showArrive(a, p, fallbackLore(a));
-      var token = state.cardToken;
-      lorePromise.then(function (text) {
-        if (!state || state.cardToken !== token) return;
-        if (!text || !text.name || !text.desc) return;
-        els.arrName.textContent = text.name;
-        els.arrDesc.style.opacity = '0.35';
-        els.arrDesc.textContent = text.desc;
-        requestAnimationFrame(function () { els.arrDesc.style.opacity = '1'; });
-      });
-    });
-  }
-
-  function showJump(ring) {
-    return new Promise(function (done) {
-      els.jumpRing.textContent = ring;
-      [els.step1, els.step2, els.step3].forEach(function (s) { s.className = 'jstep'; });
-      els.jumpBar.style.width = '0%';
-      els.jump.classList.add('on');
-      beep(90, 0.5, 'sawtooth', 0.03);
-      setTimeout(function () { els.step1.classList.add('active'); els.jumpBar.style.width = '30%'; }, 60);
-      setTimeout(function () {
-        els.step1.classList.add('done'); els.step1.classList.remove('active');
-        els.step2.classList.add('active'); els.jumpBar.style.width = '62%';
-        beep(180, 0.2, 'sawtooth', 0.03);
-      }, 700);
-      setTimeout(function () {
-        els.step2.classList.add('done'); els.step2.classList.remove('active');
-        els.step3.classList.add('active'); els.jumpBar.style.width = '88%';
-        beep(300, 0.25, 'sawtooth', 0.035);
-      }, 1400);
-      setTimeout(function () {
-        els.step3.classList.add('done'); els.step3.classList.remove('active');
-        els.jumpBar.style.width = '100%';
-      }, 1950);
-      setTimeout(function () {
-        els.jump.classList.remove('on');
-        done();
-      }, 2300);
+    showJump(ring).then(function () {
+      return lookup;
+    }).then(function (found) {
+      state.checking = false;
+      if (!state) return;
+      if (found && found.rate) return showFailCard(text, 'rate');
+      if (found) return land(found);
+      return showFailCard(text, 'invalid');
+    }).catch(function () {
+      state.checking = false;
+      if (state) showFailCard(text, 'invalid');
     });
   }
 
@@ -839,7 +719,7 @@ h1 span{color:var(--yellow)}
     for (var i = 0; i < a.name.length; i++) h = (h * 31 + a.name.charCodeAt(i)) >>> 0;
     return {
       name: base + ' ' + suffixes[h % suffixes.length],
-      desc: 'A small world assembled from ' + a.name + ' trivia. Rarity: ' + RARITY_LABEL[RARITY[a.tier]] + '.'
+      desc: 'A small world assembled from ' + a.name + ' trivia.'
     };
   }
 
@@ -855,29 +735,142 @@ h1 span{color:var(--yellow)}
       .catch(function () { return fallbackLore(a); });
   }
 
+  function land(a) {
+    if (state.used[a.name]) return showFailCard(a.name, 'used');
+    state.used[a.name] = true;
+    state.status = 'flying';
+    state.jumps += 1;
+    var p = planetFor(a.tier);
+    var au = RING_DIST[p.ring] || 0;
+    state.dist += au;
+    state.lastAU = au;
+    state.far = Math.max(state.far, p.ring);
+    if (a.tier === 'legendary') state.legend += 1;
+    if (!state.rarest || RARITY[a.tier] > RARITY[state.rarest.tier]) state.rarest = a;
+    var lore = fallbackLore(a);
+    state.targetName = 'RING ' + p.ring;
+    updateHud();
+    els.last.textContent = au.toFixed(2) + ' AU';
+    els.ans.disabled = true;
+    els.confirmBtn.disabled = true;
+    beep(420 + RARITY[a.tier] * 70, 0.08, 'triangle', 0.04);
+
+    flyTo({ x: p.x, y: p.y }, function () {
+      if (!state || state.status !== 'flying') return;
+      showArrive(a, p, lore);
+      var token = state.cardToken;
+      fetchLore(a).then(function (text) {
+        if (!state || state.cardToken !== token) return;
+        if (!text || !text.name) return;
+        els.arrName.textContent = text.name;
+        els.arrDesc.textContent = text.desc;
+        if (state.targetName !== text.name) {
+          state.targetName = text.name;
+          updateHud();
+        }
+      });
+    });
+  }
+
+  function showFailCard(text, reason) {
+    if (!state) return;
+    state.status = 'failing';
+    state.cardToken = (state.cardToken || 0) + 1;
+    var head = 'NO COORDINATES · NOT ON THE LIST';
+    var desc = 'Nothing answers at those coordinates. Try another name from the list.';
+    if (reason === 'rate') {
+      head = 'SCANNER BUSY';
+      desc = 'The scanner is cooling down. Give it a second and try again.';
+    } else if (reason === 'used') {
+      head = 'ALREADY SCANNED · ' + String(text).toUpperCase();
+      desc = 'You already used that answer this run. Pick a different one.';
+    }
+    els.arrHead.textContent = head;
+    els.arrName.textContent = 'The Void';
+    els.arrPlanet.dataset.tier = 'fail';
+    els.arrDesc.textContent = desc;
+    els.arrMeta.innerHTML = 'Answer: <b>' + esc(text) + '</b>';
+    els.arrNext.textContent = 'TRY AGAIN →';
+    els.arrive.classList.add('show');
+    els.flash.classList.remove('on');
+    void els.flash.offsetWidth;
+    els.flash.classList.add('on');
+    shakeShip();
+    if (state.cardTimer) clearTimeout(state.cardTimer);
+    state.cardTimer = setTimeout(retryQuestion, 6000);
+  }
+
+  function retryQuestion() {
+    if (!state) return;
+    if (state.cardTimer) { clearTimeout(state.cardTimer); state.cardTimer = null; }
+    els.arrive.classList.remove('show');
+    state.status = 'playing';
+    state.checking = false;
+    els.ans.disabled = false;
+    els.confirmBtn.disabled = false;
+    els.ans.value = '';
+    els.feedback.textContent = 'Not on the list — try another answer.';
+    els.feedback.className = 'feedback err';
+    els.ans.focus({ preventScroll: true });
+  }
+
+  function showJump(ring) {
+    return new Promise(function (done) {
+      [els.step1, els.step2, els.step3, els.step4].forEach(function (s) { s.className = 'jstep'; });
+      els.step3Text.innerHTML = 'Locking target · ring <b>' + ring + '</b>';
+      els.step4Text.innerHTML = 'Jumping to ring <b>' + ring + '</b>';
+      els.jumpBar.style.width = '0%';
+      els.jump.classList.add('on');
+      beep(90, 0.45, 'sawtooth', 0.03);
+      setTimeout(function () { els.step1.classList.add('active'); els.jumpBar.style.width = '20%'; }, 60);
+      setTimeout(function () {
+        els.step1.classList.add('done'); els.step1.classList.remove('active');
+        els.step2.classList.add('active'); els.jumpBar.style.width = '45%';
+        beep(160, 0.18, 'sawtooth', 0.03);
+      }, 500);
+      setTimeout(function () {
+        els.step2.classList.add('done'); els.step2.classList.remove('active');
+        els.step3.classList.add('active'); els.jumpBar.style.width = '70%';
+        beep(240, 0.18, 'sawtooth', 0.03);
+      }, 1000);
+      setTimeout(function () {
+        els.step3.classList.add('done'); els.step3.classList.remove('active');
+        els.step4.classList.add('active'); els.jumpBar.style.width = '90%';
+        beep(340, 0.2, 'sawtooth', 0.035);
+      }, 1500);
+      setTimeout(function () {
+        els.step4.classList.add('done'); els.step4.classList.remove('active');
+        els.jumpBar.style.width = '100%';
+      }, 1900);
+      setTimeout(function () {
+        els.jump.classList.remove('on');
+        done();
+      }, 2250);
+    });
+  }
+
   function showArrive(a, p, lore) {
     state.cardToken = (state.cardToken || 0) + 1;
     els.arrHead.textContent = 'NEW DISCOVERY · RING ' + p.ring + ' · ' + RARITY_LABEL[RARITY[a.tier]];
     els.arrName.textContent = lore.name;
     els.arrPlanet.dataset.tier = a.tier;
     els.arrDesc.textContent = lore.desc;
-    els.arrMeta.innerHTML = 'Answer: <b>' + esc(a.name) + '</b> · +' + a.points + ' points · rarer than <b>' +
-      Math.max(1, 100 - a.share) + '%</b> of valid answers<br>+' + (RING_DIST[p.ring] || 0).toFixed(2) + ' AU';
+    els.arrMeta.innerHTML = 'Answer: <b>' + esc(a.name) + '</b> · +' + (RING_DIST[p.ring] || 0).toFixed(2) +
+      ' AU · rarer than <b>' + Math.max(1, 100 - a.share) + '%</b> of valid answers';
+    els.arrNext.textContent = state.jumps >= MISSION ? 'MISSION REPORT →' : 'NEXT PROMPT →';
     els.arrive.classList.add('show');
     if (state.cardTimer) clearTimeout(state.cardTimer);
     state.cardTimer = setTimeout(function () {
-      if (state && state.status === 'jumping') nextQuestion();
+      if (!state) return;
+      if (state.jumps >= MISSION) endRun(); else nextQuestion();
     }, 12000);
-    beep(880, 0.08, 'sine', 0.04);
-    beep(1100, 0.12, 'sine', 0.03, 0.08);
+    beep(720, 0.08, 'sine', 0.04);
+    beep(980, 0.12, 'sine', 0.03, 0.08);
   }
 
   function useHint() {
     if (!state || state.status !== 'playing' || state.hintUsed) return;
-    if (state.hintUsed) return;
-    state.score = Math.max(0, state.score - 10);
     state.hintUsed = true;
-    updateHud();
     els.hintBtn.disabled = true;
     els.hintLine.hidden = false;
     els.hintLine.textContent = state.current.q.hint ? 'HINT: ' + state.current.q.hint : 'No hint for this prompt.';
@@ -888,18 +881,30 @@ h1 span{color:var(--yellow)}
   function endRun() {
     if (!state) return;
     state.status = 'over';
+    if (state.cardTimer) { clearTimeout(state.cardTimer); state.cardTimer = null; }
+    els.arrive.classList.remove('show');
     els.result.classList.add('on');
-    els.resKicker.textContent = state.practice ? 'Practice run over' : 'Daily #' + dayNumber() + ' · run over';
-    els.resTitle.textContent = 'OUT OF LIVES';
-    els.resSub.textContent = 'Here’s the run — and the rarest answer you found.';
+    var ranks = [
+      { min: 0, label: 'Orbit Rookie', desc: 'Barely left Earth orbit. The ship is still warm.' },
+      { min: 10, label: 'Inner Ring Runner', desc: 'Bouncing between the near rings.' },
+      { min: 20, label: 'Deep Space Regular', desc: 'Out past the middle rings, comfortably.' },
+      { min: 30, label: 'Outer Ring Legend', desc: 'One of the far travellers now.' },
+      { min: 40, label: 'Galactic Ace', desc: 'You took the long way and it paid off.' }
+    ];
+    var rank = ranks.slice().reverse().filter(function (x) { return state.dist >= x.min; })[0] || ranks[0];
+    els.resKicker.textContent = (state.practice ? 'Practice run' : 'Daily #' + dayNumber()) + ' · mission report';
+    els.resTitle.textContent = state.dist.toFixed(2) + ' AU';
+    els.resSub.textContent = rank.label + ' — ' + rank.desc;
     els.resBest.innerHTML = state.rarest
-      ? 'Rarest find: <b>' + esc(state.rarest.name) + '</b> — ' + RARITY_LABEL[RARITY[state.rarest.tier]] + ', +' + state.rarest.points + ' points'
+      ? 'Rarest find: <b>' + esc(state.rarest.name) + '</b> — ' + RARITY_LABEL[RARITY[state.rarest.tier]]
       : 'No answers landed this run. Try a rarer name next time.';
-    els.resScore.textContent = state.score;
     els.resDist.textContent = state.dist.toFixed(2) + ' AU';
     els.resJumps.textContent = state.jumps;
+    els.resFar.textContent = state.far;
     els.resLegend.textContent = state.legend;
-    els.resShare.textContent = 'RarePop · pop-culture rare answers\n' + state.score + ' pts · ' + state.dist.toFixed(2) + ' AU · ' + state.jumps + ' jumps · ' + state.legend + ' legendary' + (state.rarest ? '\nRarest: ' + state.rarest.name + ' (' + RARITY_LABEL[RARITY[state.rarest.tier]] + ')' : '');
+    els.resShare.textContent = 'RarePop · pop-culture rare answers\n' + state.dist.toFixed(2) + ' AU · ' +
+      state.jumps + ' jumps · farthest ring ' + state.far + ' · ' + state.legend + ' legendary' +
+      (state.rarest ? '\nRarest: ' + state.rarest.name + ' (' + RARITY_LABEL[RARITY[state.rarest.tier]] + ')' : '');
   }
 
   function copyResult() {
@@ -942,10 +947,12 @@ h1 span{color:var(--yellow)}
     els.replayBtn.addEventListener('click', function () { startRun(state ? state.practice : false); });
     els.copyBtn.addEventListener('click', copyResult);
     els.arrNext.addEventListener('click', function () {
-      if (!state || state.status !== 'jumping') return;
+      if (!state) return;
+      if (state.status === 'failing') { retryQuestion(); return; }
+      if (state.status !== 'flying') return;
       if (state.cardTimer) { clearTimeout(state.cardTimer); state.cardTimer = null; }
       els.arrive.classList.remove('show');
-      nextQuestion();
+      if (state.jumps >= MISSION) endRun(); else nextQuestion();
     });
     els.ans.addEventListener('keydown', function (e) { if (e.key === 'Enter') submit(); });
     var fs = document.getElementById('fsBtn');
@@ -956,7 +963,6 @@ h1 span{color:var(--yellow)}
         (document.exitFullscreen || function () {}).call(document);
       }
     });
-    window.addEventListener('resize', function () { if (state && state.ship) { /* svg is responsive */ } });
   }
 
   async function boot() {
@@ -971,14 +977,19 @@ h1 span{color:var(--yellow)}
       els.feedback.textContent = 'Refresh the page or try again in a moment.';
       return;
     }
-    buildPool();
+    pool = [];
+    packs.themes.forEach(function (t) {
+      t.questions.forEach(function (q) { pool.push({ themeSlug: t.slug, themeName: t.name, q: q }); });
+    });
     renderCats();
     buildSystem();
-    els.startFoot.innerHTML = packs.themes.length + ' categories · ' + pool.length + ' prompts · rarity from public Wikipedia pageviews. A wrong answer is one that is not on the closed list; spelling and nicknames get a server-side second pass.';
+    els.startFoot.textContent = packs.themes.length + ' categories · ' + pool.length +
+      ' prompts · 10 jumps a run · rarity from public Wikipedia pageviews.';
   }
 
   boot();
 })();
+
 </script>
 </body>
 </html>
