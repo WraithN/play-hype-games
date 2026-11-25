@@ -2555,7 +2555,7 @@
     "description": "A pop-culture rare-answer arcade game: ten jumps through eight rings, no timer, and the rarer your answer the farther your ship travels.",
     "content": "<p>RarePop is a pop-culture rare-answer arcade game. Name something that fits the prompt; the answer is ranked by how obscure it is, and the ship jumps to the ring that matches its rarity. Common answers stay in the near rings; Legendary answers reach the outer void across eight rings.</p><p>Ten jumps make a run. There is no timer: a wrong answer shakes the ship and you try again. A hint is free, once per prompt. Movies, music, games and anime. <a href=\"/rarepop\">Open the RarePop page</a> or read <a href=\"/rarepop/method\">how the rarity tiers are calculated</a>.</p>",
     "embedUrl": "/assets/games/rarepop/index.html",
-    "thumb": "/assets/thumbs/rarepop.png",
+    "thumb": "/assets/thumbs/rarepop.png?v=2",
     "category": "puzzle-games",
     "tags": [
       "trivia",
