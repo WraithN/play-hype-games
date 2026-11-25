@@ -47,10 +47,11 @@ A self-hosted arcade game at `playhypegames.com/rarepop`. Pop-culture prompts (m
 
 Tiers are computed per prompt from English Wikipedia pageviews (Dec 2024–Oct 2025), percentiles: bottom 15% Legendary, 15–35% Epic, 35–60% Rare, 60–80% Uncommon, top 20% Common. Do not hand-edit tiers in `packs.json`.
 
-## Hints and lives
+## Hints, runs and wrong answers
 
 - Hint button: free, once per prompt, resets next prompt. Implementation in the game's `useHint()` / `state.hintUsed`.
-- Ten jumps per run. No timer. A wrong answer shows a Void card for three seconds, then the same prompt is playable again. Reusing an answer is allowed and lands on another planet.
+- Ten jumps per run, then a MISSION COMPLETE rank card. No timer, no lives, no score.
+- Every submit (including gibberish) plays the full SYSTEM // JUMP PREP overlay. A miss then shows a red Void card for ~3 seconds and the same prompt stays playable. Reusing an answer is allowed and lands on another planet.
 - Never put hints in the client only — they live in packs so they can be edited with the questions.
 
 ## LLM fuzzy judge
@@ -68,7 +69,7 @@ Tiers are computed per prompt from English Wikipedia pageviews (Dec 2024–Oct 2
 
 - On a correct answer the client calls `POST /api/rarepop/lore` with `{theme, questionId, answer}`.
 - The server generates a 2–3 word planet name and one-sentence description via the same LLM, cached 24h per answer; without a key it returns a local fallback.
-- The card shows the fallback immediately after the jump animation, then swaps in the AI text when it arrives.
+- The client generates a planet name/description itself and shows that immediately. The lore response only replaces it when `source` is an LLM result; `source:"fallback"` responses are ignored so names stay consistent across the card, HUD and in-scene label.
 - Keep the lore prompt playful and fictional; no real-world claims, no endorsements.
 
 ## Routes
@@ -81,15 +82,20 @@ Tiers are computed per prompt from English Wikipedia pageviews (Dec 2024–Oct 2
 
 ## Visual
 
-- SVG elliptical rings, planets, sun glow, starfield, ship with trail, arrival card, HUD chips, 16:9 layout.
+- Eight dashed elliptical rings (NEAR 01 → VOID 08), ~62 numbered planets, central sun with rotating dashed rings, nebula blobs, starfield, grid.
+- Rocket flies a quadratic Bezier with rotation and a cyan dot trail; landing plays a target bracket + particle burst and an in-scene planet label.
+- SYSTEM // JUMP PREP cyber overlay (4 steps, progress bar), right-side arrival card (red `.fail` variant for Void), HUD chips, compact rules under `@media (max-height:430px)` for embedded short viewports.
 - Single-file CSS/JS in `public/games/rarepop/index.html`; keep the compact rules at the bottom of the stylesheet for short viewports.
 
 ## QA checklist
 
 1. `node scripts/build-rarity-packs.mjs` exits 0 and prints 4 themes.
 2. `/rarepop` and `/rarepop/method` return 200; `/rarity-tower` returns 301.
-3. Play one prompt: correct answer jumps a ring; wrong answer loses a life.
-4. HINT costs 10, once, disabled at score < 10, resets next prompt.
-5. Typo triggers the judge; a match proceeds, a miss costs a life.
-6. Sitemap includes `/rarepop` and `/rarepop/method` only.
-7. Deploy (push to `main`), wait for Render, re-check the live game.
+3. Play one prompt: a correct answer runs the 4-step overlay, Bezier flight and arrival card; HUD TOTAL/JUMPS update and the planet stays lit.
+4. Gibberish runs the same overlay, then the red Void card (~3s) with no jump counted; the same prompt remains and the input is cleared and re-enabled.
+5. HINT is free, works once per prompt at any score, greys out until the next prompt.
+6. Typo triggers the judge; a match proceeds as a normal jump, a miss shows the Void card.
+7. Ten jumps show the MISSION COMPLETE rank card; FLY AGAIN rebuilds the system and resets to 0.
+8. Check 1280×720, 390×844 and 390×219 (iframe height) with no horizontal scroll.
+9. Sitemap includes `/rarepop` and `/rarepop/method` only.
+10. Deploy (push to `main`), wait for Render, re-check the live game.
