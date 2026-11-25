@@ -353,13 +353,13 @@ API：
 
 | 变量 | 说明 |
 | --- | --- |
-| `LLM_API_KEY` | 必填。DeepSeek/兼容网关的 key |
-| `LLM_BASE_URL` | 默认 `https://4sapi.com/v1`；本地测试可用 `https://4sapi.org/v1` |
-| `LLM_MODEL` | 默认 `deepseek-v4.1-flash` |
+| `LLM_API_KEY` | 必填。4sapi 兼容网关的 key |
+| `LLM_BASE_URL` | 网关按网络分域名：海外节点（Render 美东）用 `https://4sapi.top/v1`（备用 `https://4sapi.com/v1`）；国内本地开发走代理时可用 `https://4sapi.org/v1` 或 `https://4stoken.com/v1`。代码里的兜底默认是 `.com` |
+| `LLM_MODEL` | 默认 `deepseek-v4.1-flash`（带推理，支持 `response_format: json_object`） |
 
 - 未配置 key 时接口返回 `{match:null}`，游戏退化为本地精确匹配。
-- 接口有每 IP 24 次/分钟的限流、全局 3000 次/天、8 秒超时、6 小时结果缓存；上游错误只记录在服务端日志。
-- 换 key 后重启服务；Render 在 Environment 里配置。
+- 接口有每 IP 24 次/分钟的限流、全局 3000 次/天、judge 8 秒 / lore 12 秒超时、结果缓存（judge 6 小时、lore 24 小时）；上游错误只记录在服务端日志。
+- **Render 改环境变量后要触发一次新部署才会注入进程**（单纯 restart 不保证生效）；在 Dashboard 改或用 API PUT 后手动 `render deploys create`。
 
 ### 星球卡片（AI）
 

@@ -60,9 +60,10 @@ Tiers are computed per prompt from English Wikipedia pageviews (Dec 2024–Oct 2
 - Flow: local exact/alias match first; on miss, the server calls an OpenAI-compatible chat endpoint and maps the input to one canonical name from the prompt's list. The returned name is re-validated before the client uses it.
 - Env (Render → Environment; never commit):
   - `LLM_API_KEY` (required; without it the endpoint returns `{match:null}`)
-  - `LLM_BASE_URL` (default `https://4sapi.com/v1`; use `https://4sapi.org/v1` for testing)
-  - `LLM_MODEL` (default `deepseek-v4.1-flash`; the gateway has no `deepseek-chat`)
-- Rate limit: 24 requests/minute per IP, 3000/day global, 8s timeout, 6h result cache.
+  - `LLM_BASE_URL` — the 4sapi gateway splits endpoints by network. Overseas (Render US-East) uses `https://4sapi.top/v1` (fallback `https://4sapi.com/v1`); China local dev behind a proxy can use `https://4sapi.org/v1` or `https://4stoken.com/v1`. The code's built-in default is `.com`.
+  - `LLM_MODEL` (default `deepseek-v4.1-flash`; a reasoning model that accepts `response_format: {type:'json_object'}`)
+- Rate limit: 24 requests/minute per IP, 3000/day global, judge 8s / lore 12s timeout, 6h judge / 24h lore result cache.
+- Render env-var changes (dashboard or REST PUT) only reach the Node process on a **fresh deploy** — a plain restart is not enough; run `render deploys create <service-id> --confirm` after rotating the key.
 - Never put the key in the game, page, data or repo. The browser must only see `/api/rarepop/judge`.
 
 ## Planet lore
