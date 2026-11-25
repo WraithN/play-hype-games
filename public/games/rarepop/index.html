@@ -112,6 +112,19 @@ h1 span{color:var(--yellow)}
 .rules div{border:1px solid var(--line);background:rgba(16,26,49,.55);border-radius:8px;padding:8px 9px}
 .rules b{display:block;font-family:var(--mono);font-size:9px;letter-spacing:.1em;color:var(--dim);margin-bottom:3px}
 .rules span{font-size:12px;color:var(--fg);line-height:1.35}
+.ladder{display:grid;grid-template-columns:repeat(auto-fit,minmax(88px,1fr));gap:6px;margin:0 0 14px}
+.ladder span{border:1px solid var(--line);background:rgba(16,26,49,.5);border-radius:7px;padding:6px 5px;text-align:center;
+  font-family:var(--mono);letter-spacing:.04em}
+.ladder b{display:block;font-size:9px;color:var(--muted)}
+.ladder i{font-style:normal;display:block;font-size:8.5px;color:var(--dim);margin-top:2px}
+.ladder span[data-r="1"] b{color:#cbd5e1}
+.ladder span[data-r="2"] b{color:#6ee7b7}
+.ladder span[data-r="3"] b{color:#93c5fd}
+.ladder span[data-r="4"] b{color:#c4b5fd}
+.ladder span[data-r="5"]{border-color:rgba(255,209,102,.55);background:rgba(255,209,102,.08)}
+.ladder span[data-r="5"] b{color:var(--yellow)}
+.bestline{margin:0 0 12px;font-size:12px;color:var(--muted);border-left:3px solid rgba(255,209,102,.6);padding-left:10px;line-height:1.5}
+.bestline b{color:var(--yellow)}
 .cats{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 14px}
 .cats button{font-family:var(--mono);font-size:9px;letter-spacing:.06em;color:var(--muted);
   border:1px solid var(--line);background:#0b1224;padding:6px 9px;border-radius:6px}
@@ -144,6 +157,7 @@ h1 span{color:var(--yellow)}
   .logo{font-size:10px;letter-spacing:.14em}
   .chip{font-size:8px;padding:2px 5px}
   .console{padding:5px 8px 7px;gap:4px}
+  .ladder{display:none}
   .qtext{font-size:12px}
   #ans,.hintbtn,.confirmbtn{height:32px;font-size:11px}
   .hintbtn{padding:0 8px;font-size:9px}
@@ -190,18 +204,25 @@ h1 span{color:var(--yellow)}
       <button class="confirmbtn" id="confirmBtn" type="button">JUMP</button>
     </div>
     <p class="hintline" id="hintLine" hidden></p>
-    <p class="feedback" id="feedback">Spelling is forgiven. Reusing an answer is not. One hint per floor costs 10 points.</p>
+    <p class="feedback" id="feedback">Rarer answers score more — 10 / 25 / 50 / 75 / 100. One hint per prompt costs 10 points.</p>
   </section>
 
   <div class="overlay on" id="start">
     <div class="card">
-      <div class="kicker">Solar Network · Pop-culture edition</div>
+      <div class="kicker">Pop-culture rare-answer game</div>
       <h1>RARE<span>POP</span></h1>
-      <p class="sub">Name a pop-culture answer nobody else thinks of. The rarer your answer, the deeper your ship jumps into the system.</p>
+      <p class="sub">Name a pop-culture answer nobody else thinks of. Every answer is scored by how rare it is — the rarer the answer, the deeper the ship jumps.</p>
       <div class="rules">
-        <div><b>LIVES</b><span>3 hearts. A wrong answer or a timeout costs one.</span></div>
+        <div><b>LIVES</b><span>Three hearts. A wrong answer or a timeout costs one.</span></div>
         <div><b>TIMER</b><span>40 seconds per prompt.</span></div>
         <div><b>HINT</b><span>Once per prompt, −10 points.</span></div>
+      </div>
+      <div class="ladder" aria-label="Rarity tiers and points">
+        <span data-r="1"><b>COMMON</b><i>10 pts · 1 ring</i></span>
+        <span data-r="2"><b>UNCOMMON</b><i>25 pts · 2 rings</i></span>
+        <span data-r="3"><b>RARE</b><i>50 pts · 3 rings</i></span>
+        <span data-r="4"><b>EPIC</b><i>75 pts · 4 rings</i></span>
+        <span data-r="5"><b>LEGENDARY</b><i>100 pts · 5 rings</i></span>
       </div>
       <div class="cats" id="cats"></div>
       <div class="actions">
@@ -215,8 +236,9 @@ h1 span{color:var(--yellow)}
   <div class="overlay" id="result">
     <div class="card">
       <div class="kicker" id="resKicker">Run over</div>
-      <h1 id="resTitle">SIGNAL LOST</h1>
-      <p class="sub" id="resSub">Three lives gone. The system keeps the distance you logged.</p>
+      <h1 id="resTitle">OUT OF LIVES</h1>
+      <p class="sub" id="resSub">Here's the run — and the rarest answer you found.</p>
+      <p class="bestline" id="resBest"></p>
       <div class="resultgrid">
         <div><b>SCORE</b><span id="resScore">0</span></div>
         <div class="y"><b>DISTANCE</b><span id="resDist">0.00 AU</span></div>
@@ -252,6 +274,7 @@ h1 span{color:var(--yellow)}
     start: $('start'), cats: $('cats'), startBtn: $('startBtn'), practiceBtn: $('practiceBtn'), startFoot: $('startFoot'),
     result: $('result'), resKicker: $('resKicker'), resTitle: $('resTitle'), resSub: $('resSub'),
     resScore: $('resScore'), resDist: $('resDist'), resJumps: $('resJumps'), resLegend: $('resLegend'),
+    resBest: $('resBest'),
     resShare: $('resShare'), replayBtn: $('replayBtn'), copyBtn: $('copyBtn')
   };
 
@@ -262,6 +285,7 @@ h1 span{color:var(--yellow)}
   var shipTarget = { x: 0, y: 0 };
   var shipPos = { x: 0, y: 0 };
   var trailPoints = [];
+  var lastJudge = 0;
   var raf = null;
   var audio = null;
 
@@ -498,6 +522,8 @@ h1 span{color:var(--yellow)}
       dist: 0,
       legend: 0,
       used: {},
+      tiers: { common: 0, uncommon: 0, rare: 0, epic: 0, legendary: 0 },
+      rarest: null,
       queue: runQuestions,
       qi: 0,
       current: null,
@@ -513,7 +539,7 @@ h1 span{color:var(--yellow)}
     els.arrive.classList.remove('show');
     els.hintLine.classList.remove('on');
     els.hintLine.hidden = true;
-    els.feedback.textContent = 'Spelling is forgiven. Reusing an answer is not. One hint per prompt costs 10 points.';
+    els.feedback.textContent = 'Rarer answers score more — 10 / 25 / 50 / 75 / 100. One hint per prompt costs 10 points.';
     updateHud();
     els.mode.textContent = practice ? 'PRACTICE' : 'DAILY #' + dayNumber();
     nextQuestion();
@@ -549,7 +575,7 @@ h1 span{color:var(--yellow)}
     els.hintBtn.disabled = state.score < 10;
     els.hintLine.classList.remove('on');
     els.hintLine.hidden = true;
-    els.feedback.textContent = 'Spelling is forgiven. Reusing an answer is not. One hint per prompt costs 10 points.';
+    els.feedback.textContent = 'Rarer answers score more — 10 / 25 / 50 / 75 / 100. One hint per prompt costs 10 points.';
     els.timerWrap.classList.remove('low');
     els.timerBar.style.transform = 'scaleX(1)';
     els.ans.focus({ preventScroll: true });
@@ -613,6 +639,11 @@ h1 span{color:var(--yellow)}
       badAnswer('Type an answer first.', false);
       return;
     }
+    if (Date.now() - lastJudge < 1500) {
+      els.feedback.textContent = 'Easy — one check at a time.';
+      return;
+    }
+    lastJudge = Date.now();
     state.checking = true;
     els.ans.disabled = true;
     els.confirmBtn.disabled = true;
@@ -622,7 +653,14 @@ h1 span{color:var(--yellow)}
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ theme: state.current.themeSlug, questionId: q.id, answer: String(text).slice(0, 80) })
     })
-      .then(function (r) { return r.ok ? r.json() : { match: null }; })
+      .then(function (r) {
+        if (r.status === 429) {
+          var e = new Error('rate');
+          e.rate = true;
+          throw e;
+        }
+        return r.ok ? r.json() : { match: null };
+      })
       .then(function (data) {
         state.checking = false;
         if (!state || state.status !== 'playing') return;
@@ -636,11 +674,15 @@ h1 span{color:var(--yellow)}
         if (found) { els.ans.value = found.name; resolve(found); }
         else badAnswer('Not in this set. That costs a life.', true);
       })
-      .catch(function () {
+      .catch(function (e) {
         state.checking = false;
         if (!state || state.status !== 'playing') return;
         els.ans.disabled = false;
         els.confirmBtn.disabled = false;
+        if (e && e.rate) {
+          els.feedback.textContent = 'Too many checks — give it a second.';
+          return;
+        }
         badAnswer('Not in this set. That costs a life.', true);
       });
   }
@@ -665,6 +707,8 @@ h1 span{color:var(--yellow)}
     state.status = 'jumping';
     state.score += a.points;
     state.jumps += 1;
+    state.tiers[a.tier] = (state.tiers[a.tier] || 0) + 1;
+    if (!state.rarest || RARITY[a.tier] > RARITY[state.rarest.tier]) state.rarest = a;
     if (a.tier === 'legendary') state.legend += 1;
     var p = planetFor(a.tier);
     state.dist += RING_DIST[p.ring] || 0;
@@ -701,13 +745,16 @@ h1 span{color:var(--yellow)}
     state.status = 'over';
     els.result.classList.add('on');
     els.resKicker.textContent = state.practice ? 'Practice run over' : 'Daily #' + dayNumber() + ' · run over';
-    els.resTitle.textContent = 'SIGNAL LOST';
-    els.resSub.textContent = 'Three lives gone. The system keeps the distance you logged.';
+    els.resTitle.textContent = 'OUT OF LIVES';
+    els.resSub.textContent = 'Here’s the run — and the rarest answer you found.';
+    els.resBest.innerHTML = state.rarest
+      ? 'Rarest find: <b>' + esc(state.rarest.name) + '</b> — ' + RARITY_LABEL[RARITY[state.rarest.tier]] + ', +' + state.rarest.points + ' points'
+      : 'No answers landed this run. Try a rarer name next time.';
     els.resScore.textContent = state.score;
     els.resDist.textContent = state.dist.toFixed(2) + ' AU';
     els.resJumps.textContent = state.jumps;
     els.resLegend.textContent = state.legend;
-    els.resShare.textContent = 'RarePop · pop-culture rare answers\n' + state.score + ' pts · ' + state.dist.toFixed(2) + ' AU · ' + state.jumps + ' jumps · ' + state.legend + ' legendary';
+    els.resShare.textContent = 'RarePop · pop-culture rare answers\n' + state.score + ' pts · ' + state.dist.toFixed(2) + ' AU · ' + state.jumps + ' jumps · ' + state.legend + ' legendary' + (state.rarest ? '\nRarest: ' + state.rarest.name + ' (' + RARITY_LABEL[RARITY[state.rarest.tier]] + ')' : '');
   }
 
   function copyResult() {
