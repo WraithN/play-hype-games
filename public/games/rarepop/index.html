@@ -689,10 +689,11 @@
     if (state.cardTimer) clearTimeout(state.cardTimer);
     state.cardTimer = setTimeout(function () {
       $('arrive').classList.remove('show');
+      $('arrive').classList.remove('fail');
       $('answer').value = '';
       $('answer').disabled = false;
       $('btn-launch').disabled = false;
-      $('btn-hint').disabled = false;
+      $('btn-hint').disabled = !!state.hintUsed;
       $('answer').focus();
       $('feedback').textContent = 'Not on the list — try another answer.';
       $('feedback').className = 'feedback err';
@@ -914,6 +915,7 @@
     $('overlay').classList.remove('show');
     $('cyber').classList.remove('show');
     $('arrive').classList.remove('show');
+    $('arrive').classList.remove('fail');
     $('hit').innerHTML = '';
     $('trails').innerHTML = '';
     buildNebula(); buildGrid(); buildStars(); buildOrbits(); drawPlanets(); drawSun();
