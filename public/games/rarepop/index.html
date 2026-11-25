@@ -6,66 +6,93 @@
 <title>SOLAR NETWORK · RarePop</title>
 <style>
   :root{
-    --bg0:#070b1d; --bg1:#101736;
+    --bg0:#05081a; --bg1:#101736;
     --ink:#e8efff; --dim:#8b96c9; --line:rgba(90,120,190,.3);
     --cyan:#46d6e6; --purple:#b78bff; --pink:#ff7bd5; --orange:#ffb347;
-    --panel:rgba(13,20,44,.78);
+    --panel:rgba(13,20,44,.85);
+    --steel:#26345f; --steel-hi:#3a4d86;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html,body{height:100%}
   body{
     font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--ink);
-    background:radial-gradient(1200px 760px at 50% 35%,var(--bg1),var(--bg0) 75%);
+    background:radial-gradient(1200px 760px at 50% 30%,#141d44,var(--bg0) 78%);
     overflow:hidden;
   }
-  .wrap{display:flex;flex-direction:column;height:100dvh;padding:14px 18px 16px;gap:12px}
+  .wrap{position:relative;display:flex;flex-direction:column;height:100dvh;padding:12px 16px 14px;gap:10px}
 
+  /* ---------- header instrument strip ---------- */
   header{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
   .brand{display:flex;align-items:center;gap:12px}
-  .brand .logo{width:30px;height:30px;border:2px solid var(--cyan);border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--cyan);font-weight:900}
+  .brand .logo{width:30px;height:30px;border:2px solid var(--cyan);border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--cyan);font-weight:900;box-shadow:0 0 14px rgba(70,214,230,.35)}
   .brand h1{font-size:18px;font-weight:900;letter-spacing:3px}
   .brand h1 span{color:var(--cyan)}
   .hud{display:flex;gap:10px;flex-wrap:wrap}
-  .chip{border:1px solid var(--line);border-radius:10px;padding:8px 14px;background:var(--panel);font-size:12px;color:var(--dim);letter-spacing:1px}
+  .chip{border:1px solid var(--line);border-radius:10px;padding:8px 14px;background:var(--panel);font-size:12px;color:var(--dim);letter-spacing:1px;font-family:ui-monospace,monospace}
   .chip b{color:var(--ink);font-weight:700}
   .chip .k{color:var(--cyan)}
 
-  .scene{flex:1;position:relative;border:1px solid var(--line);border-radius:18px;overflow:hidden;
-    background:linear-gradient(180deg,rgba(16,23,54,.2),rgba(7,11,29,.1))}
-  svg{position:absolute;inset:0;width:100%;height:100%}
+  /* ---------- cockpit scene ---------- */
+  .scene{flex:1;position:relative;border:2px solid var(--steel);border-radius:20px;overflow:hidden;
+    background:linear-gradient(180deg,rgba(16,23,54,.25),rgba(7,11,29,.15));
+    box-shadow:inset 0 0 70px rgba(70,214,230,.07),inset 0 0 8px rgba(0,0,0,.6),0 0 0 4px #0a1030,0 16px 46px rgba(0,0,0,.55)}
+  #sky{position:absolute;inset:0;width:100%;height:100%}
   #sky.shake{animation:skyShake .4s ease}
   @keyframes skyShake{0%,100%{transform:translate(0,0)}20%{transform:translate(-3px,2px)}40%{transform:translate(3px,-2px)}60%{transform:translate(-2px,-1px)}80%{transform:translate(2px,1px)}}
 
-  .panel{
-    display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center;
-    background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:16px 18px;
-    backdrop-filter:blur(12px);
-    clip-path:polygon(18px 0,100% 0,100% calc(100% - 18px),calc(100% - 18px) 100%,0 100%,0 18px);
-  }
-  .q-left{display:flex;flex-direction:column;gap:8px;min-width:0}
-  .q-meta{display:flex;align-items:center;gap:10px;font-size:12px;color:var(--dim);flex-wrap:wrap}
+  /* canopy glass + scanlines */
+  .scene::before{content:"";position:absolute;inset:0;z-index:8;pointer-events:none;
+    background:linear-gradient(180deg,rgba(150,200,255,.12),rgba(150,200,255,.03) 16%,transparent 30%,transparent 80%,rgba(150,200,255,.07))}
+  .scene::after{content:"";position:absolute;inset:0;z-index:8;pointer-events:none;opacity:.06;
+    background:repeating-linear-gradient(0deg,rgba(180,220,255,.7) 0 1px,transparent 1px 4px);
+    animation:scanMove 9s linear infinite}
+  @keyframes scanMove{to{background-position:0 120px}}
+  .bracket{position:absolute;width:26px;height:26px;z-index:9;pointer-events:none;border:0 solid var(--cyan);opacity:.85}
+  .bracket.tl{top:8px;left:8px;border-top-width:3px;border-left-width:3px;border-top-left-radius:10px}
+  .bracket.tr{top:8px;right:8px;border-top-width:3px;border-right-width:3px;border-top-right-radius:10px}
+  .bracket.bl{bottom:8px;left:8px;border-bottom-width:3px;border-left-width:3px;border-bottom-left-radius:10px}
+  .bracket.br{bottom:8px;right:8px;border-bottom-width:3px;border-right-width:3px;border-bottom-right-radius:10px}
+
+  /* side console readouts */
+  .rail{position:absolute;top:52px;bottom:52px;width:86px;z-index:7;display:flex;flex-direction:column;gap:12px;
+    padding:12px 10px;border:1px solid rgba(90,120,190,.28);background:rgba(8,13,32,.55);backdrop-filter:blur(3px);
+    font-family:ui-monospace,monospace;font-size:9px;letter-spacing:1px;color:var(--dim)}
+  .rail.left{left:10px;border-radius:12px 4px 4px 12px}
+  .rail.right{right:10px;border-radius:4px 12px 12px 4px}
+  .rail .gauge-label{color:var(--cyan)}
+  .gauge{height:7px;border-radius:99px;background:rgba(70,214,230,.14);overflow:hidden;margin-top:5px}
+  .gauge i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,var(--cyan),var(--purple));width:82%}
+  .gauge i.fuel{animation:fuelPulse 2.4s ease-in-out infinite}
+  @keyframes fuelPulse{0%,100%{width:72%}50%{width:96%}}
+  .rail .dotline{display:flex;align-items:center;gap:6px}
+  .rail .led{width:7px;height:7px;border-radius:50%;background:#3ddc97;box-shadow:0 0 8px #3ddc97;animation:blink 1.8s infinite}
+  .rail .ticks{flex:1;display:flex;flex-direction:column;justify-content:space-between;opacity:.55}
+
+  /* ---------- flight console (bottom) ---------- */
+  .console{position:relative;display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center;
+    background:linear-gradient(180deg,#141d42,#0c1330);border:1px solid var(--steel-hi);border-radius:16px;padding:14px 18px;
+    clip-path:polygon(16px 0,100% 0,100% calc(100% - 16px),calc(100% - 16px) 100%,0 100%,0 16px);
+    box-shadow:inset 0 1px 0 rgba(160,190,255,.14),0 10px 30px rgba(0,0,0,.45)}
+  .screw{position:absolute;width:8px;height:8px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#8ea2d6,#2a3558 70%);box-shadow:inset 0 0 2px rgba(0,0,0,.7)}
+  .screw.s1{top:6px;left:10px}.screw.s2{top:6px;right:10px}.screw.s3{bottom:6px;left:10px}.screw.s4{bottom:6px;right:10px}
+  .c-left{display:flex;flex-direction:column;gap:7px;min-width:0}
+  .q-meta{display:flex;align-items:center;gap:10px;font-size:12px;color:var(--dim);flex-wrap:wrap;font-family:ui-monospace,monospace}
   .badge{font-size:11px;font-weight:700;letter-spacing:1px;padding:3px 10px;border-radius:6px}
-  .q-text{font-size:19px;font-weight:700}
-  .q-right{display:flex;gap:10px}
-  input[type=text]{
-    width:260px;padding:13px 15px;border:1px solid var(--line);border-radius:12px;
-    background:rgba(9,14,34,.85);color:var(--ink);font-size:15px;font-family:inherit;outline:none;transition:border-color .15s;
-  }
-  input[type=text]:focus{border-color:var(--cyan)}
-  button.launch{
-    padding:13px 24px;border:1px solid var(--cyan);border-radius:12px;cursor:pointer;font-weight:700;font-size:15px;
-    font-family:inherit;color:#06222a;letter-spacing:1px;
-    background:linear-gradient(135deg,#6fe6f2,#46d6e6);box-shadow:0 0 18px rgba(70,214,230,.35);
-    transition:transform .12s,filter .12s;
-  }
-  button.launch:hover{filter:brightness(1.08)}
-  button.launch:active{transform:translateY(2px)}
-  button.launch:disabled{opacity:.4;cursor:not-allowed}
-  button.ghost{background:rgba(183,139,255,.12);border-color:var(--purple);color:#e6d9ff;box-shadow:none}
-  .feedback{min-height:16px;font-size:13px;font-weight:700}
-  .feedback.ok{color:#3ddc97}
-  .feedback.err{color:#ff6b8a}
-  .feedback.hint{color:#d9ccff;border-left:3px solid var(--purple);padding-left:8px}
+  .deck-status{font-size:13px;font-weight:700;min-height:18px;font-family:ui-monospace,monospace}
+  .deck-status.ok{color:#3ddc97}
+  .deck-status.err{color:#ff6b8a}
+  .deck-status.hint{color:#d9ccff}
+  .c-right{display:flex;align-items:center;gap:18px;font-family:ui-monospace,monospace}
+  .jump-meter{display:flex;flex-direction:column;gap:5px;min-width:150px}
+  .jump-meter .jm-top{display:flex;justify-content:space-between;font-size:10px;color:var(--dim);letter-spacing:1px}
+  .jm-track{height:8px;border-radius:99px;background:rgba(70,214,230,.14);overflow:hidden}
+  .jm-track i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--cyan),var(--purple),var(--pink));border-radius:99px;transition:width .5s ease}
+  .fuel-meter{display:flex;flex-direction:column;gap:5px;min-width:120px}
+  .fuel-meter .fm-top{display:flex;justify-content:space-between;font-size:10px;color:var(--dim);letter-spacing:1px}
+  .fm-track{height:8px;border-radius:99px;background:rgba(255,179,71,.14);overflow:hidden}
+  .fm-track i{display:block;height:100%;width:92%;background:linear-gradient(90deg,#ffb347,#ffd166);border-radius:99px;transition:width .4s ease}
+  .status-led{display:flex;align-items:center;gap:8px;font-size:10px;letter-spacing:1px;color:var(--dim)}
+  .status-led .led{width:9px;height:9px;border-radius:50%;background:#3ddc97;box-shadow:0 0 10px #3ddc97;animation:blink 1.6s infinite}
 
   .badge.rarity1{background:rgba(159,180,200,.16);color:#9fb4c8}
   .badge.rarity2{background:rgba(90,168,255,.16);color:#5aa8ff}
@@ -73,10 +100,12 @@
   .badge.rarity4{background:rgba(255,179,71,.18);color:#ffb347;box-shadow:0 0 12px rgba(255,179,71,.35)}
   .badge.rarity5{background:rgba(255,209,102,.2);color:#ffd166;box-shadow:0 0 14px rgba(255,209,102,.45)}
 
-  .overlay{position:absolute;inset:0;display:none;align-items:center;justify-content:center;background:rgba(6,10,26,.7);backdrop-filter:blur(6px);z-index:20}
+  /* ---------- overlays ---------- */
+  .overlay{position:absolute;inset:0;display:none;align-items:center;justify-content:center;background:rgba(4,8,22,.72);backdrop-filter:blur(6px);z-index:20;padding:14px}
   .overlay.show{display:flex}
 
-  .cyber{width:400px;background:rgba(10,16,38,.94);border:1px solid var(--cyan);border-radius:16px;padding:20px 22px;
+  /* jump prep */
+  .cyber{width:400px;max-width:94%;background:rgba(10,16,38,.96);border:1px solid var(--cyan);border-radius:16px;padding:20px 22px;
     clip-path:polygon(0 16px,16px 0,100% 0,100% calc(100% - 16px),calc(100% - 16px) 100%,0 100%);
     box-shadow:0 0 30px rgba(70,214,230,.25)}
   .cyber-head{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:700;letter-spacing:2px;color:var(--cyan);margin-bottom:16px}
@@ -88,17 +117,13 @@
   .st.done{color:#3ddc97}
   .st.done i{border-color:#3ddc97}
   .st.done i::after{content:"✓";position:absolute;inset:-3px;display:flex;align-items:center;justify-content:center;font-size:11px;color:#3ddc97;background:none}
-  .cyber-bar{height:6px;border-radius:999px;background:rgba(70,214,230,.15);overflow:hidden}
-  .cyber-bar div{height:100%;width:0;background:linear-gradient(90deg,var(--cyan),var(--purple));border-radius:999px;transition:width .4s ease}
+  .cyber-bar{height:6px;border-radius:99px;background:rgba(70,214,230,.15);overflow:hidden}
+  .cyber-bar div{height:100%;width:0;background:linear-gradient(90deg,var(--cyan),var(--purple));border-radius:99px;transition:width .4s ease}
   #cyber-progress.waiting{animation:blink 1s infinite}
 
-  .card{text-align:center;max-width:440px;padding:34px 30px;border:1px solid var(--line);border-radius:22px;background:var(--panel)}
-  .card .big{font-size:28px;font-weight:900;margin:10px 0 6px}
-  .card p{color:var(--dim);font-size:14px;line-height:1.6;margin-bottom:18px}
-  .card .rank{font-size:12px;color:var(--pink);letter-spacing:2px}
-
-  .arrive{position:absolute;right:28px;top:50%;transform:translateY(-50%);width:340px;display:none;gap:16px;align-items:center;
-    background:rgba(10,16,38,.94);border:1px solid #46d6e6;border-radius:16px;padding:18px 20px;z-index:12;
+  /* arrival / destination card */
+  .arrive{position:absolute;right:28px;top:50%;transform:translateY(-50%);width:340px;max-width:92%;display:none;gap:16px;align-items:center;
+    background:rgba(10,16,38,.95);border:1px solid #46d6e6;border-radius:16px;padding:18px 20px;z-index:12;
     clip-path:polygon(0 14px,14px 0,100% 0,100% calc(100% - 14px),calc(100% - 14px) 100%,0 100%);
     box-shadow:0 0 26px rgba(70,214,230,.25)}
   .arrive.show{display:flex}
@@ -111,6 +136,83 @@
   .arrive.fail .arrive-tag{color:#ff9db0;border-color:#ff6b8a}
   .arrive-desc{font-size:13px;color:#c3cbec;line-height:1.6}
 
+  /* ---------- alien transmission modal ---------- */
+  .transmission{width:560px;max-width:96%;max-height:96%;overflow:auto;background:linear-gradient(180deg,rgba(16,24,54,.98),rgba(9,14,34,.98));
+    border:1px solid var(--steel-hi);border-radius:18px;box-shadow:0 0 44px rgba(70,214,230,.22),0 24px 60px rgba(0,0,0,.55);
+    clip-path:polygon(20px 0,100% 0,100% calc(100% - 20px),calc(100% - 20px) 100%,0 100%,0 20px)}
+  .tm-head{display:flex;align-items:center;gap:9px;padding:13px 20px;border-bottom:1px solid var(--line);
+    font-size:11px;font-weight:800;letter-spacing:2.4px;color:var(--cyan);font-family:ui-monospace,monospace}
+  .tm-head .signal-dot{width:8px;height:8px;border-radius:50%;background:var(--cyan);box-shadow:0 0 10px var(--cyan);animation:blink .9s infinite}
+  .tm-head .spacer{flex:1}
+  .tm-body{display:flex;gap:18px;padding:20px;align-items:flex-start}
+  .alien{flex:none;width:92px;height:92px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+    background:radial-gradient(circle at 35% 30%,rgba(139,233,255,.25),rgba(139,233,255,.05));border:1px solid rgba(139,233,255,.35);
+    box-shadow:0 0 22px rgba(70,214,230,.25)}
+  .alien svg{width:78px;height:78px;animation:alienFloat 2.6s ease-in-out infinite}
+  @keyframes alienFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+  .tm-copy{flex:1;min-width:0}
+  .alien-name{font-size:12px;letter-spacing:1.6px;color:var(--purple);font-weight:800;font-family:ui-monospace,monospace;margin-bottom:6px}
+  .tm-q{font-size:21px;font-weight:800;line-height:1.3;margin-bottom:14px}
+  .feedback{min-height:17px;font-size:13px;font-weight:700;margin-bottom:10px}
+  .feedback.ok{color:#3ddc97}
+  .feedback.err{color:#ff6b8a}
+  .feedback.hint{color:#d9ccff}
+  .tm-row{display:flex;gap:10px;flex-wrap:wrap}
+  .hint-line{display:none;width:100%;font-size:12.5px;color:#d9ccff;background:rgba(183,139,255,.1);border-left:3px solid var(--purple);
+    border-radius:6px;padding:8px 10px;margin-bottom:10px;line-height:1.45}
+  .hint-line.show{display:block}
+  input[type=text]{
+    flex:1;padding:13px 15px;border:1px solid var(--line);border-radius:12px;
+    background:rgba(6,10,26,.9);color:var(--ink);font-size:15px;font-family:inherit;outline:none;min-width:0;transition:border-color .15s,box-shadow .15s}
+  input[type=text]:focus{border-color:var(--cyan);box-shadow:0 0 0 3px rgba(70,214,230,.15)}
+  button.launch{
+    padding:13px 22px;border:1px solid var(--cyan);border-radius:12px;cursor:pointer;font-weight:800;font-size:14px;
+    font-family:inherit;color:#06222a;letter-spacing:1px;
+    background:linear-gradient(135deg,#6fe6f2,#46d6e6);box-shadow:0 0 18px rgba(70,214,230,.35);
+    transition:transform .12s,filter .12s}
+  button.launch:hover{filter:brightness(1.08)}
+  button.launch:active{transform:translateY(2px)}
+  button.launch:disabled{opacity:.4;cursor:not-allowed}
+  button.ghost{background:rgba(183,139,255,.12);border-color:var(--purple);color:#e6d9ff;box-shadow:none}
+  .tm-foot{padding:11px 20px;border-top:1px solid var(--line);font-size:10.5px;letter-spacing:1.6px;color:var(--dim);
+    font-family:ui-monospace,monospace;display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap}
+  .tm-foot b{color:var(--cyan)}
+
+  /* ---------- voyage report ---------- */
+  .card{text-align:center;max-width:480px;width:94%;max-height:96%;overflow:auto;padding:30px 28px 26px;border:1px solid var(--steel-hi);
+    border-radius:22px;background:linear-gradient(180deg,rgba(16,24,54,.98),rgba(9,14,34,.98));box-shadow:0 0 44px rgba(183,139,255,.2)}
+  .card .rank{font-size:12px;color:var(--pink);letter-spacing:2.4px;font-weight:800;font-family:ui-monospace,monospace}
+  .card .big{font-size:34px;font-weight:900;margin:10px 0 6px}
+  .card p{color:var(--dim);font-size:14px;line-height:1.6;margin-bottom:16px}
+  .tally{text-align:left;margin:6px 0 16px;display:flex;flex-direction:column;gap:9px}
+  .tally-head{font-size:10.5px;letter-spacing:2px;color:var(--cyan);font-family:ui-monospace,monospace;margin-bottom:2px}
+  .tally-row{display:grid;grid-template-columns:96px 1fr 64px;align-items:center;gap:10px;font-size:11.5px;font-family:ui-monospace,monospace}
+  .tally-track{height:9px;border-radius:99px;background:rgba(255,255,255,.07);overflow:hidden}
+  .tally-track i{display:block;height:100%;border-radius:99px;transition:width .8s ease}
+  .tally-row b{text-align:right;color:var(--dim);font-weight:700}
+  .report-stats{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+  .report-stats span{border:1px solid var(--line);border-radius:9px;padding:7px 12px;font-size:11px;color:var(--dim);font-family:ui-monospace,monospace}
+  .report-stats b{color:var(--ink)}
+
+  /* ---------- boot / pre-flight ---------- */
+  #boot{position:absolute;inset:0;z-index:50;display:none;align-items:center;justify-content:center;padding:16px;
+    background:radial-gradient(900px 600px at 50% 40%,#101a3e,#040718 78%)}
+  #boot.show{display:flex}
+  .boot-card{width:430px;max-width:96%;background:rgba(10,16,38,.95);border:1px solid var(--cyan);border-radius:18px;padding:26px 26px 24px;
+    box-shadow:0 0 50px rgba(70,214,230,.28);
+    clip-path:polygon(20px 0,100% 0,100% calc(100% - 20px),calc(100% - 20px) 100%,0 100%,0 20px)}
+  .fish{display:flex;justify-content:center;margin-bottom:10px}
+  .fish svg{width:130px;height:90px;animation:fishBob 2.1s ease-in-out infinite;filter:drop-shadow(0 0 16px rgba(70,214,230,.45))}
+  .fish .tail{transform-origin:18px 40px;animation:tailWag .55s ease-in-out infinite alternate}
+  @keyframes fishBob{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-8px) rotate(2deg)}}
+  @keyframes tailWag{from{transform:rotate(-14deg)}to{transform:rotate(14deg)}}
+  .boot-title{text-align:center;font-size:22px;font-weight:900;letter-spacing:5px;margin:4px 0 2px}
+  .boot-title span{color:var(--cyan)}
+  .boot-sub{text-align:center;font-size:10.5px;letter-spacing:2.2px;color:var(--dim);font-family:ui-monospace,monospace;margin-bottom:18px}
+  #boot .cyber-list{gap:11px;margin-bottom:16px}
+  .boot-err{display:none;color:#ff6b8a;font-size:12.5px;font-weight:700;margin-top:12px;text-align:center}
+  .boot-err.show{display:block}
+
   @keyframes blink{50%{opacity:.3}}
   @keyframes pulse{50%{transform:scale(.5)}}
   @keyframes spin{to{transform:rotate(360deg)}}
@@ -119,10 +221,17 @@
   @keyframes wobble{0%{transform:rotate(0)}20%{transform:rotate(-11deg)}40%{transform:rotate(10deg)}60%{transform:rotate(-6deg)}80%{transform:rotate(4deg)}100%{transform:rotate(0)}}
 
   @media (max-width:860px){
-    .panel{grid-template-columns:1fr}
-    input[type=text]{width:100%}
-    .q-right{flex-wrap:wrap}
+    .rail{display:none}
+    .console{grid-template-columns:1fr}
+    .c-right{justify-content:space-between}
     .arrive{width:min(320px,90vw)}
+  }
+  @media (max-height:560px){
+    .rail{display:none}
+    .alien{width:64px;height:64px}
+    .alien svg{width:54px;height:54px}
+    .tm-body{padding:14px 16px;gap:12px}
+    .tm-q{font-size:17px;margin-bottom:10px}
   }
   @media (max-height:430px){
     .wrap{padding:6px 8px 8px;gap:6px}
@@ -132,15 +241,13 @@
     .hud{gap:5px;flex-wrap:nowrap}
     .hud .chip:nth-child(2),.hud .chip:nth-child(5){display:none}
     .chip{font-size:8px;padding:3px 6px;border-radius:7px;letter-spacing:.5px}
-    .scene{min-height:60px}
-    .panel{padding:5px 7px;gap:5px;border-radius:10px}
-    .q-left{gap:2px}
+    .scene{min-height:60px;border-radius:14px}
+    .bracket{width:16px;height:16px}
+    .console{padding:6px 9px;gap:6px;border-radius:10px}
     .q-meta{font-size:8px;gap:5px}
-    .q-text{font-size:12px;line-height:1.25}
-    .feedback{font-size:9px;min-height:0}
-    input[type=text]{padding:5px 7px;font-size:11px;border-radius:7px;width:auto;flex:1;min-width:0}
-    button.launch{padding:5px 8px;font-size:10px;border-radius:7px}
-    .q-right{gap:5px;flex-wrap:nowrap}
+    .deck-status{font-size:10px;min-height:0}
+    .jump-meter,.fuel-meter{min-width:96px}
+    .status-led{display:none}
     .cyber{width:300px;padding:12px}
     .cyber-list{gap:8px;margin-bottom:12px}
     .st{font-size:11px}
@@ -149,6 +256,88 @@
     .arrive-name{font-size:13px;margin-bottom:1px}
     .arrive-tag{font-size:8px;padding:0 4px;margin-bottom:2px}
     .arrive-desc{font-size:9px;line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .boot-card{padding:14px 16px}
+    .fish svg{width:84px;height:58px}
+    .boot-title{font-size:16px;letter-spacing:3px}
+    .boot-sub{margin-bottom:10px}
+    #boot .cyber-list{gap:7px;margin-bottom:10px}
+    .st{font-size:10.5px}
+    .transmission{width:98%}
+    .tm-head{padding:8px 12px;font-size:9px}
+    .tm-body{padding:10px 12px;gap:10px}
+    .alien{width:46px;height:46px}
+    .alien svg{width:40px;height:40px}
+    .alien-name{font-size:9.5px;margin-bottom:3px}
+    .tm-q{font-size:13.5px;margin-bottom:8px;line-height:1.25}
+    .feedback{font-size:10px;min-height:0;margin-bottom:6px}
+    input[type=text]{padding:7px 9px;font-size:12px;border-radius:8px;min-width:0}
+    button.launch{padding:7px 11px;font-size:11px;border-radius:8px}
+    .tm-row{gap:6px}
+    .tm-foot{padding:7px 12px;font-size:8.5px;letter-spacing:1px}
+    .card{padding:16px 14px}
+    .card .big{font-size:24px}
+    .tally-row{grid-template-columns:78px 1fr 52px;font-size:10px}
+  }
+
+  /* narrow phones: stack the answer row, stop the console overflowing */
+  @media (max-width:560px){
+    .tm-row input{flex-basis:100%}
+    .tm-row button.launch{flex:1}
+    .c-right{min-width:0;gap:10px}
+    .jump-meter,.fuel-meter{flex:1;min-width:0}
+    .status-led{display:none}
+    .deck-status{overflow-wrap:anywhere}
+    .q-meta{overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+  }
+
+  /* ultra-short 16/9 embeds (the phone iframe is ~390x219) */
+  @media (max-height:300px){
+    .wrap{padding:4px 6px;gap:4px}
+    header{gap:4px}
+    .scene{border-radius:12px;min-height:0}
+    .bracket{width:12px;height:12px}
+    /* transmission modal */
+    .transmission{width:99%;max-height:99%}
+    .tm-head{padding:4px 10px;font-size:8px}
+    .tm-body{display:block;padding:7px 10px}
+    .alien{display:none}
+    .alien-name{font-size:8.5px;margin-bottom:2px}
+    .tm-q{font-size:12px;line-height:1.2;margin-bottom:5px}
+    .feedback{display:none}
+    .hint-line{font-size:9.5px;padding:4px 7px;margin-bottom:5px}
+    .tm-row{gap:6px;flex-wrap:nowrap}
+    .tm-row input{flex:1 1 auto;flex-basis:0;width:auto;padding:6px 8px;font-size:11px;min-width:0}
+    .tm-row button.launch{flex:0 1 auto;padding:6px 10px;font-size:11px}
+    .tm-foot{padding:4px 10px;font-size:7.5px}
+    /* bottom console */
+    .console{padding:5px 12px;gap:4px;border-radius:9px}
+    .screw{display:none}
+    .q-meta{display:none}
+    .deck-status{font-size:9px;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .c-right{gap:8px}
+    .jump-meter,.fuel-meter{min-width:0;flex:1}
+    .jm-top,.fm-top{font-size:7.5px}
+    .jm-track,.fm-track{height:5px}
+    /* jump prep */
+    .cyber{width:280px;padding:10px 12px}
+    .cyber-head{font-size:10px;margin-bottom:8px}
+    .cyber-list{gap:6px;margin-bottom:8px}
+    .st{font-size:10px}
+    /* boot */
+    .boot-card{padding:10px 14px;overflow:auto}
+    .fish svg{width:54px;height:38px}
+    .boot-sub{display:none}
+    .boot-title{font-size:13px;letter-spacing:3px;margin:0}
+    #boot .cyber-list{gap:5px;margin-bottom:8px}
+    #boot .st{font-size:9.5px}
+    /* voyage report */
+    .card{padding:10px 12px}
+    .card .big{font-size:19px;margin:4px 0}
+    .card p{font-size:10.5px;margin-bottom:8px;line-height:1.35}
+    .tally{gap:5px;margin-bottom:10px}
+    .tally-row{grid-template-columns:74px 1fr 46px;font-size:9px;gap:6px}
+    .report-stats{gap:5px;margin-bottom:10px}
+    .report-stats span{padding:4px 7px;font-size:9px}
   }
 </style>
 </head>
@@ -161,7 +350,7 @@
     </div>
     <div class="hud">
       <div class="chip">TARGET <b id="hud-target">---</b></div>
-      <div class="chip">LAST JUMP <b id="hud-last">0.00 AU</b></div>
+      <div class="chip">LAST JUMP <b id="hud-last">—</b></div>
       <div class="chip">TOTAL <b id="hud-total">0.00 AU</b></div>
       <div class="chip">JUMPS <b id="hud-reach">0</b></div>
       <div class="chip">FARTHEST <b id="hud-far">1</b></div>
@@ -192,6 +381,10 @@
           <stop offset="0%" stop-color="#ffffff" stop-opacity=".35"/>
           <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
         </radialGradient>
+        <linearGradient id="fishBody" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#8be9ff"/>
+          <stop offset="100%" stop-color="#3f8fe0"/>
+        </linearGradient>
       </defs>
       <g id="nebula"></g>
       <g id="grid"></g>
@@ -204,9 +397,25 @@
       <g id="rocket"></g>
     </svg>
 
+    <span class="bracket tl"></span><span class="bracket tr"></span>
+    <span class="bracket bl"></span><span class="bracket br"></span>
+
+    <div class="rail left">
+      <div><div class="gauge-label">FUEL</div><div class="gauge"><i class="fuel"></i></div></div>
+      <div><div class="gauge-label">PLASMA</div><div class="gauge"><i style="width:64%"></i></div></div>
+      <div class="dotline"><span class="led"></span> O2 NOMINAL</div>
+      <div class="ticks"><span>SECTOR 07</span><span>GRAV 1.0G</span><span>VEL 0.4C</span><span>COMMS ▮▮▮▯</span></div>
+    </div>
+    <div class="rail right">
+      <div><div class="gauge-label">SHIELD</div><div class="gauge"><i style="width:88%"></i></div></div>
+      <div><div class="gauge-label">SCANNER</div><div class="gauge"><i style="width:74%"></i></div></div>
+      <div class="dotline"><span class="led"></span> NAV LINK</div>
+      <div class="ticks"><span>RINGS 8</span><span>PLANETS 62</span><span>MISSION 10</span><span>HELM ◈ AUTO</span></div>
+    </div>
+
     <div class="overlay" id="cyber">
       <div class="cyber">
-        <div class="cyber-head"><span class="dot"></span>SYSTEM // JUMP PREP</div>
+        <div class="cyber-head"><span class="dot"></span>COCKPIT // JUMP PREP</div>
         <ul class="cyber-list" id="cyber-list"></ul>
         <div class="cyber-bar"><div id="cyber-progress"></div></div>
       </div>
@@ -227,30 +436,94 @@
       </div>
     </div>
 
+    <div class="overlay" id="ask">
+      <div class="transmission" role="dialog" aria-modal="true" aria-label="Incoming transmission">
+        <div class="tm-head">
+          <span class="signal-dot"></span> INCOMING TRANSMISSION
+          <span class="spacer"></span>
+          <span class="badge rarity3" id="ask-theme">MOVIES</span>
+        </div>
+        <div class="tm-body">
+          <div class="alien" id="alien-art"></div>
+          <div class="tm-copy">
+            <div class="alien-name" id="alien-name">—</div>
+            <div class="tm-q" id="ask-q">—</div>
+            <div class="feedback" id="feedback"></div>
+            <div class="hint-line" id="hint-line"></div>
+            <div class="tm-row">
+              <input type="text" id="answer" placeholder="Type an answer…" autocomplete="off">
+              <button class="launch ghost" id="btn-hint">HINT</button>
+              <button class="launch" id="btn-launch">CONFIRM</button>
+            </div>
+          </div>
+        </div>
+        <div class="tm-foot">
+          <span>JUMP <b id="ask-jump">1</b> / 10</span>
+          <span>RARER ANSWERS FLY FARTHER</span>
+        </div>
+      </div>
+    </div>
+
     <div class="overlay" id="overlay">
       <div class="card">
-        <div class="rank" id="rank-label">MISSION REPORT</div>
+        <div class="rank" id="rank-label">INTERSTELLAR VOYAGE REPORT</div>
         <div class="big" id="rank-title"></div>
         <p id="rank-desc"></p>
+        <div class="tally">
+          <div class="tally-head">RARITY LOG</div>
+          <div id="report-tally"></div>
+        </div>
+        <div class="report-stats" id="report-stats"></div>
         <button class="launch" id="btn-restart">FLY AGAIN</button>
+      </div>
+    </div>
+
+    <div id="boot" class="show">
+      <div class="boot-card">
+        <div class="fish">
+          <svg viewBox="0 0 120 80">
+            <g class="tail">
+              <path d="M20 40 L4 24 L10 40 L4 56 Z" fill="#b78bff"/>
+            </g>
+            <ellipse cx="58" cy="40" rx="38" ry="22" fill="url(#fishBody)"/>
+            <path d="M52 18 C62 8 78 10 84 20 C70 18 60 20 52 26 Z" fill="#b78bff" opacity=".85"/>
+            <path d="M52 62 C62 72 78 70 84 60 C70 62 60 60 52 54 Z" fill="#b78bff" opacity=".85"/>
+            <circle cx="82" cy="34" r="6.5" fill="#fff"/>
+            <circle cx="84" cy="34" r="3.2" fill="#0b2440"/>
+            <path d="M60 22 L63 28 L69 29 L64.5 33.5 L66 40 L60 36.5 L54 40 L55.5 33.5 L51 29 L57 28 Z" fill="#ffd166"/>
+            <circle cx="34" cy="46" r="2.4" fill="#d8f6ff" opacity=".8"/>
+            <circle cx="44" cy="50" r="1.6" fill="#d8f6ff" opacity=".6"/>
+          </svg>
+        </div>
+        <div class="boot-title">SOLAR <span>NETWORK</span></div>
+        <div class="boot-sub">STAR-NAVIGATOR FISH · PRE-FLIGHT SEQUENCE</div>
+        <ul class="cyber-list" id="boot-list"></ul>
+        <div class="cyber-bar"><div id="boot-bar"></div></div>
+        <div class="boot-err" id="boot-err">Could not load the question data. Refresh to try again.</div>
       </div>
     </div>
   </div>
 
-  <div class="panel">
-    <div class="q-left">
+  <div class="console">
+    <span class="screw s1"></span><span class="screw s2"></span><span class="screw s3"></span><span class="screw s4"></span>
+    <div class="c-left">
       <div class="q-meta">
-        <span class="badge rarity1" id="q-tier">LOCKING</span>
+        <span class="badge rarity1" id="q-tier">STANDBY</span>
         <span>NEXT · <b id="q-target">---</b></span>
-        <span id="q-dist"></span>
+        <span id="q-dist">· awaiting transmission</span>
       </div>
-      <div class="q-text" id="q-text"></div>
-      <div class="feedback" id="feedback"></div>
+      <div class="deck-status" id="deck-status">Cockpit ready — waiting for the first hailing signal.</div>
     </div>
-    <div class="q-right">
-      <input type="text" id="answer" placeholder="Type an answer…" autocomplete="off">
-      <button class="launch ghost" id="btn-hint">HINT</button>
-      <button class="launch" id="btn-launch">CONFIRM</button>
+    <div class="c-right">
+      <div class="jump-meter">
+        <div class="jm-top"><span>JUMP PROGRESS</span><span id="jm-count">0 / 10</span></div>
+        <div class="jm-track"><i id="jm-fill"></i></div>
+      </div>
+      <div class="fuel-meter">
+        <div class="fm-top"><span>FUEL</span><span id="fm-read">92%</span></div>
+        <div class="fm-track"><i id="fm-fill" style="width:92%"></i></div>
+      </div>
+      <div class="status-led"><span class="led"></span> SYSTEMS NOMINAL</div>
     </div>
   </div>
 </div>
@@ -279,11 +552,21 @@
   var COLORS = ['#ff9ec4','#c6e25e','#7bd8c2','#ffb347','#b78bff','#ffe066','#6aa8ff','#ff7bd5','#8be9ff','#ff8a6b'];
   var DESC_TYPE = ['gas giant','rocky desert','ice moon','coral ocean world','crystal jungle','lava asteroid','floating mossball','magnetic frontier'];
   var DESC_FEAT = ['low gravity; the locals drift on glowing spores','rare spores light up the upper atmosphere','days and nights swing wildly; moss covers the ground','meteor showers pass overhead and crystal ore floats in the air','the magnetic field is unstable and compasses fail','a coral forest hides under the ocean','the crust pulses into new hills every few hours','two coloured auroras cross the night sky'];
+  var ALIEN_FIRST = ['Captain Zorblax','Pilot Xylo','Commander Vreena','Admiral Korgath','Scout Mipzi','Navigator Quell','Draxon','Lyth','Nebulon','Plix','Torgu','Zeeza','Orbit Marshal Vex','Cadet Nulu'];
+  var ALIEN_KIND = ['Nebulite','Vorthan','Pixari','Krelm','Zygan','Lumen','Oortian','Quazari','Andromedan','Voidling'];
+  var ALIEN_SKIN = ['#8be9ff','#b78bff','#ff9ec4','#7bd8c2','#ffd166','#6aa8ff','#c6e25e','#ff8a6b'];
+  var BOOT_STEPS = [
+    'Navigator Fish is charting the star lanes…',
+    'Refueling the plasma tanks…',
+    'Calibrating rarity sensors…',
+    'Sealing the cockpit canopy…',
+    'Opening hailing frequencies…'
+  ];
 
   var packs = null;
   var QUESTIONS = [];
   var PLANETS = [];
-  var state = { current: 0, reached: new Set([0]), target: null, flying: false, finished: false, launching: false, totalAU: 0, lastAU: 0, jumps: 0, hintUsed: false, answer: null, cardTimer: null, cardToken: 0 };
+  var state = null;
   var rocket = null;
   var lastJudge = 0;
   var audio = null;
@@ -312,6 +595,38 @@
     return String(s || '').trim().toLowerCase().replace(/[\s,，。.!！?？&]/g, '');
   }
   function makeDesc() { return pick(DESC_TYPE) + '; ' + pick(DESC_FEAT) + '.'; }
+  function setDeck(text, cls) {
+    $('deck-status').textContent = text;
+    $('deck-status').className = 'deck-status' + (cls ? ' ' + cls : '');
+  }
+
+  /* ---------- alien visitor ---------- */
+  function alienSVG(c, eyes) {
+    var eye = function (cx) {
+      return '<ellipse cx="' + cx + '" cy="44" rx="8.5" ry="11" fill="#0b2440"/>' +
+             '<circle cx="' + (cx + 2.5) + '" cy="40.5" r="3.4" fill="#fff"/>' +
+             '<circle cx="' + (cx - 1.5) + '" cy="47" r="1.5" fill="#8be9ff" opacity=".8"/>';
+    };
+    var eyesXml = eyes === 1 ? eye(45) : eye(34) + eye(56);
+    return '<svg viewBox="0 0 90 90">' +
+      '<line x1="45" y1="18" x2="45" y2="8" stroke="' + c + '" stroke-width="2.5"/>' +
+      '<path d="M45 2 L48.5 8 L45 11 L41.5 8 Z" fill="#ffd166"/>' +
+      '<path d="M45 14 C26 14 16 30 18 48 C20 68 32 80 45 80 C58 80 70 68 72 48 C74 30 64 14 45 14 Z" fill="' + c + '" opacity=".92"/>' +
+      '<ellipse cx="34" cy="28" rx="9" ry="5" fill="#fff" opacity=".28"/>' +
+      eyesXml +
+      '<path d="M38 64 Q45 69 52 64" stroke="#0b2440" stroke-width="2.4" fill="none" stroke-linecap="round"/>' +
+      '<circle cx="26" cy="56" r="2.2" fill="#ff8aa8" opacity=".75"/>' +
+      '<circle cx="64" cy="56" r="2.2" fill="#ff8aa8" opacity=".75"/>' +
+      '</svg>';
+  }
+
+  function makeAlien() {
+    return {
+      name: pick(ALIEN_FIRST) + ' the ' + pick(ALIEN_KIND),
+      color: pick(ALIEN_SKIN),
+      eyes: Math.random() < 0.35 ? 1 : 2
+    };
+  }
 
   /* ---------- build the system ---------- */
   function genPlanets() {
@@ -501,32 +816,47 @@
     });
   }
 
+  function openAsk() {
+    var q = state._q, alien = state.alien;
+    $('ask-theme').textContent = q.themeName.toUpperCase();
+    $('alien-art').innerHTML = alienSVG(alien.color, alien.eyes);
+    $('alien-name').textContent = alien.name + ' asks:';
+    $('ask-q').textContent = q.q;
+    $('ask-jump').textContent = state.jumps + 1;
+    $('feedback').textContent = '';
+    $('feedback').className = 'feedback';
+    $('hint-line').classList.remove('show');
+    $('hint-line').textContent = '';
+    $('answer').value = '';
+    $('answer').disabled = false;
+    $('btn-launch').disabled = false;
+    $('btn-hint').disabled = !!state.hintUsed;
+    $('ask').classList.add('show');
+    setTimeout(function () { $('answer').focus({ preventScroll: true }); }, 60);
+  }
+
   function renderQuestion() {
     if (state.jumps >= MISSION) return finish();
     state.launching = false;
     state.cyber = null;
     state.cardToken += 1;
-    var q = pick(QUESTIONS);
-    state._q = q;
+    state._q = pick(QUESTIONS);
+    state.alien = makeAlien();
     state.target = null;
     state.hintUsed = false;
-    $('q-tier').textContent = 'LOCKING';
+    $('q-tier').textContent = 'STANDBY';
     $('q-tier').className = 'badge rarity1';
     $('q-target').textContent = '---';
-    $('q-dist').textContent = '· rarer answers jump farther';
-    $('q-text').textContent = q.q;
+    $('q-dist').textContent = '· awaiting transmission';
     $('hud-target').textContent = '---';
     $('hud-last').textContent = '—';
     $('hud-total').textContent = state.totalAU.toFixed(2) + ' AU';
     $('hud-reach').textContent = state.jumps;
     $('hud-far').textContent = state.far ? state.far + 1 : 1;
-    $('feedback').textContent = '';
-    $('feedback').className = 'feedback';
-    $('answer').value = '';
-    $('answer').disabled = false;
-    $('btn-launch').disabled = false;
-    $('btn-hint').disabled = false;
-    $('answer').focus();
+    $('jm-count').textContent = state.jumps + ' / ' + MISSION;
+    $('jm-fill').style.width = (state.jumps / MISSION * 100) + '%';
+    setDeck('Transmission incoming — answer the hail to chart your next jump.');
+    openAsk();
   }
 
   function matchAnswer(v, q) {
@@ -554,12 +884,11 @@
 
   function fly(from, to, done) {
     state.flying = true;
-    $('btn-launch').disabled = true;
-    $('btn-hint').disabled = true;
     var A = PLANETS[from], B = PLANETS[to];
     var sx = A.x, sy = A.y, ex = B.x, ey = B.y;
     var cx = (sx + ex) / 2, cy = Math.min(sy, ey) - 60;
     var dur = 950, t0 = performance.now();
+    $('fm-fill').style.width = '38%'; $('fm-read').textContent = '38%';
     function frame(t) {
       var k = Math.min(1, (t - t0) / dur), e = 1 - Math.pow(1 - k, 3);
       var x = (1 - e) * (1 - e) * sx + 2 * (1 - e) * e * cx + e * e * ex;
@@ -572,7 +901,11 @@
       dot.setAttribute('fill', '#46d6e6'); dot.setAttribute('opacity', .65);
       $('trails').appendChild(dot);
       if (k < 1) requestAnimationFrame(frame);
-      else { state.flying = false; done && done(); }
+      else {
+        state.flying = false;
+        $('fm-fill').style.width = '92%'; $('fm-read').textContent = '92%';
+        done && done();
+      }
     }
     requestAnimationFrame(frame);
   }
@@ -659,13 +992,26 @@
         $('arrive-desc').textContent = d.desc;
         $('hud-target').textContent = d.name;
         $('q-target').textContent = d.name;
-        $('feedback').textContent = '✓ Locked ' + d.name + '!';
+        setDeck('✓ Locked ' + d.name + '!', 'ok');
         var hitName = document.getElementById('hit-name');
         if (hitName) hitName.textContent = d.name;
         var hitBox = document.getElementById('hit-box');
         if (hitBox) hitBox.setAttribute('width', Math.max(120, d.name.length * 9 + 44));
       }).catch(function () {});
     }
+  }
+
+  function reopenAsk() {
+    $('arrive').classList.remove('show');
+    $('arrive').classList.remove('fail');
+    $('ask').classList.add('show');
+    $('answer').value = '';
+    $('answer').disabled = false;
+    $('btn-launch').disabled = false;
+    $('btn-hint').disabled = !!state.hintUsed;
+    $('feedback').textContent = 'Not on the list — try another answer.';
+    $('feedback').className = 'feedback err';
+    setTimeout(function () { $('answer').focus({ preventScroll: true }); }, 60);
   }
 
   function showFailCard(text, reason) {
@@ -683,25 +1029,14 @@
     var sky = $('sky');
     sky.classList.remove('shake'); void sky.offsetWidth; sky.classList.add('shake');
     setTimeout(function () { sky.classList.remove('shake'); }, 450);
-    $('answer').disabled = true;
-    $('btn-launch').disabled = true;
-    $('btn-hint').disabled = true;
+    setDeck('✕ Coordinates lost in The Void — re-open the transmission and retry.', 'err');
     if (state.cardTimer) clearTimeout(state.cardTimer);
-    state.cardTimer = setTimeout(function () {
-      $('arrive').classList.remove('show');
-      $('arrive').classList.remove('fail');
-      $('answer').value = '';
-      $('answer').disabled = false;
-      $('btn-launch').disabled = false;
-      $('btn-hint').disabled = !!state.hintUsed;
-      $('answer').focus();
-      $('feedback').textContent = 'Not on the list — try another answer.';
-      $('feedback').className = 'feedback err';
-    }, 3200);
+    state.cardTimer = setTimeout(reopenAsk, 3200);
   }
 
   function onLand() {
     var idx = state.target, p = PLANETS[idx];
+    var hit = state._hit;
     p.reached = true;
     state.reached.add(idx);
     state.current = idx;
@@ -709,15 +1044,18 @@
     state.totalAU = +(state.totalAU + p.distAU).toFixed(2);
     state.jumps += 1;
     state.far = Math.max(state.far || 0, p.ring);
+    state.tally[hit.r] = (state.tally[hit.r] || 0) + 1;
+    if (!state.rarest || hit.r > state.rarest.r) state.rarest = hit;
     $('hud-last').textContent = p.distAU.toFixed(2) + ' AU';
     $('hud-total').textContent = state.totalAU.toFixed(2) + ' AU';
     $('hud-reach').textContent = state.jumps;
     $('hud-far').textContent = p.ring + 1;
+    $('jm-count').textContent = state.jumps + ' / ' + MISSION;
+    $('jm-fill').style.width = (state.jumps / MISSION * 100) + '%';
     drawHit(idx);
     drawPlanets();
-    $('feedback').textContent = '✓ Locked ' + p.name + '!';
-    $('feedback').className = 'feedback ok';
-    showArrive(p, state._hit);
+    setDeck('✓ Locked ' + p.name + '!', 'ok');
+    showArrive(p, hit);
     setTimeout(function () { $('trails').innerHTML = ''; }, 600);
     setTimeout(function () {
       $('hit').innerHTML = '';
@@ -734,9 +1072,7 @@
     state.cyber = null;
     state.cardToken += 1;
     $('cyber').classList.remove('show');
-    $('answer').disabled = true;
-    $('btn-launch').disabled = true;
-    $('btn-hint').disabled = true;
+    $('ask').classList.remove('show');
     var au = state.totalAU;
     var ranks = [
       { min: 0, label: 'ORBIT ROOKIE', desc: 'Barely left Earth orbit. The ship is still warm.' },
@@ -746,13 +1082,35 @@
       { min: 30, label: 'GALACTIC ACE', desc: 'You took the long way and it paid off.' }
     ];
     var rank = ranks.slice().reverse().filter(function (x) { return au >= x.min; })[0] || ranks[0];
-    $('rank-label').textContent = state.jumps >= MISSION ? 'MISSION COMPLETE' : 'MISSION REPORT';
+    $('rank-label').textContent = 'INTERSTELLAR VOYAGE REPORT';
     $('rank-title').textContent = au.toFixed(2) + ' AU';
     $('rank-desc').textContent = state.jumps + ' jumps · farthest ring ' + (state.far + 1) + ' · ' + rank.label + ' — ' + rank.desc;
+
+    var rows = '';
+    for (var r = 1; r <= 5; r++) {
+      var n = state.tally[r] || 0;
+      var pct = state.jumps ? Math.round(n / state.jumps * 100) : 0;
+      rows += '<div class="tally-row">' +
+        '<span style="color:' + RARITY[r].color + ';font-weight:700">' + RARITY[r].name + '</span>' +
+        '<span class="tally-track"><i style="width:' + pct + '%;background:' + RARITY[r].color + '"></i></span>' +
+        '<b>' + n + ' · ' + pct + '%</b></div>';
+    }
+    $('report-tally').innerHTML = rows;
+    var stats =
+      '<span>JUMPS <b>' + state.jumps + ' / ' + MISSION + '</b></span>' +
+      '<span>FARTHEST <b>RING ' + (state.far + 1) + '</b></span>' +
+      '<span>TOTAL <b>' + au.toFixed(2) + ' AU</b></span>' +
+      (state.rarest ? '<span>RAREST <b>' + escapeHtml(state.rarest.v) + '</b></span>' : '');
+    $('report-stats').innerHTML = stats;
     $('overlay').classList.add('show');
+    setDeck('Voyage complete — docking and writing the rarity log.');
     beep(523, 0.1, 'sine', 0.03);
     beep(659, 0.1, 'sine', 0.03, 0.1);
     beep(784, 0.18, 'sine', 0.03, 0.2);
+  }
+
+  function escapeHtml(s) {
+    return String(s).replace(/[&<>"]/g, function (c) { return ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]; });
   }
 
   function setCyberTarget(p) {
@@ -797,14 +1155,12 @@
 
   function beginLaunch(planet) {
     var cy = $('cyber'), list = $('cyber-list'), bar = $('cyber-progress');
-    $('btn-launch').disabled = true;
-    $('btn-hint').disabled = true;
     cy.classList.add('show');
     list.innerHTML = ''; bar.style.width = '0%'; bar.classList.remove('waiting');
     var seq = state.cyber = { planet: planet || null, ready: false, flying: false, aborted: false };
     var steps = planet
-      ? ['Charging the ship', 'Igniting engines', 'Locking target · ' + RING_DIST[planet.ring], 'Jumping to ring ' + (planet.ring + 1)]
-      : ['Charging the ship', 'Igniting engines', 'Scanning coordinates', 'Locking jump vector'];
+      ? ['Navigator Fish plotting jump vector', 'Igniting plasma drive', 'Locking target · ' + RING_DIST[planet.ring], 'Jumping to ring ' + (planet.ring + 1)]
+      : ['Navigator Fish plotting jump vector', 'Igniting plasma drive', 'Scanning coordinates', 'Locking jump vector'];
     var i = 0;
     function next() {
       if (!state || state.cyber !== seq || seq.aborted) return;
@@ -866,11 +1222,9 @@
     }
     lastJudge = Date.now();
     state.launching = true;
-    $('answer').disabled = true;
-    $('btn-launch').disabled = true;
-    $('btn-hint').disabled = true;
     $('feedback').textContent = '';
     $('feedback').className = 'feedback';
+    $('ask').classList.remove('show');
     beginLaunch(null);
     askJudge(q, text).then(function (found) {
       if (!state || state.finished) return;
@@ -885,8 +1239,7 @@
     if (!p) { finish(); return; }
     state._hit = hit;
     state.launching = true;
-    $('feedback').textContent = '';
-    $('feedback').className = 'feedback';
+    $('ask').classList.remove('show');
     $('answer').disabled = true;
     $('q-tier').textContent = rarity.name;
     $('q-tier').className = 'badge ' + rarity.cls;
@@ -894,6 +1247,7 @@
     $('q-dist').textContent = '· ' + RING_DIST[p.ring] + ' · ' + p.distAU.toFixed(2) + ' AU';
     $('hud-target').textContent = p.name;
     $('hud-last').textContent = p.distAU.toFixed(2) + ' AU';
+    setDeck('Jump vector locked — ' + rarity.name + ' route to ' + RING_DIST[p.ring] + '.');
     beep(320, 0.07, 'triangle', 0.025);
     if (cyberStarted) setCyberTarget(p);
     else beginLaunch(p);
@@ -903,35 +1257,73 @@
     if (!state || state.hintUsed || state.flying || state.finished || state.launching) return;
     state.hintUsed = true;
     $('btn-hint').disabled = true;
-    $('feedback').textContent = '💡 ' + (state._q.hint || 'No hint for this prompt.');
-    $('feedback').className = 'feedback hint';
+    var line = $('hint-line');
+    line.textContent = '💡 ' + (state._q.hint || 'No hint for this prompt.');
+    line.classList.add('show');
+    $('feedback').textContent = '';
+    $('feedback').className = 'feedback';
     beep(880, 0.05, 'square', 0.02);
   }
 
   function restart() {
     if (state && state.cardTimer) clearTimeout(state.cardTimer);
     PLANETS = genPlanets();
-    state = { current: 0, reached: new Set([0]), target: null, flying: false, finished: false, launching: false, totalAU: 0, lastAU: 0, jumps: 0, far: 0, hintUsed: false, answer: null, cardTimer: null, cardToken: 0, _hit: null };
+    state = freshState();
     $('overlay').classList.remove('show');
     $('cyber').classList.remove('show');
     $('arrive').classList.remove('show');
     $('arrive').classList.remove('fail');
+    $('ask').classList.remove('show');
     $('hit').innerHTML = '';
     $('trails').innerHTML = '';
+    $('fm-fill').style.width = '92%'; $('fm-read').textContent = '92%';
     buildNebula(); buildGrid(); buildStars(); buildOrbits(); drawPlanets(); drawSun();
     var e0 = PLANETS[0];
     placeRocket(e0.x, e0.y - 18, 0);
     renderQuestion();
   }
 
+  function freshState() {
+    return {
+      current: 0, reached: new Set([0]), target: null, flying: false, finished: false, launching: false,
+      totalAU: 0, lastAU: 0, jumps: 0, far: 0, hintUsed: false, cardTimer: null, cardToken: 0,
+      tally: { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 }, rarest: null, _hit: null, alien: null, _q: null, cyber: null
+    };
+  }
+
+  /* ---------- boot sequence ---------- */
+  function runBootSteps() {
+    var list = $('boot-list'), bar = $('boot-bar');
+    list.innerHTML = ''; bar.style.width = '0%';
+    return BOOT_STEPS.reduce(function (chain, label, i) {
+      return chain.then(function () {
+        var li = document.createElement('li');
+        li.className = 'st doing';
+        li.innerHTML = '<i></i><span>' + label + '</span>';
+        list.appendChild(li);
+        bar.style.width = (i / BOOT_STEPS.length * 100) + '%';
+        beep(360 + i * 80, 0.05, 'sine', 0.016);
+        return new Promise(function (resolve) {
+          setTimeout(function () { li.classList.remove('doing'); li.classList.add('done'); resolve(); }, 620);
+        });
+      });
+    }, Promise.resolve()).then(function () {
+      bar.style.width = '100%';
+    });
+  }
+
   async function boot() {
-    try {
-      var res = await fetch('/rarepop/packs.json?v=1', { cache: 'no-cache' });
-      if (!res.ok) throw new Error(res.status);
-      packs = await res.json();
-    } catch (e) {
-      $('q-text').textContent = 'Could not load the question data.';
-      $('feedback').textContent = 'Refresh the page or try again in a moment.';
+    state = freshState();
+    var packsP = fetch('/rarepop/packs.json?v=1', { cache: 'no-cache' })
+      .then(function (res) { if (!res.ok) throw new Error(res.status); return res.json(); })
+      .then(function (data) { packs = data; })
+      .catch(function () { return null; });
+    var animP = runBootSteps();
+    var packsResult = await packsP;
+    await animP;
+    if (!packs) {
+      $('boot-err').classList.add('show');
+      $('boot-bar').style.width = '100%';
       return;
     }
     buildQuestions();
@@ -940,7 +1332,7 @@
     rocket = buildRocket();
     var e0 = PLANETS[0];
     placeRocket(e0.x, e0.y - 18, 0);
-    state.far = 0;
+    $('boot').classList.remove('show');
     renderQuestion();
     $('btn-launch').addEventListener('click', submit);
     $('btn-hint').addEventListener('click', useHint);

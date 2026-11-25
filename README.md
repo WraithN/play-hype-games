@@ -332,10 +332,11 @@ API：
 
 ### 玩法与提示
 
-- 每层一个流行文化题目，答案必须在该题的封闭答案集里；答对按稀有度跳 8 个环（NEAR 01 到 VOID 08）。答错不扣命：会走同一套跃迁弹窗，然后出现 Void 卡片，3 秒后自动消失，可以继续输入。
+- 驾驶舱外壳：铆钉仪表台、左右仪表轨、扫描线和瞄准框。进场先播放领航鱼（Star-Navigator Fish）备航序列（规划航线/加燃料/校准传感器/密封座舱/接通呼叫），题目只通过「INCOMING TRANSMISSION」外星人弹窗提出（随机外星人形象与名字）。
+- 每个流行文化题目，答案必须在该题的封闭答案集里；答对按稀有度跳 8 个环（NEAR 01 到 VOID 08），播放 COCKPIT // JUMP PREP 四步充能、贝塞尔曲线飞行和目的地卡片。答错不扣命：会走同一套充能弹窗，然后出现红色 Void 卡片，3 秒后自动消失，可以继续输入。
 - **提示**：每题一次，免费；换题自动重置。提示文案在 `data/rarity/custom-sources.mjs` 的 `hint` 字段。
 - 题目从 4 个分类的题池里随机抽取；前端单文件 `public/games/rarepop/index.html` 包含全部 SVG 星系、跃迁动画和音效，无外部依赖。
-- 10 跳后弹出 MISSION COMPLETE：总航程 AU、跳数、最远环层、按航程给称号（Orbit Rookie → Galactic Ace），FLY AGAIN 重开一局。
+- 10 跳后弹出 INTERSTELLAR VOYAGE REPORT：总航程 AU、跳数、最远环层、各稀有度占比条形图、最稀有答案和称号（Orbit Rookie → Galactic Ace），FLY AGAIN 重开一局。
 
 ### 题库与稀有度
 

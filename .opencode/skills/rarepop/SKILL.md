@@ -50,8 +50,8 @@ Tiers are computed per prompt from English Wikipedia pageviews (Dec 2024–Oct 2
 ## Hints, runs and wrong answers
 
 - Hint button: free, once per prompt, resets next prompt. Implementation in the game's `useHint()` / `state.hintUsed`.
-- Ten jumps per run, then a MISSION COMPLETE rank card. No timer, no lives, no score.
-- Every submit (including gibberish) plays the full SYSTEM // JUMP PREP overlay. A miss then shows a red Void card for ~3 seconds and the same prompt stays playable. Reusing an answer is allowed and lands on another planet.
+- Ten jumps per run, then an INTERSTELLAR VOYAGE REPORT card (total AU, rank, rarity log). No timer, no lives, no score.
+- Every submit (including gibberish) plays the full COCKPIT // JUMP PREP overlay. A miss then shows a red Void card for ~3 seconds and the same prompt stays playable. Reusing an answer is allowed and lands on another planet.
 - Never put hints in the client only — they live in packs so they can be edited with the questions.
 
 ## LLM fuzzy judge
@@ -82,20 +82,27 @@ Tiers are computed per prompt from English Wikipedia pageviews (Dec 2024–Oct 2
 
 ## Visual
 
+Cockpit framing around the same solar-system scene: steel viewport border, corner brackets, scanlines, side instrument rails (fuel/plasma/shield gauges), and a riveted bottom console with jump progress + fuel meters.
+- Boot: `#boot` pre-flight card with the animated Star-Navigator Fish and 5 checklist steps (`BOOT_STEPS`: charting lanes, refueling, calibrating, sealing canopy, opening hailing frequencies); packs must load before it closes, otherwise `#boot-err` shows.
+- Prompts appear only inside the `#ask` INCOMING TRANSMISSION modal: a generated alien (`makeAlien`/`alienSVG`, random name/skin/eyes) asks the question; input + HINT + CONFIRM live there, not on the console.
 - Eight dashed elliptical rings (NEAR 01 → VOID 08), ~62 numbered planets, central sun with rotating dashed rings, nebula blobs, starfield, grid.
 - Rocket flies a quadratic Bezier with rotation and a cyan dot trail; landing plays a target bracket + particle burst and an in-scene planet label.
-- SYSTEM // JUMP PREP cyber overlay (4 steps, progress bar), right-side arrival card (red `.fail` variant for Void), HUD chips, compact rules under `@media (max-height:430px)` for embedded short viewports.
+- COCKPIT // JUMP PREP overlay (4 steps, progress bar), right-side arrival card (red `.fail` variant for Void), HUD chips.
+- End of run: INTERSTELLAR VOYAGE REPORT card with a per-rarity RARITY LOG (bars + counts/percent), jump/farthest/total/rarest stats, rank title, FLY AGAIN.
+- Responsive blocks, bottom of the stylesheet in order: `max-width:860px`, `max-height:560px`, `max-height:430px`, `max-width:560px` (stacked answer row), `max-height:300px` (ultra-compact 16/9 phone iframe ~390×219: alien hidden, screws hidden, one-line ellipsis console). The sky SVG is sized via `#sky`; never use a bare `svg` selector — it would also catch the fish/alien/planet SVGs inside overlays.
 - Single-file CSS/JS in `public/games/rarepop/index.html`; keep the compact rules at the bottom of the stylesheet for short viewports.
 
 ## QA checklist
 
 1. `node scripts/build-rarity-packs.mjs` exits 0 and prints 4 themes.
 2. `/rarepop` and `/rarepop/method` return 200; `/rarity-tower` returns 301.
-3. Play one prompt: a correct answer runs the 4-step overlay, Bezier flight and arrival card; HUD TOTAL/JUMPS update and the planet stays lit.
-4. Gibberish runs the same overlay, then the red Void card (~3s) with no jump counted; the same prompt remains and the input is cleared and re-enabled.
-5. HINT is free, works once per prompt at any score, greys out until the next prompt.
-6. Typo triggers the judge; a match proceeds as a normal jump, a miss shows the Void card.
-7. Ten jumps show the MISSION COMPLETE rank card; FLY AGAIN rebuilds the system and resets to 0.
-8. Check 1280×720, 390×844 and 390×219 (iframe height) with no horizontal scroll.
-9. Sitemap includes `/rarepop` and `/rarepop/method` only.
-10. Deploy (push to `main`), wait for Render, re-check the live game.
+3. Boot first: the fish pre-flight card runs its 5 steps, then the alien transmission modal opens with a question; no question UI is visible before boot finishes.
+4. Play one prompt: a correct answer runs the 4-step overlay, Bezier flight and arrival card; HUD TOTAL/JUMPS update and the planet stays lit.
+5. Gibberish runs the same overlay, then the red Void card (~3s) with no jump counted; the same prompt remains and the input is cleared and re-enabled.
+6. HINT is free, works once per prompt at any score, greys out until the next prompt.
+7. Typo triggers the judge; a match proceeds as a normal jump, a miss shows the Void card.
+8. Ten jumps show the INTERSTELLAR VOYAGE REPORT with rarity-log bars; FLY AGAIN rebuilds the system and resets to 0.
+9. Check 1280×720, 390×844 and 390×219 (real 16/9 iframe height) with no horizontal scroll; at 390×219 the transmission modal fits without inner scrolling and console text is not clipped.
+10. Confirm the fish, alien and arrival-card planet SVGs actually render (regression: a bare `svg{position:absolute}` rule hid all three).
+11. Sitemap includes `/rarepop` and `/rarepop/method` only.
+12. Deploy (push to `main`), wait for Render, re-check the live game.
