@@ -23,6 +23,7 @@ const seo = require('./lib/seo');
 const authors = require('./lib/authors');
 const rarepop = require('./lib/rarepop');
 const judge = require('./lib/judge');
+const lore = require('./lib/lore');
 
 // 默认 4180：避开 3000/8080 这类常被本机其他服务占用的端口
 const PORT = Number(process.env.PORT) || 4180;
@@ -761,6 +762,24 @@ async function handleApi(req, res, url, settings) {
     if (!answer) return sendJson(res, 200, { match: null, source: 'empty' });
     const result = await judge.judge({ theme, questionId, answer });
     return sendJson(res, 200, { match: result.match || null, source: result.source });
+  }
+
+  // RarePop planet lore（每次答对生成/缓存一个星球）
+  if (pathname === '/api/rarepop/lore' && req.method === 'POST') {
+    const ip = String(req.headers['x-forwarded-for'] || '').split(',')[0].trim() || req.socket.remoteAddress || 'unknown';
+    if (!judge.allow(ip)) return sendJson(res, 429, { error: 'rate_limited' });
+    let body = {};
+    try {
+      body = await readJsonBody(req);
+    } catch (e) {
+      return sendJson(res, 400, { error: 'bad_json' });
+    }
+    const theme = String(body.theme || '').slice(0, 40);
+    const questionId = String(body.questionId || '').slice(0, 80);
+    const answer = String(body.answer || '').slice(0, 80).trim();
+    if (!answer) return sendJson(res, 200, { name: null, desc: null, source: 'empty' });
+    const out = await lore.lore({ theme, questionId, answer });
+    return sendJson(res, 200, out);
   }
 
   // 登录

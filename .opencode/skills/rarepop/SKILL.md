@@ -49,7 +49,7 @@ Tiers are computed per prompt from English Wikipedia pageviews (Dec 2024–Oct 2
 
 ## Hints and lives
 
-- Hint button: 10 points, once per prompt, disabled below 10, resets next prompt. Implementation in the game's `useHint()` / `state.hintUsed`.
+- Hint button: 10 points, once per prompt, always available (cost floors at 0), resets next prompt. Implementation in the game's `useHint()` / `state.hintUsed`.
 - Three lives. A wrong answer or a 40-second timeout costs one. Reusing an answer is rejected but free.
 - Never put hints in the client only — they live in packs so they can be edited with the questions.
 
@@ -63,6 +63,13 @@ Tiers are computed per prompt from English Wikipedia pageviews (Dec 2024–Oct 2
   - `LLM_MODEL` (default `deepseek-v4.1-flash`; the gateway has no `deepseek-chat`)
 - Rate limit: 24 requests/minute per IP, 3000/day global, 8s timeout, 6h result cache.
 - Never put the key in the game, page, data or repo. The browser must only see `/api/rarepop/judge`.
+
+## Planet lore
+
+- On a correct answer the client calls `POST /api/rarepop/lore` with `{theme, questionId, answer}`.
+- The server generates a 2–3 word planet name and one-sentence description via the same LLM, cached 24h per answer; without a key it returns a local fallback.
+- The card shows the fallback immediately after the jump animation, then swaps in the AI text when it arrives.
+- Keep the lore prompt playful and fictional; no real-world claims, no endorsements.
 
 ## Routes
 
