@@ -787,6 +787,19 @@
     $('cyber').classList.remove('show');
   }
 
+  function failAfterCyber(text, reason) {
+    var seq = state.cyber;
+    if (!seq || seq.aborted || seq.ready) { abortCyber(); showFailCard(text, reason); return; }
+    var timer = setInterval(function () {
+      if (!state || state.cyber !== seq) { clearInterval(timer); return; }
+      if (seq.ready) {
+        clearInterval(timer);
+        abortCyber();
+        showFailCard(text, reason);
+      }
+    }, 100);
+  }
+
   function beginLaunch(planet) {
     var cy = $('cyber'), list = $('cyber-list'), bar = $('cyber-progress');
     $('btn-launch').disabled = true;
@@ -867,8 +880,7 @@
     askJudge(q, text).then(function (found) {
       if (!state || state.finished) return;
       if (found && !found.rate) return launch(found, true);
-      abortCyber();
-      showFailCard(text, found && found.rate ? 'rate' : 'invalid');
+      failAfterCyber(text, found && found.rate ? 'rate' : 'invalid');
     });
   }
 
