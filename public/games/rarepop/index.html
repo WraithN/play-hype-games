@@ -765,7 +765,7 @@ h1 span{color:var(--yellow)}
     bind();
     state = { cat: 'all', ship: null };
     try {
-      var res = await fetch('/rarepop/packs.json', { cache: 'no-cache' });
+      var res = await fetch('/rarepop/packs.json?v=1', { cache: 'no-cache' });
       if (!res.ok) throw new Error(res.status);
       packs = await res.json();
     } catch (e) {
