@@ -237,6 +237,9 @@ function handleFront(req, res, url) {
     res.end(fs.readFileSync(file));
     return;
   }
+  if (pathname === '/rarepop') {
+    return send(res, 200, rarity.rarePopPage(settings));
+  }
   if (pathname === '/rarity-tower/method') {
     return send(res, 200, rarity.methodPage(settings));
   }

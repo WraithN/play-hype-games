@@ -66,6 +66,13 @@ Tiers are computed per prompt from English Wikipedia pageviews (Dec 2024–Oct 2
 - Rate limit: 24 requests/minute per IP, 8s timeout, 6h result cache.
 - Never put the key in `game.js`, `index.html`, `data/`, or the repo. The browser must only see `/api/rarity/judge`.
 
+## RarePop
+
+- Arcade cut at `/rarepop`; single-file game at `public/games/rarepop/index.html`.
+- 3 lives, 40s timer, 1–5 rings by rarity, hint −10 once per prompt.
+- Shares `/rarity-tower/packs.json` and `/api/rarity/judge`; no separate data.
+- Capture a 4:3 thumbnail at 1024×768 and resize to 512×384 for `public/thumbs/rarepop.png`.
+
 ## Routes
 
 - `/rarity-tower` hub (embeds the movies tower)

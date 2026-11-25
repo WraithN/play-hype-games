@@ -2577,5 +2577,37 @@
     "views": 3,
     "createdAt": "2026-11-24T15:22:42.707Z",
     "updatedAt": "2026-11-24T15:22:42.707Z"
+  },
+  {
+    "id": 94,
+    "title": "RarePop",
+    "slug": "rarepop",
+    "description": "A pop-culture rare-answer arcade game: three lives, 40 seconds per prompt, and the rarer your answer the deeper your ship jumps.",
+    "content": "<p>RarePop is the arcade cut of Rarity Tower. Name something that fits the prompt; the answer is ranked by how obscure it is, and the ship jumps to the ring that matches its rarity. Common answers stay close, Legendary answers jump five rings out.</p><p>Three lives, a 40-second clock and a one-per-prompt hint that costs 10 points. Movies, music, games and anime. Free, no download. <a href=\"/rarepop\">Open the RarePop page</a> or <a href=\"/rarity-tower\">play the climbing version</a>.</p>",
+    "embedUrl": "/assets/games/rarepop/index.html",
+    "thumb": "/assets/thumbs/rarepop.png",
+    "category": "puzzle-games",
+    "tags": [
+      "trivia",
+      "pop culture",
+      "daily",
+      "arcade",
+      "quiz",
+      "movies",
+      "music",
+      "anime"
+    ],
+    "rating": null,
+    "heat": 10,
+    "source": "Play Hype Studio",
+    "externalId": "",
+    "releasedAt": "2026-11-25",
+    "seoTitle": "RarePop — pop-culture rare-answer arcade game",
+    "seoDescription": "Three lives, 40 seconds, and the rarer your pop-culture answer the deeper the jump. Movies, music, games and anime. Free browser game.",
+    "status": "published",
+    "featured": true,
+    "views": 0,
+    "createdAt": "2026-11-25T05:40:23.731Z",
+    "updatedAt": "2026-11-25T05:40:23.731Z"
   }
 ]

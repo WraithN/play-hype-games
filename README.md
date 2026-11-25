@@ -332,6 +332,13 @@ API：
 
 已下线的旧主题（world/europe/nfl/space/history 等）在 server.js 里 301 到 `/rarity-tower`，避免死链。
 
+### RarePop（街机版）
+
+- 路径：`/rarepop`，游戏本体 `public/games/rarepop/index.html`（单文件，HTML 直出，无需版本号）。
+- 玩法：3 条命、40 秒/题、答对按稀有度把飞船跳到 1–5 号环；答错或超时扣命；提示每题一次扣 10 分。
+- 共用同一份题库 `/rarity-tower/packs.json` 和服务端判题 `/api/rarity/judge`。
+- 目录里也有独立条目 `/game/rarepop`，缩略图 `public/thumbs/rarepop.png`。
+
 ### 玩法与提示
 
 - 每层一个流行文化题目，答案必须在该题的封闭答案集里；稀有度低于该层要求就坠落。
