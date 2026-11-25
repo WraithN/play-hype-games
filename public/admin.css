@@ -276,6 +276,16 @@ code {
 .adm-mb-hot { background: linear-gradient(180deg, #ff7a45, #ff3d55); }
 .adm-mb-new { background: linear-gradient(180deg, #4fcf2e, #249b10); }
 .adm-mb-original { background: linear-gradient(180deg, #9d7bf5, #7c3aed); }
+.adm-mb-noindex { background: linear-gradient(180deg, #8a93a6, #5b6373); }
+.adm-mb-featured { background: linear-gradient(180deg, #ffc24b, #f59e0b); color: #2a1c00; }
+
+.adm-check-label {
+  display: flex !important;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+.adm-check-label input { width: auto; margin: 0; }
 
 /* ---------------- Forms ---------------- */
 

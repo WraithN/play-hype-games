@@ -475,7 +475,7 @@ function handleFront(req, res, url) {
         seoTitle: categorySeo.seoTitle,
         kicker: 'Category',
         description: categorySeo.description,
-        heroText: cat.short || '',
+        heroText: copy.categoryHero(slug) || cat.short || '',
         list: live,
         baseUrl: `/category/${slug}`,
         page,
@@ -701,6 +701,7 @@ function buildPostRecord(payload, posts, settings, existing) {
     relatedGames: relatedIds,
     seoTitle: String(payload.seoTitle || '').trim(),
     seoDescription: String(payload.seoDescription || '').trim(),
+    noindex: Boolean(payload.noindex),
     status: payload.status === 'published' ? 'published' : 'draft',
     publishedAt,
     updatedAt: now

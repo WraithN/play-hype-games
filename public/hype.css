@@ -311,6 +311,11 @@ body.hype .more-link{color:var(--h-accent);font-weight:800}
 @media (max-width:1199px){ .hgrid{grid-template-columns:repeat(4,minmax(0,1fr))} }
 @media (max-width:900px){  .hgrid{grid-template-columns:repeat(3,minmax(0,1fr))} }
 @media (max-width:640px){  .hgrid{grid-template-columns:repeat(2,minmax(0,1fr))} }
+/* 首屏编辑精选：3 张大卡，移动端降为 2 列 / 1 列 */
+.hgrid-featured{grid-template-columns:repeat(3,minmax(0,1fr))}
+.hsection-featured{padding-top:clamp(14px,2vw,26px)}
+@media (max-width:900px){ .hgrid-featured{grid-template-columns:repeat(2,minmax(0,1fr))} }
+@media (max-width:560px){ .hgrid-featured{grid-template-columns:1fr} }
 
 .hcard{
   position:relative;display:block;text-decoration:none;overflow:hidden;
