@@ -22,6 +22,7 @@ const copy = require('./lib/copy');
 const seo = require('./lib/seo');
 const authors = require('./lib/authors');
 const rarity = require('./lib/rarity');
+const judge = require('./lib/judge');
 
 // 默认 4180：避开 3000/8080 这类常被本机其他服务占用的端口
 const PORT = Number(process.env.PORT) || 4180;
@@ -248,6 +249,8 @@ function handleFront(req, res, url) {
   {
     const m = pathname.match(/^\/rarity-tower\/([a-z0-9-]+)$/);
     if (m) {
+      const retired = ['world', 'europe', 'asia', 'africa', 'americas', 'islands', 'landlocked', 'microstates', 'nfl', 'soccer', 'space', 'history'];
+      if (retired.indexOf(m[1]) !== -1) return send(res, 301, '', { Location: '/rarity-tower' });
       const page = rarity.themePage(settings, m[1]);
       if (page) return send(res, 200, page);
     }
@@ -739,6 +742,24 @@ function parseImportRows(raw, defaultCategory, publishState, games, settings) {
 async function handleApi(req, res, url, settings) {
   const pathname = url.pathname;
   if (!pathname.startsWith('/api/')) return false;
+
+  // Rarity Tower fuzzy judge（LLM 只在服务端调用，密钥不进前端）
+  if (pathname === '/api/rarity/judge' && req.method === 'POST') {
+    const ip = String(req.headers['x-forwarded-for'] || '').split(',')[0].trim() || req.socket.remoteAddress || 'unknown';
+    if (!judge.allow(ip)) return sendJson(res, 429, { error: 'rate_limited' });
+    let body = {};
+    try {
+      body = await readJsonBody(req);
+    } catch (e) {
+      return sendJson(res, 400, { error: 'bad_json' });
+    }
+    const theme = String(body.theme || '').slice(0, 40);
+    const questionId = String(body.questionId || '').slice(0, 80);
+    const answer = String(body.answer || '').slice(0, 80).trim();
+    if (!answer) return sendJson(res, 200, { match: null, source: 'empty' });
+    const result = await judge.judge({ theme, questionId, answer });
+    return sendJson(res, 200, { match: result.match || null, source: result.source });
+  }
 
   // 登录
   if (pathname === '/api/admin/login' && req.method === 'POST') {

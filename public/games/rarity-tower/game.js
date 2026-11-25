@@ -20,6 +20,7 @@
     needBox: $('needBox'), timerWrap: $('timerWrap'), timerBar: $('timerBar'),
     prompt: $('prompt'), hint: $('hint'), reveal: $('reveal'),
     form: $('answerForm'), input: $('answer'), jumpBtn: $('jumpBtn'), suggest: $('suggest'),
+    hintBtn: $('hintBtn'), hintLine: $('hintLine'),
     intro: $('intro'), introBadge: $('introBadge'), introTag: $('introTag'), introFloors: $('introFloors'),
     introLadder: $('introLadder'), introThemes: $('introThemes'), introNote: $('introNote'),
     startBtn: $('startBtn'), practiceBtn: $('practiceBtn'),
@@ -273,7 +274,9 @@
       status: 'playing',
       answer: null,
       deadline: 0,
-      timeLeft: TIME_LIMIT
+      timeLeft: TIME_LIMIT,
+      hintUsed: false,
+      checking: false
     };
     els.intro.classList.remove('on');
     els.result.classList.remove('on');
@@ -300,12 +303,17 @@
     state.answer = null;
     state.status = 'playing';
     state.timeLeft = TIME_LIMIT;
+    state.hintUsed = false;
 
     els.prompt.textContent = q.prompt;
     els.needBox.textContent = 'NEED: ' + TIER_LABEL[need] + '+';
     els.needBox.dataset.tier = need;
     els.reveal.classList.remove('on');
     els.reveal.textContent = '';
+    els.hintLine.classList.remove('on');
+    els.hintLine.textContent = '';
+    els.hintLine.hidden = true;
+    els.hintBtn.disabled = state.score < 10;
     els.input.value = '';
     els.input.disabled = false;
     els.jumpBtn.disabled = false;
@@ -360,19 +368,17 @@
     return null;
   }
 
-  function submit(text) {
+  function invalidAnswer(text) {
+    els.input.classList.add('bad');
+    setTimeout(function () { els.input.classList.remove('bad'); }, 320);
+    els.hint.innerHTML = theme.kind === 'country'
+      ? 'Not a valid answer here. <b>Countries only — territories do not count.</b>'
+      : 'Not in this set. <b>Check the spelling, or try another answer.</b>';
+    sfx.invalid();
+  }
+
+  function resolveAnswer(answer) {
     if (!state || state.status !== 'playing') return;
-    var q = state.questions[state.floor - 1];
-    var answer = matches(q, text);
-    if (!answer) {
-      els.input.classList.add('bad');
-      setTimeout(function () { els.input.classList.remove('bad'); }, 320);
-      els.hint.innerHTML = theme.kind === 'country'
-        ? 'Not a valid answer here. <b>Countries only — territories do not count.</b>'
-        : 'Not in this set. <b>Check the spelling, or try another answer.</b>';
-      sfx.invalid();
-      return;
-    }
     if (state.used[answer.code]) {
       els.input.classList.add('bad');
       setTimeout(function () { els.input.classList.remove('bad'); }, 320);
@@ -380,13 +386,65 @@
       sfx.invalid();
       return;
     }
-
     var need = theme.ladder[state.floor - 1];
     if (TIER_ORDER[answer.tier] >= TIER_ORDER[need]) {
       pass(answer, need);
     } else {
       fall('too-obvious', answer, need);
     }
+  }
+
+  function submit(text) {
+    if (!state || state.status !== 'playing' || state.checking) return;
+    var q = state.questions[state.floor - 1];
+    var answer = matches(q, text);
+    if (answer) {
+      resolveAnswer(answer);
+      return;
+    }
+    if (!String(text || '').trim()) {
+      invalidAnswer(text);
+      return;
+    }
+
+    state.checking = true;
+    els.input.disabled = true;
+    els.jumpBtn.disabled = true;
+    els.hint.textContent = 'Checking that answer…';
+
+    fetch('/api/rarity/judge', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ theme: theme.slug, questionId: q.id, answer: String(text).slice(0, 80) })
+    })
+      .then(function (r) { return r.ok ? r.json() : { match: null }; })
+      .then(function (data) {
+        state.checking = false;
+        if (!state || state.status !== 'playing') return;
+        if (state.questions[state.floor - 1].id !== q.id) return;
+        els.input.disabled = false;
+        els.jumpBtn.disabled = false;
+        var name = data && data.match;
+        var found = null;
+        if (name) {
+          for (var i = 0; i < q.answers.length; i++) {
+            if (q.answers[i].name === name) { found = q.answers[i]; break; }
+          }
+        }
+        if (found) {
+          els.input.value = found.name;
+          resolveAnswer(found);
+        } else {
+          invalidAnswer(text);
+        }
+      })
+      .catch(function () {
+        state.checking = false;
+        if (!state || state.status !== 'playing') return;
+        els.input.disabled = false;
+        els.jumpBtn.disabled = false;
+        invalidAnswer(text);
+      });
   }
 
   function pass(answer, need) {
@@ -426,6 +484,20 @@
         askQuestion();
       }, 470);
     }, 620);
+  }
+
+  function useHint() {
+    if (!state || state.status !== 'playing' || state.hintUsed) return;
+    if (state.score < 10) return;
+    var q = state.questions[state.floor - 1];
+    state.score -= 10;
+    state.hintUsed = true;
+    els.hudScore.textContent = state.score;
+    els.hintBtn.disabled = true;
+    els.hintLine.hidden = false;
+    els.hintLine.textContent = q.hint ? 'HINT: ' + q.hint : 'No hint for this floor.';
+    els.hintLine.classList.add('on');
+    sfx.tick();
   }
 
   function fall(reason, answer, need) {
@@ -686,6 +758,7 @@
     els.startBtn.addEventListener('click', function () { startRun(false); });
     els.practiceBtn.addEventListener('click', function () { startRun(true); });
     els.retryBtn.addEventListener('click', function () { startRun(state ? state.practice : false); });
+    els.hintBtn.addEventListener('click', useHint);
     els.shareBtn.addEventListener('click', copyShare);
     els.muteBtn.addEventListener('click', function () {
       muted = !muted;
@@ -719,13 +792,13 @@
     bind();
 
     var params = new URLSearchParams(location.search);
-    var slug = params.get('theme') || 'world';
+    var slug = params.get('theme') || 'movies';
     var ALIAS = {
-      country: 'world', countries: 'world', geography: 'world', geo: 'world', world: 'world',
+      country: 'movies', countries: 'movies', geography: 'movies', geo: 'movies', world: 'movies',
       film: 'movies', films: 'movies', movie: 'movies',
       songs: 'music', song: 'music',
-      football: 'soccer', futbol: 'soccer', club: 'soccer',
-      nfl: 'nfl', space: 'space', history: 'history'
+      game: 'games', gaming: 'games',
+      anime: 'anime'
     };
     slug = ALIAS[slug] || slug;
     try {
@@ -738,7 +811,7 @@
       return;
     }
     theme = packs.themes.filter(function (t) { return t.slug === slug; })[0] ||
-      packs.themes.filter(function (t) { return t.slug === 'world'; })[0] ||
+      packs.themes.filter(function (t) { return t.slug === 'movies'; })[0] ||
       packs.themes[0];
     state = { questions: theme.questions, floor: 1, cleared: 0, score: 0, used: {}, results: [], status: 'intro' };
     layout.n = theme.questions.length;

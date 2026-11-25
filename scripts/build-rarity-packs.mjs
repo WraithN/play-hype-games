@@ -651,7 +651,7 @@ function buildCustomPrompt(p) {
       share: Math.round(frac * 100)
     };
   });
-  return { id: p.id, prompt: p.prompt, note: '', answers };
+  return { id: p.id, prompt: p.prompt, note: '', hint: p.hint || '', answers };
 }
 
 const customThemes = CUSTOM_THEMES.map((t) => {
@@ -676,7 +676,7 @@ const customThemes = CUSTOM_THEMES.map((t) => {
   };
 }).filter(Boolean);
 
-const allThemes = [...customThemes, ...themes];
+const allThemes = [...customThemes];
 
 /* ---------- 7. output ---------- */
 

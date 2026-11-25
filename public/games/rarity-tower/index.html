@@ -144,6 +144,15 @@ body{
   box-shadow:0 4px 0 #086070,inset 0 2px 0 rgba(255,255,255,.5)}
 .jump-btn:active{transform:translateY(3px);box-shadow:0 1px 0 #086070}
 .jump-btn:disabled{opacity:.45;cursor:default;transform:none}
+.hint-btn{height:42px;padding:0 12px;border:2px solid #5a3f96;background:linear-gradient(180deg,#8b5cf6,#5b3ea8);
+  color:#f4ecff;font-family:var(--pixel);font-size:10px;letter-spacing:.05em;cursor:pointer;white-space:nowrap;
+  box-shadow:0 4px 0 #382566,inset 0 2px 0 rgba(255,255,255,.35)}
+.hint-btn:hover{filter:brightness(1.1)}
+.hint-btn:active{transform:translateY(3px);box-shadow:0 1px 0 #382566}
+.hint-btn:disabled{opacity:.4;cursor:not-allowed;transform:none;filter:none}
+.hint-line{display:none;margin:0;padding:6px 8px;border-left:3px solid var(--purple);
+  background:rgba(139,92,246,.10);color:#d9ccff;font-size:12px;line-height:1.45}
+.hint-line.on{display:block}
 .hint{margin:0;min-height:14px;font-size:11px;color:var(--dim);line-height:1.4}
 .hint b{color:var(--muted);font-weight:400}
 .reveal{display:none;align-items:center;gap:8px;font-family:var(--pixel);font-size:10px;letter-spacing:.06em;
@@ -342,6 +351,7 @@ body{
   .panel{padding:7px 10px 9px;gap:6px}
   .prompt{font-size:12px}
   #answer,.jump-btn{height:36px}
+  .hint-btn{height:36px;padding:0 8px;font-size:9px}
   .hint{display:none}
   .card{padding:14px}
   .rules li{font-size:11.5px}
@@ -355,6 +365,8 @@ body{
   .panel-top{gap:6px}
   .prompt{font-size:11px;line-height:1.25}
   #answer,.jump-btn{height:30px}
+  .hint-btn{height:30px;padding:0 6px;font-size:8px}
+  .hint-line{font-size:10px;padding:4px 6px}
   .jump-btn{padding:0 10px;font-size:9px}
   .hint{display:none}
   .reveal{font-size:8px;padding:3px 6px}
@@ -419,8 +431,10 @@ body{
     <p class="prompt" id="prompt">Name a country</p>
     <form class="answer-row" id="answerForm" autocomplete="off">
       <input id="answer" type="text" inputmode="text" placeholder="Type a country…" aria-label="Your answer" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+      <button class="hint-btn" id="hintBtn" type="button">HINT -10</button>
       <button class="jump-btn" id="jumpBtn" type="submit">JUMP</button>
     </form>
+    <p class="hint-line" id="hintLine" hidden></p>
     <div class="reveal" id="reveal" aria-live="polite"></div>
     <p class="hint" id="hint">Type a country and press Enter. Wrong spelling is free — obvious answers are not.</p>
     <ul class="suggest" id="suggest" role="listbox"></ul>
@@ -469,6 +483,6 @@ body{
     </div>
   </div>
 </div>
-<script src="game.js?v=8"></script>
+<script src="game.js?v=9"></script>
 </body>
 </html>
