@@ -312,12 +312,6 @@
     return String(s || '').trim().toLowerCase().replace(/[\s,，。.!！?？&]/g, '');
   }
   function makeDesc() { return pick(DESC_TYPE) + '; ' + pick(DESC_FEAT) + '.'; }
-  function fallbackLore(answer) {
-    var base = String(answer).replace(/[^A-Za-z0-9' -]/g, '').split(/\s+/).slice(0, 2).join(' ');
-    var h = 0;
-    for (var i = 0; i < String(answer).length; i++) h = (h * 31 + String(answer).charCodeAt(i)) >>> 0;
-    return { name: base + ' ' + SUFFIX[h % SUFFIX.length], desc: 'A small world assembled from ' + answer + ' trivia.' };
-  }
 
   /* ---------- build the system ---------- */
   function genPlanets() {
@@ -658,7 +652,7 @@
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ theme: state._q.theme, questionId: state._q.qid, answer: item.v })
       }).then(function (r) { return r.ok ? r.json() : null; }).then(function (d) {
-        if (!d || !d.name || state.cardToken !== token) return;
+        if (!d || !d.name || d.source === 'fallback' || state.cardToken !== token) return;
         p.name = d.name;
         p.desc = d.desc;
         $('arrive-name').textContent = d.name;
