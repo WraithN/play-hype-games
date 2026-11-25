@@ -2549,41 +2549,11 @@
     "controls": "Move back and forth with the WASD keys to play Mobile control buttons available"
   },
   {
-    "id": 93,
-    "title": "Rarity Tower",
-    "slug": "rarity-tower",
-    "description": "A daily pop-culture rarity game: seven floors, one answer per floor, and only the rarer answers keep the slab standing. Movies, music, games and anime. Free, no download.",
-    "content": "<p>Rarity Tower is an original Play Hype game. Every floor asks for something that fits a pop-culture constraint — a studio, a franchise, an album era, a type chart — and ranks your answer by how obscure it is. Clear the floor minimum and you jump one slab up. Pick the obvious answer and the floor collapses.</p><p>Four towers cover movies, music, games and anime, with a one-line hint available for 10 points. <a href=\"/rarity-tower\">Open the tower hub</a> for every category, or read <a href=\"/rarity-tower/method\">how the rarity tiers are calculated</a>.</p>",
-    "embedUrl": "/assets/games/rarity-tower/index.html?theme=movies",
-    "thumb": "/assets/thumbs/rarity-tower.png",
-    "category": "puzzle-games",
-    "tags": [
-      "trivia",
-      "geography",
-      "daily",
-      "pixel",
-      "quiz",
-      "country"
-    ],
-    "rating": null,
-    "heat": 12,
-    "source": "Play Hype Studio",
-    "externalId": "",
-    "releasedAt": "2026-11-24",
-    "seoTitle": "Rarity Tower — daily country trivia game",
-    "seoDescription": "Climb seven floors of pop-culture rare-answer trivia: movies, music, games and anime. The obvious answers collapse the floor. Free browser game, four towers, daily run.",
-    "status": "published",
-    "featured": true,
-    "views": 3,
-    "createdAt": "2026-11-24T15:22:42.707Z",
-    "updatedAt": "2026-11-24T15:22:42.707Z"
-  },
-  {
     "id": 94,
     "title": "RarePop",
     "slug": "rarepop",
     "description": "A pop-culture rare-answer arcade game: three lives, 40 seconds per prompt, and the rarer your answer the deeper your ship jumps.",
-    "content": "<p>RarePop is the arcade cut of Rarity Tower. Name something that fits the prompt; the answer is ranked by how obscure it is, and the ship jumps to the ring that matches its rarity. Common answers stay close, Legendary answers jump five rings out.</p><p>Three lives, a 40-second clock and a one-per-prompt hint that costs 10 points. Movies, music, games and anime. Free, no download. <a href=\"/rarepop\">Open the RarePop page</a> or <a href=\"/rarity-tower\">play the climbing version</a>.</p>",
+    "content": "<p>RarePop is a pop-culture rare-answer arcade game. Name something that fits the prompt; the answer is ranked by how obscure it is, and the ship jumps to the ring that matches its rarity. Common answers stay close, Legendary answers jump five rings out.</p><p>Three lives, a 40-second clock and a one-per-prompt hint that costs 10 points. Movies, music, games and anime. Free, no download. <a href=\"/rarepop\">Open the RarePop page</a> or read <a href=\"/rarepop/method\">how the rarity tiers are calculated</a>.</p>",
     "embedUrl": "/assets/games/rarepop/index.html",
     "thumb": "/assets/thumbs/rarepop.png",
     "category": "puzzle-games",
@@ -2606,7 +2576,7 @@
     "seoDescription": "Three lives, 40 seconds, and the rarer your pop-culture answer the deeper the jump. Movies, music, games and anime. Free browser game.",
     "status": "published",
     "featured": true,
-    "views": 0,
+    "views": 2,
     "createdAt": "2026-11-25T05:40:23.731Z",
     "updatedAt": "2026-11-25T05:40:23.731Z"
   }

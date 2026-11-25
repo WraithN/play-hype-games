@@ -228,7 +228,7 @@ h1 span{color:var(--yellow)}
         <button class="btn primary" id="replayBtn">PLAY AGAIN</button>
         <button class="btn" id="copyBtn">COPY RESULT</button>
       </div>
-      <p class="foot">Want the climbing version? <a href="/rarity-tower" target="_top">Play Rarity Tower →</a></p>
+      <p class="foot">RarePop is an original Play Hype game. Three lives, 40 seconds a prompt, and rarity from public Wikipedia pageviews.</p>
     </div>
   </div>
 </div>
@@ -617,7 +617,7 @@ h1 span{color:var(--yellow)}
     els.ans.disabled = true;
     els.confirmBtn.disabled = true;
     els.feedback.textContent = 'Checking that answer…';
-    fetch('/api/rarity/judge', {
+    fetch('/api/rarepop/judge', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ theme: state.current.themeSlug, questionId: q.id, answer: String(text).slice(0, 80) })
@@ -765,7 +765,7 @@ h1 span{color:var(--yellow)}
     bind();
     state = { cat: 'all', ship: null };
     try {
-      var res = await fetch('/rarity-tower/packs.json', { cache: 'no-cache' });
+      var res = await fetch('/rarepop/packs.json', { cache: 'no-cache' });
       if (!res.ok) throw new Error(res.status);
       packs = await res.json();
     } catch (e) {

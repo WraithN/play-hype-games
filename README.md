@@ -316,45 +316,36 @@ API：
 - `public/og-default.png` 是 1200×630 默认分享图；没有封面的页面自动使用。
 - `/research/browser-game-load-times.csv` 导出 79 条冷抓取数据，研究页带 CSV 下载与引用格式。
 
-## 9. Rarity Tower（自研游戏）
+## 9. RarePop（自研游戏）
 
-自研的**流行文化稀有度答题**，独立于外部 feed，代码和题库都在仓库里。4 个主题塔：电影、音乐、游戏、动漫。
+自研的**流行文化稀有度街机游戏**，独立于外部 feed，代码和题库都在仓库里。3 条命、40 秒/题，答对按稀有度把飞船跳到 1–5 号环。
 
 | 路径 | 作用 |
 | --- | --- |
-| `/rarity-tower` | 总入口：玩法、4 个主题、分档口径 |
-| `/rarity-tower/<theme>` | 主题页：`movies` `music` `games` `anime` |
-| `/rarity-tower/prompts` | 全部题目归档（静态、可索引） |
-| `/rarity-tower/method` | 稀有度算法、数据来源与已知局限 |
-| `/game/rarity-tower` | 目录里的游戏页（iframe 默认加载 movies） |
-| `/rarity-tower/packs.json` | 游戏运行时读取的题库（服务端直出，短缓存） |
-| `/assets/games/rarity-tower/index.html` | 游戏本体：像素前端、16:9、可全屏、音效默认关闭 |
+| `/rarepop` | 游戏页：玩法、内嵌游戏、FAQ |
+| `/rarepop/method` | 稀有度算法、数据来源与已知局限 |
+| `/rarepop/packs.json` | 游戏运行时读取的题库（服务端直出，短缓存） |
+| `/assets/games/rarepop/index.html` | 游戏本体（单文件，HTML 直出） |
+| `/game/rarepop` | 目录里的游戏条目 |
 
-已下线的旧主题（world/europe/nfl/space/history 等）在 server.js 里 301 到 `/rarity-tower`，避免死链。
-
-### RarePop（街机版）
-
-- 路径：`/rarepop`，游戏本体 `public/games/rarepop/index.html`（单文件，HTML 直出，无需版本号）。
-- 玩法：3 条命、40 秒/题、答对按稀有度把飞船跳到 1–5 号环；答错或超时扣命；提示每题一次扣 10 分。
-- 共用同一份题库 `/rarity-tower/packs.json` 和服务端判题 `/api/rarity/judge`。
-- 目录里也有独立条目 `/game/rarepop`，缩略图 `public/thumbs/rarepop.png`。
+旧的 `/rarity-tower*` 与 `/assets/games/rarity-tower*` 已下线，301 到 `/rarepop*`。
 
 ### 玩法与提示
 
-- 每层一个流行文化题目，答案必须在该题的封闭答案集里；稀有度低于该层要求就坠落。
+- 每层一个流行文化题目，答案必须在该题的封闭答案集里；答对按稀有度跳 1–5 号环，答错或超时扣一条命。
 - **提示**：每题一次，扣 10 分；分数低于 10 时按钮禁用；换题自动重置。提示文案在 `data/rarity/custom-sources.mjs` 的 `hint` 字段。
-- 跳层、每日种子、练习模式、分享文本都在前端 `public/games/rarity-tower/game.js`。
+- 每日种子、练习模式、分类筛选（电影/音乐/游戏/动漫/全部）、分享文本都在前端 `public/games/rarepop/index.html`。
 
 ### 题库与稀有度
 
 - 题库在 `data/rarity/packs.json`，由 `node scripts/build-rarity-packs.mjs` 生成；题目和答案写在 `data/rarity/custom-sources.mjs`。
 - 稀有度：英文维基 2024-12 至 2025-10 的月浏览量，在**每道题的合法答案内部**做百分位分档：最冷门 15% Legendary，15–35% Epic，35–60% Rare，60–80% Uncommon，其余 Common。
 - 生成脚本需要访问 Wikipedia。若 Node 直连失败，先设置 `NODE_USE_ENV_PROXY=1` 和 `HTTPS_PROXY`（本机代理）再跑；缓存写在 `.cache/rarity/`，已加入 .gitignore。
-- 新增题目：在 `custom-sources.mjs` 加 prompt + answers + hint，重跑脚本；主题页、题目归档、sitemap 自动更新。
+- 改完题库重跑脚本，`/rarepop` 和 sitemap 会自动更新。
 
 ### DeepSeek 模糊判题（服务端）
 
-本地先做精确名/别名匹配；未命中时前端调用 `POST /api/rarity/judge`，由服务端调用 LLM 把昵称、缩写、翻译、拼写错误映射回封闭答案集里的 canonical 名称，返回前会再校验一次。
+本地先做精确名/别名匹配；未命中时前端调用 `POST /api/rarepop/judge`，由服务端调用 LLM 把昵称、缩写、翻译、拼写错误映射回封闭答案集里的 canonical 名称，返回前会再校验一次。
 
 服务端环境变量（**不要写进仓库或前端**）：
 
@@ -365,9 +356,9 @@ API：
 | `LLM_MODEL` | 默认 `deepseek-v4.1-flash` |
 
 - 未配置 key 时接口返回 `{match:null}`，游戏退化为本地精确匹配。
-- 接口有每 IP 24 次/分钟的限流、8 秒超时、结果缓存；上游错误只记录在服务端日志。
+- 接口有每 IP 24 次/分钟的限流、全局 3000 次/天、8 秒超时、6 小时结果缓存；上游错误只记录在服务端日志。
 - 换 key 后重启服务；Render 在 Environment 里配置。
 
 ### 缓存注意
 
-`index.html` 使用 `max-age=0, must-revalidate`；`game.js` / `rarity.css` 是长缓存，改动后要手动升 `?v=`（`public/games/rarity-tower/index.html` 和 `lib/rarity.js` 里的引用）。
+`/assets/games/rarepop/index.html` 是单文件，`max-age=0, must-revalidate`，改完不用升版本号；`rarepop.css` 是长缓存，改动后要升 `?v=`（`lib/rarepop.js` 里的引用）。

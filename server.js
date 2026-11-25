@@ -21,7 +21,7 @@ const feeds = require('./lib/feeds');
 const copy = require('./lib/copy');
 const seo = require('./lib/seo');
 const authors = require('./lib/authors');
-const rarity = require('./lib/rarity');
+const rarepop = require('./lib/rarepop');
 const judge = require('./lib/judge');
 
 // 默认 4180：避开 3000/8080 这类常被本机其他服务占用的端口
@@ -227,8 +227,8 @@ function handleFront(req, res, url) {
     return send(res, 200, site.homePage(games, settings, posts));
   }
 
-  // Rarity Tower（自研游戏 + 主题子目录）
-  if (pathname === '/rarity-tower/packs.json') {
+  // RarePop（自研游戏）
+  if (pathname === '/rarepop/packs.json') {
     const file = path.join(__dirname, 'data', 'rarity', 'packs.json');
     res.writeHead(200, {
       'Content-Type': 'application/json; charset=utf-8',
@@ -237,26 +237,25 @@ function handleFront(req, res, url) {
     res.end(fs.readFileSync(file));
     return;
   }
+  if (pathname === '/rarepop/method') {
+    return send(res, 200, rarepop.methodPage(settings));
+  }
   if (pathname === '/rarepop') {
-    return send(res, 200, rarity.rarePopPage(settings));
+    return send(res, 200, rarepop.rarePopPage(settings));
   }
-  if (pathname === '/rarity-tower/method') {
-    return send(res, 200, rarity.methodPage(settings));
+
+  // Rarity Tower 已下线：旧链接 301 到 RarePop
+  if (pathname === '/rarity-tower' || pathname.startsWith('/rarity-tower/')) {
+    const loc = pathname === '/rarity-tower/method' ? '/rarepop/method' : '/rarepop';
+    return send(res, 301, '', { Location: loc });
   }
-  if (pathname === '/rarity-tower/prompts') {
-    return send(res, 200, rarity.promptsPage(settings));
+  if (pathname.startsWith('/assets/games/rarity-tower')) {
+    return send(res, 301, '', {
+      Location: pathname.replace('/assets/games/rarity-tower', '/assets/games/rarepop')
+    });
   }
-  if (pathname === '/rarity-tower') {
-    return send(res, 200, rarity.hubPage(settings));
-  }
-  {
-    const m = pathname.match(/^\/rarity-tower\/([a-z0-9-]+)$/);
-    if (m) {
-      const retired = ['world', 'europe', 'asia', 'africa', 'americas', 'islands', 'landlocked', 'microstates', 'nfl', 'soccer', 'space', 'history'];
-      if (retired.indexOf(m[1]) !== -1) return send(res, 301, '', { Location: '/rarity-tower' });
-      const page = rarity.themePage(settings, m[1]);
-      if (page) return send(res, 200, page);
-    }
+  if (pathname === '/game/rarity-tower') {
+    return send(res, 301, '', { Location: '/game/rarepop' });
   }
 
   // Journal 索引
@@ -746,8 +745,8 @@ async function handleApi(req, res, url, settings) {
   const pathname = url.pathname;
   if (!pathname.startsWith('/api/')) return false;
 
-  // Rarity Tower fuzzy judge（LLM 只在服务端调用，密钥不进前端）
-  if (pathname === '/api/rarity/judge' && req.method === 'POST') {
+  // RarePop fuzzy judge（LLM 只在服务端调用，密钥不进前端）
+  if (pathname === '/api/rarepop/judge' && req.method === 'POST') {
     const ip = String(req.headers['x-forwarded-for'] || '').split(',')[0].trim() || req.socket.remoteAddress || 'unknown';
     if (!judge.allow(ip)) return sendJson(res, 429, { error: 'rate_limited' });
     let body = {};
