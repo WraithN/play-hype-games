@@ -22,6 +22,7 @@ const copy = require('./lib/copy');
 const seo = require('./lib/seo');
 const authors = require('./lib/authors');
 const rarepop = require('./lib/rarepop');
+const external = require('./lib/external');
 const judge = require('./lib/judge');
 const lore = require('./lib/lore');
 
@@ -531,6 +532,14 @@ function handleFront(req, res, url) {
   }
 
   // 游戏详情
+  // 外部单品导流页：不内嵌、不托管，仅原创介绍 + 官方站链接
+  if (pathname.startsWith('/play/')) {
+    const slug = pathname.slice('/play/'.length);
+    const entry = external.find(slug);
+    if (!entry) return null;
+    return send(res, 200, external.externalPage(entry, settings));
+  }
+
   if (pathname.startsWith('/game/')) {
     const slug = pathname.slice('/game/'.length);
     const game = games.find((g) => g.slug === slug);

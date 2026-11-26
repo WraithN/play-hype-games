@@ -844,3 +844,63 @@ input, select, textarea { font: inherit; }
   .game-grid, .game-grid.cols-6, .game-grid.cols-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .card-title { font-size: 12.5px; }
 }
+
+/* ---------------- 外部单品导流页 /play/<slug> ---------------- */
+
+.ext-page { max-width: 860px; padding-top: 28px; padding-bottom: 64px; }
+.ext-head { margin: 18px 0 22px; }
+.ext-head h1 { font-size: clamp(28px, 4vw, 40px); margin: 8px 0 14px; letter-spacing: -0.5px; }
+.ext-intro { color: var(--fg-muted); font-size: 16px; line-height: 1.7; max-width: 720px; margin: 14px 0 0; }
+
+.ext-cta {
+  margin: 22px 0 30px;
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--bg-card);
+  text-align: center;
+}
+.ext-cta-btn { font-size: 15px; padding: 13px 26px; }
+.ext-cta-note { margin: 12px 0 0; font-size: 12.5px; color: var(--fg-dim); }
+
+.ext-body { margin-bottom: 36px; }
+.ext-affil {
+  margin-top: 28px;
+  padding: 14px 16px;
+  border-left: 3px solid var(--neon-dim);
+  background: rgba(34, 211, 238, 0.05);
+  border-radius: 0 10px 10px 0;
+  font-size: 13px;
+  color: var(--fg-muted);
+  line-height: 1.65;
+}
+.ext-back { margin-top: 18px; font-size: 14px; }
+.ext-back a { color: var(--neon); font-weight: 600; }
+
+/* 分类页底部"官方站导流"区块 */
+.ext-official-title { font-size: 22px; margin: 0 0 8px; letter-spacing: -0.3px; }
+.ext-official-intro { color: var(--fg-muted); font-size: 14px; max-width: 680px; margin: 0 0 22px; }
+.ext-official-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 14px;
+}
+.ext-official-card {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--bg-card);
+  transition: transform 0.18s, border-color 0.18s;
+}
+.ext-official-card:hover { transform: translateY(-2px); border-color: rgba(34, 211, 238, 0.45); }
+.ext-official-card strong { font-size: 15.5px; color: var(--fg); }
+.ext-official-card span { font-size: 12.5px; color: var(--fg-dim); }
+
+@media (max-width: 640px) {
+  .ext-cta { padding: 18px; }
+  .ext-cta-btn { width: 100%; justify-content: center; }
+  .ext-official-grid { grid-template-columns: 1fr; }
+}
