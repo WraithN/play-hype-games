@@ -471,6 +471,9 @@ body.hype .player-bar .btn{
   border-radius:99px;text-decoration:none;font-size:13px;font-weight:800;
   color:var(--h-fg);background:var(--h-chip);border:2px solid var(--h-chip-border);
 }
+body.hype #fullscreenGame .fs-ico-compress{display:none}
+body.hype #fullscreenGame.is-on .fs-ico-expand{display:none}
+body.hype #fullscreenGame.is-on .fs-ico-compress{display:inline-flex;align-items:center}
 
 body.hype .game-layout{
   display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,340px);
@@ -1243,3 +1246,132 @@ body.hype .pl-spin{
 }
 
 body.hype .player-load{transition:opacity 1.1s ease,visibility 1.1s}
+
+/* ============================================================
+   移动端转化优化（游戏详情页）：首屏只留启动动作，长介绍折叠
+   ============================================================ */
+
+/* 触摸基础：去 iOS 点击灰块、消双击缩放延迟、收住橡皮筋滚动 */
+body.hype{ -webkit-tap-highlight-color: transparent; overscroll-behavior-y: contain; }
+body.hype button,
+body.hype a,
+body.hype summary,
+body.hype input,
+body.hype select,
+body.hype label,
+body.hype .tag-chip{ touch-action: manipulation; }
+
+/* ---- About 折叠卡片：移动端默认收起，桌面端强制展开 ---- */
+body.hype .game-about{
+  background:var(--h-surface);border-radius:clamp(16px,1.8vw,22px);
+  border:2px solid var(--h-card-bd);box-shadow:0 10px 24px var(--h-shadow-soft);
+  margin:0;
+}
+body.hype .game-about-summary{
+  list-style:none;display:flex;align-items:center;justify-content:space-between;gap:12px;
+  min-height:54px;padding:14px clamp(18px,2.2vw,30px);cursor:pointer;
+  font-family:var(--h-font);font-size:clamp(18px,1.9vw,24px);font-weight:900;color:var(--h-fg);
+  letter-spacing:-.2px;
+}
+body.hype .game-about-summary::-webkit-details-marker{display:none}
+body.hype .ga-chevron{position:relative;width:18px;height:18px;flex:none}
+body.hype .ga-chevron::before,
+body.hype .ga-chevron::after{
+  content:'';position:absolute;top:50%;left:50%;width:11px;height:2.5px;border-radius:2px;
+  background:var(--h-accent);transition:transform .25s ease;
+}
+body.hype .ga-chevron::before{transform:translate(-50%,-50%)}
+body.hype .ga-chevron::after{transform:translate(-50%,-50%) rotate(90deg)}
+body.hype .game-about[open] .ga-chevron::after{transform:translate(-50%,-50%) rotate(0)}
+body.hype .game-about-body{padding:0 clamp(18px,2.2vw,30px) clamp(18px,2.2vw,30px)}
+/* 折叠后内部 prose 去掉自带卡片外壳，避免双层卡片 */
+body.hype .game-about-body.prose{background:none;border:0;box-shadow:none;border-radius:0;padding:0}
+
+/* 桌面端：隐藏折叠头，正文始终可见（!important 盖过 UA 对 details 关闭态的隐藏） */
+@media (min-width:761px){
+  body.hype .game-about-summary{display:none}
+  body.hype .game-about:not([open]) .game-about-body{display:block !important}
+  body.hype .game-about-body{padding:clamp(18px,2.2vw,30px)}
+}
+
+/* ---- 纵向面板游戏：移动端给足 iframe 高度，Start 按钮不被裁 ---- */
+@media (max-width:760px){
+  body.hype .player-frame--tall iframe{
+    aspect-ratio:auto;height:72vh;min-height:460px;max-height:720px;
+  }
+}
+
+/* ---- NEW 角标轻微呼吸，聚焦新品；尊重减弱动效偏好 ---- */
+@keyframes hbadge-pulse{
+  0%,100%{box-shadow:0 0 0 0 rgba(76,224,42,.45)}
+  50%{box-shadow:0 0 0 7px rgba(76,224,42,0)}
+}
+body.hype .hbadge-new{animation:hbadge-pulse 2.4s ease-in-out infinite}
+@media (prefers-reduced-motion:reduce){
+  body.hype .hbadge-new{animation:none}
+}
+
+/* ---- 手机端密度压缩，把首屏让给标题与玩家框 ---- */
+@media (max-width:640px){
+  body.hype .breadcrumb{font-size:12px;padding-top:10px}
+  body.hype .game-head{margin:4px 0 12px}
+  body.hype .game-head h1{font-size:clamp(26px,7.4vw,34px)}
+  body.hype .game-sub{gap:7px;margin-top:10px}
+  body.hype .game-sub .hbadge{height:28px;padding:0 12px;font-size:12px}
+  body.hype .pill{height:30px;padding:0 13px;font-size:12px}
+  body.hype .player-bar{padding:10px 14px;flex-wrap:wrap;gap:8px}
+  body.hype .player-bar .btn{min-height:44px;display:inline-flex;align-items:center}
+  body.hype .game-layout{margin-top:18px}
+  body.hype .theme-toggle,
+  body.hype .nav-toggle{min-width:44px;min-height:44px}
+}
+
+/* ---- 移动端沉浸模式：点 Play 后播放器固定全屏，把视口全部让给游戏 ---- */
+body.hype .player-exit{
+  display:none;position:absolute;z-index:8;
+  top:calc(10px + env(safe-area-inset-top,0px));right:12px;
+  width:44px;height:44px;border-radius:50%;
+  border:2px solid rgba(255,255,255,.55);background:rgba(10,18,34,.6);
+  color:#fff;cursor:pointer;align-items:center;justify-content:center;
+  -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
+}
+body.hype .player-exit:active{transform:scale(.94)}
+@media (max-width:760px){
+  body.hype.game-immersive{overflow:hidden}
+  /* .wrap 自带 z-index:1 层叠上下文，fixed 播放器压不过根级导航，沉浸态直接隐藏导航 */
+  body.hype.game-immersive .site-header{display:none}
+  body.hype.game-immersive .player-frame{
+    position:fixed;inset:0;z-index:1000;border-radius:0;border-width:0;
+    display:flex;flex-direction:column;background:#0d0a18;
+  }
+  body.hype.game-immersive .player-frame iframe{
+    aspect-ratio:auto;height:100%;min-height:0;max-height:none;flex:1 1 auto;width:100%;
+  }
+  body.hype.game-immersive .player-poster,
+  body.hype.game-immersive .player-load{
+    aspect-ratio:auto;height:100%;flex:1 1 auto;
+  }
+  body.hype.game-immersive .player-bar{display:none}
+  body.hype.game-immersive .player-exit{display:flex}
+}
+
+/* 桌面端原生全屏：外壳铺满屏幕，iframe 吃满剩余空间，控制条留在底部可退出 */
+body.hype .player-frame:fullscreen,
+body.hype .player-frame:-webkit-full-screen{
+  width:100vw;height:100vh;border-radius:0;border-width:0;
+  display:flex;flex-direction:column;background:#0b1220;
+}
+body.hype .player-frame:fullscreen iframe,
+body.hype .player-frame:-webkit-full-screen iframe{
+  aspect-ratio:auto;max-height:none;flex:1 1 auto;width:100%;height:auto;min-height:0;
+}
+body.hype .player-frame:fullscreen .player-poster,
+body.hype .player-frame:-webkit-full-screen .player-poster,
+body.hype .player-frame:fullscreen .player-load,
+body.hype .player-frame:-webkit-full-screen .player-load{
+  aspect-ratio:auto;flex:1 1 auto;
+}
+body.hype .player-frame:fullscreen .player-bar,
+body.hype .player-frame:-webkit-full-screen .player-bar{
+  flex:none;background:#101a2e;border-top:1px solid var(--h-line);
+}
