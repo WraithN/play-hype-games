@@ -340,5 +340,226 @@
         "a": "It is completely free, runs in any desktop or mobile browser, needs no account and no download. Sound starts after your first tap, and the game also works embedded on the RarePop page."
       }
     ]
+  },
+  {
+    "id": 10,
+    "title": "How to Play Imposter Game: Rules, Setup & Tips",
+    "slug": "how-to-play-imposter-game",
+    "excerpt": "Learn how to play the imposter game, with complete rules, setup for 3-12 players, the word and TikTok variants, and winning tips for civilians and imposters.",
+    "body": "The imposter game (also called the imposter word game) is a verbal party guessing game, separate from Among Us. One phone is enough: most players secretly receive the same word, while one or two players receive nothing and have to bluff. This guide covers the complete rules, the setup options in our browser version, the word and TikTok variants, and a strategy section for both sides. When you are ready to play, [open the free imposter game](/game/imposter-game) — no app, no sign-up.\n\n![Imposter game cards and masquerade masks on a dark table — the setup for the imposter word party game](/assets/og/imposter-game-rules.jpg \"800x600\")\n\n## What Is the Imposter Game?\n\nThe imposter game is a pass-and-play conversation game for a group sitting in the same room. Every civilian sees the same secret word, such as **penguin** or **pizza**. The imposter does not see the word. Depending on the difficulty, they see only the word category, a weak hint, or nothing at all.\n\nPlayers then take turns describing the word without saying it. Civilians try to give answers specific enough to prove they know the word, while the imposter listens hard, steals clues from earlier speakers, and serves up vague descriptions that could fit almost anything. After everyone has spoken, the group debates and votes. Find every imposter and the civilians win; survive to parity and guess the word, and the imposter steals the round.\n\nIt is sometimes confused with **Among Us**, because both use the word \"imposter\". The two are unrelated. Among Us is a multiplayer video game where players run tasks on a spaceship; the imposter game is a spoken party game played on a single shared phone. The table below keeps the boundary clear.\n\n| Question | Imposter Game | Among Us |\n|:---|:---|:---|\n| What it is | Verbal word-guessing party game | Multiplayer video game |\n| Devices needed | One shared phone | One device per player |\n| Core action | Describe a word, discuss, vote | Complete tasks, sabotage, vote |\n| Group size | 3–12 players in one room | 4–15 players online |\n| Download | None, runs in the browser | App or store download |\n\n## How Does the Imposter Game Work?\n\nA round runs on a simple four-beat loop that repeats until one side wins.\n\n1. **Deal.** The phone is passed around the circle. Each player taps to reveal a private card: civilian with the secret word, or imposter with a question mark and whatever hint the difficulty allows.\n2. **Describe.** Going around the circle, each player says one short description of the word. Saying the word itself is forbidden; being too generic is suspicious.\n3. **Discuss and vote.** After the descriptions, players compare notes, accuse, defend, and cast a vote. The player with the most votes is eliminated and their role is revealed.\n4. **Reveal.** If imposters remain, another round begins with the survivors. If all imposters are caught, civilians win. If the imposter reaches parity with the civilians, they get one chance to guess the secret word and win outright.\n\n## Imposter Game Rules\n\nThe rules fit on an index card, which is why the game works at loud parties and in classrooms alike.\n\n- **Civilians know the word.** Every civilian card shows the same secret word plus its category.\n- **Imposters know less.** An imposter card never shows the word. Normal mode reveals the category; Easy mode adds a weak hint from the same category; Hard mode reveals nothing useful; Chaos mode keeps everyone guessing.\n- **Never say the word.** A speaker who blurts the secret word hands the imposter a free pass. Descriptions must hint, not name.\n- **Everyone speaks once per round.** Each alive player gives one description before the vote.\n- **One elimination per vote.** The player with the most votes leaves and flips their card. Ties are discussed again rather than guessed.\n- **Win conditions.** Civilians win by voting out every imposter. Imposters win by surviving until the numbers are even, then guessing the word.\n- **Reverse mode flips the goal.** With this option on, the table protects the imposter and instead votes out civilians — the same mechanics, entirely reversed loyalties.\n\n## How to Set Up the Imposter Game\n\nThe setup screen controls five things, and the defaults work for a first-time group.\n\n- **Players: 3 to 12.** Six is the sweet spot for a first game. Below five, descriptions end quickly; above nine, the debate phase gets loud (in the best way).\n- **Imposters: 1 to 3.** One imposter is standard. Add a second at eight players or more, and three only for large groups that want chaos.\n- **Word category.** Pick one of nine themed banks — Animals, Food & Drinks, Movies & Shows, Everyday Objects, Nature & Places, Sports, Jobs & People, Places, or Music — or leave it on Mixed for a random draw every round.\n- **Difficulty mode.** Normal shows the imposter the category; Easy hands them a weak hint word; Hard strips the hint down to a vague clue; Chaos is described inside the game as \"everyone bluffs, total paranoia\".\n- **Optional rules.** Challenge task cards give each speaker a speech rule, such as describing the word like a robot or without adjectives. The description timer enforces 15-, 30-, or 45-second turns. Reverse mode inverts the win condition.\n\n## How to Play Imposter Game Step by Step\n\nThis is the exact flow the browser game walks you through, and it doubles as a script for a host explaining the game at a party.\n\n1. Open the [imposter game](/game/imposter-game) on one phone and set the player count, imposter count, category, and difficulty.\n2. Press **Start Dealing Cards** and hand the phone to the first player.\n3. Each player taps **Reveal my identity**, reads their card in private, then taps **Hide & pass on**.\n4. When every player has been dealt, the first speaker describes the secret word without naming it, then taps **Next player**.\n5. After everyone has spoken once, tap **Vote now**, debate, and each alive player casts a vote.\n6. The game reveals the eliminated player's role and the secret word. Vote again in a new round, or press **Play again** to redeal with fresh settings.\n\n## Imposter Word Game Version\n\nWhen people search for the **imposter word game**, they mean this same game with the emphasis on its word banks rather than on social deduction. The word version leans on category choice: a food round with words like *sushi* and *milkshake* plays very differently from an everyday-objects round with *umbrella* and *keyboard*.\n\nOur build ships 485 curated words across nine categories, including a Movies & Shows bank for groups that prefer pop-culture references over nouns. For category strategies, sample word sets, and a full explanation of the hint system, read the dedicated guide: [How to play the imposter word game](/guides/imposter-word-game).\n\n## TikTok Viral Imposter Game Rules\n\nThe version that spread on TikTok is the same pass-and-play loop, filmed at the moment the table turns on an imposter who gave a catastrophically vague answer. Creators typically use Normal difficulty so the imposter at least knows the category, keep the group between five and eight players, and leave the timer off so the comedy comes from awkward silences rather than a countdown.\n\nThe viral clips are not a separate game with separate rules — they are this game, filmed well. The full breakdown of how the TikTok version is set up and filmed is here: [TikTok imposter game: what it is and how to play](/guides/tiktok-imposter-game).\n\n## Can You Play Imposter Game Online?\n\nYes, and there is nothing to install. The game runs entirely in a mobile or desktop browser at [playhypegames.com/game/imposter-game](/game/imposter-game). All the dealing, timing, and voting logic happens on the device, so it works offline once the page has loaded and never asks for an account. There is no official app, and any app store listing trading on the name is a different product — the real thing is a browser party game, not a download.\n\n\"Online\" here means the browser version on one shared device. The classic experience is still local: people in the same room, one phone doing the dealing. For party-night and classroom setups by group size, see [how to play the imposter game in real life](/guides/imposter-game-real-life).\n\n## How to Win Imposter Game: Pro Tips\n\n**For civilians**\n\n- Lead with a specific trait, not a category-level fact. \"It has a pouch\" is a far stronger civilian signal than \"it is an animal\".\n- Listen for mirroring. Imposters often repeat clues from earlier speakers with slight rewording because they have nothing else to spend.\n- Track consistency across rounds. A civilian's second description should deepen the first; an imposter's tends to drift.\n- Do not over-accuse. Voting out a civilian hands the imposter parity for free. A skipped vote beats a guess.\n\n**For imposters**\n\n- Speak second or third whenever you can. The first speaker sets the difficulty level of the room; later speakers inherit cover.\n- Use truthful-but-broad statements. Category-level descriptions (\"you find one in a kitchen\") buy time without inventing details you cannot defend.\n- Ask questions back. Turning a description into a question — \"who else always orders theirs extra cheese?\" — mimics confidence and extracts clues.\n- Save the word guess for the parity moment. One correct guess wins the round, so wait until the game actually offers it rather than blurting a theory early.\n\nFor the word-list tactics behind these tips, including which categories are easiest to bluff, the [imposter word game guide](/guides/imposter-word-game) goes deeper. Jump to the [frequently asked questions](#faq) for the short answers.",
+    "cover": "/assets/og/imposter-game-rules.jpg",
+    "author": "WangNan",
+    "authorSlug": "wangnan",
+    "section": "guides",
+    "lastChecked": "",
+    "tags": [
+      "imposter game",
+      "how to play",
+      "party games",
+      "word game",
+      "game rules"
+    ],
+    "relatedGames": [
+      95
+    ],
+    "seoTitle": "How to Play Imposter Game: Rules, Setup & Tips",
+    "seoDescription": "Learn how to play the imposter game: complete rules, setup for 3-12 players, word and TikTok variants, plus tips to win as a civilian or imposter.",
+    "noindex": false,
+    "status": "published",
+    "publishedAt": "2026-11-24",
+    "faqs": [
+      {
+        "q": "How do you play imposter game?",
+        "a": "Deal one shared phone around the circle: civilians see the same secret word while the imposter sees only a category or hint. Each player describes the word without naming it, then the group debates and votes. Catch every imposter to win; the imposter wins by surviving to parity and guessing the word."
+      },
+      {
+        "q": "How many people can play the imposter game?",
+        "a": "Between 3 and 12 players can share one phone. Use one imposter for groups up to eight, two imposters from nine players, and three only for large, experienced groups."
+      },
+      {
+        "q": "Is the imposter game free?",
+        "a": "Yes. The browser version is completely free, needs no download and no account, and all game logic runs on the device. There is no official app; the real imposter game is a browser party game."
+      },
+      {
+        "q": "Is the imposter game the same as Among Us?",
+        "a": "No. The imposter game is a verbal word-guessing party game on one shared phone, while Among Us is a separate multiplayer video game that needs one device per player. They only share the word \"imposter\"."
+      },
+      {
+        "q": "Can you play imposter game online?",
+        "a": "Yes — open the game in any mobile or desktop browser and pass the phone around. It needs no install, works offline once loaded, and never asks for sign-up."
+      }
+    ],
+    "howto": [
+      {
+        "name": "Gather 3-12 players",
+        "text": "Sit in one room or circle with a single phone and open the free browser game."
+      },
+      {
+        "name": "Choose your setup",
+        "text": "Set the player and imposter counts, pick a word category or Mixed, and choose Normal, Easy, Hard or Chaos difficulty."
+      },
+      {
+        "name": "Deal the cards",
+        "text": "Pass the phone around. Each player taps Reveal, privately reads their civilian word or imposter hint, then taps Hide and passes on."
+      },
+      {
+        "name": "Describe the word in turn",
+        "text": "Every alive player gives one short description of the secret word without saying it, while the imposter bluffs along."
+      },
+      {
+        "name": "Discuss and vote",
+        "text": "Compare answers, accuse and defend, then each player votes. The most-voted player is eliminated and their role is revealed."
+      },
+      {
+        "name": "Reveal and redeal",
+        "text": "Catch every imposter for a civilian win, or let the imposter reach parity and guess the word. Press Play again to start a fresh round."
+      }
+    ],
+    "updatedAt": "2026-11-24T09:00:00.000Z"
+  },
+  {
+    "id": 12,
+    "title": "How to Play Imposter Word Game: Word Lists & Rules",
+    "slug": "imposter-word-game",
+    "excerpt": "The imposter word game explained: 485 words across 9 categories, full rules, winning tactics, and what makes a good secret word for your party.",
+    "body": "The imposter word game is the word-bank variant of the classic [how to play imposter game](/guides/how-to-play-imposter-game) party loop. Read the pillar guide for the complete core rules; this page focuses on the words themselves — how the banks work, which categories bluff hardest, and what makes a good secret word. You can play the full version free in your browser at [Imposter Game](/game/imposter-game).\n\n## What Is the Imposter Word Game?\n\nIt is the same pass-and-play game as the standard imposter game, with the spotlight on vocabulary. Civilians all receive one secret word from a chosen category; the imposter receives a question mark, plus a hint that depends on the difficulty. Descriptions, debate, and voting work exactly as they do in the main game.\n\nDespite the shared word \"imposter\", this is separate from **Among Us**, the online video game. The imposter word game is a spoken party activity on one shared phone, not an app and not a multiplayer video title.\n\nThe \"word game\" label mostly describes how groups choose to play it: instead of Mixed categories, they lock the bank to one theme — only foods, only movies, only jobs — so everyone's descriptions live in the same semantic neighborhood and the imposter's bluffing becomes the entire spectacle.\n\n## The Word Bank: 485 Words in 9 Categories\n\nThe browser build ships 485 curated words, split into nine themed banks. Mixed mode draws a random category every round.\n\n| Category | What the words feel like | Example words |\n|:---|:---|:---|\n| Animals (60) | Concrete, describable by traits | elephant, penguin, octopus, cheetah, sloth |\n| Food & Drinks (70) | The biggest bank; easy to bluff | pizza, sushi, milkshake, ramen, avocado |\n| Movies & Shows (50) | Pop-culture knowledge test | Inception, Frozen, Barbie, Dune, Friends |\n| Everyday Objects (60) | Hard to be specific without naming | umbrella, keyboard, toothbrush, candle |\n| Nature & Places (50) | Scenic and adjective-friendly | volcano, glacier, tornado, aurora, canyon |\n| Sports (45) | Equipment and动作 verbs help | soccer, archery, curling, parkour, sumo |\n| Jobs & People (50) | Great for role-play descriptions | firefighter, astronaut, librarian, referee |\n| Places (50) | Location clues carry the round | airport, lighthouse, pharmacy, rooftop |\n| Music & Instruments (50) | Niche words split experts from bluffers | saxophone, tambourine, orchestra, remix |\n\n## Imposter Word Game Rules\n\nThe rules differ from the main game only in where the tension comes from.\n\n1. The host picks a single category instead of Mixed, so every word in the session shares a theme.\n2. Civilians see the word and its category; the imposter sees only what the difficulty allows — category on Normal, a weak hint word on Easy, almost nothing on Hard or Chaos.\n3. Each player describes the word in turn without saying it, including translations, brand names, or obvious rhymes.\n4. The group votes after one full circle. Unvoted imposters survive into another round with the same word.\n5. An imposter who reaches parity can guess the word once. A correct guess wins; a wrong one loses.\n\n## How Do You Play the Imposter Word Game?\n\nA practical five-minute walkthrough: choose **Food & Drinks** on Normal difficulty with six players and one imposter, and deal. Suppose the word is **pancake**. A civilian might say \"weekend breakfast, cooked on a flat grill, drowned in syrup\". The imposter, knowing only \"Food & Drinks\", has to offer something broad enough to survive — \"something people order when they feel like treating themselves\" — and then listen hard to every later speaker for syrup, stacks, and breakfast clues before the vote.\n\nThat gap between a specific civilian answer and a generic imposter answer is the whole game. Categories with describable physical traits — Animals, Food, Everyday Objects — produce the cleanest debates. Abstract banks like Music and Movies reward groups that already share a lot of cultural vocabulary.\n\n## How to Win Imposter Word Game\n\n**Civilians** should agree on a specificity level before dealing. If everyone names one physical trait and one use-case, the imposter cannot hide behind vibes alone. Reuse is also a tell: a player who merely paraphrases the previous speaker usually has no word of their own.\n\n**Imposters** should pick categories where broad answers sound natural — Food & Drinks and Places are the kindest — and avoid Movies & Shows, where one missed franchise reference is instant suspicion. On Easy mode, spend the weak hint word immediately but indirectly: if the hint is *waffle*, build an answer around breakfast textures without repeating the hint, and let the table assume you knew *pancake* all along.\n\nHosts can raise the skill ceiling with challenge task cards, which force speech rules like \"use no adjectives\" or \"describe it like a robot\", and with the 15-second timer, which punishes over-prepared imposter scripts.\n\n## Imposter Word Game Questions and Word Ideas\n\nGood home-made words follow three rules: everyone in the room has heard of them, they carry at least three describable traits, and they sit clearly inside one category. **Kangaroo**, **trombone**, **bookstore**, and **volcano** all qualify. Avoid inside jokes, brand-new slang, and words with two unrelated meanings — those produce unfair rounds rather than clever ones.\n\nIf you would rather not curate anything, the browser game already contains all 485 words, deals them randomly, and handles the hint rules per difficulty. [Start a word round now](/game/imposter-game).\n\nThe two identity cards below show exactly what each side sees during the deal — the full secret word for civilians, question marks for the imposter.\n\n| Civilian card | Imposter card |\n|:---:|:---:|\n| ![Civilian identity card in Imposter Game showing the secret word](/assets/og/imposter-civilian-card.jpg \"256x256\") | ![Imposter identity card in Imposter Game showing question marks instead of the word](/assets/og/imposter-card.jpg \"256x256\") |\n| Shows the secret word and its category | Shows question marks and only a category-level hint |",
+    "cover": "/assets/og/imposter-card.jpg",
+    "author": "WangNan",
+    "authorSlug": "wangnan",
+    "section": "guides",
+    "lastChecked": "",
+    "tags": [
+      "imposter word game",
+      "word list",
+      "party games",
+      "word game"
+    ],
+    "relatedGames": [
+      95
+    ],
+    "seoTitle": "Imposter Word Game: Word Lists, Rules & How to Win",
+    "seoDescription": "How to play the imposter word game: 485 words in 9 themed banks, the bluffing rules, best categories for imposters, and tips to win every round.",
+    "noindex": false,
+    "status": "published",
+    "publishedAt": "2026-11-25",
+    "faqs": [
+      {
+        "q": "How do you play imposter word game?",
+        "a": "Pick one themed word category, deal the shared phone so civilians see the secret word and the imposter sees only a hint, then take turns describing the word and vote out the player bluffing without it."
+      },
+      {
+        "q": "What are good imposter word game words?",
+        "a": "Words everyone knows, with at least three describable traits and one clear category: kangaroo, trombone, bookstore or volcano work well. Avoid inside jokes, fresh slang and words with double meanings."
+      },
+      {
+        "q": "How many words are in the browser game?",
+        "a": "The built-in bank contains 485 curated words across nine categories: Animals, Food & Drinks, Movies & Shows, Everyday Objects, Nature & Places, Sports, Jobs & People, Places, and Music."
+      },
+      {
+        "q": "What happens if the imposter guesses the word?",
+        "a": "When the imposter survives to parity with the civilians, the game offers one word guess. A correct guess wins the round for the imposter; a wrong guess loses it."
+      },
+      {
+        "q": "Which category is easiest for imposters?",
+        "a": "Food & Drinks and Places are the kindest, because broad descriptions sound natural there. Movies & Shows is the hardest, since one missed franchise reference exposes the bluff immediately."
+      }
+    ],
+    "howto": [],
+    "updatedAt": "2026-11-25T09:00:00.000Z"
+  },
+  {
+    "id": 15,
+    "title": "TikTok Imposter Game: What It Is and How to Play",
+    "slug": "tiktok-imposter-game",
+    "excerpt": "What the TikTok imposter game actually is, the settings behind the viral clips, the standard rules, and how to film your own round with friends — no app needed.",
+    "body": "The TikTok imposter game is the filmed version of the verbal [imposter game](/guides/how-to-play-imposter-game) — the same one-phone party loop, not a separate app. This page explains what creators are actually playing, why the clips go viral, and the settings that produce the best reactions. You can run the exact same setup free at [Imposter Game](/game/imposter-game).\n\n## What Is the Imposter Game on TikTok?\n\nScroll TikTok long enough and you will find the format: a group crowded around a table, one phone being passed under hands, then someone describing a secret word so vaguely that the whole room erupts before the vote even starts. That is the imposter word game, and the phone is running a browser version like ours rather than a dedicated app.\n\nThe appeal is structural. Each round contains a built-in reveal moment — the eliminated player flips their card and the secret word appears on screen — which is exactly the punchline short-form video rewards. No editing is required to manufacture drama; the rules generate it.\n\nOne clarification before you search for it: this is unrelated to **Among Us**, the online video game with spaceship tasks. The TikTok imposter game is the spoken, one-phone party game — the shared word \"imposter\" is the only connection.\n\n## How the Viral Version Works\n\nThe clips compress a full round into under a minute, but the underlying sequence never changes.\n\n1. Each player privately reveals a card on the shared phone: civilian with the secret word, or imposter with a question mark and the category.\n2. Players describe the word in turn. Civilians aim for specificity; the imposter improvises on category-level vibes.\n3. The table cross-examines the shakiest answers.\n4. A vote eliminates one player, whose role and the secret word are revealed on camera.\n\nMost viral clips end on either a shocked imposter being caught or a deadpan imposter surviving three votes. Both outcomes come straight from the standard rules.\n\n## How to Play TikTok Imposter Game with Friends\n\nCopy the setup that consistently films well. Use five to eight players — small enough that every face is readable on camera, large enough that the imposter has room to hide. Set one imposter on Normal difficulty, so the bluffer at least knows the category and the clip feels like a fair fight rather than an execution.\n\nLeave the description timer off. The funniest beats in these videos are the pauses while an imposter invents an answer, and a countdown would cut them short. Turn challenge task cards on instead: speech rules like \"describe it like you are explaining to a child\" create distinctive, quotable turns without rushing anyone.\n\nPick visual, concrete categories — Food & Drinks and Animals are the two that film best — because the audience at home can play along and shout their own guesses at the screen. For the word-level tactics, see the [imposter word game guide](/guides/imposter-word-game).\n\n## TikTok Imposter Game Rules\n\nNothing in the rules changes for TikTok; creators simply film the standard party game. For reference, the complete rule set is:\n\n- Civilians all see the same secret word; the imposter sees only the category on Normal mode.\n- Descriptions may never contain the word itself.\n- Every player speaks once before the vote.\n- The most-voted player is eliminated and their role is revealed.\n- Civilians win by catching every imposter; the imposter wins by reaching parity and guessing the word.\n- Filming adds one house rule of its own: players agree in advance that the phone screen and vote results can be shown on camera.\n\n## Why Did the Imposter Game Go Viral?\n\nThree ingredients explain the trend. It needs no equipment beyond a phone, so any dinner party can start filming in under a minute. It produces a guaranteed reveal moment in every round, which gives each clip a clean ending. And it works as a spectator puzzle: viewers can deduce the imposter alongside the table, which drives comments, rewinds, and duets. The format is evergreen rather than tied to one creator, so new groups keep rediscovering it.\n\nWhen you film your own version, remember there is no app to download and no account to create — the game runs in the phone's browser. [Open the imposter game](/game/imposter-game), set the table, and hit record.",
+    "cover": "/assets/og/imposter-game-rules.jpg",
+    "author": "WangNan",
+    "authorSlug": "wangnan",
+    "section": "guides",
+    "lastChecked": "",
+    "tags": [
+      "tiktok imposter game",
+      "viral games",
+      "party games"
+    ],
+    "relatedGames": [
+      95
+    ],
+    "seoTitle": "TikTok Imposter Game: What It Is and How to Play",
+    "seoDescription": "The TikTok imposter game explained: how the viral one-phone party rounds work, the exact settings creators use, the rules, and how to film your own.",
+    "noindex": false,
+    "status": "published",
+    "publishedAt": "2026-11-26",
+    "faqs": [
+      {
+        "q": "What is the imposter game on TikTok?",
+        "a": "It is the standard imposter word game filmed for short video: friends share one phone, secretly receive a word or an imposter hint, describe the word in turn, then vote on camera."
+      },
+      {
+        "q": "How do you play the TikTok imposter game?",
+        "a": "Use five to eight players, one imposter on Normal difficulty, the timer off and concrete categories like Food or Animals. Deal the phone, film the descriptions and debate, then capture the vote reveal."
+      },
+      {
+        "q": "Is the TikTok imposter game an app?",
+        "a": "No. The clips show a browser party game running on a phone. There is nothing to download or sign up for; the game opens directly in the mobile browser."
+      },
+      {
+        "q": "Why did the imposter game go viral?",
+        "a": "It needs only one phone, every round ends in a built-in reveal moment, and viewers can solve the bluff along with the table, which drives comments, rewinds and duets."
+      }
+    ],
+    "howto": [],
+    "updatedAt": "2026-11-26T09:00:00.000Z"
+  },
+  {
+    "id": 19,
+    "title": "Imposter Game in Real Life: Party & Classroom Setup",
+    "slug": "imposter-game-real-life",
+    "excerpt": "How to run the imposter game in person: what to bring, fair settings for 3-4, 5-8 and 9-12 players, a classroom lesson plan, and hosting tips for game night.",
+    "body": "Playing the [imposter game](/guides/how-to-play-imposter-game) in real life means the original experience: a group in one room, one phone doing the dealing, and everyone talking. This page covers what to bring, how to size the setup for 3 to 12 players, and how teachers run it as a classroom activity. The browser game itself is free at [Imposter Game](/game/imposter-game).\n\n## What \"In Real Life\" Actually Means\n\nThe imposter game was designed for local play first. Unlike online multiplayer games, there are no lobbies, friend codes, or separate devices. Players sit in a circle so the phone can be passed under the table or behind a hand, and each reveal stays private because only the holder looks at the screen.\n\nThis is a different experience from **Among Us**, which is a separate online video game played on individual devices. The real-life imposter game needs no screens beyond the one phone doing the dealing, and all the action happens in conversation.\n\nYou do not need a physical edition, cards, or a timer — the browser build includes all of it. The only real-world requirements are people, seating, and one charged phone with the page loaded.\n\n## What You Need to Bring\n\n- **One smartphone or tablet.** Any modern mobile browser works; the page also loads on a laptop if a phone is unavailable.\n- **A circle of seats.** Players need to pass the device without bystanders seeing the screen. A table helps, but a floor circle works fine.\n- **Three to twelve players.** The game enforces this range in the setup screen.\n- **Optional noise.** Background music covers reactions that might leak information during the deal; it is a tip, not a requirement.\n\n## Setup by Group Size\n\nThe settings that make a round fair change with the headcount.\n\n### 3 to 4 players: the tight game\n\nUse one imposter and Easy difficulty. With so few speakers, the imposter needs the weak hint word to survive even one vote, and rounds are short — typically five to ten minutes each. Everyday Objects and Food & Drinks give small groups enough descriptive room.\n\n### 5 to 8 players: the classic party game\n\nOne imposter on Normal difficulty is the broadcast-and-TikTok standard. Add the 30-second description timer once the group knows the rules, so confident players cannot filibuster. Expect rounds of ten to fifteen minutes with loud debate phases.\n\n### 9 to 12 players: the paranoia game\n\nSwitch to two imposters (three only at a dozen players who already know the game) and consider Chaos difficulty, where nobody gets comfortable information. Split speaking into two quick circles rather than one long one, or the vote arrives before quieter players have shown their cards.\n\n## Imposter Game in the Classroom\n\nTeachers use the game as a speaking and listening activity because every student must produce a description and defend it under questioning. A workable classroom setup is groups of six at separate tables, one phone per table, vocabulary drawn from a themed bank — Jobs & People for career units, Animals or Nature for younger learners, Movies & Shows for advanced conversation classes.\n\nRun Normal difficulty so less confident speakers have the category as scaffolding, keep challenge task cards off for the first session, and allow thirty seconds per speaker with the built-in timer. A full session fits inside twenty minutes: two rounds plus a debrief where students explain which descriptions sounded credible and why. The activity needs no accounts and collects no student data, since all logic runs locally in the browser.\n\n## Hosting Tips for a Smooth Night\n\nAgree on the no-saying-the-word rule before the first deal, and decide how ties are handled — the simplest house rule is a thirty-second re-discussion followed by a second vote. Keep the first round on Normal with Mixed categories while new players learn the flow, then introduce themed banks, task cards, and Reverse mode once the table is comfortable. For word choices and category difficulty, the [imposter word game guide](/guides/imposter-word-game) ranks the banks by how easy they are to bluff.\n\n## How Long Does a Round Take?\n\nA six-player circle usually finishes a full round — deal, descriptions, debate, vote, and reveal — in eight to twelve minutes. Small groups run closer to five minutes; a twelve-player table with two imposters and multiple votes can take twenty. The game keeps no clock between rounds, so a host decides when to redeal. [Set up your first real-life round](/game/imposter-game) in under a minute.",
+    "cover": "/assets/og/imposter-game-party.jpg",
+    "author": "WangNan",
+    "authorSlug": "wangnan",
+    "section": "guides",
+    "lastChecked": "",
+    "tags": [
+      "imposter game",
+      "party games",
+      "classroom games",
+      "icebreaker games"
+    ],
+    "relatedGames": [
+      95
+    ],
+    "seoTitle": "Imposter Game in Real Life: Party & Classroom Setup",
+    "seoDescription": "Run the imposter game in person with one phone: setup by group size for 3-12 players, classroom lesson settings, what to bring, and hosting tips for game night.",
+    "noindex": false,
+    "status": "published",
+    "publishedAt": "2026-11-26",
+    "faqs": [
+      {
+        "q": "How do you play imposter game in real life?",
+        "a": "Sit in a circle, open the browser game on one phone, and pass it around so each player privately reveals a civilian word or imposter card. Describe the word in turn, debate, and vote out the suspected imposter."
+      },
+      {
+        "q": "Can you play with 3 or 4 people?",
+        "a": "Yes. Use one imposter on Easy difficulty so the bluffer gets a hint word, pick Food or Everyday Objects, and expect short five-to-ten-minute rounds."
+      },
+      {
+        "q": "Is the imposter game good for a classroom?",
+        "a": "Yes. Groups of six per phone, Normal difficulty and a 30-second timer make it a structured speaking activity: every student must describe a word, listen critically and defend their answer."
+      },
+      {
+        "q": "What do you need to bring?",
+        "a": "One charged smartphone or tablet with the game page loaded, seats arranged in a circle for private passing, and three to twelve players. No cards, boards or accounts are required."
+      },
+      {
+        "q": "How long does a round take?",
+        "a": "A six-player round typically takes eight to twelve minutes including deal, descriptions, debate and reveal. Small groups finish near five minutes; twelve-player tables can run to twenty."
+      }
+    ],
+    "howto": [],
+    "updatedAt": "2026-11-26T09:00:00.000Z"
   }
 ]
