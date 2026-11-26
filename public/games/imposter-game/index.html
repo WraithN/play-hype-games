@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Imposter Game Online — Free Word Party Game with Modes & Challenge Cards</title>
+<meta name="description" content="Play Imposter Game online for free. A word party guessing game where the imposter doesn't know the secret word. Easy, Hard, Chaos modes, challenge cards, timer and achievements. No download needed.">
+<meta name="keywords" content="imposter game, imposter game online, word imposter, imposter word generator, party game, who is the imposter, online party game">
+<meta property="og:title" content="Imposter Game Online — Free Word Party Game">
+<meta property="og:description" content="Free online imposter guessing game. Deal words to players, spot the imposter who doesn't know the word. Multiple fun modes.">
+<meta property="og:type" content="website">
+<style>
+  :root{
+    --bg:#0d0a18;
+    --card:rgba(255,255,255,.06);
+    --card-strong:rgba(255,255,255,.1);
+    --line:rgba(255,255,255,.12);
+    --text:#f5f3ff;
+    --muted:#a79cc4;
+    --violet:#8b5cf6; --pink:#ec4899; --orange:#fb923c;
+    --good:#10b981; --bad:#f43f5e; --warn:#fbbf24;
+    --radius:22px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--text);min-height:100vh;line-height:1.5;
+    background:var(--bg);
+    overflow-x:hidden;
+  }
+  /* photo backdrop loaded progressively (blur-up) */
+  #bgLayer{
+    position:fixed;inset:0;z-index:0;pointer-events:none;
+    background:#0d0a18 center/cover no-repeat;
+    opacity:0;filter:blur(26px) saturate(1.2);transform:scale(1.06);
+    transition:opacity 1.1s ease,filter 1.1s ease,transform 1.4s ease;
+  }
+  #bgLayer.loaded{opacity:1;filter:blur(0) saturate(1);transform:scale(1)}
+  /* dark readability veil over the photo backdrop */
+  body::after{
+    content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+    background:linear-gradient(180deg,rgba(13,10,24,.72),rgba(13,10,24,.82) 40%,rgba(13,10,24,.88));
+  }
+  /* dotted party texture overlay */
+  body::before{
+    content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+    background-image:radial-gradient(rgba(255,255,255,.07) 1px,transparent 1.5px);
+    background-size:26px 26px;
+    mask-image:linear-gradient(180deg,rgba(0,0,0,.7),transparent 60%);
+  }
+  .wrap{max-width:720px;margin:0 auto;padding:24px 16px 64px;position:relative;z-index:1}
+
+  /* ---------- floating background decor ---------- */
+  .bg-decor{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+  .float{
+    position:absolute;opacity:.16;font-size:2rem;user-select:none;
+    animation:floaty var(--dur,14s) ease-in-out infinite;
+    animation-delay:var(--delay,0s);filter:grayscale(.2);
+  }
+  .float.small{font-size:1.2rem;opacity:.12}
+  .float.big{font-size:3.4rem;opacity:.1}
+  @keyframes floaty{
+    0%,100%{transform:translateY(0) rotate(var(--rot,0deg))}
+    50%{transform:translateY(-28px) rotate(calc(var(--rot,0deg) + 12deg))}
+  }
+  .blob{position:absolute;border-radius:50%;filter:blur(60px);opacity:.25}
+  .blob.b1{width:340px;height:340px;background:#8b5cf6;top:-80px;left:-100px}
+  .blob.b2{width:300px;height:300px;background:#ec4899;bottom:-60px;right:-90px}
+  .blob.b3{width:220px;height:220px;background:#fb923c;top:40%;left:-120px;opacity:.16}
+
+  /* ---------- header ---------- */
+  header.top{text-align:center;padding:28px 0 18px}
+  .brand{
+    display:inline-flex;align-items:center;gap:12px;
+    background:var(--card);border:1px solid var(--line);
+    padding:10px 18px;border-radius:999px;backdrop-filter:blur(12px);
+    box-shadow:0 8px 30px rgba(0,0,0,.35);
+  }
+  .brand .logo{font-size:1.6rem;filter:drop-shadow(0 2px 8px rgba(236,72,153,.5))}
+  .brand .logo-img{width:34px;height:34px;border-radius:50%;object-fit:cover;border:1px solid var(--line);box-shadow:0 2px 10px rgba(236,72,153,.4);background:#1b1428}
+  /* progressive image fade-in */
+  .img-load{opacity:0;filter:blur(12px);transform:scale(1.04);background:#1b1428;transition:opacity .7s ease,filter .7s ease,transform .9s ease}
+  .img-load.loaded{opacity:1;filter:blur(0);transform:scale(1)}
+  .art-banner{
+    width:100%;height:130px;border-radius:18px;object-fit:cover;margin-bottom:16px;
+    border:1px solid var(--line);
+    mask-image:linear-gradient(180deg,#000 70%,transparent);
+  }
+  .art-banner.loaded{filter:blur(0) saturate(.9) brightness(.85)}
+  .id-avatar{width:92px;height:92px;border-radius:50%;object-fit:cover;margin:0 auto 10px;border:2px solid}
+  .id-panel.civ .id-avatar{border-color:rgba(16,185,129,.5)}
+  .id-panel.imp .id-avatar{border-color:rgba(244,63,94,.5)}
+  .chip .mini{width:18px;height:18px;border-radius:50%;object-fit:cover;vertical-align:-4px;margin-right:4px}
+  header.top h1{font-size:1.55rem;font-weight:800;letter-spacing:.2px}
+  header.top p{color:var(--muted);margin-top:10px;font-size:.95rem;max-width:460px;margin-inline:auto}
+
+  /* ---------- card ---------- */
+  .card{
+    position:relative;
+    background:linear-gradient(165deg,rgba(255,255,255,.09),rgba(255,255,255,.04));
+    border:1px solid var(--line);border-radius:var(--radius);
+    padding:22px;margin:16px 0;backdrop-filter:blur(16px);
+    box-shadow:0 12px 40px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.08);
+  }
+  /* top gradient hairline */
+  .card::before{
+    content:"";position:absolute;left:20px;right:20px;top:0;height:1px;
+    background:linear-gradient(90deg,transparent,rgba(139,92,246,.6),rgba(236,72,153,.6),transparent);
+  }
+  .card h2{font-size:1.1rem;font-weight:700;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+  .section-label{color:var(--muted);font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;margin:18px 0 10px;font-weight:600}
+
+  /* ---------- stepper ---------- */
+  .stepper{display:flex;align-items:center;justify-content:space-between;gap:12px;background:var(--card-strong);border:1px solid var(--line);border-radius:16px;padding:6px}
+  .stepper button{
+    width:42px;height:42px;border-radius:12px;border:1px solid var(--line);
+    background:rgba(255,255,255,.06);color:var(--text);font-size:1.3rem;cursor:pointer;transition:.15s;
+  }
+  .stepper button:hover{background:rgba(255,255,255,.14)}
+  .stepper .val{font-size:1.3rem;font-weight:800;min-width:40px;text-align:center}
+  .stepper .meta{text-align:left;flex:1}
+  .stepper .meta b{display:block;font-size:.95rem}
+  .stepper .meta span{color:var(--muted);font-size:.78rem}
+  .stepper-row{display:flex;gap:12px}
+  .stepper-row .stepper{flex:1}
+
+  /* ---------- chips ---------- */
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .chip-opt{
+    padding:10px 14px;border-radius:13px;border:1px solid var(--line);
+    background:rgba(255,255,255,.05);color:var(--muted);font-size:.88rem;cursor:pointer;transition:.15s;
+  }
+  .chip-opt:hover{background:rgba(255,255,255,.1)}
+  .chip-opt.on{background:linear-gradient(135deg,var(--violet),var(--pink));color:#fff;border-color:transparent;font-weight:600;box-shadow:0 6px 18px rgba(139,92,246,.35)}
+
+  /* ---------- difficulty cards ---------- */
+  .diff-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .diff-card{
+    border:1px solid var(--line);background:rgba(255,255,255,.05);border-radius:16px;
+    padding:14px;cursor:pointer;transition:.15s;text-align:left;color:var(--text);
+  }
+  .diff-card:hover{background:rgba(255,255,255,.1)}
+  .diff-card.on{border-color:var(--violet);background:linear-gradient(135deg,rgba(139,92,246,.25),rgba(236,72,153,.18))}
+  .diff-card b{display:block;font-size:.92rem}
+  .diff-card span{color:var(--muted);font-size:.76rem}
+
+  /* ---------- toggle ---------- */
+  .switch{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 0;border-bottom:1px solid var(--line)}
+  .switch:last-of-type{border-bottom:none}
+  .switch .txt{font-size:.95rem;font-weight:500}
+  .switch .sub{color:var(--muted);font-size:.78rem}
+  .toggle{position:relative;width:48px;height:28px;flex:none}
+  .toggle input{opacity:0;width:0;height:0}
+  .slider{position:absolute;inset:0;background:rgba(255,255,255,.15);border-radius:20px;transition:.2s;cursor:pointer}
+  .slider:before{content:"";position:absolute;width:22px;height:22px;left:3px;top:3px;background:#fff;border-radius:50%;transition:.2s;box-shadow:0 2px 6px rgba(0,0,0,.3)}
+  .toggle input:checked + .slider{background:linear-gradient(135deg,var(--violet),var(--pink))}
+  .toggle input:checked + .slider:before{transform:translateX(20px)}
+
+  select{
+    width:100%;padding:12px 14px;background:var(--card-strong);border:1px solid var(--line);
+    border-radius:12px;color:var(--text);font-size:.95rem;outline:none;
+  }
+  select option{background:#1d1630}
+
+  /* ---------- buttons ---------- */
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    padding:15px 22px;border:none;border-radius:16px;font-size:1rem;font-weight:700;
+    cursor:pointer;color:#fff;width:100%;transition:transform .12s,box-shadow .2s,opacity .2s;
+    background:linear-gradient(135deg,var(--violet),var(--pink));
+    box-shadow:0 10px 26px rgba(139,92,246,.35);
+  }
+  .btn:hover{transform:translateY(-1px)}
+  .btn:active{transform:scale(.97)}
+  .btn.secondary{background:var(--card-strong);border:1px solid var(--line);box-shadow:none}
+  .btn.ghost{background:transparent;border:1px solid var(--line);color:var(--muted);box-shadow:none}
+  .btn:disabled{opacity:.45;cursor:not-allowed;transform:none}
+  .btn-row{display:flex;gap:10px;margin-top:16px}
+  .btn-row .btn{flex:1}
+
+  /* ---------- start block ---------- */
+  .start-block{margin-top:24px}
+  .start-summary{
+    display:flex;flex-wrap:wrap;gap:6px;justify-content:center;
+    margin-bottom:12px;font-size:.76rem;color:var(--muted);
+  }
+  .start-summary .tag{
+    display:inline-flex;align-items:center;gap:5px;
+    background:rgba(255,255,255,.05);border:1px solid var(--line);
+    padding:4px 10px;border-radius:999px;white-space:nowrap;
+  }
+  .start-summary .tag b{color:var(--text);font-weight:700}
+  .start-btn{
+    position:relative;overflow:hidden;isolation:isolate;
+    padding:19px 58px 19px 24px;border-radius:20px;font-size:1.05rem;letter-spacing:.2px;
+    display:flex;align-items:center;gap:12px;
+    background:linear-gradient(120deg,#6d28d9 0%,#9333ea 38%,#d946ef 68%,#ec4899 100%);
+    box-shadow:
+      0 16px 38px rgba(147,51,234,.42),
+      0 4px 12px rgba(236,72,153,.3),
+      inset 0 1px 0 rgba(255,255,255,.35),
+      inset 0 -8px 18px rgba(76,29,149,.35),
+      0 0 0 1px rgba(255,255,255,.12);
+    transition:transform .15s ease,box-shadow .25s ease;
+  }
+  .start-btn .sb-ico{
+    width:42px;height:42px;flex:none;border-radius:13px;display:flex;align-items:center;justify-content:center;
+    font-size:1.25rem;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.22);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.3);
+  }
+  .start-btn .sb-txt{flex:1;text-align:left;line-height:1.15}
+  .start-btn .sb-txt small{display:block;font-weight:500;font-size:.74rem;opacity:.82;margin-top:3px}
+  .start-btn .sb-arrow{
+    position:absolute;right:18px;top:50%;transform:translateY(-50%);
+    width:32px;height:32px;border-radius:50%;display:grid;place-items:center;
+    background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.25);
+    font-size:1rem;font-weight:800;transition:transform .25s ease,background .25s ease;
+  }
+  .start-btn::after{
+    content:"";position:absolute;top:-20%;left:-55%;width:38%;height:140%;z-index:-1;
+    background:linear-gradient(100deg,transparent,rgba(255,255,255,.35),transparent);
+    transform:skewX(-18deg);animation:sheen 3.6s ease-in-out infinite;
+  }
+  @keyframes sheen{0%{left:-55%}58%,100%{left:130%}}
+  .start-btn:hover{
+    transform:translateY(-2px);
+    box-shadow:
+      0 22px 46px rgba(147,51,234,.5),
+      0 6px 16px rgba(236,72,153,.35),
+      inset 0 1px 0 rgba(255,255,255,.4),
+      inset 0 -8px 18px rgba(76,29,149,.35),
+      0 0 0 1px rgba(255,255,255,.18);
+  }
+  .start-btn:hover .sb-arrow{transform:translateY(-50%) translateX(4px);background:rgba(255,255,255,.3)}
+  .start-btn:active{transform:scale(.985)}
+
+  /* ---------- views ---------- */
+  .view{display:none}
+  .view.active{display:block;animation:fade .3s ease}
+  @keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+  /* ---------- identity ---------- */
+  .reveal{text-align:center;padding:34px 20px}
+  .reveal .player-tag{color:var(--muted);font-size:.88rem;margin-bottom:22px}
+  .cover{min-height:200px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px}
+  .avatar-ring{
+    width:84px;height:84px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+    font-size:2.6rem;background:var(--card-strong);border:1px solid var(--line);margin:0 auto;
+  }
+  .id-panel{
+    border-radius:24px;padding:28px 22px;margin-top:8px;border:1px solid var(--line);
+  }
+  .id-panel.imp{background:linear-gradient(160deg,rgba(244,63,94,.22),rgba(236,72,153,.1));border-color:rgba(244,63,94,.35)}
+  .id-panel.civ{background:linear-gradient(160deg,rgba(16,185,129,.2),rgba(139,92,246,.1));border-color:rgba(16,185,129,.35)}
+  .big-word{font-size:2.1rem;font-weight:800;letter-spacing:.5px;margin:18px 0;word-break:break-word}
+  .badge{display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border-radius:999px;font-weight:700;font-size:.85rem}
+  .badge.imp{background:rgba(244,63,94,.18);color:var(--bad)}
+  .badge.civ{background:rgba(16,185,129,.16);color:var(--good)}
+  .hint{color:var(--muted);font-size:.9rem;margin-top:10px}
+
+  /* ---------- describe ---------- */
+  .meta-pill{display:flex;gap:14px;justify-content:center;color:var(--muted);font-size:.85rem;margin-bottom:16px;flex-wrap:wrap}
+  .meta-pill b{color:var(--text)}
+  .task{
+    background:linear-gradient(135deg,rgba(139,92,246,.18),rgba(236,72,153,.12));
+    border:1px dashed rgba(236,72,153,.4);border-radius:18px;padding:18px;margin:14px 0;
+    font-style:italic;color:#fcd9f0;text-align:center;
+  }
+  .timer-track{height:10px;background:rgba(255,255,255,.08);border-radius:10px;overflow:hidden;margin:16px 0}
+  .timer-fill{height:100%;background:linear-gradient(90deg,var(--good),var(--warn),var(--bad));width:100%;transition:width .3s linear;border-radius:10px}
+
+  /* ---------- vote ---------- */
+  .vote-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;margin-top:16px}
+  .vote-btn{
+    padding:18px 12px;border-radius:18px;background:var(--card-strong);border:1px solid var(--line);
+    color:var(--text);cursor:pointer;font-size:.95rem;text-align:center;transition:.15s;
+    display:flex;flex-direction:column;align-items:center;gap:8px;
+  }
+  .vote-btn .ava{font-size:1.8rem}
+  .vote-btn:hover{background:rgba(255,255,255,.14)}
+  .vote-btn.selected{border-color:var(--pink);background:rgba(236,72,153,.18);box-shadow:0 8px 22px rgba(236,72,153,.25)}
+  .vote-btn.eliminated{opacity:.35;cursor:not-allowed}
+  .vote-btn.eliminated .ava{filter:grayscale(1)}
+
+  /* ---------- result ---------- */
+  .result{text-align:center}
+  .result .outcome{font-size:1.4rem;font-weight:800;margin:16px 0}
+  .word-card{
+    display:inline-block;background:var(--card-strong);border:1px solid var(--line);
+    border-radius:16px;padding:14px 22px;margin:10px 0;font-size:1.1rem;font-weight:700;
+  }
+  .roster{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:18px 0}
+  .chip{padding:9px 13px;border-radius:12px;background:var(--card-strong);border:1px solid var(--line);font-size:.85rem}
+  .chip.imp{color:var(--bad);border-color:rgba(244,63,94,.4)}
+  .ach{display:flex;align-items:center;gap:12px;background:var(--card-strong);border:1px solid var(--line);border-radius:16px;padding:13px 14px;margin:8px 0;text-align:left}
+  .ach .icon{font-size:1.4rem}
+  .ach.locked{opacity:.38}
+  #rImpGuess input{
+    width:100%;padding:12px;margin:6px 0;background:var(--card-strong);border:1px solid var(--line);
+    border-radius:12px;color:#fff;outline:none;
+  }
+
+  .ad-slot{margin:18px 0;padding:26px 12px;text-align:center;color:var(--muted);font-size:.78rem;border:1px dashed var(--line);border-radius:16px}
+  .faq h3{margin:18px 0 6px;font-size:1rem}
+  .faq p{color:var(--muted);font-size:.9rem}
+  footer{text-align:center;color:var(--muted);font-size:.78rem;margin-top:30px}
+
+  @media (max-width:520px){
+    .diff-grid{grid-template-columns:1fr}
+    .stepper-row{flex-direction:column}
+    .big-word{font-size:1.7rem}
+  }
+</style>
+</head>
+<body>
+<div id="bgLayer" aria-hidden="true"></div>
+<div class="bg-decor" aria-hidden="true">
+  <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
+  <span class="float big" style="top:12%;left:6%;--dur:16s;--rot:-10deg">🎭</span>
+  <span class="float" style="top:24%;right:8%;--dur:13s;--rot:8deg;--delay:1s">🃏</span>
+  <span class="float small" style="top:55%;left:4%;--dur:11s;--rot:15deg;--delay:.5s">✨</span>
+  <span class="float" style="top:68%;right:5%;--dur:15s;--rot:-8deg;--delay:2s">🎉</span>
+  <span class="float small" style="top:40%;right:14%;--dur:12s;--rot:20deg;--delay:1.4s">⭐</span>
+  <span class="float small" style="top:82%;left:10%;--dur:14s;--rot:-15deg;--delay:.8s">🎲</span>
+  <span class="float big" style="bottom:8%;right:16%;--dur:18s;--rot:10deg;--delay:2.5s">💬</span>
+</div>
+<div class="wrap">
+
+  <header class="top">
+    <div class="brand"><img class="logo-img img-load" src="assets/logo-mask.jpg" alt="Masquerade mask logo"><h1>Imposter Game</h1></div>
+    <p>The party word guessing game — spot the imposter who doesn't know the secret word.</p>
+  </header>
+
+  <!-- ============ SETUP ============ -->
+  <section id="view-setup" class="view active">
+    <div class="card">
+      <img class="art-banner img-load" src="assets/card-illustration.jpg" alt="Cards and masks on a dark table">
+      <h2>⚙️ Game Setup</h2>
+
+      <div class="section-label">Players</div>
+      <div class="stepper-row">
+        <div class="stepper">
+          <button type="button" id="pMinus">−</button>
+          <div class="meta"><b>Players</b><span>3 – 12</span></div>
+          <div class="val" id="playerCount">6</div>
+          <button type="button" id="pPlus">+</button>
+        </div>
+        <div class="stepper">
+          <button type="button" id="iMinus">−</button>
+          <div class="meta"><b>Imposters</b><span>1 – 3</span></div>
+          <div class="val" id="impCount">1</div>
+          <button type="button" id="iPlus">+</button>
+        </div>
+      </div>
+
+      <div class="section-label">Word category</div>
+      <div class="chips" id="categoryChips">
+        <button class="chip-opt on" data-val="mixed">Mixed</button>
+        <button class="chip-opt" data-val="animals">Animals</button>
+        <button class="chip-opt" data-val="food">Food &amp; Drinks</button>
+        <button class="chip-opt" data-val="movies">Movies &amp; Shows</button>
+        <button class="chip-opt" data-val="everyday">Everyday Objects</button>
+        <button class="chip-opt" data-val="nature">Nature &amp; Places</button>
+        <button class="chip-opt" data-val="sports">Sports</button>
+        <button class="chip-opt" data-val="jobs">Jobs &amp; People</button>
+        <button class="chip-opt" data-val="places">Places</button>
+        <button class="chip-opt" data-val="music">Music</button>
+      </div>
+
+      <div class="section-label">Difficulty mode</div>
+      <div class="diff-grid" id="diffGrid">
+        <button class="diff-card on" data-val="normal"><b>Normal</b><span>Imposter sees the category</span></button>
+        <button class="diff-card" data-val="easy"><b>Easy</b><span>Imposter gets a weak hint</span></button>
+        <button class="diff-card" data-val="hard"><b>Hard</b><span>No category, only a vague clue</span></button>
+        <button class="diff-card" data-val="chaos"><b>Chaos</b><span>Everyone bluffs, total paranoia</span></button>
+      </div>
+
+      <div class="section-label">Options</div>
+      <div class="switch">
+        <div><div class="txt">Challenge task cards</div><div class="sub">Each speaker draws a speech rule</div></div>
+        <label class="toggle"><input type="checkbox" id="optTask" checked><span class="slider"></span></label>
+      </div>
+      <div class="switch">
+        <div><div class="txt">Description timer</div><div class="sub">Countdown per speaker</div></div>
+        <label class="toggle"><input type="checkbox" id="optTimer"><span class="slider"></span></label>
+      </div>
+      <label class="section-label" style="display:block" for="timerLen">Timer length</label>
+      <select id="timerLen">
+        <option value="15">15 seconds</option>
+        <option value="30" selected>30 seconds</option>
+        <option value="45">45 seconds</option>
+      </select>
+      <div class="switch" style="margin-top:14px">
+        <div><div class="txt">Reverse mode</div><div class="sub">Protect the imposter; vote out civilians</div></div>
+        <label class="toggle"><input type="checkbox" id="optReverse"><span class="slider"></span></label>
+      </div>
+
+      <div class="start-block">
+        <div class="start-summary" id="startSummary"></div>
+        <button class="btn start-btn" id="btnStart">
+          <span class="sb-ico">🎲</span>
+          <span class="sb-txt">Start Dealing Cards<small id="sbSub">6 cards to deal</small></span>
+          <span class="sb-arrow">→</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="card faq">
+      <h2>How to play Imposter Game</h2>
+      <h3>What is this game?</h3>
+      <p>One secret word is given to all civilians. The imposter(s) do not know the word — they only see the category (or a hint, depending on difficulty). Take turns describing the word, then vote out who you think is bluffing.</p>
+      <h3>Civilians win</h3>
+      <p>Vote out every imposter before they blend in. In reverse mode the goal flips: keep the imposter alive.</p>
+      <h3>Imposters win</h3>
+      <p>Survive the votes and reach parity with the civilians, then guess the secret word to steal the round.</p>
+    </div>
+  </section>
+
+  <!-- ============ IDENTITY ============ -->
+  <section id="view-identity" class="view">
+    <div class="card reveal">
+      <div class="player-tag" id="idPlayerTag"></div>
+      <div class="cover" id="idCover">
+        <div class="avatar-ring">🙈</div>
+        <p style="color:var(--muted)">Pass the device to the next player.<br>Tap below when only they are looking.</p>
+        <button class="btn secondary" id="btnReveal" style="width:auto">Reveal my identity</button>
+      </div>
+      <div class="cover" id="idShown" style="display:none">
+        <div class="id-panel" id="idPanel">
+          <img class="id-avatar img-load loaded" id="idAvatar" alt="Player avatar">
+          <div id="idBadge"></div>
+          <div class="big-word" id="idWord"></div>
+          <div class="hint" id="idHint"></div>
+        </div>
+        <button class="btn ghost" id="btnHide" style="width:auto;margin-top:16px">Hide & pass on</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ DESCRIBE ============ -->
+  <section id="view-describe" class="view">
+    <div class="card">
+      <div class="meta-pill">
+        <span>Round <b id="dRound"></b></span>
+        <span>Speaking <b id="dSpeaker"></b></span>
+      </div>
+      <div class="task" id="dTask" style="display:none"></div>
+      <div id="dTimerWrap" style="display:none">
+        <div class="timer-track"><div class="timer-fill" id="dTimerFill"></div></div>
+      </div>
+      <p style="color:var(--muted);font-size:.9rem;text-align:center">Describe the secret word without saying it out loud. The imposter has to bluff along.</p>
+      <div class="btn-row">
+        <button class="btn secondary" id="btnNextSpeaker">Next player</button>
+      </div>
+      <button class="btn ghost" id="btnToVote" style="margin-top:10px">Everyone has spoken — vote now</button>
+    </div>
+  </section>
+
+  <!-- ============ VOTE ============ -->
+  <section id="view-vote" class="view">
+    <div class="card">
+      <h2>🗳️ Vote out a player</h2>
+      <p style="color:var(--muted);font-size:.9rem" id="voteHint"></p>
+      <div class="vote-grid" id="voteGrid"></div>
+      <div class="btn-row">
+        <button class="btn" id="btnCastVote" disabled>Cast vote</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ RESULT ============ -->
+  <section id="view-result" class="view">
+    <div class="card result">
+      <h2>🏁 Round Result</h2>
+      <div class="outcome" id="rOutcome"></div>
+      <div class="word-card">🔑 <span id="rWord"></span></div>
+      <div class="roster" id="rRoster"></div>
+      <div id="rImpGuess" style="margin:14px 0"></div>
+      <h3 style="margin-top:20px">Achievements</h3>
+      <div id="rAch"></div>
+      <div class="btn-row">
+        <button class="btn" id="btnAgain">Play again</button>
+        <button class="btn ghost" id="btnSetup">Change settings</button>
+      </div>
+    </div>
+  </section>
+
+  <footer>Imposter Game — local party tool. All logic runs in your browser; no account, no download.</footer>
+</div>
+
+<script>
+/* ================= WORD BANK ================= */
+const BANK = {
+  animals: [
+    "elephant","giraffe","penguin","dolphin","kangaroo","octopus","tiger","panda","ostrich","crocodile",
+    "owl","fox","whale","rabbit","lion","zebra","koala","shark","butterfly","snail",
+    "horse","monkey","camel","wolf","bear","deer","squirrel","bat","frog","turtle",
+    "spider","bee","ant","peacock","parrot","eagle","salmon","jellyfish","crab","lobster",
+    "cheetah","rhino","gorilla","sloth","hedgehog","raccoon","seal","walrus","firefly","ladybug",
+    "scorpion","moth","dragonfly","hamster","llama","donkey","goat","chicken","duck","heron"
+  ],
+  food: [
+    "pizza","burger","sushi","pancake","taco","ice cream","pasta","salad","coffee","donut",
+    "fried chicken","sandwich","steak","noodle","popcorn","milkshake","chocolate","curry","fries","waffle",
+    "omelette","burrito","ramen","soup","bread","butter","cheese","yogurt","honey","jam",
+    "apple","banana","strawberry","watermelon","pineapple","mango","grapes","orange","lemon","avocado",
+    "tomato","potato","broccoli","carrot","onion","garlic","mushroom","corn","pepper","rice",
+    "tea","beer","smoothie","biscuit","cookie","cake","pretzel","ice pop","lasagna","dumpling",
+    "hot dog","pie","marshmallow","cereal","chili","coconut","shrimp","olive","syrup","toast"
+  ],
+  movies: [
+    "Inception","Titanic","Avatar","Joker","Frozen","The Matrix","Barbie","Interstellar","Alien","Batman",
+    "Harry Potter","Jaws","Toy Story","Rocky","Gladiator","Finding Nemo","Spider-Man","The Godfather","Psycho","Jurassic Park",
+    "Star Wars","The Avengers","Deadpool","Pulp Fiction","Casablanca","Shrek","Up","Wall-E","Dune","Top Gun",
+    "The Lion King","Mad Max","Black Panther","Iron Man","Home Alone","Terminator","The Wizard of Oz","Kill Bill","Parasite","Oppenheimer",
+    "The Notebook","Hunger Games","Stranger Things","The Office","Game of Thrones","Breaking Bad","Friends","Wedding Crashers","The Truman Show","Ratatouille"
+  ],
+  everyday: [
+    "umbrella","mirror","keyboard","chair","lamp","backpack","watch","blanket","toothbrush","cup",
+    "pillow","bottle","scissors","wallet","phone","shoe","plate","comb","remote","ladder",
+    "spoon","fork","knife","pan","pot","kettle","fridge","oven","towel","soap",
+    "shampoo","toilet","sink","desk","sofa","curtain","carpet","candle","clock","glasses",
+    "hat","jacket","sock","glove","belt","ring","necklace","sunglasses","tissue","broom",
+    "bucket","mop","hammer","screwdriver","nail","rope","box","envelope","pen","notebook"
+  ],
+  nature: [
+    "volcano","waterfall","desert","forest","ocean","mountain","river","island","rainbow","canyon",
+    "glacier","meadow","cave","lake","storm","sunset","reef","valley","cliff","swamp",
+    "earthquake","tornado","hurricane","lightning","snow","hail","fog","wind","tide","drought",
+    "jungle","savanna","tundra","geyser","delta","plateau","dune","iceberg","meteor","aurora",
+    "cloud","moon","comet","galaxy","sunrise","thunder","bamboo","cactus","moss","fern"
+  ],
+  sports: [
+    "soccer","basketball","tennis","golf","boxing","swimming","cycling","skiing","surfing","skateboarding",
+    "volleyball","baseball","rugby","cricket","hockey","badminton","table tennis","archery","fencing","rowing",
+    "marathon","yoga","climbing","diving","snowboarding","judo","karate","weightlifting","gymnastics","formula 1",
+    "bowling","darts","chess","pool","horse racing","parkour","triathlon","kayak","wrestling","handball",
+    "softball","curling","lacrosse","sumo","javelin"
+  ],
+  jobs: [
+    "doctor","teacher","chef","pilot","firefighter","police officer","nurse","dentist","lawyer","farmer",
+    "mechanic","electrician","plumber","carpenter","artist","musician","actor","singer","dancer","writer",
+    "journalist","photographer","architect","engineer","programmer","scientist","astronaut","soldier","sailor","barber",
+    "florist","baker","butcher","cashier","waiter","librarian","translator","judge","mayor","detective",
+    "mailman","bus driver","taxi driver","lifeguard","coach","referee","zookeeper","veterinarian","diplomat","auctioneer"
+  ],
+  places: [
+    "airport","hospital","school","museum","library","stadium","beach","zoo","castle","hotel",
+    "restaurant","supermarket","cinema","park","bridge","tunnel","lighthouse","cathedral","market","prison",
+    "gas station","subway station","playground","camping site","farm","factory","court","city hall","skyscraper","casino",
+    "water park","aquarium","theater","bar","cafe","bookstore","pharmacy","police station","fire station","harbor",
+    "greenhouse","observatory","vineyard","mine","dam","pier","plaza","alley","rooftop","basement"
+  ],
+  music: [
+    "guitar","piano","violin","drums","trumpet","flute","saxophone","cello","ukulele","bass",
+    "harmonica","harp","accordion","banjo","tambourine","xylophone","clarinet","trombone","tuba","recorder",
+    "concert","festival","opera","choir","orchestra","symphony","karaoke","playlist","album","vinyl",
+    "microphone","speaker","headphones","amplifier","turntable","metronome","lullaby","anthem","remix","chorus",
+    "solo","duet","encore","rehearsal","overture","pitch","tempo","rhythm","melody","harmony"
+  ]
+};
+const CATEGORY_LABEL = {
+  animals:"Animals", food:"Food & Drinks", movies:"Movies & Shows", everyday:"Everyday Objects",
+  nature:"Nature & Places", sports:"Sports", jobs:"Jobs & People", places:"Places", music:"Music & Instruments"
+};
+const AVATARS = ["🦊","🐼","🐸","🦁","🐨","🐯","🐰","🐵","🐙","🦉","🐢","🦄"];
+const CIV_IMG="assets/avatar-civilian.jpg";
+const IMP_IMG="assets/avatar-imposter.jpg";
+
+const TASK_CARDS = [
+  "Describe it using only two words.","Do not use any adjective.",
+  "Describe it like a robot reading a manual.","Throw in one tiny lie — but don't make it obvious.",
+  "Start your description with \"I hate…\".","Make your description as vague as possible.",
+  "Describe it like you are explaining it to a child.","Use a metaphor, not a direct trait.",
+  "Describe it with a happy, excited tone.","Pretend you have never seen one before.",
+  "Mention where you would find it.","Compare it to something completely different.",
+  "Describe the feeling it gives you.","Use only one sentence, keep it short."
+];
+
+/* ================= STATE ================= */
+const S = {
+  players: [], word: "", category: "", settings: {},
+  dealIndex: 0, speakerIndex: 0, round: 1, selectedVote: null,
+  achievements: JSON.parse(localStorage.getItem("imposter_ach")||"{}")
+};
+
+const $ = id => document.getElementById(id);
+const rand = arr => arr[Math.floor(Math.random()*arr.length)];
+function shuffle(a){ for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];} return a; }
+
+/* ---------- progressive image loading ---------- */
+const BG_URL = "assets/bg-background.jpg";
+function fadeImage(el){
+  if(!el) return;
+  const done = () => el.classList.add("loaded");
+  if(el.complete && el.naturalWidth > 0){ done(); return; }
+  el.addEventListener("load", done, {once:true});
+  el.addEventListener("error", done, {once:true});
+}
+function loadBackdrop(){
+  const layer = $("bgLayer");
+  if(!layer) return;
+  const img = new Image();
+  img.onload = () => { layer.style.backgroundImage = 'url("'+BG_URL+'")'; requestAnimationFrame(()=>layer.classList.add("loaded")); };
+  img.onerror = () => layer.classList.add("loaded");
+  img.src = BG_URL;
+}
+window.addEventListener("load", ()=>{
+  loadBackdrop();
+  document.querySelectorAll(".img-load").forEach(fadeImage);
+});
+// run immediately too, in case load already fired
+loadBackdrop();
+document.querySelectorAll(".img-load").forEach(fadeImage);
+// warm the cache for avatars + banner so the reveal step is instant
+[CIV_IMG, IMP_IMG].forEach(u=>{ const i=new Image(); i.src=u; });
+function pickWord(){
+  const cat = S.settings.category === "mixed" ? rand(Object.keys(BANK)) : S.settings.category;
+  S.category = cat; S.word = rand(BANK[cat]);
+}
+function show(view){
+  document.querySelectorAll(".view").forEach(v=>v.classList.remove("active"));
+  $(view).classList.add("active");
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+
+/* ---------- setup controls ---------- */
+function bindStepper(min,max,valId,minusId,plusId){
+  const val=$(valId);
+  $(minusId).onclick=()=>{ val.textContent=Math.max(min,(parseInt(val.textContent)||min)-1); updateSummary(); };
+  $(plusId).onclick=()=>{ val.textContent=Math.min(max,(parseInt(val.textContent)||min)+1); updateSummary(); };
+}
+bindStepper(3,12,"playerCount","pMinus","pPlus");
+bindStepper(1,3,"impCount","iMinus","iPlus");
+
+let selCategory="mixed", selDifficulty="normal";
+document.querySelectorAll("#categoryChips .chip-opt").forEach(b=>{
+  b.onclick=()=>{document.querySelectorAll("#categoryChips .chip-opt").forEach(x=>x.classList.remove("on"));b.classList.add("on");selCategory=b.dataset.val;updateSummary();};
+});
+document.querySelectorAll("#diffGrid .diff-card").forEach(b=>{
+  b.onclick=()=>{document.querySelectorAll("#diffGrid .diff-card").forEach(x=>x.classList.remove("on"));b.classList.add("on");selDifficulty=b.dataset.val;updateSummary();};
+});
+["optTask","optTimer","optReverse","timerLen"].forEach(id=>{
+  $(id).addEventListener("change", updateSummary);
+});
+
+function updateSummary(){
+  const n = parseInt($("playerCount").textContent)||6;
+  const imp = Math.min(n-2, Math.max(1, parseInt($("impCount").textContent)||1));
+  const catLabel = selCategory==="mixed" ? "Mixed words" : (CATEGORY_LABEL[selCategory]||selCategory);
+  const diffLabel = selDifficulty.charAt(0).toUpperCase()+selDifficulty.slice(1);
+  const tags = [
+    "<b>"+n+"</b> players",
+    "<b>"+imp+"</b> imposter"+(imp>1?"s":""),
+    diffLabel,
+    catLabel
+  ];
+  if($("optTask").checked) tags.push("Task cards");
+  if($("optTimer").checked) tags.push($("timerLen").value+"s timer");
+  if($("optReverse").checked) tags.push("Reverse");
+  $("startSummary").innerHTML = tags.map(t=>'<span class="tag">'+t+'</span>').join("");
+  $("sbSub").textContent = n+" cards to deal · find the imposter"+(imp>1?"s":"");
+}
+updateSummary();
+
+$("btnStart").addEventListener("click", ()=>{
+  const n = Math.min(12, Math.max(3, parseInt($("playerCount").textContent)||6));
+  const imp = Math.min(n-2, Math.max(1, parseInt($("impCount").textContent)||1));
+  $("playerCount").textContent=n; $("impCount").textContent=imp;
+
+  S.settings = {
+    category: selCategory, difficulty: selDifficulty,
+    taskCards: $("optTask").checked, timer: $("optTimer").checked,
+    timerLen: parseInt($("timerLen").value), reverse: $("optReverse").checked
+  };
+  const roles = shuffle([...Array(imp).fill("imp"), ...Array(n-imp).fill("civil")]);
+  const avs = shuffle([...AVATARS]);
+  S.players = Array.from({length:n},(_,i)=>({name:"Player "+(i+1), avatar:avs[i%avs.length], role:roles[i], alive:true}));
+  S.dealIndex=0; S.speakerIndex=0; S.round=1;
+  pickWord(); dealNext();
+});
+
+/* ---------- identity ---------- */
+function dealNext(){
+  if(S.dealIndex >= S.players.length){ startDescribe(); return; }
+  const p = S.players[S.dealIndex];
+  $("idPlayerTag").textContent = p.name + " · look at your own screen";
+  $("idCover").style.display="flex"; $("idShown").style.display="none";
+  show("view-identity");
+}
+$("btnReveal").addEventListener("click", ()=>{
+  const p = S.players[S.dealIndex];
+  const diff = S.settings.difficulty;
+  const panel = $("idPanel");
+  panel.className = "id-panel " + (p.role==="imp"?"imp":"civ");
+  const av = $("idAvatar");
+  const avSrc = p.role==="imp"
+    ? "assets/avatar-imposter.jpg"
+    : "assets/avatar-civilian.jpg";
+  if(av.getAttribute("src") !== avSrc){
+    av.classList.remove("loaded");
+    av.src = avSrc;
+    fadeImage(av);
+  } else {
+    av.classList.add("loaded");
+  }
+  $("idBadge").innerHTML = p.role==="imp"
+    ? '<span class="badge imp">🚨 YOU ARE THE IMPOSTER</span>'
+    : '<span class="badge civ">✅ YOU ARE A CIVILIAN</span>';
+  if(p.role==="civil"){
+    $("idWord").textContent = S.word;
+    $("idHint").textContent = "Category: " + CATEGORY_LABEL[S.category];
+  } else {
+    if(diff==="easy"){ $("idWord").textContent="? ? ?"; $("idHint").textContent="Category: "+CATEGORY_LABEL[S.category]+" · weak hint: "+rand(BANK[S.category]).toLowerCase(); }
+    else if(diff==="hard"){ $("idWord").textContent="? ? ?"; $("idHint").textContent="You know nothing. Bluff carefully."; }
+    else if(diff==="chaos"){ $("idWord").textContent="? ? ?"; $("idHint").textContent="Chaos mode: nobody trusts anybody. Read the room."; }
+    else { $("idWord").textContent="? ? ?"; $("idHint").textContent="Category: "+CATEGORY_LABEL[S.category]; }
+  }
+  $("idCover").style.display="none"; $("idShown").style.display="flex";
+});
+$("btnHide").addEventListener("click", ()=>{ S.dealIndex++; dealNext(); });
+
+/* ---------- describe ---------- */
+let timerId=null;
+const alivePlayers = () => S.players.filter(p=>p.alive);
+function startDescribe(){ S.speakerIndex=0; describeNext(); }
+
+function describeNext(){
+  const alive=alivePlayers();
+  const p=alive[S.speakerIndex % alive.length];
+  $("dRound").textContent=S.round;
+  $("dSpeaker").textContent=p.avatar+" "+p.name;
+  const taskEl=$("dTask");
+  if(S.settings.taskCards){ taskEl.style.display="block"; taskEl.textContent="🎴 "+rand(TASK_CARDS); }
+  else taskEl.style.display="none";
+  const wrap=$("dTimerWrap");
+  if(S.settings.timer){ wrap.style.display="block"; startTimer(S.settings.timerLen); }
+  else wrap.style.display="none";
+  show("view-describe");
+}
+function startTimer(sec){
+  clearInterval(timerId);
+  const fill=$("dTimerFill"); let left=sec; fill.style.width="100%";
+  timerId=setInterval(()=>{ left--; fill.style.width=Math.max(0,(left/sec)*100)+"%"; if(left<=0){clearInterval(timerId);nextSpeaker();} },1000);
+}
+function nextSpeaker(){
+  clearInterval(timerId);
+  const alive=alivePlayers();
+  S.speakerIndex=(S.speakerIndex+1)%alive.length;
+  if(S.speakerIndex===0) $("btnToVote").style.display="block";
+  describeNext();
+}
+$("btnNextSpeaker").addEventListener("click",nextSpeaker);
+$("btnToVote").addEventListener("click",()=>{clearInterval(timerId);openVote();});
+
+/* ---------- vote ---------- */
+let selectedVote=null;
+function openVote(){
+  selectedVote=null; $("btnCastVote").disabled=true;
+  $("voteHint").textContent = S.settings.reverse
+    ? "Reverse mode: vote out a civilian to protect the imposter."
+    : "Discuss, then vote on who is bluffing.";
+  const grid=$("voteGrid"); grid.innerHTML="";
+  alivePlayers().forEach(p=>{
+    const b=document.createElement("button");
+    b.className="vote-btn";
+    b.innerHTML='<span class="ava">'+p.avatar+'</span><span>'+p.name+'</span>';
+    b.addEventListener("click",()=>{
+      document.querySelectorAll(".vote-btn").forEach(x=>x.classList.remove("selected"));
+      b.classList.add("selected"); selectedVote=p; $("btnCastVote").disabled=false;
+    });
+    grid.appendChild(b);
+  });
+  show("view-vote");
+}
+$("btnCastVote").addEventListener("click",()=>{
+  if(!selectedVote) return;
+  selectedVote.alive=false;
+  const civAlive=alivePlayers().filter(p=>p.role==="civil").length;
+  const impAlive=alivePlayers().filter(p=>p.role==="imp").length;
+  const reverse=S.settings.reverse;
+  let ended=false, outcome="";
+  if(!reverse){
+    if(impAlive===0){ ended=true; outcome="Civilians win! All imposters were caught."; unlock("detective"); if(S.settings.difficulty==="chaos") unlock("chaos"); }
+    else if(impAlive>=civAlive){ ended=true; outcome="Imposters win! They survived to parity."; unlock("bluff"); }
+  } else {
+    if(civAlive===0){ ended=true; outcome="Imposters win (reverse mode)! The civilians were all voted out."; unlock("bluff"); }
+    else if(impAlive===0){ ended=true; outcome="Civilians win (reverse mode)! The protected imposter was exposed."; unlock("detective"); if(S.settings.difficulty==="chaos") unlock("chaos"); }
+  }
+  if(ended) finishRound(outcome);
+  else { S.round++; S.speakerIndex=0; describeNext(); }
+});
+
+/* ---------- result ---------- */
+function finishRound(outcome){
+  const imps=S.players.filter(p=>p.role==="imp");
+  const guessBox=$("rImpGuess");
+  if(imps.length){
+    guessBox.innerHTML='<p style="color:var(--muted);font-size:.9rem">Imposter\'s final guess (for fun):</p>';
+    imps.forEach(im=>{
+      const inp=document.createElement("input");
+      inp.placeholder="What do you think the word was?";
+      guessBox.appendChild(inp);
+    });
+  } else guessBox.innerHTML="";
+
+  $("rOutcome").textContent=outcome;
+  $("rOutcome").style.color=outcome.startsWith("Civilians")?"var(--good)":"var(--bad)";
+  $("rWord").textContent=S.word+" · "+CATEGORY_LABEL[S.category];
+
+  const roster=$("rRoster"); roster.innerHTML="";
+  S.players.forEach(p=>{
+    const c=document.createElement("span");
+    c.className="chip"+(p.role==="imp"?" imp":"");
+    c.innerHTML='<img class="mini" src="'+(p.role==="imp"?IMP_IMG:CIV_IMG)+'">'+p.name+(p.role==="imp"?" · Imposter":" · Civilian")+(p.alive?"":" · out");
+    roster.appendChild(c);
+  });
+  renderAchievements(); saveAchievements();
+  show("view-result");
+}
+
+/* ---------- achievements ---------- */
+const ACH_DEF=[
+  {id:"detective",icon:"🕵️",name:"Detective",desc:"Caught every imposter"},
+  {id:"bluff",icon:"🎭",name:"Bluff King",desc:"Imposter survived to parity"},
+  {id:"chaos",icon:"🌀",name:"Chaos Survivor",desc:"Won a Chaos mode round"},
+  {id:"veteran",icon:"🏆",name:"Veteran",desc:"Finished 5 rounds"}
+];
+function unlock(id){ S.achievements[id]=true; if(id!=="veteran"){ S.achievements.veteran=(S.achievements.veteran||0)+1; } }
+function saveAchievements(){ if((S.achievements.veteran||0)>=5) S.achievements.veteran=5; localStorage.setItem("imposter_ach",JSON.stringify(S.achievements)); }
+function renderAchievements(){
+  const box=$("rAch"); box.innerHTML="";
+  ACH_DEF.forEach(a=>{
+    const got=a.id==="veteran" ? (S.achievements.veteran||0)>=5 : S.achievements[a.id];
+    const div=document.createElement("div");
+    div.className="ach"+(got?"":" locked");
+    div.innerHTML='<span class="icon">'+a.icon+'</span><div><div><b>'+a.name+'</b></div><div style="color:var(--muted);font-size:.8rem">'+a.desc+'</div></div>';
+    box.appendChild(div);
+  });
+}
+
+$("btnAgain").addEventListener("click",()=>{
+  const n=S.players.length;
+  const impCount=Math.min(n-2,S.players.filter(p=>p.role==="imp").length);
+  const roles=shuffle([...Array(impCount).fill("imp"),...Array(n-impCount).fill("civil")]);
+  S.players=S.players.map((p,i)=>({name:p.name,avatar:p.avatar,role:roles[i],alive:true}));
+  S.dealIndex=0; S.speakerIndex=0; S.round=1;
+  pickWord(); dealNext();
+});
+$("btnSetup").addEventListener("click",()=>show("view-setup"));
+</script>
+</body>
+</html>

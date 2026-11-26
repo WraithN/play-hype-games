@@ -2578,8 +2578,42 @@
     "seoDescription": "Eight rings, ten jumps, no timer: the rarer your pop-culture answer the farther the jump. Movies, music, games and anime. Free browser game.",
     "status": "published",
     "featured": false,
-    "views": 26,
+    "views": 27,
     "createdAt": "2026-11-25T05:40:23.731Z",
     "updatedAt": "2026-11-25T12:27:02.083Z"
+  },
+  {
+    "id": 95,
+    "title": "Imposter Game",
+    "slug": "imposter-game",
+    "description": "Imposter Game is a pass-and-play social deduction party game: every civilian gets the same secret word while the imposter must bluff through clue-giving, discussion and voting. 3–12 players, 485 words, one phone.",
+    "controls": "Pass-and-play on one device: tap to configure the round, hand the phone around for secret role reveals, then discuss clues and vote. Touch on phones, click on laptops — no keyboard required.",
+    "content": "<h2>What is Imposter Game?</h2><p>Imposter Game is a free online word party game built around a simple social deduction loop. Every civilian player receives the same secret word; the imposter does not. Players take turns giving short clues, discuss who sounds like they are guessing rather than describing, and vote to eliminate a suspect. Civilians win by voting out every imposter; an imposter wins by surviving until the numbers are level.</p><p>Despite the name, this is not Among Us. There is no space map, no running around, no tasks or kills and no realtime online server — it is a talking-and-voting tabletop-style word game in the family of The Chameleon and the classic \"who is the undercover\" party format, played by passing one phone around the room. It also works as an offline party option: once the page is open, a stable connection between turns is not required.</p><h2>How to play Imposter Game</h2><p>A round takes minutes and needs no host equipment beyond one phone or laptop.</p><ul><li>Pick 3–12 players and 1–3 imposters. With two imposters, neither knows who the other is.</li><li>Choose a word category and difficulty, then pass the device around. Each player privately taps to reveal their role card — civilian with the secret word, or imposter with only a category hint, or nothing at all on Hard mode.</li><li>Go around the table giving short clues about the word without saying it outright. A clue that is too obvious helps the imposter; a clue that is too vague makes you look suspicious.</li><li>Discuss, accuse and hold a vote. The player with the most votes is eliminated and their role is revealed.</li><li>Civilians win when all imposters are gone. Imposters win when they survive to parity with the civilians.</li></ul><h2>Modes, word bank and challenge cards</h2><p>The built-in word bank holds 485 English words across nine categories, from animals and food to movies and sports, so a fresh round rarely repeats the same word. Four difficulty modes change how much the imposter is told — Normal, Easy with a weak hint, Hard with no category, and Chaos, where everyone has reason to doubt everyone. Optional challenge cards impose a speaking rule each round, the timer can be set to 15, 30 or 45 seconds per turn, and Reverse Mode flips the goal so players protect the imposter and vote out civilians instead.</p><h2>Play Imposter Game online free, no download</h2><p>The whole imposter game online experience runs in a normal browser tab on phones, tablets, laptops and Chromebooks — there is nothing to install and no account to create. Open the page, configure the round and pass the screen. If you are looking for word party games to play with friends in the same room, this pass-and-play format starts in under a minute, and achievements are stored locally on the device.</p><p>Want more browser-built party titles from the same studio? Browse all <a href=\"/originals\">Play Hype Originals</a> or the full <a href=\"/category/puzzle-games\">puzzle and word games category</a>. For a solo pop-culture quiz between group nights, try <a href=\"/game/rarepop\">RarePop</a>, our rare-answer arcade game.</p>",
+    "embedUrl": "/assets/games/imposter-game/index.html",
+    "thumb": "/assets/thumbs/imposter-game.jpg",
+    "category": "puzzle-games",
+    "tags": [
+      "word",
+      "party",
+      "multiplayer",
+      "board",
+      "card",
+      "casual",
+      "social-deduction"
+    ],
+    "badges": [
+      "new",
+      "original"
+    ],
+    "rating": null,
+    "heat": 0,
+    "source": "Play Hype Studio",
+    "seoTitle": "Imposter Game — Free Online Word Party Game",
+    "seoDescription": "Play Imposter Game online free — a social deduction word party game for 3–12 players. Give clues, spot the imposter and vote. No download.",
+    "status": "published",
+    "featured": false,
+    "views": 7,
+    "createdAt": "2026-11-25T23:42:07.328Z",
+    "updatedAt": "2026-11-25T23:42:07.328Z"
   }
 ]
