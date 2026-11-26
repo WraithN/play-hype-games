@@ -461,6 +461,13 @@ input, select, textarea { font: inherit; }
   background-position: center;
   background-repeat: no-repeat;
   background-color: #0d1119;
+  overflow: hidden;
+}
+.thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 .thumb-16x10 { aspect-ratio: 16 / 10; }
 .thumb-16x9 { aspect-ratio: 16 / 9; }
