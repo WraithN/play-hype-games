@@ -535,3 +535,18 @@ code {
   .adm-grid-3{grid-template-columns:1fr}
   .adm-feed-head{flex-direction:column}
 }
+
+/* ---------------- FAQ / HowTo 重复条目编辑器 ---------------- */
+
+.adm-repeat-row{
+  display:grid;gap:8px;
+  padding:12px;margin-bottom:10px;
+  background:rgba(255,255,255,.03);
+  border:1px solid rgba(255,255,255,.09);
+  border-radius:10px;
+}
+.adm-repeat-row .adm-btn-sm{justify-self:start}
+.adm-repeat-grid .adm-field>small{margin-top:8px}
+@media (max-width:900px){
+  .adm-repeat-grid{grid-template-columns:1fr}
+}

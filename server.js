@@ -264,8 +264,8 @@ function handleFront(req, res, url) {
     return send(res, 200, blog.blogIndexPage(posts, settings, page));
   }
 
-  // News / Codes / Modding 栏目与文章
-  const sectionMatch = pathname.match(/^\/(news|codes|modding)(?:\/([^/]+))?$/);
+  // News / Codes / Modding / Guides 栏目与文章
+  const sectionMatch = pathname.match(/^\/(news|codes|modding|guides)(?:\/([^/]+))?$/);
   if (sectionMatch) {
     const section = sectionMatch[1];
     if (!sectionMatch[2]) {
@@ -538,7 +538,7 @@ function handleFront(req, res, url) {
       .sort((a, b) => (Number(b.views) || 0) - (Number(a.views) || 0))
       .slice(0, 4);
 
-    return send(res, 200, site.gamePage(game, games, settings, related));
+    return send(res, 200, site.gamePage(game, games, settings, related, posts));
   }
 
   // 游戏加载速度指数
@@ -676,11 +676,35 @@ function buildPostRecord(payload, posts, settings, existing) {
     (authorRecord && authorRecord.name) ||
     (existing && existing.author) ||
     settings.siteName;
-  const allowedSections = new Set(['', 'news', 'codes', 'modding']);
+  const allowedSections = new Set(['', 'news', 'codes', 'modding', 'guides']);
   const requestedSection = String(
     payload.section != null ? payload.section : (existing && existing.section) || ''
   ).trim();
   const section = allowedSections.has(requestedSection) ? requestedSection : '';
+
+  // FAQ / HowTo 条目：白名单字段 + 长度上限，防止脏数据进 JSON-LD；编辑时未传则沿用旧值
+  const normalisePairs = (raw, keyA, keyB) =>
+    Array.isArray(raw)
+      ? raw
+          .map((row) => ({
+            [keyA]: String((row && row[keyA]) || '').trim(),
+            [keyB]: String((row && row[keyB]) || '').trim()
+          }))
+          .filter((row) => row[keyA] && row[keyB])
+          .slice(0, 20)
+      : null;
+  const incomingFaqs = normalisePairs(payload.faqs, 'q', 'a');
+  const incomingHowto = Array.isArray(payload.howto)
+    ? payload.howto
+        .map((row) => ({
+          name: String((row && row.name) || '').trim(),
+          text: String((row && row.text) || '').trim()
+        }))
+        .filter((row) => row.name || row.text)
+        .slice(0, 20)
+    : null;
+  const faqs = incomingFaqs || (existing && Array.isArray(existing.faqs) ? existing.faqs : []);
+  const howto = incomingHowto || (existing && Array.isArray(existing.howto) ? existing.howto : []);
   const lastChecked =
     String(payload.lastChecked != null ? payload.lastChecked : (existing && existing.lastChecked) || '')
       .trim()
@@ -699,6 +723,8 @@ function buildPostRecord(payload, posts, settings, existing) {
     lastChecked,
     tags: normaliseTags(payload.tags),
     relatedGames: relatedIds,
+    faqs,
+    howto,
     seoTitle: String(payload.seoTitle || '').trim(),
     seoDescription: String(payload.seoDescription || '').trim(),
     noindex: Boolean(payload.noindex),
