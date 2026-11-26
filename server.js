@@ -264,6 +264,15 @@ function handleFront(req, res, url) {
     return send(res, 200, blog.blogIndexPage(posts, settings, page));
   }
 
+  // 文章旧 URL 301：后台 aliases 维护，用于文章迁址/收编时保留权重与外链。
+  // 必须在分区/Journal 文章路由之前检查，否则旧路径会被它们以 404 截走。
+  const aliasTarget = blog
+    .livePosts(posts)
+    .find((p) => Array.isArray(p.aliases) && p.aliases.includes(pathname));
+  if (aliasTarget) {
+    return send(res, 301, '', { Location: blog.postPath(aliasTarget) });
+  }
+
   // News / Codes / Modding / Guides 栏目与文章
   const sectionMatch = pathname.match(/^\/(news|codes|modding|guides)(?:\/([^/]+))?$/);
   if (sectionMatch) {
@@ -705,6 +714,27 @@ function buildPostRecord(payload, posts, settings, existing) {
     : null;
   const faqs = incomingFaqs || (existing && Array.isArray(existing.faqs) ? existing.faqs : []);
   const howto = incomingHowto || (existing && Array.isArray(existing.howto) ? existing.howto : []);
+
+  // ItemList 条目：name + url（允许站内相对地址或 http/https 外链），用于榜单类文章
+  const incomingItemList = Array.isArray(payload.itemList)
+    ? payload.itemList
+        .map((row) => ({
+          name: String((row && row.name) || '').trim(),
+          url: md.safeUrl(String((row && row.url) || '').trim())
+        }))
+        .filter((row) => row.name && row.url && row.url !== '#')
+        .slice(0, 30)
+    : null;
+  const itemList =
+    incomingItemList || (existing && Array.isArray(existing.itemList) ? existing.itemList : []);
+
+  // 旧 URL 别名：只接受站内绝对路径，防协议注入
+  const incomingAliases = Array.isArray(payload.aliases)
+    ? [...new Set(payload.aliases.map((a) => String(a || '').trim()))]
+        .filter((a) => /^\/[a-z0-9/_-]+$/i.test(a))
+        .slice(0, 10)
+    : null;
+  const aliases = incomingAliases || (existing && Array.isArray(existing.aliases) ? existing.aliases : []);
   const lastChecked =
     String(payload.lastChecked != null ? payload.lastChecked : (existing && existing.lastChecked) || '')
       .trim()
@@ -725,6 +755,8 @@ function buildPostRecord(payload, posts, settings, existing) {
     relatedGames: relatedIds,
     faqs,
     howto,
+    itemList,
+    aliases,
     seoTitle: String(payload.seoTitle || '').trim(),
     seoDescription: String(payload.seoDescription || '').trim(),
     noindex: Boolean(payload.noindex),
