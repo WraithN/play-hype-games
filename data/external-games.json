@@ -1,0 +1,78 @@
+[
+  {
+    "slug": "krunker-io",
+    "title": "Krunker.io",
+    "kicker": "Official-site .io shooter",
+    "officialUrl": "https://krunker.io",
+    "officialHost": "krunker.io",
+    "category": "io-games",
+    "tags": ["FPS", "Multiplayer", "Shooter", "3D"],
+    "seoTitle": "Krunker.io — Play the Free Online Browser FPS",
+    "seoDescription": "Krunker.io is a free no-download browser FPS with fast arena matches and distinct weapon classes. How it plays, its modes, controls and first-round tips.",
+    "intro": "A fast, blocky first-person shooter that loads straight in a browser tab. This page explains how Krunker.io plays and links to the official site — Play Hype Games does not host or embed the game.",
+    "body": "## What is Krunker.io?\n\nKrunker.io is a free-to-play, browser-based first-person shooter that launched in 2018, created by Sidney de Vries and later acquired by FRVR in 2022. Matches are short arena shootouts against real players, rendered in a low-poly visual style that keeps the web build light enough to run at a high frame rate on ordinary laptops and school Chromebooks. You can join a public server as a guest without creating an account, so the path from opening the page to firing your first shot is only a few seconds.\n\nThe game runs on WebGL inside a normal desktop browser tab. An official downloadable client and mobile versions also exist, but none of them are required to play the standard browser version.\n\n## How Krunker.io plays\n\nEach public match runs on a fixed timer (four minutes on official servers), and you respawn almost immediately after dying, so the rhythm is constant movement and duels rather than long death-cam waits. The movement system is a core part of the skill ceiling: players chain jumps, slides and strafes into a technique the community calls slide hopping, which builds speed and makes you harder to track.\n\nThe default controls follow the standard browser-shooter layout:\n\n- **WASD** to move, mouse to aim, left click to fire\n- **Space** to jump, **Shift** to slide or crouch-walk\n- **R** to reload, scroll wheel or number keys to swap weapons where the class allows it\n\nA round can last thirty seconds if you pick constant fights, or the full timer if you rotate carefully and hold angles.\n\n## Classes and weapons\n\nInstead of one shared gun pool, Krunker.io organizes its roster into classes, each locked to a signature weapon and stats such as health and movement speed. The starting line-up includes:\n\n- **Triggerman** — an assault-rifle all-rounder and the safest first pick\n- **Hunter** — a one-shot-kill bolt-action sniper with a steep aim requirement\n- **Run N Gun** — a fast SMG class built for close-quarters rushing\n- **Spray N Pray** — a high-capacity light machine gun that rewards pre-aimed lanes\n- **Vince** — a semi-automatic rifle for disciplined mid-range shots\n- **Detective** — a revolver with a one-shot headshot potential\n- **Marksman** — a scoped semi-auto for players who want sniper range without bolt-action pacing\n- **Rocketeer** — a rocket launcher with splash damage and slow, high-impact rounds\n\nCosmetic weapon skins, character outfits and charms exist as unlocks and marketplace items, but they do not change damage or stats, so the free roster is functionally complete.\n\n## Game modes\n\nThe mode catalogue has grown well beyond a simple deathmatch. Community documentation lists more than thirty modes across public, party and custom servers. The ones you will meet first include:\n\n- **Free For All (FFA)** — every player scores for themselves; the default warm-up mode\n- **Team Deathmatch (TDM)** — two teams racing to a kill target\n- **Hardpoint** — hold a rotating hill zone to earn points\n- **Capture the Flag** — steal the enemy flag and return it to your base\n- **Kill Confirmed** — collect dog tags from downed players to bank kills\n- **King of the Hill** — control a single zone against everyone else\n- **Parkour** — non-combat movement maps for practicing hops and bhop lines\n- **Prop Hunt and Zombies** — party modes that swap shooting for hiding or survival rounds\n\nCustom servers also host community-made maps and rule sets, which is where much of the long-tail content lives.\n\n## Do you need to download anything?\n\nNo. The main build runs in a desktop browser with no installer, launcher or account requirement. Guests can play immediately; registering an account only adds persistent ranks, KR currency earnings, cosmetics and social features. If a school or office network blocks the game's domain, no browser setting on your side can bypass that — it is a network policy, not a game error.\n\n## Tips for your first rounds\n\n1. Start with Triggerman. Its assault rifle is forgiving at the ranges most casual maps produce, and it teaches the movement rhythm without a sniper's punishment.\n2. Keep moving. Standing still in Krunker.io is the fastest way to feed kills; practice jumping while you aim even before you attempt slide hops.\n3. Learn one map before chasing modes. Knowing sightlines and flank routes matters more than unlocking skins.\n4. Lower your sensitivity if aiming feels slippery. The game defaults tend to favor high-sens flick players, and a steadier setting helps newcomers land consistent bursts.\n5. Treat the first sessions as movement practice. The duels get easier once hopping and strafing stop taking conscious effort.",
+    "faqs": [
+      {
+        "q": "Is Krunker.io free to play?",
+        "a": "Yes. The browser game is free, and you can join public matches as a guest without an account. Paid elements are limited to cosmetics, skins and marketplace items; none of them provide a combat-stat advantage."
+      },
+      {
+        "q": "Do I need to download or install Krunker.io?",
+        "a": "No download is required for the standard version. It runs as a WebGL build inside a desktop browser tab. An optional official desktop client and mobile apps exist, but they are separate products and not needed to play in the browser."
+      },
+      {
+        "q": "Can I play Krunker.io on a school Chromebook?",
+        "a": "Usually, if the network allows the krunker.io domain. The lightweight web build is designed to run on modest hardware, including integrated GPUs. A managed school network may block the domain itself, which no in-game setting can override."
+      },
+      {
+        "q": "Do I need an account to play?",
+        "a": "No. Guest play is available immediately. Registering only adds progression features such as ranks, KR earnings, cosmetic unlocks, friends and custom-server history."
+      },
+      {
+        "q": "What is slide hopping in Krunker.io?",
+        "a": "Slide hopping is the community name for chaining jumps and slides to preserve and build movement speed between fights. It is the main movement technique that separates experienced players from newcomers and takes practice in the Parkour modes."
+      }
+    ],
+    "status": "published",
+    "publishedAt": "2026-11-26",
+    "updatedAt": "2026-11-26T00:00:00.000Z"
+  },
+  {
+    "slug": "deadshot-io",
+    "title": "Deadshot.io",
+    "kicker": "Official-site .io shooter",
+    "officialUrl": "https://deadshot.io",
+    "officialHost": "deadshot.io",
+    "category": "io-games",
+    "tags": ["FPS", "Multiplayer", "Shooter"],
+    "seoTitle": "Deadshot.io — Play the Free Online Browser FPS",
+    "seoDescription": "Deadshot.io is a free browser FPS with quick matchmaking, loadout choices and team modes. Learn the controls, modes and how it runs without a download.",
+    "intro": "A skill-based browser first-person shooter focused on quick matchmaking and compact loadouts. This page explains how Deadshot.io plays and links to the official site — Play Hype Games does not host or embed the game.",
+    "body": "## What is Deadshot.io?\n\nDeadshot.io is a free-to-play, browser-based first-person shooter built around short, skill-driven multiplayer rounds. It opens straight into lobby and match flows in a desktop browser tab, with no installer and no account requirement for jumping into a public game. The visual style is clean and low-poly, which keeps the web build responsive on modest laptops and Chromebooks.\n\nThe game is designed around keyboard-and-mouse play. An official mobile port is also distributed on Google Play for players who want touch controls, but the browser experience remains the desktop-first version.\n\n## How Deadshot.io plays\n\nMatches load through fast matchmaking, and each round puts you into a compact map with real opponents. Gunplay rewards accuracy and movement: aim-down-sights duels, slide peeks and reload discipline decide most fights rather than gear grind, since every player draws from the same weapon categories.\n\nThe published control scheme follows the standard browser-FPS layout:\n\n- **WASD** to move and the mouse to look around\n- **Left click** to fire, **right click** to aim down sights\n- **Space** to jump, **Shift** to slide, **C** to crouch\n- **R** to reload\n\nBecause sliding lowers your profile and keeps momentum, learning to slide between pieces of cover is the first real skill wall after basic aiming.\n\n## Loadouts and weapon categories\n\nBefore spawning you pick a loadout built around a weapon category, so the choice is about engagement range rather than paid power:\n\n- **Assault rifles** — the versatile default, steady at medium range with manageable recoil\n- **SMGs** — fast fire rates and mobility for close-quarters map control\n- **Sniper rifles** — high per-shot damage for players who hold long angles and pre-aim corners\n- **Shotguns** — devastating up close, weak if you get caught reloading in open space\n\nCosmetic customization exists for weapons and characters, but the loadout stats themselves are shared, so free players are not out-gunned.\n\n## Game modes\n\nThe mode rotation covers the standard competitive FPS set, with each mode changing how teams score:\n\n- **Free For All (FFA)** — solo kill race with no team obligations, the fastest way to learn maps\n- **Team Deathmatch (TDM)** — two teams competing on total eliminations\n- **Hardpoint** — capture and hold a rotating zone for score\n- **Kill Confirmed** — eliminations only count once a dog tag is collected, pushing players off safe angles\n- **Domination** — hold multiple fixed zones across the map for steady team points\n\nShorter modes like FFA are the best starting point; zone modes add map-rotation knowledge on top of raw aim.\n\n## Do you need to download anything?\n\nNo installer is needed for the browser version — it runs inside a desktop browser tab, and guests can start matches without registering. Accounts are for persistent progression, ranks and cosmetic ownership. As with any browser game, a blocked domain on a managed school or office network is a network-level restriction that cannot be fixed from inside the game.\n\n## Tips for your first sessions\n\n1. Begin with an assault rifle. Its forgiving recoil lets you focus on map layout and movement before specializing.\n2. Aim before you peek. Pre-aiming common head height wins more duels than reaction-only flicks at this skill level.\n3. Use slides to cross open lanes. A sliding target is dramatically harder to hit than a standing one.\n4. Reload behind cover, not in the open. Empty-magazine pushes are the most common newcomer death.\n5. Play one mode until the maps feel familiar, then move to Hardpoint or Domination to learn rotations instead of only duels.",
+    "faqs": [
+      {
+        "q": "Is Deadshot.io free to play?",
+        "a": "Yes. The browser game is free, with public matches available without payment. Cosmetics and customization items exist, but the core weapons and modes are available to every player."
+      },
+      {
+        "q": "Do I have to download Deadshot.io?",
+        "a": "No. The main game runs in a desktop browser tab with no installer or launcher. An official mobile port is separately available on Google Play if you want a native touch version."
+      },
+      {
+        "q": "Can I play Deadshot.io on mobile?",
+        "a": "The browser build is designed around a keyboard and mouse, so desktop browsers give the intended experience. An official mobile port is published on Google Play for touchscreen play."
+      },
+      {
+        "q": "Do I need an account?",
+        "a": "No account is required to join public matches. Registering adds persistent progression, rankings and cosmetic ownership, but guest play covers the core game."
+      },
+      {
+        "q": "Which weapon should a new player pick?",
+        "a": "Start with an assault rifle. It is effective at the medium ranges most maps produce and has forgiving recoil, leaving you free to learn movement and maps before trying SMGs, snipers or shotguns."
+      }
+    ],
+    "status": "published",
+    "publishedAt": "2026-11-26",
+    "updatedAt": "2026-11-26T00:00:00.000Z"
+  }
+]
