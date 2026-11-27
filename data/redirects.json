@@ -1,0 +1,17 @@
+[
+  {
+    "from": "/guides/imposter-word-game",
+    "to": "/game/imposter-game",
+    "reason": "Consolidated into the single Imposter how-to guide and game page"
+  },
+  {
+    "from": "/guides/tiktok-imposter-game",
+    "to": "/game/imposter-game",
+    "reason": "Consolidated into the single Imposter how-to guide and game page"
+  },
+  {
+    "from": "/guides/imposter-game-real-life",
+    "to": "/game/imposter-game",
+    "reason": "Consolidated into the single Imposter how-to guide and game page"
+  }
+]

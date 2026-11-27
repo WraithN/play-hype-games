@@ -24,6 +24,7 @@ const authors = require('./lib/authors');
 const rarepop = require('./lib/rarepop');
 const krillion = require('./lib/krillion');
 const external = require('./lib/external');
+const redirects = require('./lib/redirects');
 const judge = require('./lib/judge');
 const lore = require('./lib/lore');
 
@@ -276,6 +277,12 @@ function handleFront(req, res, url) {
     .find((p) => Array.isArray(p.aliases) && p.aliases.includes(pathname));
   if (aliasTarget) {
     return send(res, 301, '', { Location: blog.postPath(aliasTarget) });
+  }
+
+  // 页面收敛的 301：data/redirects.json 可指向任意站内路径（含 /game/<slug>）
+  const redirectTo = redirects.lookup(pathname);
+  if (redirectTo) {
+    return send(res, 301, '', { Location: redirectTo });
   }
 
   // News / Codes / Modding / Guides 栏目与文章
