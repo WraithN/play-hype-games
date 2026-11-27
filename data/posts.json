@@ -103,7 +103,7 @@
     "title": "Viceride GTA 6 is not a PC port: what the site actually is",
     "slug": "viceride-gta6",
     "excerpt": "Viceride advertises a mobile cloud-gaming concept for GTA 6, not a PC port. The site shows a short demo, and there is no playable client or game download.",
-    "body": "## The short answer\n\nViceride.com is a website that advertises \"GTA 6 Mobile - Android and iOS Via Cloud.\" It is not a PC port, it is not an official Rockstar product, and it does not provide a playable copy of the game. The site describes itself as an \"independent GTA VI cloud gaming concept\" and says its video playback and checkout are demos.\n\n## What the site shows\n\n- A 15-second prerecorded \"preview\" rather than a live game session.\n- A device and server-region selector.\n- A touch-control demo and a mock lobby conversation.\n- A checkout flow that the site itself labels as a demo.\n\nThe domain was registered on November 16, 2026, and a third-party trust check by ScamAdviser currently gives it a low score. That is not proof of fraud on its own, but it is a reason to be cautious and not enter payment details or account credentials.\n\n## Why it is not a GTA 6 PC port\n\nA port needs the game code, a runtime and a graphics layer. Viceride's public pages show a video demo, not a running game or a downloadable client. It also does not claim to be affiliated with Rockstar. The page's own wording is \"concept,\" which is the important word.\n\n## What actually works today\n\nGTA 6 is available on PlayStation 5 and Xbox Series X/S. Rockstar has not announced a PC version. If you own a console, console Remote Play can stream the game to a PC screen; that is a supported way to use your PC as a display, not a PC port.\n\nBe careful with search results that offer a \"GTA 6 PC download,\" an APK, or a cloud client that asks for your Rockstar account. Those are the oldest malware and phishing baits around a big launch.\n\n## What to do instead\n\n- Use the official PlayStation or Xbox store to check platforms and availability.\n- Use Remote Play from a console you own if you want the game on a PC screen.\n- Do not enter payment data on a site that only shows a prerecorded demo.\n- If you are researching the open-source effort, read the [Leonida project notes](/modding/leonida-gta6-pc-port).\n\n## Sources\n\n- [Viceride](https://viceride.com/), public site copy and demo labels, checked November 23, 2026.\n- [ScamAdviser: viceride.com](https://www.scamadviser.com/check-website/viceride.com), third-party trust report, checked November 23, 2026.\n- [Rockstar Games: Grand Theft Auto VI](https://www.rockstargames.com/VI), official product page.\n- [Sumibako: GTA 6 on PC — no port, no emulator](https://sumibako.com/blog/gta-6-pc), November 21, 2026, for the current platform and Remote Play breakdown.",
+    "body": "## The short answer\n\nViceride.com is a website that advertises \"GTA 6 Mobile - Android and iOS Via Cloud.\" It is not a PC port, it is not an official Rockstar product, and it does not provide a playable copy of the game. The site describes itself as an \"independent GTA VI cloud gaming concept\" and says its video playback and checkout are demos.\n\n## What the site shows\n\n- A 15-second prerecorded \"preview\" rather than a live game session.\n- A device and server-region selector.\n- A touch-control demo and a mock lobby conversation.\n- A checkout flow that the site itself labels as a demo.\n\nThe domain was registered on November 16, 2026, and a third-party trust check by ScamAdviser currently gives it a low score. That is not proof of fraud on its own, but it is a reason to be cautious and not enter payment details or account credentials.\n\n## Why it is not a GTA 6 PC port\n\nA port needs the game code, a runtime and a graphics layer. Viceride's public pages show a video demo, not a running game or a downloadable client. It also does not claim to be affiliated with Rockstar. The page's own wording is \"concept,\" which is the important word.\n\n## What actually works today\n\nGTA 6 is available on PlayStation 5 and Xbox Series X/S. Rockstar has not announced a PC version. If you own a console, console Remote Play can stream the game to a PC screen; that is a supported way to use your PC as a display, not a PC port.\n\nBe careful with search results that offer a \"GTA 6 PC download,\" an APK, or a cloud client that asks for your Rockstar account. Those are the oldest malware and phishing baits around a big launch.\n\n## What to do instead\n\n- Use the official PlayStation or Xbox store to check platforms and availability.\n- Use Remote Play from a console you own if you want the game on a PC screen.\n- Do not enter payment data on a site that only shows a prerecorded demo.\n- If you are researching the open-source effort, read the [Leonida project notes](/modding/leonida-gta6-pc-port).\n\n## Play something similar in your browser\n\nIf you came here looking for GTA-style action you can actually start today, these browser games cover the same ground — driving, shooting and city demolition — with no download and no account:\n\n- [Paint Drive IO](/game/paint-drive-io) — an .io arcade racer where you drift around an open arena and paint territory behind your car.\n- [Rocketcar Cup](/game/rocketcar-cup) — rocket-powered cars, boost flips and one-on-one or team matches; the closest thing here to a stunt-driving session.\n- [ObbloxGun.io 3D FPS Shooter](/game/obbloxgun-io-3d-fps-shooter) — blocky competitive FPS arenas with WASD movement and unlockable weapons.\n- [Sink Hole](/game/sink-hole) — swallow a city block by block and knock down skyscrapers in a demolition race against rival holes.\n\nNone of these are GTA 6, and none pretend to be. They are simply playable now, in the tab you already have open. For the open-source port discussion, the [Leonida project notes](/modding/leonida-gta6-pc-port) explain where that effort actually stands.\n\n## Sources\n\n- [Viceride](https://viceride.com/), public site copy and demo labels, checked November 23, 2026.\n- [ScamAdviser: viceride.com](https://www.scamadviser.com/check-website/viceride.com), third-party trust report, checked November 23, 2026.\n- [Rockstar Games: Grand Theft Auto VI](https://www.rockstargames.com/VI), official product page.\n- [Sumibako: GTA 6 on PC — no port, no emulator](https://sumibako.com/blog/gta-6-pc), November 21, 2026, for the current platform and Remote Play breakdown.",
     "cover": "",
     "author": "WangNan",
     "authorSlug": "wangnan",
@@ -115,75 +115,66 @@
       "cloud-gaming",
       "scam-warning"
     ],
-    "relatedGames": [],
+    "relatedGames": [
+      30,
+      35,
+      31,
+      21
+    ],
     "seoTitle": "Viceride.com GTA 6: not a PC port — what it is",
     "seoDescription": "Viceride advertises a GTA 6 mobile cloud concept, not a PC port. What the site shows, what is missing, and how to avoid unsafe downloads.",
     "noindex": true,
     "status": "published",
     "publishedAt": "2026-11-23",
-    "updatedAt": "2026-11-25T15:01:41.128Z"
+    "updatedAt": "2026-11-27T07:50:26.716Z"
   },
   {
     "id": 6,
-    "title": "Tiny Skies codes (November 2026): no official codes yet",
+    "title": "Tiny Skies codes (November 2026): BOMBERS and WELCOME work",
     "slug": "tiny-skies-codes",
-    "excerpt": "Tiny Skies has no official Roblox codes as of November 23, 2026. Here is what the official page lists, what third-party sites are circulating, and how to redeem a code when one appears.",
-    "body": "## Current status\n\nChecked November 23, 2026: **Tiny Skies Fighter Jet & Helicopters has no official codes.** The Roblox game description lists aircraft, modes and controls, but no code strings. Independent trackers that re-read the official page also show no active codes.\n\nThis is a \"no codes yet\" page, not a list of working codes. We would rather say that than send you into the game with an expired string.\n\n## Codes you may see elsewhere\n\nSome third-party pages list strings such as `SKYWINGS`, `JETFUEL50`, `HELIPRO`, `FLYHIGHREWARD` and `AIRACES`. We could not confirm those against the official game page or two independent trackers, so we are not marking them active. Treat any list that presents them without a check date and a source as unverified.\n\nDo not use a code generator, an executor, or a site that asks for your Roblox password. None of those are needed to redeem a Roblox code, and they put your account at risk.\n\n## How to redeem a code when one appears\n\n1. Open the official **Tiny Skies Fighter Jet & Helicopters** experience on Roblox, not a copy or a private server.\n2. Open the in-game menu or shop and look for a **Codes** field. The developer has not published an active code or a redemption screenshot, so the exact button may change with an update.\n3. Copy the code exactly, including capital letters, and remove extra spaces.\n4. Press Redeem and check your inventory or currency for the reward.\n\nIf the code fails, check the spelling first. If it still fails, the developer has likely retired it.\n\n## What to do in the meantime\n\nThe official description lists flight school, daily rewards, missions and a hangar progression system. Those are the reliable ways to earn aircraft while no code is active.\n\nControls from the official game description:\n\n- **Mouse** — fly\n- **Click** — guns\n- **Space** — weapons\n- **R** — next weapon\n- **Shift / Ctrl** — throttle\n- **X** — flares\n- **M** — map\n- **Tab** — scores\n\n## Sources\n\n- [Tiny Skies Fighter Jet & Helicopters on Roblox](https://www.roblox.com/games/111410533261470/Tiny-Skies-Fighter-Jet-Helicopters), official game page and description, checked November 23, 2026.\n- [BloxNew: Tiny Skies codes](https://bloxnew.com/tiny-skies-fighter-jet-and-helicopters/codes/), independent tracker, last checked November 23, 2026.\n- [BloxStatus: Tiny Skies codes](https://bloxstatus.com/games/tiny-skies-fighter-jet-helicopters/codes/), independent tracker, last checked November 8, 2026.",
+    "excerpt": "Two Tiny Skies codes are confirmed working as of November 27, 2026: BOMBERS for 5,000 Credits and WELCOME for 1,000. Here is the active list, how to redeem in the lobby, and which strings to ignore.",
+    "body": "## Current status\n\nChecked November 27, 2026: **two Tiny Skies codes are confirmed working.** `BOMBERS` grants 5,000 Credits and `WELCOME` grants 1,000 Credits — 6,000 in total. Both were first listed on November 23 alongside the Bombers update and are still marked active by several independent trackers that test codes in game.\n\nCodes are redeemed inside the Roblox experience, from the lobby menu. They are one per account and case-sensitive.\n\n## How to redeem a Tiny Skies code\n\n1. Launch **Tiny Skies: Fighter Jet & Helicopters** on Roblox. The current build is tagged [Bombers]; make sure you are in this game and not Tiny Planes or another \"tiny\" title.\n2. Stay in the lobby before spawning — the code box lives in the lobby navigation, not inside a match.\n3. Open **More → Codes**, paste the code in capitals and remove any trailing space.\n4. Press Redeem and check your Credit balance in the Shop.\n\n## What the Credits buy\n\nCredits are the Shop currency for aircraft, upgrades and paint schemes. The two codes together cover a useful part of a starter upgrade; they never hand out an aircraft directly.\n\n## Where new codes come from\n\nThe game's own codes panel says new codes are announced on the developer's Discord and the KatCreations Roblox group. So far they have arrived with major updates — BOMBERS shipped with the Bombers update. Until the game accepts a string in a lobby, treat it as unconfirmed.\n\n## Codes you may see elsewhere\n\nSome pages list strings such as `SKYWINGS`, `JETFUEL50`, `HELIPRO`, `FLYHIGHREWARD` or `AIRACES`. We could not confirm them against the official game page or independent trackers, so they are not in our active list. A code list without a check date and a source is not evidence.\n\nNever use a code generator, an executor, or a site that asks for your Roblox password. None of those are needed to redeem a Roblox code, and they put your account at risk.\n\n## If a code fails\n\n- **Check capitals and spaces.** Paste the code rather than retyping it.\n- **\"Already redeemed\"** means the code is one per account.\n- **\"Expired\"** means the string was retired after a later update.\n- **Nothing happens** usually means the wrong game: Tiny Planes code lists are the most common mix-up.\n\n## More codes\n\nBrowse the full [codes hub](/codes) or the [Vox Seas Update 0.5 codes](/codes/vox-seas-update-0-5-codes) page. Both split entries into active, reported and expired, with a last-checked date.\n\n## Sources\n\n- [Tiny Skies Fighter Jet & Helicopters on Roblox](https://www.roblox.com/games/111410533261470/Tiny-Skies-Fighter-Jet-Helicopters), official game page, checked November 27, 2026.\n- [Roblox Den: Tiny Skies codes](https://robloxden.com/game-codes/tiny-skies), last checked November 24, 2026.\n- [Pro Game Guides: Roblox Tiny Skies codes](https://progameguides.com/roblox/roblox-tiny-skies-codes), November 23, 2026.\n- [Destructoid: Tiny Skies Roblox codes](https://www.destructoid.com/tiny-skies-roblox-codes/), November 23, 2026.\n- [GGRECON: Tiny Skies codes](https://www.ggrecon.com/guides/all-tiny-skies-codes-to-redeem-free-credits), November 25, 2026.\n- [GameRant: Tiny Skies codes](https://gamerant.com/tiny-skies-codes-roblox), November 23, 2026.\n",
     "cover": "",
     "author": "WangNan",
     "authorSlug": "wangnan",
     "section": "codes",
-    "lastChecked": "2026-11-23",
+    "lastChecked": "2026-11-27",
     "tags": [
       "roblox",
       "tiny skies",
       "codes"
     ],
     "relatedGames": [],
-    "seoTitle": "Tiny Skies codes (November 2026): official status",
-    "seoDescription": "Tiny Skies has no official Roblox codes as of November 23, 2026. See what the official page says, which strings are unverified, and how to redeem.",
+    "seoTitle": "Tiny Skies codes (November 2026): BOMBERS and WELCOME work",
+    "seoDescription": "Tiny Skies codes checked November 27, 2026: BOMBERS gives 5,000 Credits and WELCOME gives 1,000. Active list, redeem steps and dead strings to avoid.",
     "status": "published",
     "publishedAt": "2026-11-23",
-    "updatedAt": "2026-11-23",
+    "updatedAt": "2026-11-27T07:50:26.716Z",
     "codeSets": {
-      "note": "No official codes are listed on the Roblox game page. The strings below appear on third-party lists but are not confirmed.",
-      "active": [],
-      "reported": [
+      "note": "Both codes were listed after the November 23 Bombers update by several independent trackers that test in game. Codes are case-sensitive and one per account.",
+      "active": [
         {
-          "code": "SKYWINGS",
-          "reward": "Unknown",
-          "source": "Third-party list; unverified"
+          "code": "BOMBERS",
+          "reward": "5,000 Credits",
+          "source": "Roblox Den / Pro Game Guides / Destructoid, Nov 23-24"
         },
         {
-          "code": "JETFUEL50",
-          "reward": "Unknown",
-          "source": "Third-party list; unverified"
-        },
-        {
-          "code": "HELIPRO",
-          "reward": "Unknown",
-          "source": "Third-party list; unverified"
-        },
-        {
-          "code": "FLYHIGHREWARD",
-          "reward": "Unknown",
-          "source": "Third-party list; unverified"
-        },
-        {
-          "code": "AIRACES",
-          "reward": "Unknown",
-          "source": "Third-party list; unverified"
+          "code": "WELCOME",
+          "reward": "1,000 Credits",
+          "source": "Roblox Den / Pro Game Guides / Destructoid, Nov 23-24"
         }
       ],
+      "reported": [],
       "expired": []
-    }
+    },
+    "hideRelated": true
   },
   {
     "id": 7,
     "title": "Vox Seas Update 0.5 codes: confirmed, unconfirmed and expired",
     "slug": "vox-seas-update-0-5-codes",
     "excerpt": "Vox Seas Update 0.5 code lists disagree. Here is the one code multiple trackers list as working, the codes still being rechecked, and the ones marked expired.",
-    "body": "## Status at a glance\n\nChecked November 23, 2026. Code trackers do not agree on the full list, so this page separates what is confirmed from what is still being rechecked and what is expired.\n\n- **Listed as working by multiple trackers:** `175KLIKES` — 1 Stat Reset Token.\n- **Reported active, but trackers are rechecking:** `THX200K` (30 minutes of double XP), `Release2026` (1 hour of double XP), `PatchReset` (1 Stat Reset Token), `Patch2Reset` (1 Stat Reset Token).\n- **Disputed:** `PatchGold` (20,000 Gold). Some lists call it active; Roblox Den marks it expired.\n- **Expired:** `BugFix1`, `BugFix2`, `BugFix3`, `BugFix4`, `Release`.\n\nThe official game description says the next code is tied to **200K likes**. We have not seen a newer official code posted there.\n\n## Confirmed: 175KLIKES\n\n`175KLIKES` grants 1 Stat Reset Token according to Roblox Den, Beebom and Game Codes Today. It was added around November 21, 2026. Redeem it soon; milestone codes are usually retired after the next one lands.\n\n## Reported, but not consistently confirmed\n\nThese four were listed as active by Beebom and Game Codes Today, while Roblox Den marked them as \"check\" rather than confirmed working:\n\n- `THX200K` — 30 minutes of double XP\n- `Release2026` — 1 hour of double XP\n- `PatchReset` — 1 Stat Reset Token\n- `Patch2Reset` — 1 Stat Reset Token\n\nThey may still work, but we are not presenting them as guaranteed. Try them in the order above and stop if the game rejects one.\n\n## Disputed and expired\n\n`PatchGold` is the confusing one: Beebom listed it as active for 20,000 Gold on November 21, while Roblox Den marked it expired. Treat it as expired unless the game accepts it.\n\nThe older `BugFix1` through `BugFix4` codes and the original `Release` code are expired across the trackers we checked.\n\n## How to redeem in Vox Seas Update 0.5\n\n1. Launch **Vox Seas Update 0.5** on Roblox.\n2. Open the menu with the three-line icon at the bottom left. On PC, `M` also opens the menu according to one tracker.\n3. Open **Settings** with the gear icon.\n4. Scroll to the **Codes** section.\n5. Enter the code exactly, including capital letters, and press **Redeem**.\n\nCodes are case-sensitive. If one fails, check the capitals first, then try the next code. None of the current codes is reported to require a level, group or game pass.\n\n## What the rewards do\n\nDouble XP speeds up leveling for the listed duration. A Stat Reset Token lets you respend stat points, which is useful after a patch changes how a build works. Redeem the XP codes when you have a longer session planned rather than right before logging off.\n\n## Sources\n\n- [Vox Seas Update 0.5 on Roblox](https://www.roblox.com/games/104067066727140/Vox-Seas-Update-0-5), official page and description, checked November 23, 2026.\n- [Beebom: Vox Seas codes](https://beebom.com/vox-seas-codes/), updated November 23, 2026.\n- [Roblox Den: Vox Seas codes](https://robloxden.com/game-codes/vox-seas), last checked November 22, 2026.\n- [Game Codes Today: Vox Seas codes](https://gamecodestoday.com/vox-seas-codes), updated November 22, 2026.\n- [RBX Radar: Vox Seas Update 0.5 codes](https://rbxradar.com/codes/vox-seas), updated November 23, 2026.",
+    "body": "## Status at a glance\n\nChecked November 23, 2026. Code trackers do not agree on the full list, so this page separates what is confirmed from what is still being rechecked and what is expired.\n\n- **Listed as working by multiple trackers:** `175KLIKES` — 1 Stat Reset Token.\n- **Reported active, but trackers are rechecking:** `THX200K` (30 minutes of double XP), `Release2026` (1 hour of double XP), `PatchReset` (1 Stat Reset Token), `Patch2Reset` (1 Stat Reset Token).\n- **Disputed:** `PatchGold` (20,000 Gold). Some lists call it active; Roblox Den marks it expired.\n- **Expired:** `BugFix1`, `BugFix2`, `BugFix3`, `BugFix4`, `Release`.\n\nThe official game description says the next code is tied to **200K likes**. We have not seen a newer official code posted there.\n\n## Confirmed: 175KLIKES\n\n`175KLIKES` grants 1 Stat Reset Token according to Roblox Den, Beebom and Game Codes Today. It was added around November 21, 2026. Redeem it soon; milestone codes are usually retired after the next one lands.\n\n## Reported, but not consistently confirmed\n\nThese four were listed as active by Beebom and Game Codes Today, while Roblox Den marked them as \"check\" rather than confirmed working:\n\n- `THX200K` — 30 minutes of double XP\n- `Release2026` — 1 hour of double XP\n- `PatchReset` — 1 Stat Reset Token\n- `Patch2Reset` — 1 Stat Reset Token\n\nThey may still work, but we are not presenting them as guaranteed. Try them in the order above and stop if the game rejects one.\n\n## Disputed and expired\n\n`PatchGold` is the confusing one: Beebom listed it as active for 20,000 Gold on November 21, while Roblox Den marked it expired. Treat it as expired unless the game accepts it.\n\nThe older `BugFix1` through `BugFix4` codes and the original `Release` code are expired across the trackers we checked.\n\n## How to redeem in Vox Seas Update 0.5\n\n1. Launch **Vox Seas Update 0.5** on Roblox.\n2. Open the menu with the three-line icon at the bottom left. On PC, `M` also opens the menu according to one tracker.\n3. Open **Settings** with the gear icon.\n4. Scroll to the **Codes** section.\n5. Enter the code exactly, including capital letters, and press **Redeem**.\n\nCodes are case-sensitive. If one fails, check the capitals first, then try the next code. None of the current codes is reported to require a level, group or game pass.\n\n## What the rewards do\n\nDouble XP speeds up leveling for the listed duration. A Stat Reset Token lets you respend stat points, which is useful after a patch changes how a build works. Redeem the XP codes when you have a longer session planned rather than right before logging off.\n\n## More codes\n\nBrowse the full [codes hub](/codes) or the [Tiny Skies codes](/codes/tiny-skies-codes) page — both split entries into active, reported and expired, with a last-checked date.\n\n## Sources\n\n- [Vox Seas Update 0.5 on Roblox](https://www.roblox.com/games/104067066727140/Vox-Seas-Update-0-5), official page and description, checked November 23, 2026.\n- [Beebom: Vox Seas codes](https://beebom.com/vox-seas-codes/), updated November 23, 2026.\n- [Roblox Den: Vox Seas codes](https://robloxden.com/game-codes/vox-seas), last checked November 22, 2026.\n- [Game Codes Today: Vox Seas codes](https://gamecodestoday.com/vox-seas-codes), updated November 22, 2026.\n- [RBX Radar: Vox Seas Update 0.5 codes](https://rbxradar.com/codes/vox-seas), updated November 23, 2026.",
     "cover": "",
     "author": "WangNan",
     "authorSlug": "wangnan",
@@ -263,7 +254,8 @@
           "source": "Roblox Den"
         }
       ]
-    }
+    },
+    "hideRelated": true
   },
   {
     "id": 8,
