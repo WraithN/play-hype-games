@@ -845,12 +845,12 @@ input, select, textarea { font: inherit; }
   .card-title { font-size: 12.5px; }
 }
 
-/* ---------------- 外部单品导流页 /play/<slug> ---------------- */
+/* ---------------- external game referral pages /play/<slug> ---------------- */
 
 .ext-page { max-width: 860px; padding-top: 28px; padding-bottom: 64px; }
 .ext-head { margin: 18px 0 22px; }
 .ext-head h1 { font-size: clamp(28px, 4vw, 40px); margin: 8px 0 14px; letter-spacing: -0.5px; }
-.ext-intro { color: var(--fg-muted); font-size: 16px; line-height: 1.7; max-width: 720px; margin: 14px 0 0; }
+.ext-intro { color: var(--h-fg-dim, #36597c); font-size: 16px; line-height: 1.7; max-width: 720px; margin: 14px 0 0; }
 
 .ext-cta {
   margin: 22px 0 30px;
@@ -871,15 +871,15 @@ input, select, textarea { font: inherit; }
   background: rgba(34, 211, 238, 0.05);
   border-radius: 0 10px 10px 0;
   font-size: 13px;
-  color: var(--fg-muted);
+  color: var(--h-fg-dim, #36597c);
   line-height: 1.65;
 }
 .ext-back { margin-top: 18px; font-size: 14px; }
-.ext-back a { color: var(--neon); font-weight: 600; }
+.ext-back a { color: var(--h-accent, #245c99); font-weight: 600; }
 
-/* 分类页底部"官方站导流"区块 */
+/* category page: official-site links block */
 .ext-official-title { font-size: 22px; margin: 0 0 8px; letter-spacing: -0.3px; }
-.ext-official-intro { color: var(--fg-muted); font-size: 14px; max-width: 680px; margin: 0 0 22px; }
+.ext-official-intro { color: var(--h-fg-dim, #36597c); font-size: 14px; max-width: 680px; margin: 0 0 22px; }
 .ext-official-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
@@ -897,10 +897,80 @@ input, select, textarea { font: inherit; }
 }
 .ext-official-card:hover { transform: translateY(-2px); border-color: rgba(34, 211, 238, 0.45); }
 .ext-official-card strong { font-size: 15.5px; color: var(--fg); }
-.ext-official-card span { font-size: 12.5px; color: var(--fg-dim); }
+.ext-official-card span { font-size: 12.5px; color: var(--h-fg-dim, #36597c); }
 
 @media (max-width: 640px) {
   .ext-cta { padding: 18px; }
   .ext-cta-btn { width: 100%; justify-content: center; }
   .ext-official-grid { grid-template-columns: 1fr; }
+}
+
+/* ---------------- Krillion hub /krillion ---------------- */
+
+.kr-note {
+  margin: 22px 0 30px;
+  padding: 16px 18px;
+  border-left: 3px solid var(--neon-dim);
+  background: rgba(34, 211, 238, 0.05);
+  border-radius: 0 10px 10px 0;
+  font-size: 13.5px;
+  line-height: 1.7;
+  color: var(--h-fg-dim, #36597c);
+}
+.kr-note code {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--h-fg, #123a63);
+  background: rgba(18, 58, 99, 0.07);
+  border: 1px solid rgba(18, 58, 99, 0.22);
+  padding: 1px 5px;
+  border-radius: 5px;
+  overflow-wrap: anywhere;
+}
+
+.kr-body h2 { margin-top: 34px; }
+.kr-body h3 { margin-top: 22px; }
+.kr-body p, .kr-body li { line-height: 1.75; }
+.kr-body ol { padding-left: 22px; }
+
+.kr-play {
+  margin: 38px 0 10px;
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--bg-card);
+}
+.kr-play-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.kr-play-head h2 { margin: 6px 0 0; font-size: 22px; letter-spacing: -0.3px; }
+.kr-badge {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  padding: 4px 9px;
+  border-radius: 999px;
+  border: 1px solid rgba(34, 211, 238, 0.45);
+  color: var(--neon);
+}
+.kr-play-intro { margin: 10px 0 16px; font-size: 13.5px; color: var(--fg-muted); line-height: 1.7; }
+.kr-frame {
+  aspect-ratio: 16 / 9;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+  background: #05060c;
+}
+.kr-frame iframe { display: block; width: 100%; height: 100%; border: 0; }
+.kr-frame-note { margin: 10px 0 0; font-size: 12px; color: var(--h-fg-dim, #36597c); }
+.kr-frame-note a { color: var(--h-accent, #245c99); }
+
+@media (max-width: 640px) {
+  .kr-play { padding: 16px; }
+  .kr-play-head h2 { font-size: 19px; }
 }

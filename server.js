@@ -22,6 +22,7 @@ const copy = require('./lib/copy');
 const seo = require('./lib/seo');
 const authors = require('./lib/authors');
 const rarepop = require('./lib/rarepop');
+const krillion = require('./lib/krillion');
 const external = require('./lib/external');
 const judge = require('./lib/judge');
 const lore = require('./lib/lore');
@@ -244,6 +245,9 @@ function handleFront(req, res, url) {
   }
   if (pathname === '/rarepop') {
     return send(res, 200, rarepop.rarePopPage(settings));
+  }
+  if (pathname === '/krillion') {
+    return send(res, 200, krillion.krillionPage(settings));
   }
 
   // Rarity Tower 已下线：旧链接 301 到 RarePop
