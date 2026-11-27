@@ -762,6 +762,7 @@ function buildPostRecord(payload, posts, settings, existing) {
     lastChecked,
     tags: normaliseTags(payload.tags),
     relatedGames: relatedIds,
+    hideRelated: Boolean(payload.hideRelated),
     faqs,
     howto,
     itemList,
