@@ -2615,5 +2615,36 @@
     "views": 7,
     "createdAt": "2026-11-25T23:42:07.328Z",
     "updatedAt": "2026-11-25T23:42:07.328Z"
+  },
+  {
+    "id": 96,
+    "title": "Nonogram Collection",
+    "slug": "nonogram-collection",
+    "description": "Five nonogram modes in one browser game: classic picture logic, colour puzzles, Clip pairs, Mega split-clue boards and Triddlers triangles. 109 puzzles, free, no download.",
+    "controls": "Drag across cells to fill them. Right-click a cell (or switch to the cross tool) to mark it empty. Undo, hint, reset and the daily puzzle are in the toolbar.",
+    "content": "<p>Nonogram Collection is a picture-logic puzzle set built around five rule variants. Classic boards are standard black-and-white nonograms: the numbers beside each row and column tell you how many filled cells run together, and the finished grid reveals a small pixel picture. Colour boards add several shades with separate clues per colour, so each row can carry more than one run.</p><h2>Five modes</h2><ul><li><b>Classic</b> — black-and-white picture logic, including mirrored and oversized 10×10 boards.</li><li><b>Color</b> — multi-colour nonograms with per-colour clue groups.</li><li><b>Clip</b> — paired boards that share a twist: solve both halves of the set.</li><li><b>Mega</b> — larger grids where the first two rows and columns share combined clues.</li><li><b>Triddlers</b> — triangle grids with clues along all three sides.</li></ul><p>Every completed picture is added to the in-game album, and progress, stars and settings are stored in your browser. There is a fresh daily puzzle, a hint that costs stars, undo, and a dark mode toggle. No download, no account and no timer unless you start one.</p>",
+    "embedUrl": "/assets/games/nonogram/index.html",
+    "thumb": "/assets/thumbs/nonogram-collection.jpg",
+    "category": "puzzle-games",
+    "tags": [
+      "puzzle",
+      "logic",
+      "nonogram",
+      "picross",
+      "brain",
+      "daily",
+      "1-player"
+    ],
+    "badges": [],
+    "rating": null,
+    "heat": 0,
+    "source": "Play Hype Games",
+    "seoTitle": "Nonogram Collection — Play Free Picture Logic Puzzles",
+    "seoDescription": "Play Nonogram Collection free: classic picture logic, colour nonograms, Clip pairs, Mega boards and Triddlers across five modes. 109 puzzles, no download.",
+    "status": "published",
+    "featured": false,
+    "views": 4,
+    "createdAt": "2026-11-28T07:25:11.914Z",
+    "updatedAt": "2026-11-28T07:25:11.914Z"
   }
 ]
