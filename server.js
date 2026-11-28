@@ -244,6 +244,9 @@ function handleFront(req, res, url) {
   if (pathname === '/rarepop/method') {
     return send(res, 200, rarepop.methodPage(settings));
   }
+  if (pathname === '/rarepop/daily') {
+    return send(res, 200, rarepop.dailyPage(settings));
+  }
   if (pathname === '/rarepop') {
     return send(res, 200, rarepop.rarePopPage(settings));
   }

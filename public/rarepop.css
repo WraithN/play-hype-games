@@ -133,3 +133,20 @@ html[data-theme="dark"] .hype-rarity .rt-tier[data-tier="legendary"]{color:#fcd3
   .hype-rarity .rt-table{font-size:13px}
   .hype-rarity .rt-table th:nth-child(2),.hype-rarity .rt-table td:nth-child(2){display:none}
 }
+
+/* daily CTA on /rarepop */
+.rt-daily-cta{
+  max-width:1000px;margin:0 auto 30px;padding:18px 20px;border-radius:16px;
+  border:1px solid var(--h-card-bd);background:var(--h-surface);
+  box-shadow:0 12px 28px var(--h-shadow-soft);
+  display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;
+}
+.rt-daily-copy{display:flex;flex-direction:column;gap:2px}
+.rt-daily-copy strong{font-size:15px}
+.rt-daily-copy span{font-size:13px;color:var(--h-fg-dim)}
+.rt-daily-btn{
+  display:inline-flex;align-items:center;padding:10px 18px;border-radius:12px;
+  background:linear-gradient(135deg,var(--h-accent),#3b82f6);color:#fff;font-weight:700;font-size:13.5px;
+  box-shadow:0 8px 18px rgba(36,92,153,.28);text-decoration:none;
+}
+.rt-daily-btn:hover{transform:translateY(-1px)}
