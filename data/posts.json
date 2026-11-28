@@ -643,5 +643,249 @@
       "/blog/one-in-a-krillion-meaning"
     ],
     "updatedAt": "2026-11-27T10:14:08.163Z"
+  },
+  {
+    "id": 48,
+    "title": "How to Play Nonogram: Step-by-Step Beginner's Guide",
+    "slug": "how-to-play-nonogram",
+    "excerpt": "Learn how to play nonogram puzzles in 5 minutes. Read the number clues, fill the right cells, and reveal the hidden picture — with a worked 5×5 example.",
+    "body": "# How to Play Nonogram: A Step-by-Step Guide for Beginners\r\n\r\n**The short answer:** A nonogram is a grid puzzle. Each row and column has a few numbers beside it, and those numbers tell you how many cells to fill and in what order. Fill the right cells and a small pixel picture shows up. No guessing, no arithmetic beyond counting.\r\n\r\nIf you've played Picross on a Nintendo console, or seen one of those paint-by-numbers grids online, you already know what this looks like. I'll take you through a first board from staring at the numbers to seeing the picture.\r\n\r\nSome people look for how to play a nonogram, others for the rules of a nonogram game. It's the same puzzle either way.\r\n\r\n![An empty 5×5 nonogram with row and column clues](/assets/og/nonogram-01-blank-5x5.png \"554x446\")\r\n\r\n## What a nonogram is\r\n\r\nA nonogram (you'll also see it called Picross, Griddlers, Logic Art, or Paint by Numbers) is a picture-logic puzzle. There's a short list of numbers beside every row and column, and each list describes the filled cells in that line. Work through all of them and the grid turns into a small picture: a heart, a cat, a spaceship, whatever the designer drew.\r\n\r\nMost beginner boards are 5×5 or 10×10. Bigger ones go to 15×15, 20×20 and further. The rules stay the same; you simply have more to keep track of.\r\n\r\n## How to read the numbers\r\n\r\nThe rules are short. Four of them.\r\n\r\n1. **Each number is a run of filled cells.** A `3` means three cells touching each other. Three scattered cells wouldn't satisfy that clue.\r\n2. **Order counts.** `2 1` asks for a pair and then a single further along, with at least one blank between them. `1 2` asks for something different.\r\n3. **Two runs in one line need a gap.** At least one empty cell. Color boards bend this in one case, described further down.\r\n4. **`0` means nothing is filled.** Some games print a dash or leave the space blank instead.\r\n\r\n![How to read the clues on a 5×5 board](/assets/og/nonogram-01-blank-5x5.png \"554x446\")\r\n\r\nOn the 5×5 board above, the middle row and the middle column both say `5`. Five cells in a five-cell line leaves one option: fill the lot. Start there.\r\n\r\n## How to play nonogram step by step\r\n\r\nLet's finish that 5×5 board. Grab a pencil, or copy the clues onto a blank grid.\r\n\r\n### Step 1 — Find the guaranteed lines\r\n\r\nThe middle row says `5` and the middle column says `5`. Fill both from end to end. You don't know the picture yet, and you don't need to. Those cells are forced.\r\n\r\n![Filling the guaranteed row and column](/assets/og/nonogram-02-first-moves-5x5.png \"554x446\")\r\n\r\n### Step 2 — Use what you now know\r\n\r\nLook at the top row. The clue is `1`, and the third cell is already filled from Step 1, so that's your one. Cross out the other four. The bottom row works the same way.\r\n\r\nI used to skip the crosses and just eyeball the gaps. On anything bigger than 5×5 that got messy fast. Mark them as you go.\r\n\r\n### Step 3 — Let the columns finish the rows\r\n\r\nNow take the second column. Its clue is `3`, so the three filled cells have to sit together. The top and bottom cells are already crossed out, which leaves only the middle three. Same deal in the fourth column.\r\n\r\nThat puts three filled cells in each of the second and fourth rows, matching their `3` clues. Nothing left to decide.\r\n\r\n### Step 4 — Read the picture\r\n\r\n![The completed diamond](/assets/og/nonogram-03-solved-5x5.png \"554x446\")\r\n\r\nA diamond. Once the middle was filled, the rest came out one line at a time. Bigger boards work the same way, just with more lines to check.\r\n\r\n## Six techniques that solve almost every board\r\n\r\nOnce the forced lines are out of the way, these are the moves you'll keep coming back to.\r\n\r\n**1. Full line, empty line.** If the clue matches the grid width, fill it. A `0` means cross out the whole line. Do these first each time you scan the board.\r\n\r\n**2. Overlap.** Take a 10-cell row with a `7`. That block can start at cell 1, 2, 3 or 4, and every one of those placements covers cells 4 through 7. So cells 4 to 7 are filled whichever placement turns out right. This is the trick I reach for most.\r\n\r\n![The overlap rule: cells covered by every possible placement](/assets/og/nonogram-07-overlap-rule.png \"720x300\")\r\n\r\n**3. Minimum-space math.** A clue like `3 2 2` needs 3 + 1 + 2 + 1 + 2 = 9 cells, gaps included. In a nine-cell line it has nowhere to move. Give it ten cells and the whole group can shift by one.\r\n\r\n**4. Cross off what you know is empty.** Every cell you fill says something about its neighbors. Keep the crosses on the board. They cut down how much you have to re-check later.\r\n\r\n**5. Cross-check rows against columns.** A cell might be vague in its row and obvious in its column. Read both directions before you commit to anything.\r\n\r\n**6. Trial with undo, only when stuck.** If logic runs out and two options are left, take the one with fewer possibilities and play it out for two or three moves. If it breaks a line, undo and try the other. I have to do this maybe once every few boards, and a decent puzzle shouldn't need it often.\r\n\r\n## Common beginner mistakes\r\n\r\n- Reading a clue as positions rather than run lengths. `3 1` doesn't mean cell 3 and cell 1.\r\n- Leaving out the gap between two runs in the same line.\r\n- Filling a cell because it looks like a wing or an eye. I've done that and it always catches up with you.\r\n- Clearing the crosses once the board gets messy. Leave them alone.\r\n- Guessing without undo, then losing track of which cells were guesses.\r\n\r\n## Where to go next\r\n\r\nThe rules are the same on every board. Your strategy changes with the size.\r\n\r\n- For 10×10 and 15×15 boards, read [how to play nonogram 10x10 and 15x15 boards](/guides/how-to-play-nonogram-10x10-15x15).\r\n- For colored numbers, see [how to play color nonograms](/guides/how-to-play-color-nonogram).\r\n- On a phone, try [how to play nonogram on Android](/guides/how-to-play-nonogram-android).\r\n\r\n## Play right now\r\n\r\nIf you want somewhere to practice, [Nonogram Collection](/game/nonogram-collection) runs in the browser with no download. It has 109 puzzles across five modes. You get classic black-and-white boards, color ones, paired Clip puzzles, oversized Mega grids with split clues, and triangle-shaped Triddlers. Drag to fill, switch to the cross tool for blanks, and use undo or a hint when you get stuck. There's a daily puzzle too, and finished pictures go into an album.",
+    "cover": "/assets/og/nonogram-01-blank-5x5.png",
+    "author": "WangNan",
+    "authorSlug": "wangnan",
+    "section": "guides",
+    "lastChecked": "",
+    "tags": [
+      "nonogram",
+      "how to play",
+      "puzzle rules",
+      "picross",
+      "logic puzzles"
+    ],
+    "relatedGames": [
+      96
+    ],
+    "faqs": [
+      {
+        "q": "How do you play nonogram step by step?",
+        "a": "Read the numbers along each row and column. Fill any line whose clue forces every cell, cross out what's now impossible, then use overlap and minimum-space math on the rest. Work through the board again after every breakthrough."
+      },
+      {
+        "q": "What do the numbers mean in a nonogram?",
+        "a": "Each number is the length of a continuous run of filled cells in that line. Multiple numbers describe multiple runs, in order from left to right (or top to bottom), with at least one empty cell between them."
+      },
+      {
+        "q": "How do you play nonograms for beginners?",
+        "a": "Start with 5×5 boards. Fill the obvious full and empty lines first, mark blanks with crosses, and solve one line at a time. The final picture is a byproduct, so don't try to read it early."
+      },
+      {
+        "q": "Do nonograms always have exactly one solution?",
+        "a": "A well-designed puzzle has one unique solution. If two different grids both satisfy every clue, the puzzle is poorly made."
+      },
+      {
+        "q": "What does a 0 clue mean?",
+        "a": "The entire row or column is empty. Mark every cell in that line with a cross."
+      },
+      {
+        "q": "Can filled blocks touch each other?",
+        "a": "Not if they belong to the same clue list. They need at least one empty cell between them. On color boards, runs of different colors may touch."
+      },
+      {
+        "q": "Is a nonogram the same as Picross?",
+        "a": "Yes, in practice. Picross is the name Nintendo popularized. Griddlers and Logic Art are other names for the same puzzle type."
+      },
+      {
+        "q": "Do I need to download an app to play?",
+        "a": "No. Browser versions such as Nonogram Collection work on desktop and mobile without an install, and they save progress in your browser."
+      }
+    ],
+    "howto": [
+      {
+        "name": "Find the guaranteed lines",
+        "text": "Fill any row or column whose clue leaves only one possible placement, such as a 5 clue on a 5-cell line."
+      },
+      {
+        "name": "Use what you now know",
+        "text": "Cross out the cells that can no longer be part of a run, then see which clues are now forced."
+      },
+      {
+        "name": "Let the columns finish the rows",
+        "text": "Re-read each column after every fill; a column clue often resolves a row that looked ambiguous."
+      },
+      {
+        "name": "Read the picture",
+        "text": "When every line is satisfied, the filled cells form the hidden pixel picture."
+      }
+    ],
+    "itemList": [],
+    "aliases": [],
+    "seoTitle": "How to Play Nonogram: Step-by-Step Beginner's Guide",
+    "seoDescription": "Learn how to play nonogram puzzles in 5 minutes. Read the number clues, fill the right cells, and reveal the hidden picture — with a worked 5×5 example.",
+    "noindex": false,
+    "status": "published",
+    "publishedAt": "2026-11-28",
+    "updatedAt": "2026-11-28T07:55:10.944Z"
+  },
+  {
+    "id": 49,
+    "title": "How to Play 10x10 & 15x15 Nonograms: Bigger Grid Tips",
+    "slug": "how-to-play-nonogram-10x10-15x15",
+    "excerpt": "How to play nonogram 10x10 and 15x15 boards: overlap rules, line scanning, and mark techniques that make large grids manageable.",
+    "body": "# How to Play 10×10 and 15×15 Nonograms\r\n\r\nThe rules don't change when the grid gets bigger. A clue still describes a run of consecutive filled cells, and separate runs still need a gap. What changes is how many possible positions you have to hold in your head at once.\r\n\r\nThis guide picks up where [the beginner's guide to how to play nonogram](/guides/how-to-play-nonogram) stops. If the clue numbers still feel unfamiliar, start there first.\r\n\r\n![A 10×10 nonogram partway through solving](/assets/og/nonogram-04-10x10-in-progress.png \"646x538\")\r\n\r\n## What actually changes at 10×10 and 15×15\r\n\r\nOn a 5×5 board, one clue often fills half the grid. On a 10×10 board, a clue of `3` can sit in eight different places. On a 15×15 board, it can sit in thirteen.\r\n\r\nSo the harder part isn't the logic. It's the extra candidate positions on every line. What helps is a routine that cuts those positions down before you try to reason about them.\r\n\r\n## The counting trick that makes big lines small\r\n\r\nFor any line, add up three things:\r\n\r\n- **S** = the sum of all clue numbers\r\n- **k** = how many separate runs there are\r\n- **Minimum space needed** = S + (k − 1), because k runs need k − 1 gaps\r\n\r\nCompare that with the line length **L**.\r\n\r\n| Line | Clue | Minimum space | What follows |\r\n|---|---|---|---|\r\n| 10 wide | `5 4` | 5 + 1 + 4 = 10 | Full board. Cells 1–5 filled, cell 6 empty, cells 7–10 filled. |\r\n| 10 wide | `3 2` | 3 + 1 + 2 = 6 | Four spare cells, so the group can slide by up to four positions. |\r\n| 15 wide | `5 5 3` | 5 + 1 + 5 + 1 + 3 = 15 | Full board. Nothing to work out. |\r\n| 15 wide | `8` | 8 | The block can start at 1 through 8, so position 8 is filled in every case. |\r\n\r\nThe last row is overlap at its most useful. Write the clue once at each possible starting position and look for cells covered every time. Those cells are free fills.\r\n\r\n![Overlap: cells covered by every possible placement of the block](/assets/og/nonogram-07-overlap-rule.png \"720x300\")\r\n\r\n## A working routine for 10×10 boards\r\n\r\n**Pass 1 — harvest the free cells.** Scan all 20 lines. Fill any line where the clue sum plus gaps equals the line length. Cross out every cell in a `0` line. Leave everything else alone for now.\r\n\r\n**Pass 2 — overlap the obvious candidates.** For each remaining line with a single large number, mark the common overlap cells. Don't skip lines just because they look mostly empty. An empty-looking line often carries the tightest clue.\r\n\r\n**Pass 3 — mark blanks aggressively.** Every fill forces crosses immediately to its left and right when the clue leaves no room. On a 10×10 board, crosses earn their place as much as fills do, because they cut down what you re-check later.\r\n\r\n**Pass 4 — cross-check in both directions.** Read a row, then read the same cells as a column. A cell that's uncertain one way is often certain the other way.\r\n\r\n**Pass 5 — sweep again.** One new fill can unlock three lines. After any breakthrough, go back to Pass 1 instead of carrying on where you were.\r\n\r\n## What 15×15 adds\r\n\r\nAt 15×15 you'll meet two extra patterns.\r\n\r\n**Clue stacks.** A line may carry three or four numbers, say `4 3 1 2`. Counting still works: 4 + 3 + 1 + 2 + 3 gaps = 13, leaving two spare cells. Those two cells can be distributed in several ways, so treat the whole group as one movable object until a crossing pins it down.\r\n\r\n**Long-range dependencies.** A decision in row 2 may only be resolved by column 14. Keep the crosses visible and resist the urge to tidy the board up. I once spent twenty minutes on a 15×15 because I'd missed a single cross in column 12.\r\n\r\nSome games also offer oversized or split-clue boards. The [Nonogram Collection](/game/nonogram-collection), for example, includes Mega boards where the first two rows and columns share combined clues. The counting method still applies; you just have more than one line to satisfy at once.\r\n\r\n## When guessing is worth it\r\n\r\nOnly as a last resort, and only with undo available. Pick the line with the fewest remaining possibilities, commit to one option, and follow it for two or three moves. If it produces a contradiction, like a line needing more cells than it has, undo and take the other option.\r\n\r\nCell-by-cell guessing is a different matter. I'd rather re-scan the board than do that. It creates something that looks solved but is subtly wrong, and you find out at the final check.\r\n\r\n## Playing on a small screen\r\n\r\nBig grids on a phone are painful if all you can do is tap. Look for a game with drag-to-fill and a separate cross tool. Both are available in the browser version linked above. If you're on Android, [our Android guide](/guides/how-to-play-nonogram-android) covers touch technique in detail.",
+    "cover": "/assets/og/nonogram-04-10x10-in-progress.png",
+    "author": "WangNan",
+    "authorSlug": "wangnan",
+    "section": "guides",
+    "lastChecked": "",
+    "tags": [
+      "nonogram 10x10",
+      "nonogram 15x15",
+      "nonogram strategy",
+      "large grids"
+    ],
+    "relatedGames": [
+      96
+    ],
+    "faqs": [
+      {
+        "q": "How do I solve a 10×10 nonogram faster?",
+        "a": "Scan for lines where the clue sum plus the gaps equals 10, fill those immediately, then use overlap on single-number clues. Re-scan after every breakthrough instead of working strictly row by row."
+      },
+      {
+        "q": "Why are 15×15 nonograms so much harder?",
+        "a": "Each clue has many more possible positions, and that's where the time goes. No new rules are involved. Four-number clue stacks and long-range row/column dependencies make bookkeeping the challenge."
+      },
+      {
+        "q": "Is there a formula for nonogram clues?",
+        "a": "Yes: minimum required cells = sum of clue numbers + (number of runs − 1). If that equals the line length, the solution for that line is forced."
+      },
+      {
+        "q": "Can a clue on a 15-wide line be impossible?",
+        "a": "Only if the sum plus required gaps exceeds 15. Well-made puzzles never do this. If you see it, check whether you've misread a number or missed a color group."
+      },
+      {
+        "q": "How long does a 15×15 nonogram take?",
+        "a": "Beginners often need 20–40 minutes. With a consistent scan-and-mark routine, most players get under 10 minutes on a standard board."
+      },
+      {
+        "q": "Where can I practice bigger boards?",
+        "a": "[Nonogram Collection](/game/nonogram-collection) includes classic oversized boards plus Mega split-clue variants, runs in the browser, and saves progress locally."
+      }
+    ],
+    "howto": [],
+    "itemList": [],
+    "aliases": [],
+    "seoTitle": "How to Play 10x10 & 15x15 Nonograms: Bigger Grid Tips",
+    "seoDescription": "How to play nonogram 10x10 and 15x15 boards: overlap rules, line scanning, and mark techniques that make large grids manageable.",
+    "noindex": false,
+    "status": "published",
+    "publishedAt": "2026-11-28",
+    "updatedAt": "2026-11-28T07:55:10.945Z"
+  },
+  {
+    "id": 50,
+    "title": "How to Play Color Nonograms: Clues, Colors & First Moves",
+    "slug": "how-to-play-color-nonogram",
+    "excerpt": "Color nonograms use one clue group per color. Learn how to read colored numbers, handle touching blocks, and solve your first board.",
+    "body": "# How to Play Color Nonograms\r\n\r\nA color nonogram uses the same grid and the same idea as a black-and-white one. The numbers still tell you how many cells to fill, but each one is printed in the color of the run it describes. A single row might hold a red group, then a blue group, then a yellow group, in that order.\r\n\r\nIf black-and-white nonograms are new to you, read [how to play nonogram](/guides/how-to-play-nonogram) first. Only two things here are genuinely different.\r\n\r\n![A three-color nonogram with color-matched clues](/assets/og/nonogram-05-color-nonogram.png \"806x698\")\r\n\r\n## Rule 1: the number's color is part of the clue\r\n\r\nOn a classic board, `2 1` means a run of two followed later by a run of one. On a color board, a red `2` followed by a blue `1` means exactly that, in the same reading order: left to right or top to bottom.\r\n\r\nChange the colors and the answer changes too. You have to read the ink as well as the digit.\r\n\r\n## Rule 2: same-color runs need a gap, different-color runs may touch\r\n\r\nTwo runs of the **same** color in one line must have at least one empty cell between them. Two runs of **different** colors can sit side by side with no gap at all.\r\n\r\nThat second part catches most beginners out. On the 8×8 board above, the middle rows run blue → red → yellow → red → blue with no empty cells between several of the groups. Perfectly legal.\r\n\r\n> Some puzzle implementations use stricter rules and require a gap between every run. Check the rule screen of the game you're playing if a board seems impossible. Most standard color nonograms allow different colors to touch.\r\n\r\n## How to start a color board\r\n\r\n**Step 1 — pick one color and ignore the rest.** Treat the board as a black-and-white puzzle where only that color counts. Every cell of a different color is simply not this color, and it acts as a blank for your counting.\r\n\r\n**Step 2 — apply the usual counting.** A line with a red `4` in an 8-wide grid gives you the same overlap and minimum-space logic you already know. Add the numbers, add the gaps between same-color groups, and compare with the line length.\r\n\r\n**Step 3 — lock the forced cells, then switch color.** Once one color has given you all it can, move to the next. Filling color A often forces color B straight away, because the remaining spaces in a line have to be distributed differently.\r\n\r\n**Step 4 — cross-check in both directions.** A red cell is confirmed by the row clue and the column clue of the same color. Use both, the same way you would on a classic board.\r\n\r\nThe first color board I tried took far too long, and the reason was simple. I kept putting gaps between red and blue runs. I'd solve one color at a time now, every time.\r\n\r\n## Counting with colored clues\r\n\r\nThe formula is unchanged, but count only one color at a time:\r\n\r\n> Minimum cells for one color = sum of that color's clue numbers + (number of runs of that color − 1)\r\n\r\nA red `3 2` needs 3 + 1 + 2 = 6 cells of space. Those cells don't have to be adjacent in the finished picture, since other colors may sit between the groups when the rules allow different colors to touch. The red runs themselves still need at least one non-red cell between them.\r\n\r\n## Mistakes that cost the most time\r\n\r\n- Reading the number but ignoring its color. This is the common one by a long way.\r\n- Inserting a gap between two different-colored runs. You'll rule out the correct answer.\r\n- Assuming the color groups in a line must fill every cell. Empty cells are still allowed.\r\n- Trying to solve all colors at once. Work one layer at a time.\r\n- Forgetting that a cell can hold only one color.\r\n\r\n## How color nonograms compare for difficulty\r\n\r\nSlightly, at first. You're doing the same work for two or three layers, and the different-colors-may-touch rule takes away a shortcut you may have come to rely on. After a handful of boards it becomes routine. Most players find 8×8 color puzzles easier than 15×15 black-and-white ones.\r\n\r\n## Try a color board\r\n\r\n[Nonogram Collection](/game/nonogram-collection) has a dedicated Color mode alongside classic boards, paired Clip puzzles, oversized Mega boards and triangle-shaped Triddlers. It runs in the browser with no download, and completed pictures are saved to an in-game album.",
+    "cover": "/assets/og/nonogram-05-color-nonogram.png",
+    "author": "WangNan",
+    "authorSlug": "wangnan",
+    "section": "guides",
+    "lastChecked": "",
+    "tags": [
+      "color nonogram",
+      "nonogram color",
+      "puzzle rules"
+    ],
+    "relatedGames": [
+      96
+    ],
+    "faqs": [
+      {
+        "q": "How do color nonograms work?",
+        "a": "Each clue number is colored, and that color tells you which shade the run should be. Runs appear in the order shown, with the same counting rules as a standard nonogram."
+      },
+      {
+        "q": "Can blocks of different colors touch?",
+        "a": "Yes, in standard color nonograms. Only two runs of the same color require an empty cell between them."
+      },
+      {
+        "q": "How do I read a clue with several colors?",
+        "a": "Read left to right, or top to bottom. A red `2`, blue `1`, yellow `3` means two red cells, then one blue cell, then three yellow cells, in that order."
+      },
+      {
+        "q": "What is the best way to start a color nonogram?",
+        "a": "Choose one color and solve it as a monochrome layer, treating all other colors as empty. Then repeat for each remaining color."
+      },
+      {
+        "q": "Do color nonograms need more gaps?",
+        "a": "No. They need fewer, because only same-color runs must be separated. That's why a line can look completely full while still satisfying its clue."
+      }
+    ],
+    "howto": [],
+    "itemList": [],
+    "aliases": [],
+    "seoTitle": "How to Play Color Nonograms: Clues, Colors & First Moves",
+    "seoDescription": "Color nonograms use one clue group per color. Learn how to read colored numbers, handle touching blocks, and solve your first board.",
+    "noindex": false,
+    "status": "published",
+    "publishedAt": "2026-11-28",
+    "updatedAt": "2026-11-28T07:55:10.946Z"
+  },
+  {
+    "id": 51,
+    "title": "How to Play Nonogram on Android (No Download Needed)",
+    "slug": "how-to-play-nonogram-android",
+    "excerpt": "How to play nonogram on Android: touch controls, small-screen tips, daily puzzles and why a browser game may beat another app install.",
+    "body": "# How to Play Nonogram on Android\r\n\r\nYou don't need an app store to play nonograms on Android. A browser-based game runs on your phone with the same rules as the desktop version. The only adjustment worth thinking about is how you fill cells with a finger instead of a mouse.\r\n\r\nIf you are still learning the clues, start with [the step-by-step nonogram guide](/guides/how-to-play-nonogram). This page is about the controls and the small-screen workflow.\r\n\r\n![A nonogram being solved on an Android phone](/assets/og/nonogram-06-android-phone.png \"430x700\")\r\n\r\n## Browser game versus Android app\r\n\r\nBoth work. Here's how they differ.\r\n\r\n- **Browser.** Nothing to install, no storage taken up, and updates arrive on their own. You can open the same puzzle on a laptop later. Progress is usually saved in the browser itself.\r\n- **App.** You may get offline play and a bigger board view, but it takes space and often comes with ads or a sign-in prompt.\r\n\r\nFor most players, the browser route is quicker. [Nonogram Collection](/game/nonogram-collection) runs directly in Chrome, Edge or Firefox on Android, with 109 puzzles across five modes and a new daily puzzle. No download, no account.\r\n\r\n## Touch controls that actually matter\r\n\r\n**Drag to fill.** Don't tap 15 cells one by one. Press the first cell and slide your finger along the row. Most browser nonograms paint a whole run in one gesture, and that's the biggest speed improvement you'll get on a phone.\r\n\r\n**Use the cross tool.** On desktop you can right-click to mark a cell empty. On a touchscreen there is no right-click, so switch to the cross/X tool in the toolbar, then tap the cells you know are blank. Nonogram Collection has the tool switcher on screen, and a long-press works in plenty of other games too.\r\n\r\n**Undo is your safety net.** A misplaced drag can ruin several cells at once. After every big gesture, glance at the result and undo immediately if it went too far.\r\n\r\n**Zoom before you commit.** On a 15×15 board, pinch to zoom or turn the phone sideways. I tried one in portrait once and gave up after five minutes. Landscape fixed it.\r\n\r\n**Keep the crosses.** It's tempting to clear the marks once the picture starts to appear. Don't. The crosses are what let you solve the remaining lines without starting over.\r\n\r\n## Playing on Android 10 and older phones\r\n\r\nIf you searched for “how to play nonogram Android 10”, the short answer is that the Android version rarely matters. A modern browser on Android 10 handles these puzzle pages fine, because the game runs in the browser instead of relying on device-specific code.\r\n\r\nA few practical notes for older devices:\r\n\r\n- Keep the browser updated. An old Chrome build is more likely to cause layout problems than the operating system.\r\n- If the page feels slow, turn off dark mode in the game's settings. It helps on some OLED screens and can reduce contrast on older LCD panels.\r\n- Want an app-like icon? Use the browser's **Add to Home Screen** option. It's a shortcut rather than a real install, and takes almost no space.\r\n- Don't clear browser data between sessions if you want to keep your saved progress. Browser games usually store it locally.\r\n\r\n## Small-screen checklist\r\n\r\n1. Start with 5×5 or 10×10 boards before attempting 15×15.\r\n2. Use landscape orientation for grids wider than 10 cells.\r\n3. Turn screen-rotation lock off while playing.\r\n4. Use drag-to-fill, and the cross tool for blanks.\r\n5. Take a break every 10 minutes. These puzzles are easy on the eyes, and the neck is what suffers.\r\n\r\n## Where to play\r\n\r\n[Nonogram Collection](/game/nonogram-collection) covers classic, color, Clip, Mega and Triddler boards in one browser page. Fill by dragging, mark blanks with the cross tool, undo, reset, spend a star on a hint, and revisit the daily puzzle. Everything is saved in the browser, so you can close the tab and come back later.",
+    "cover": "/assets/og/nonogram-06-android-phone.png",
+    "author": "WangNan",
+    "authorSlug": "wangnan",
+    "section": "guides",
+    "lastChecked": "",
+    "tags": [
+      "nonogram android",
+      "mobile puzzles",
+      "browser games"
+    ],
+    "relatedGames": [
+      96
+    ],
+    "faqs": [
+      {
+        "q": "How do you play nonogram on Android?",
+        "a": "Open a browser-based nonogram game, drag across cells to fill them, switch to the cross tool to mark blank cells, and use the row and column clues exactly as you would on a computer."
+      },
+      {
+        "q": "Can I play nonograms on Android 10?",
+        "a": "Yes. The Android version is rarely a factor when the game runs in a browser. An up-to-date Chrome or Firefox matters more than the OS build."
+      },
+      {
+        "q": "How do I mark an empty cell on a touchscreen?",
+        "a": "Select the cross/X tool in the toolbar and tap the cell. Many games also support long-press as a shortcut for the same action."
+      },
+      {
+        "q": "Do I have to install an app?",
+        "a": "No. Browser versions need no download, take no storage, and keep progress in the browser."
+      },
+      {
+        "q": "Will my puzzle progress be lost?",
+        "a": "Normally not. Browser games save to local storage, but clearing browsing data, using private mode, or switching devices can reset it."
+      },
+      {
+        "q": "What board size is best on a phone?",
+        "a": "5×5 and 10×10 are comfortable. For 15×15, rotate the phone sideways and zoom in before filling a line."
+      }
+    ],
+    "howto": [],
+    "itemList": [],
+    "aliases": [],
+    "seoTitle": "How to Play Nonogram on Android (No Download Needed)",
+    "seoDescription": "How to play nonogram on Android: touch controls, small-screen tips, daily puzzles and why a browser game may beat another app install.",
+    "noindex": false,
+    "status": "published",
+    "publishedAt": "2026-11-28",
+    "updatedAt": "2026-11-28T07:55:10.946Z"
   }
 ]
